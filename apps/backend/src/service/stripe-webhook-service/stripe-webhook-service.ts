@@ -1,130 +1,20 @@
-import Stripe from 'stripe'
 import { StripeSubscriptionsRepositoryInterface } from '../../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
-import { GoogleApi } from '../../transport/third-party/google/google-api'
 import {
   ListStripeSubscriptionsResponse,
   RetrieveSubscriptionResponse,
   StripeApi,
 } from '../../transport/third-party/stripe/stripe-api'
 import { StripeWebhookServiceInterface } from './stripe-webhook-service-interface'
-import { CustomerioApi } from '../../transport/third-party/customerio/customerio-api'
 import { AccessCacheServiceInterface } from '../long-running/subscription-cache-service/access-cache-service'
 import { DbUser, UsersRepositoryInterface } from '../../transport/database/users/users-repository'
 import { logWithSentry } from '../../transport/third-party/sentry/error-monitoring'
-import { CUSTOM_CUSTOMERIO_ATTRIBUTE } from '../../transport/third-party/customerio/types'
-import { calculatePaymentNumber } from '../../utils/payment-utils'
-import { getDiscountsForReferral } from '@yourbestaccent/core/constants/referral-constants'
 
 export const StripeWebhookService = (
-  googleApi: GoogleApi,
   stripeApi: StripeApi,
-  customerioApi: CustomerioApi,
   stripeSubscriptionsRepository: StripeSubscriptionsRepositoryInterface,
   accessCacheService: AccessCacheServiceInterface,
   usersRepository: UsersRepositoryInterface
-  // authUsersRepository: AuthUsersRepository
 ): StripeWebhookServiceInterface => {
-  const handleCustomerSubscriptionCreated = async (subscription: Stripe.Subscription) => {
-    const referral = subscription.metadata?.referral
-    const userId = subscription.metadata?.user_id
-
-    if (!userId) {
-      logWithSentry({
-        message: 'userId is not found in the metadata of the subscription in the event data',
-        params: {
-          subscription,
-          referral,
-        },
-      })
-      return
-    }
-    const interval = subscription.items.data[0].price.recurring?.interval
-    // const planType: PlanType = interval as PlanType
-
-    await customerioApi.updateCustomer(userId, {
-      [CUSTOM_CUSTOMERIO_ATTRIBUTE.CURRENT_PLAN]: 'premium',
-      [CUSTOM_CUSTOMERIO_ATTRIBUTE.CURRENT_PLAN_INTERVAL]: interval as 'month' | 'year',
-    })
-
-    //todo: remove this google spreadsheet API call completely if we completely stop using this feature
-    // if (isWithinDurationLimit) {
-    //   await googleApi.insertInvoicePaymentSucceededGoogleSheets(invoice, paymentNumber)
-    // }
-
-    // const planAmount = subscription.items.data[0].price.unit_amount ?? 0
-
-    // const dbAuthUser: DbAuthUser | null = await authUsersRepository.findUserById(userId)
-    // let email = ''
-    // if (!dbAuthUser) {
-    //   logMessage(`handleCustomerSubscriptionCreated: user with id ${userId} could not be found`)
-    // } else {
-    //   email = dbAuthUser.email
-    // }
-    // const isTestUser = getConfig().emailsOfTestUsers.includes(email)
-
-    // if (referral && !isTestUser) {
-    //   await googleApi.insertCustomerCreateSubscriptionGoogleSheets(subscription, planType, planAmount / 100)
-    // }
-  }
-
-  const handleCustomerSubscriptionDeleted = async (subscription: Stripe.Subscription) => {
-    const { metadata } = subscription
-    const userId: string = metadata.user_id
-
-    await customerioApi.updateCustomer(userId, {
-      [CUSTOM_CUSTOMERIO_ATTRIBUTE.CURRENT_PLAN]: null,
-      [CUSTOM_CUSTOMERIO_ATTRIBUTE.CURRENT_PLAN_INTERVAL]: null,
-    })
-  }
-
-  const handleInvoicePaymentSucceeded = async (invoice: Stripe.Invoice) => {
-    const referral = invoice.parent?.subscription_details?.metadata?.referral
-    if (!referral || invoice.amount_paid <= 0) {
-      return
-    }
-
-    const subscription = await stripeSubscriptionsRepository.findSubscriptionByStripeSubscriptionId(
-      invoice.parent?.subscription_details?.subscription as string
-    )
-    if (!subscription) {
-      return
-    }
-
-    const lineItem = invoice.lines.data[0]
-    // In Stripe API v18, InvoiceLineItem.pricing is a complex union type
-    // For subscription invoices, pricing.price contains the Price object with recurring info
-    const pricing = lineItem.pricing as { price?: { recurring?: { interval?: string } } }
-    const interval = pricing?.price?.recurring?.interval === 'year' ? 'year' : 'month'
-    const paymentNumber = calculatePaymentNumber(subscription.created_at, interval)
-    const discounts = getDiscountsForReferral(referral)
-
-    const commissionLimit = interval === 'year' ? discounts.yearly.commissionLimit : discounts.monthly.commissionLimit
-    const isWithinDurationLimit = commissionLimit === null || paymentNumber <= commissionLimit
-
-    if (isWithinDurationLimit) {
-      await googleApi.insertInvoicePaymentSucceededGoogleSheets(invoice, paymentNumber)
-    }
-  }
-
-  const handleChargeRefunded = async (charge: Stripe.Charge) => {
-    const user = await usersRepository.findUserByStripeCustomerId(charge.customer as string)
-    if (user?.referral) {
-      await googleApi.insertChargeRefundedGoogleSheets(charge, user)
-    }
-  }
-
-  const handleSubscriptionUpdated = async (subscription: Stripe.Subscription) => {
-    const { metadata } = subscription
-    const userId: string = metadata.user_id
-
-    if (subscription.status === 'canceled') {
-      await customerioApi.updateCustomer(userId, {
-        [CUSTOM_CUSTOMERIO_ATTRIBUTE.CURRENT_PLAN]: null,
-        [CUSTOM_CUSTOMERIO_ATTRIBUTE.CURRENT_PLAN_INTERVAL]: null,
-      })
-    }
-  }
-
   const syncStripeSubscriptionWithOurDbAndCache = async (customerId: string): Promise<boolean> => {
     const [subscriptions, dbUser]: [ListStripeSubscriptionsResponse | null, DbUser | null] = await Promise.all([
       stripeApi.listAllSubscriptions(customerId),
@@ -222,11 +112,6 @@ export const StripeWebhookService = (
   }
 
   return {
-    handleCustomerSubscriptionCreated,
-    handleCustomerSubscriptionDeleted,
-    handleInvoicePaymentSucceeded,
-    handleChargeRefunded,
-    handleSubscriptionUpdated,
     syncStripeSubscriptionWithOurDbAndCache,
   }
 }

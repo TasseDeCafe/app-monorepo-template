@@ -89,27 +89,6 @@ export const stripeWebhookRouter =
           })
         }
       }
-
-      // we need the below ones for things like data sync to google docs and customer io
-      if (event.type === 'customer.subscription.created') {
-        await webhookService.handleCustomerSubscriptionCreated(event.data.object)
-      }
-      if (event.type === 'customer.subscription.updated') {
-        await webhookService.handleSubscriptionUpdated(event.data.object)
-      }
-      if (event.type === 'customer.subscription.deleted') {
-        await webhookService.handleCustomerSubscriptionDeleted(event.data.object)
-      }
-      //todo: remove the google spreadsheet api calls completely if we completely stop using this feature
-      // if (isWithinDurationLimit) {
-      //   await googleApi.insertInvoicePaymentSucceededGoogleSheets(invoice, paymentNumber)
-      // }
-      // if (event.type === 'invoice.payment_succeeded') {
-      //   await webhookService.handleInvoicePaymentSucceeded(event.data.object as Stripe.Invoice)
-      // }
-      // if (event.type === 'charge.refunded') {
-      //   await webhookService.handleChargeRefunded(event.data.object)
-      // }
     })
 
     if (!wasHandled) {

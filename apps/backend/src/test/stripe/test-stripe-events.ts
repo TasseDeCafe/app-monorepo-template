@@ -69,54 +69,6 @@ export const __createStripeSubscriptionCreatedEvent = ({
   }
 }
 
-export const __createStripePaymentSucceededEvent = ({
-  stripeCustomerId,
-  referral,
-  stripeSubscriptionId = __generateUniqueId('sub'),
-  amountPaid = 1900,
-}: {
-  stripeCustomerId: string
-  referral?: string
-  stripeSubscriptionId?: string
-  amountPaid?: number
-}): StripeEventBase => {
-  const metadata: { referral: string } | undefined = referral ? { referral } : undefined
-  return {
-    id: __generateUniqueId('evt'),
-    type: 'invoice.payment_succeeded',
-    data: {
-      object: {
-        customer: stripeCustomerId,
-        id: __generateUniqueId('inv'),
-        object: 'invoice',
-        amount_paid: amountPaid,
-        currency: 'usd',
-        parent: {
-          subscription_details: {
-            subscription: stripeSubscriptionId,
-            metadata: metadata,
-          },
-        },
-        lines: {
-          data: [
-            {
-              pricing: {
-                price: {
-                  currency: 'eur',
-                  unit_amount: 1923,
-                  recurring: {
-                    interval: 'month',
-                  },
-                },
-              },
-            },
-          ],
-        },
-      },
-    },
-  }
-}
-
 export const __createStripeChargeRefundedEvent = ({
   stripeCustomerId,
   referral,

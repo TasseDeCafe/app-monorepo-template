@@ -1,6 +1,5 @@
 import { afterAll, beforeEach, describe, expect, test } from 'vitest'
 import { UsersRepository } from './users-repository'
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
 import { __createUserInSupabaseAndGetHisIdAndToken, __removeAllAuthUsersFromSupabase } from '../../../test/test-utils'
 import { sql } from '../postgres-client'
 
@@ -10,9 +9,6 @@ describe('users-repository integration tests', () => {
     findUserByUserId,
     insertUser,
     updateStripeCustomerId,
-    updateUserMotherLanguage,
-    updateUserStudyDialect,
-    updateUserStudyLanguage,
     retrieveAllUsersCreatedLessThanNDaysAgo,
   } = UsersRepository()
   const emptyUtmParams = {
@@ -28,41 +24,6 @@ describe('users-repository integration tests', () => {
 
   afterAll(async () => {
     await __removeAllAuthUsersFromSupabase()
-  })
-
-  test('updating a study language', async () => {
-    const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
-
-    await insertUser(userId, null, emptyUtmParams)
-    const result = await updateUserStudyLanguage(userId, LangCode.FRENCH)
-
-    expect(result).toBe(LangCode.FRENCH)
-  })
-
-  test('update a study language and then update dialect', async () => {
-    const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
-
-    await insertUser(userId, null, emptyUtmParams)
-    await updateUserStudyLanguage(userId, LangCode.FRENCH)
-    const result = await updateUserStudyDialect(userId, DialectCode.CANADIAN_FRENCH)
-
-    expect(result).toEqual(DialectCode.CANADIAN_FRENCH)
-  })
-
-  test('after updating mother language, study language and dialect, they can be retrieved by findUserByUserId', async () => {
-    const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
-
-    await insertUser(userId, null, emptyUtmParams)
-    await updateUserMotherLanguage(userId, LangCode.ENGLISH)
-    await updateUserStudyLanguage(userId, LangCode.FRENCH)
-    await updateUserStudyDialect(userId, DialectCode.BELGIAN_FRENCH)
-
-    const user = await findUserByUserId(userId)
-
-    expect(user).not.toBeNull()
-    expect(user?.mother_language).toBe(LangCode.ENGLISH)
-    expect(user?.study_language).toBe(LangCode.FRENCH)
-    expect(user?.study_dialect).toBe(DialectCode.BELGIAN_FRENCH)
   })
 
   test('should update stripe customer id', async () => {
@@ -146,35 +107,6 @@ describe('users-repository integration tests', () => {
     expect(user?.utm_campaign).toBeNull()
     expect(user?.utm_term).toBeNull()
     expect(user?.utm_content).toBeNull()
-  })
-
-  test('should update daily study minutes', async () => {
-    const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
-    const { updateUserDailyStudyMinutes } = UsersRepository()
-
-    await insertUser(userId, null, emptyUtmParams)
-    const result = await updateUserDailyStudyMinutes(userId, 15)
-
-    expect(result).toBe(15)
-
-    const user = await findUserByUserId(userId)
-    expect(user?.daily_study_minutes).toBe(15)
-  })
-
-  test('should update daily study minutes to different values', async () => {
-    const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
-    const { updateUserDailyStudyMinutes } = UsersRepository()
-    const validValues = [5, 10, 15, 20]
-
-    await insertUser(userId, null, emptyUtmParams)
-
-    for (const minutes of validValues) {
-      const result = await updateUserDailyStudyMinutes(userId, minutes)
-      expect(result).toBe(minutes)
-
-      const user = await findUserByUserId(userId)
-      expect(user?.daily_study_minutes).toBe(minutes)
-    }
   })
 
   test('should return null when finding non-existent stripe customer id', async () => {

@@ -1,10 +1,9 @@
 import jwt from 'jsonwebtoken'
 import { getConfig } from '../config/environment-config'
-import { SupabaseClaims } from '../middleware/authentication-middleware/token-authentication-middleware/token-authentication-middleware'
+import { SupabaseClaims } from '../middleware/token-authentication-middleware'
 import { getSupabase } from '../transport/database/supabase'
 import { Express } from 'express'
 import request from 'supertest'
-import fs from 'fs'
 import { AppDependencies, buildApp } from '../app'
 import { MockStripeApi, StripeApi } from '../transport/third-party/stripe/stripe-api'
 import {
@@ -173,17 +172,6 @@ export const __updateStudyLanguageWithOurApi = async (
     .send({ studyLanguage: studyLanguage || LangCode.POLISH })
 }
 
-export const __updateElevenLabsVoiceIdWithOurApi = async (testApp: Express, token: string) => {
-  const audioBuffer = fs.readFileSync('src/assets/audio/mock-audio.mp3')
-  await request(testApp)
-    .patch(`/api/v1/users/me`)
-    .field({ langCode: LangCode.ENGLISH })
-    .set(buildAuthorizationHeaders(token))
-    .attach('audio', audioBuffer, {
-      filename: 'some name to make upload work',
-    })
-}
-
 export const __createCheckoutSessionWithOurApi = async (
   testApp: Express,
   token: string,
@@ -229,112 +217,6 @@ export const __createUserRightAfterSignup = async ({
   }
 }
 
-export type InitialStateWithNUsers = {
-  users: {
-    id: string
-    token: string
-  }[]
-  testApp: Express
-}
-export const __createNUsersWithInitialStateIntroducingCreditCardAfterOnboarding = async (
-  numberOfUsers: number
-): Promise<InitialStateWithNUsers> => {
-  const idAndTokens = await Promise.all(
-    Array.from({ length: numberOfUsers }, (_, index) =>
-      __createUserInSupabaseAndGetHisIdAndToken(`user${index + 1}@email.com`)
-    )
-  )
-
-  const stripeCustomerIds = Object.fromEntries(idAndTokens.map((user, index) => [user.id, `cus_test_id${index + 1}`]))
-  const customerToSubscriptionId = Object.fromEntries(
-    Object.values(stripeCustomerIds).map((customerId, index) => [customerId, `sub_trial_subscription_id_${index + 1}`])
-  )
-
-  const partialStripeMock: Partial<StripeApi> = {
-    createCustomerWithMetadata: async (userId: string) => {
-      return stripeCustomerIds[userId]
-    },
-    listAllSubscriptions: async (customerId: string) => {
-      const subscriptionId = customerToSubscriptionId[customerId]
-      return subscriptionId
-        ? [
-            {
-              id: subscriptionId,
-              status: 'trialing',
-              trial_end: Math.floor(Date.now() / 1000) + 3600 * 24 * NUMBER_OF_DAYS_IN_FREE_TRIAL,
-              created: Math.floor(Date.now() / 1000),
-            },
-          ]
-        : []
-    },
-    retrieveSubscription: async (subscriptionId: string) => {
-      // Extract user ID from subscription ID format "sub_trial_subscription_id_userIndex"
-      const userIndex = parseInt(subscriptionId.split('_').pop() || '1') - 1
-      const userId = idAndTokens[userIndex]?.id
-
-      return {
-        id: subscriptionId,
-        status: 'trialing',
-        current_period_end: Math.floor(Date.now() / 1000) + 3600 * 24 * NUMBER_OF_DAYS_IN_FREE_TRIAL,
-        cancel_at_period_end: true,
-        trial_end: Math.floor(Date.now() / 1000) + 3600 * 24 * NUMBER_OF_DAYS_IN_FREE_TRIAL,
-        items: {
-          data: [
-            {
-              price: {
-                product: 'free_trial_product_id',
-              },
-              plan: {
-                interval: 'month' as DbInterval,
-                interval_count: 1,
-                amount: 1900,
-                currency: 'eur',
-              },
-            },
-          ],
-        },
-        metadata: {
-          user_id: userId,
-        },
-      }
-    },
-  }
-
-  const stripeApi = {
-    ...MockStripeApi,
-    ...partialStripeMock,
-  }
-
-  const testApp = buildApp({ stripeApi })
-
-  await Promise.all(
-    idAndTokens.map(async (idAndToken: IdAndToken) => {
-      // todo stripe v2: try to use a method that already exists for the below calls
-      await __createOrGetUserWithOurApi({
-        testApp,
-        token: idAndToken.token,
-        referral: null,
-      })
-      await __callCheckoutEndpoint(testApp, idAndToken.token)
-      await __simulateStripeSubscriptionCreatedEvent({
-        testApp,
-        stripeCustomerId: stripeCustomerIds[idAndToken.id],
-        userId: idAndToken.id,
-      })
-      await __updateMotherLanguageWithOurApi(testApp, idAndToken.token)
-      await __updateStudyLanguageWithOurApi(testApp, idAndToken.token)
-      await __updateElevenLabsVoiceIdWithOurApi(testApp, idAndToken.token)
-    })
-  )
-
-  return {
-    users: idAndTokens.map((user) => ({
-      id: user.id,
-      token: user.token,
-    })),
-    testApp,
-  }
-}
 export const __createDefaultInitialStateAfterIntroducingCreditCardAndOnboardingWithoutVoiceId = async ({
   appDependencies = {},
   email = 'some@email.com',
@@ -450,7 +332,6 @@ export const __createDefaultInitialStateAfterIntroducingCreditCardAndOnboarding 
     stripeSubscriptionId,
     referral,
   })
-  await __updateElevenLabsVoiceIdWithOurApi(testApp, token)
   return { token, id: userId, testApp, stripeCallsCounters }
 }
 

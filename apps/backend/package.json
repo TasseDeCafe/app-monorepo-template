@@ -33,7 +33,6 @@
     "sentry:prod": "scripts/sentry--prod.sh",
     "prod": "scripts/deployment/prod.sh",
     "build:and:prod": "pnpm run build && pnpm run prod",
-    "install:ffmpeg": "./scripts/install--ffmpeg.sh",
     "check:changes": "scripts/deployment/check-backend-changes.sh"
   },
   "author": "GA1,TasseDeCafe",

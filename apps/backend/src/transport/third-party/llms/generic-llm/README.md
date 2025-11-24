@@ -1,1 +1,0 @@
-this file contains api for which we can easily switch to another llm, eventually we should migrate all our calls but for now we generalize our simplest llm calls, like translate-text. It can get very complex once we dive into json_modes, output tokens, temperatures etc, which might work differently for different providers

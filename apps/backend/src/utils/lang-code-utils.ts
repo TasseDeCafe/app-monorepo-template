@@ -1,0 +1,81 @@
+import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
+
+const langCodeToLanguageNameMap: Record<LangCode, string> = {
+  [LangCode.ENGLISH]: 'English',
+  [LangCode.SPANISH]: 'Spanish',
+  [LangCode.GERMAN]: 'German',
+  [LangCode.FRENCH]: 'French',
+  [LangCode.ITALIAN]: 'Italian',
+  [LangCode.POLISH]: 'Polish',
+  [LangCode.CZECH]: 'Czech',
+  [LangCode.UKRAINIAN]: 'Ukrainian',
+  [LangCode.RUSSIAN]: 'Russian',
+  [LangCode.PORTUGUESE]: 'Portuguese',
+  [LangCode.VIETNAMESE]: 'Vietnamese',
+  [LangCode.CHINESE]: 'Chinese',
+  [LangCode.HINDI]: 'Hindi',
+  [LangCode.INDONESIAN]: 'Indonesian',
+  [LangCode.MALAY]: 'Malay',
+  [LangCode.JAPANESE]: 'Japanese',
+  [LangCode.KOREAN]: 'Korean',
+  [LangCode.TAMIL]: 'Tamil',
+  [LangCode.TURKISH]: 'Turkish',
+  [LangCode.ROMANIAN]: 'Romanian',
+  [LangCode.SWEDISH]: 'Swedish',
+  [LangCode.NORWEGIAN]: 'Norwegian',
+  [LangCode.DANISH]: 'Danish',
+  [LangCode.SLOVAK]: 'Slovak',
+  [LangCode.DUTCH]: 'Dutch',
+  [LangCode.THAI]: 'Thai',
+  [LangCode.HUNGARIAN]: 'Hungarian',
+  [LangCode.GREEK]: 'Greek',
+  [LangCode.FINNISH]: 'Finnish',
+  [LangCode.BULGARIAN]: 'Bulgarian',
+  [LangCode.CATALAN]: 'Catalan',
+}
+
+export const langCodeToLanguageName = (langCode: LangCode): string => {
+  return langCodeToLanguageNameMap[langCode] || 'Unknown Language'
+}
+
+const dialectCodeToDialectNameMap: Record<DialectCode, string> = {
+  [DialectCode.AMERICAN_ENGLISH]: 'American English',
+  [DialectCode.BRITISH_ENGLISH]: 'British English',
+  [DialectCode.AFRICAN_AMERICAN_VERNACULAR_ENGLISH]: 'African-American Vernacular English',
+  [DialectCode.AUSTRALIAN_ENGLISH]: 'Australian English',
+  [DialectCode.SCOTTISH_ENGLISH]: 'Scottish English',
+  [DialectCode.INDIAN_ENGLISH]: 'Indian English',
+  [DialectCode.CASTILIAN_SPANISH]: 'Castilian Spanish',
+  [DialectCode.MEXICAN_SPANISH]: 'Mexican Spanish',
+  [DialectCode.COLOMBIAN_SPANISH]: 'Colombian Spanish',
+  [DialectCode.ARGENTINIAN_SPANISH]: 'Argentinian Spanish',
+  [DialectCode.PERUVIAN_SPANISH]: 'Peruvian Spanish',
+  [DialectCode.ANDALUSIAN_SPANISH]: 'Andalusian Spanish',
+  [DialectCode.PARISIAN_FRENCH]: 'Parisian French',
+  [DialectCode.BELGIAN_FRENCH]: 'Belgian French',
+  [DialectCode.CANADIAN_FRENCH]: 'Canadian French',
+  [DialectCode.STANDARD_GERMAN]: 'Standard German',
+  [DialectCode.STANDARD_ITALIAN]: 'Standard Italian',
+  [DialectCode.STANDARD_POLISH]: 'Standard Polish',
+  [DialectCode.BRAZILIAN_PORTUGUESE]: 'Brazilian Portuguese',
+  [DialectCode.EUROPEAN_PORTUGUESE]: 'European Portuguese',
+  [DialectCode.STANDARD_RUSSIAN]: 'Standard Russian',
+  [DialectCode.STANDARD_UKRAINIAN]: 'Standard Ukrainian',
+  [DialectCode.STANDARD_CZECH]: 'Standard Czech',
+  [DialectCode.STANDARD_DANISH]: 'Standard Danish',
+  [DialectCode.STANDARD_DUTCH]: 'Standard Dutch',
+  [DialectCode.FLEMISH]: 'Flemish',
+  [DialectCode.STANDARD_FINNISH]: 'Standard Finnish',
+  [DialectCode.STANDARD_INDONESIAN]: 'Standard Indonesian',
+  [DialectCode.STANDARD_MALAY]: 'Standard Malay',
+  [DialectCode.STANDARD_ROMANIAN]: 'Standard Romanian',
+  [DialectCode.STANDARD_SLOVAK]: 'Standard Slovak',
+  [DialectCode.STANDARD_SWEDISH]: 'Standard Swedish',
+  [DialectCode.STANDARD_TURKISH]: 'Standard Turkish',
+  [DialectCode.STANDARD_HUNGARIAN]: 'Standard Hungarian',
+  [DialectCode.STANDARD_NORWEGIAN]: 'Standard Norwegian',
+}
+
+export const dialectCodeToDialectName = (dialectCode: DialectCode): string => {
+  return dialectCodeToDialectNameMap[dialectCode] || 'Unknown Dialect'
+}

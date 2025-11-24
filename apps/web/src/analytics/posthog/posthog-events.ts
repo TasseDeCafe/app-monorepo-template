@@ -1,0 +1,72 @@
+import posthog from 'posthog-js'
+
+import { PLAYER_TYPE } from '@/components/audio-player/audio-player-types.ts'
+import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes.ts'
+import { PlanType } from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+
+const defaultProperties = () => ({
+  href: window.location.href,
+  path_name: window.location.pathname,
+  hash: window.location.hash,
+  path_and_hash: window.location.pathname + window.location.hash,
+  domain: window.location.hostname,
+})
+
+const captureWithDefaults = (eventName: string, properties: Record<string, string> = {}) => {
+  posthog.capture(eventName, { ...defaultProperties(), ...properties })
+}
+
+// use snake case for everything sent to posthog
+// follow the conventions from here: https://posthog.com/docs/getting-started/send-events#naming-your-custom-events
+// todo posthog: we should name events like modal_opened, modal_closed, not modal_view, modal_close
+// we should not get crazy about this fix, it's fine to have some event names not following the conventions
+// it might be quite a bit of work, we would have to go through all the dashboards and rename them
+// for the new events we should use the correct convention
+export const POSTHOG_EVENTS = {
+  click: (clickName: string) => {
+    captureWithDefaults('click', { click_name: clickName })
+  },
+  clickPlan: (clickName: string, planType: PlanType) => {
+    captureWithDefaults('click', { click_name: clickName, plan_type: planType ?? '' })
+  },
+  playAudio: (playerType: PLAYER_TYPE) => {
+    captureWithDefaults('play_audio', { player_type: playerType })
+  },
+  viewPage: () => {
+    captureWithDefaults('page_view')
+  },
+  viewModal: (modalId: string) => {
+    captureWithDefaults('modal_view', { modal_id: modalId })
+  },
+  magicLinkFailureOrExpiration: () => {
+    captureWithDefaults('magic_link_failure_or_expiration')
+  },
+  noTokenHashProvided: () => {
+    captureWithDefaults('no_token_hash_provided')
+  },
+  showPaywallToUser: () => {
+    captureWithDefaults('show_paywall_to_user')
+  },
+  rateLimitUser: () => {
+    captureWithDefaults('rate_limit_user')
+  },
+  frontendAuthenticationError: () => {
+    captureWithDefaults('frontend_authentication_error')
+  },
+  invalidTokenError: () => {
+    captureWithDefaults('invalid_token_error')
+  },
+  recordAudio: (attempt: number) => {
+    captureWithDefaults('record_audio', { attempt: String(attempt) })
+  },
+  studyLanguageChanged: (studyLanguage: SupportedStudyLanguage) => {
+    captureWithDefaults('study_language_changed', { study_language: studyLanguage })
+  },
+  textTranscribed: (language: SupportedStudyLanguage, textLength: number, isSignedIn: boolean) => {
+    captureWithDefaults('text_transcribed', {
+      language: language,
+      text_length: String(textLength),
+      is_signed_in: String(isSignedIn),
+    })
+  },
+}

@@ -1,0 +1,61 @@
+import { Nunito } from 'next/font/google'
+import './globals.css'
+import React from 'react'
+import Navbar from '@/app/[lang]/(navbar)/navbar'
+import Footer from '@/app/[lang]/(footer)/footer'
+import { i18nConfig, Locale } from '@/i18n/i18n-config'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import { TranslatedCookieBanner } from '@/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner'
+import { TranslatedAppBanner } from '@/app/[lang]/(components)/(leading-to-apps)/translated-app-banner'
+import { AnalyticsPageViewLauncher } from '@/analytics/posthog/analytics-page-view-launcher'
+import { AnalyticsInitializer } from '@/analytics/analytics-initializer'
+import { LinguiClientProvider } from '@/i18n/lingui-client-provider'
+import { getLinguiInstance } from '@/i18n/get-lingui-instance'
+import { setI18n } from '@lingui/react/server'
+
+const nunito = Nunito({ subsets: ['latin'] })
+
+export const metadata: Metadata = {
+  title: 'YourBestAccent - Master Your Pronunciation',
+  description:
+    'Master your accent and pronunciation in any language with AI-powered voice cloning technology. Practice with your own voice and achieve native-like pronunciation.',
+  alternates: {
+    canonical: 'https://www.yourbestaccent.com',
+  },
+}
+
+const localeSet: Set<string> = new Set(i18nConfig.locales)
+
+const isLocale = (value: string): value is Locale => localeSet.has(value)
+
+const RootLayout = async ({ children, params }: LayoutProps<'/[lang]'>) => {
+  const { lang } = await params
+
+  if (!isLocale(lang)) {
+    notFound()
+  }
+
+  const { i18n, messages, linguiLocale } = await getLinguiInstance(lang)
+  setI18n(i18n)
+
+  return (
+    <html lang={lang} className={nunito.className}>
+      <body className='flex h-dvh w-full flex-col justify-between bg-gray-50'>
+        <LinguiClientProvider initialLocale={linguiLocale} initialMessages={messages}>
+          <AnalyticsInitializer />
+          <AnalyticsPageViewLauncher />
+          <TranslatedAppBanner />
+          <Navbar lang={lang} />
+          <main className='flex w-full flex-1 flex-col items-center justify-center transition-all duration-300 ease-in-out'>
+            {children}
+          </main>
+          <Footer lang={lang} />
+          <TranslatedCookieBanner />
+        </LinguiClientProvider>
+      </body>
+    </html>
+  )
+}
+
+export default RootLayout

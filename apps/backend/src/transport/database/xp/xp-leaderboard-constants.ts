@@ -1,0 +1,8 @@
+// Leaderboard limits for performance and UX
+export const LEADERBOARD_LIMITS = {
+  OVERALL_ALL_TIME_LIMIT: 500,
+  OVERALL_WEEKLY_LIMIT: 500,
+
+  BY_LANGUAGE_ALL_TIME_LIMIT: 500,
+  BY_LANGUAGE_WEEKLY_LIMIT: 500,
+} as const

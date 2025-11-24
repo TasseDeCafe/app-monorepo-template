@@ -1,0 +1,255 @@
+#!/bin/bash
+
+# Trap signals and clean up child processes
+cleanup() {
+  echo ""
+  echo "🛑 Received interrupt signal. Cleaning up..."
+  
+  # Kill the entire process group (all child processes)
+  # Using negative PID to target the entire process group
+  pkill -P $$ 2>/dev/null || true
+  
+  exit 130
+}
+
+# Set up signal traps for Ctrl+C and termination
+trap cleanup SIGINT SIGTERM
+
+start_time=$(date +%s.%N)
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+auto_commit_messages=()
+
+auto_commit_changes() {
+  local commit_message=$1
+  shift
+
+  if [ "$#" -gt 0 ]; then
+    if git diff --quiet -- "$@"; then
+      return 0
+    fi
+  else
+    if git diff-index --quiet HEAD --; then
+      return 0
+    fi
+  fi
+
+  echo "📝 Detected changes for auto-commit: $commit_message"
+  git add .
+  if git commit -m "$commit_message" > /dev/null; then
+    echo "✅ Auto-commit created: $commit_message"
+    auto_commit_messages+=("$commit_message")
+  else
+    echo "❌ Failed to auto-commit changes ($commit_message)"
+    exit 1
+  fi
+}
+
+echo "🔍 Starting pre-push checks..."
+
+if [ "$branch" = "main" ]; then
+  echo "❌ You can't push directly to main branch."
+  exit 1
+fi
+
+if ! git diff-index --quiet HEAD --; then
+    echo "❌ Error: You have uncommitted changes. Please commit or stash them before pushing."
+    exit 1
+fi
+
+
+# whenever we add a valid console.log( to the code we should increment this number
+EXPECTED_COUNT=7
+
+# Use git grep to search for console.log in tracked .ts and .tsx files
+echo "📊 Checking console.log occurrences..."
+# First count the total occurrences, excluding files in scripts directories
+count=$(git grep -c "console\.log(" -- "*.ts" "*.tsx" ':!**/scripts/**' | awk -F: '{sum += $2} END {print sum}')
+
+echo "Number of 'console.log(' occurrences: $count"
+
+# Check if the count matches the expected count
+if [ "$count" -ne "$EXPECTED_COUNT" ]; then
+    echo "❌ Error: Expected $EXPECTED_COUNT 'console.log(' occurrences, but found $count."
+    echo "📍 Locations of console.log occurrences:"
+    git --no-pager grep -n "console\.log(" -- "*.ts" "*.tsx" ':!**/scripts/**'
+    exit 1
+else
+    echo "✅ Found $count 'console.log(' occurrences (matches expected: $EXPECTED_COUNT)"
+fi
+
+
+echo "🔄 Fetching latest changes from remote..."
+git fetch origin main
+
+if ! git merge-base --is-ancestor main HEAD; then
+  echo "❌ Your branch is not up-to-date with main. Please rebase or merge main into your branch before pushing."
+  exit 1
+else
+  echo "✅ Branch is up-to-date with main"
+fi
+
+# Clean Lingui catalogs so dead entries don't linger
+echo "🧹 Cleaning Lingui catalogs..."
+if pnpm lingui extract; then
+  echo "✅ Lingui catalogs updated"
+else
+  echo "❌ Lingui extract failed"
+  exit 1
+fi
+
+# Translate missing translations using AI
+echo "🤖 Translating missing translations with Claude..."
+if pnpm --filter @yourbestaccent/i18n translate; then
+  echo "✅ Translation check completed"
+else
+  echo "❌ Translation failed"
+  exit 1
+fi
+
+# Check if translation generated any changes
+auto_commit_changes "chore(i18n): update translations" packages/i18n/locales
+
+# Check if native app version needs to be incremented
+echo "📱 Checking native app version..."
+if git diff --quiet main HEAD -- apps/native/; then
+  echo "✅ No changes in apps/native - version check skipped"
+else
+  echo "Changes detected in apps/native, checking version bump..."
+
+  # Get current versions using grep to avoid ES6 module issues
+  current_config_version=$(grep -o "version: '[^']*'" apps/native/app.config.js | cut -d"'" -f2)
+  current_package_version=$(node -p "require('./apps/native/package.json').version")
+
+  # Check if both current versions are the same
+  if [ "$current_config_version" != "$current_package_version" ]; then
+    echo "❌ Error: Version mismatch between app.config.js and package.json!"
+    echo "app.config.js version: $current_config_version"
+    echo "package.json version: $current_package_version"
+    echo ""
+    echo "Both files must have the same version number."
+    exit 1
+  fi
+
+  # Get versions from main branch
+  main_config_version=$(git show main:apps/native/app.config.js | grep -o "version: '[^']*'" | cut -d"'" -f2)
+  main_package_version=$(git show main:apps/native/package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin', 'utf8')).version")
+
+  # Check if versions have been incremented
+  if [ "$current_config_version" = "$main_config_version" ] || [ "$current_package_version" = "$main_package_version" ]; then
+    echo "⚠️  Native app has changes but version was not incremented!"
+    echo "Current app.config.js version: $current_config_version"
+    echo "Main app.config.js version: $main_config_version"
+    echo "Current package.json version: $current_package_version"
+    echo "Main package.json version: $main_package_version"
+    echo ""
+    
+    # Interactive prompt - force interactive mode for git hooks
+    exec < /dev/tty
+    while true; do
+      echo "Do you want to update the version now? (y/n)"
+      read -r yn
+      case $yn in
+        [Yy]* ) 
+          echo ""
+          echo "🔧 You chose to update the version. Please do it manually:"
+          echo "1. Update version in: apps/native/app.config.js (expo.version field)"
+          echo "2. Update version in: apps/native/package.json (version field)"
+          echo ""
+          echo "Both files should have the same version number."
+          echo "After updating, commit your changes and push again."
+          exit 1
+          ;;
+        [Nn]* ) 
+          echo "⚠️  Proceeding without version update..."
+          break
+          ;;
+        * ) 
+          echo "Please answer yes (y) or no (n)."
+          ;;
+      esac
+    done
+  else
+    echo "✅ Native app version incremented (app.config.js: $main_config_version → $current_config_version, package.json: $main_package_version → $current_package_version)"
+  fi
+fi
+
+# Run all checks through turborepo
+echo "🏃 Running all checks..."
+
+# Check if native app (apps/native) needs environment sync
+echo "⚙️ Checking for native app changes to determine if EAS sync is needed..."
+# We use 'turbo ls --affected --output=json' and jq to check if 'native' package is in the list of affected packages.
+# jq's -e option sets exit status 0 if the last output value was neither false nor null.
+if turbo ls --affected --output=json | jq -e '.packages.items[] | select(.name=="native")' > /dev/null; then
+  echo "Syncing production environment variables on EAS for native app..."
+  if pnpm sync-env; then
+      echo "✅ Environment sync passed"
+  else
+      echo "❌ Environment sync failed"
+      exit 1
+  fi
+else
+  echo "Skipping EAS environment sync as native app is not affected by these changes."
+fi
+
+cd apps/backend
+pnpm check-migrations
+cd ../..
+
+cd apps/backend
+pnpm check-templates
+cd ../..
+
+echo "Running lint..."
+if pnpm lint; then
+    echo "✅ Lint passed"
+else
+    echo "❌ Lint failed"
+    exit 1
+fi
+
+# Check if lint --fix generated any changes
+auto_commit_changes "style: apply eslint auto-fixes"
+
+echo "Checking types..."
+if pnpm check:types; then
+    echo "✅ Types check passed"
+else
+    echo "❌ Types check failed"
+    exit 1
+fi
+
+echo "Running tests..."
+if pnpm test:run; then
+    echo "✅ Tests passed"
+else
+    echo "❌ Tests failed"
+    exit 1
+fi
+
+echo "Building..."
+if pnpm build; then
+    echo "✅ Build passed"
+else
+    echo "❌ Build failed"
+    exit 1
+fi
+
+echo "✅ Pre-push script executed successfully."
+
+if [ ${#auto_commit_messages[@]} -gt 0 ]; then
+  echo ""
+  echo "ℹ️ The hook auto-committed the following changes:"
+  for message in "${auto_commit_messages[@]}"; do
+    echo "   • $message"
+  done
+  echo "Please run 'git push' again to include these commits in the remote."
+fi
+
+end_time=$(date +%s.%N)
+execution_time=$(echo "$end_time - $start_time" | bc)
+echo -e "\nScript execution time: ${execution_time} seconds"
+
+exit 0

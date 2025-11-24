@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.yourbestaccent.android.preview",
+      "sha256_cert_fingerprints": [
+        "82:89:6A:E0:82:FA:7D:9C:8F:34:63:E5:4A:D9:8E:31:F7:90:41:66:22:09:8C:44:4E:0A:8F:25:7D:FF:3A:6E"
+      ]
+    }
+  }
+]

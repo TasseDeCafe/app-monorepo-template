@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /yba-admin
+Disallow: /yba-admin/clear-data

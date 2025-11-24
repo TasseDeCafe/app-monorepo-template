@@ -1,0 +1,18 @@
+{
+  "extends": "@yourbestaccent/typescript-config/library.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "./dist",
+    "paths": {
+      "@yourbestaccent/core/*": ["../../packages/core/src/*"],
+      "@yourbestaccent/api-client/*": ["../../packages/api-client/src/*"]
+    }
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist", "vitest.config.ts"],
+  "references": [{ "path": "../core" }, { "path": "../api-client" }],
+  "tsc-alias": {
+    "resolveFullPaths": true,
+    "verbose": false
+  }
+}

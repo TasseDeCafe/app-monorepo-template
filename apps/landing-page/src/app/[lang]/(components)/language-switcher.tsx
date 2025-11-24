@@ -1,0 +1,37 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
+import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
+import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
+
+const LanguageSwitcher = () => {
+  const pathname = usePathname()
+
+  // replaces locale in a url, for example: /en/pricing -> /pl/pricing
+  const getLanguagePath = (locale: string) => {
+    const segments = pathname.split('/')
+    segments[1] = locale
+    return segments.join('/')
+  }
+
+  return (
+    <div className='flex space-x-4'>
+      <Link href={getLanguagePath(ENGLISH_LOCALE)}>
+        <CustomCircularFlag languageOrDialectCode={ENGLISH_LOCALE as LangCode} className='h-5 w-5 cursor-pointer' />
+      </Link>
+      <Link href={getLanguagePath(SPANISH_LOCALE)}>
+        <CustomCircularFlag languageOrDialectCode={SPANISH_LOCALE as LangCode} className='h-5 w-5 cursor-pointer' />
+      </Link>
+      <Link href={getLanguagePath(POLISH_LOCALE)}>
+        <CustomCircularFlag languageOrDialectCode={POLISH_LOCALE as LangCode} className='h-5 w-5 cursor-pointer' />
+      </Link>
+      <Link href={getLanguagePath(FRENCH_LOCALE)}>
+        <CustomCircularFlag languageOrDialectCode={FRENCH_LOCALE as LangCode} className='h-5 w-5 cursor-pointer' />
+      </Link>
+    </div>
+  )
+}
+
+export default LanguageSwitcher

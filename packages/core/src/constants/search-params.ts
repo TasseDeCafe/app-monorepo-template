@@ -1,0 +1,4 @@
+export const STUDY_LANGUAGE_SEARCH_PARAM_NAME = 'sl'
+export const EXERCISE_TEXT_SEARCH_PARAM_NAME = 't'
+export const SHOULD_SCROLL_SEARCH_PARAM_NAME = 'scroll'
+export const CREATOR_SEARCH_PARAM_NAME = 'c'

@@ -1,0 +1,28 @@
+{
+  "name": "@yourbestaccent/api-client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "build": "tsc && tsc-alias --project tsconfig.json",
+    "check:types": "tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "dependencies": {
+    "@orpc/contract": "catalog:",
+    "@yourbestaccent/core": "workspace:*",
+    "vitest": "catalog:",
+    "zod": "catalog:",
+    "naughty-words": "catalog:"
+  },
+  "devDependencies": {
+    "@yourbestaccent/typescript-config": "workspace:*",
+    "@types/naughty-words": "catalog:",
+    "typescript": "catalog:",
+    "tsc-alias": "catalog:"
+  }
+}

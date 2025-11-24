@@ -1,0 +1,2 @@
+export const MIN_SCORE_FOR_XP = 0.4
+export const PRONUNCIATION_EXERCISE_FACTOR = 0.5

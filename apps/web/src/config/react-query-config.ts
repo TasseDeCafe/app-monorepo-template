@@ -1,0 +1,174 @@
+import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query'
+import {
+  ERROR_CODE_FOR_AUTHENTICATING_FRONTEND,
+  ERROR_CODE_FOR_INVALID_TOKEN,
+  ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED,
+} from '@yourbestaccent/api-client/key-generation/frontend-api-key-constants'
+import { buildOrpcErrorContext } from '@yourbestaccent/api-client/utils/backend-error-utils'
+import {
+  getBackendErrorCode,
+  getBackendErrorMessage,
+  isExpectedValidationError,
+  queryRetryHandler,
+} from '@yourbestaccent/api-client/utils/orpc-error-utils'
+import { toast } from 'sonner'
+import { QueryMeta } from '@/hooks/api/hook-types'
+import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { store } from '@/state/store'
+import { modalActions } from '@/state/slices/modal-slice'
+import { ROUTE_PATHS } from '@/routing/route-paths'
+import { USER_FACING_ERROR_CODE } from '@/components/modal/modal-contents/something-went-wrong/types'
+import { RATE_LIMITING_MODAL_ID } from '@/components/modal/modal-ids'
+import { ORPCError } from '@orpc/contract'
+import { i18n } from '@/i18n/i18n'
+import { msg, t } from '@lingui/core/macro'
+
+const handleGenericApiError = (meta?: QueryMeta) => {
+  const showErrorToast = meta?.showErrorToast ?? true
+  // by default, we don't show the intrusive error modal
+  // to show it, explicitly pass showErrorModal = true in the hook
+  const showErrorModal = meta?.showErrorModal ?? false
+  const errorMessage = meta?.errorMessage ?? i18n._(msg`Something went wrong.`)
+
+  if (showErrorModal) {
+    store.dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.GENERIC_ERROR))
+  } else if (showErrorToast) {
+    toast.error(errorMessage, {
+      description: i18n._(msg`Please try again or refresh the page.`),
+      action: {
+        label: i18n._(msg`Refresh`),
+        onClick: () => window.location.reload(),
+      },
+    })
+  }
+}
+
+const handleApiError = (error: unknown, meta?: QueryMeta) => {
+  const showErrorModal = meta?.showErrorModal ?? true
+
+  if (!(error instanceof ORPCError)) {
+    handleGenericApiError(meta)
+    return
+  }
+
+  const backendErrorCode = getBackendErrorCode(error)
+
+  if (error.code === 'NOT_FOUND') {
+    return
+  }
+
+  if (error.code === 'FORBIDDEN') {
+    if (backendErrorCode === ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED) {
+      POSTHOG_EVENTS.showPaywallToUser()
+      if (typeof window !== 'undefined') {
+        window.location.assign(ROUTE_PATHS.PRICING)
+      }
+      return
+    }
+
+    handleGenericApiError(meta)
+    return
+  }
+
+  if (error.code === 'TOO_MANY_REQUESTS') {
+    POSTHOG_EVENTS.rateLimitUser()
+    if (showErrorModal) {
+      store.dispatch(modalActions.openModal(RATE_LIMITING_MODAL_ID))
+    }
+    return
+  }
+
+  if (error.code === 'UNAUTHORIZED') {
+    if (backendErrorCode === ERROR_CODE_FOR_AUTHENTICATING_FRONTEND) {
+      POSTHOG_EVENTS.frontendAuthenticationError()
+      if (showErrorModal) {
+        store.dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.FRONTEND_AUTHENTICATION_ERROR))
+      }
+      const date = new Date()
+      logWithSentry(
+        'Frontend authenticating error',
+        error,
+        {
+          date: date.toString(),
+          timestamp: date.getTime(),
+          backendErrorCode,
+          orpc: buildOrpcErrorContext(error),
+        },
+        'info'
+      )
+      return
+    }
+
+    if (backendErrorCode === ERROR_CODE_FOR_INVALID_TOKEN) {
+      POSTHOG_EVENTS.invalidTokenError()
+      if (showErrorModal) {
+        store.dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.INVALID_TOKEN_ERROR))
+      }
+      return
+    }
+
+    handleGenericApiError(meta)
+    return
+  }
+
+  const backendErrorMessage = getBackendErrorMessage(error)
+  if (backendErrorMessage && (meta?.showErrorToast ?? true)) {
+    toast.error(backendErrorMessage)
+    return
+  }
+
+  handleGenericApiError(meta)
+}
+
+export const queryClient = new QueryClient({
+  queryCache: new QueryCache({
+    onError: (error, query) => {
+      const meta = query.meta
+
+      logWithSentry(`QueryKey ${JSON.stringify(query.queryKey)} failed`, error, {
+        queryKey: JSON.stringify(query.queryKey),
+        meta,
+        orpc: error instanceof ORPCError ? buildOrpcErrorContext(error) : undefined,
+      })
+
+      handleApiError(error, meta)
+    },
+  }),
+  mutationCache: new MutationCache({
+    onMutate: (_variables, mutation) => {
+      const meta = mutation.meta
+
+      const showSuccessToast = meta?.showSuccessToast ?? false
+      const successMessage = meta?.successMessage ?? i18n._(t`Success!`)
+
+      if (showSuccessToast) {
+        toast.success(successMessage)
+      }
+    },
+    onError: (error, _variables, _context, mutation) => {
+      const meta = mutation.meta
+
+      handleApiError(error, meta)
+
+      if (!isExpectedValidationError(error)) {
+        logWithSentry(`MutationKey ${JSON.stringify(mutation.options.mutationKey)} failed`, error, {
+          mutationKey: JSON.stringify(mutation.options.mutationKey),
+          meta,
+          orpc: error instanceof ORPCError ? buildOrpcErrorContext(error) : undefined,
+        })
+      }
+    },
+  }),
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      refetchOnWindowFocus: false,
+      retry: queryRetryHandler,
+      gcTime: Infinity,
+    },
+    mutations: {
+      gcTime: Infinity,
+    },
+  },
+})

@@ -6,10 +6,10 @@ import { ArrowLeft } from 'lucide-react-native'
 import {
   LANG_TO_TEXT_FOR_CLONING,
   MIN_LENGTH_OF_AUDIO_FOR_CLONING_IN_SECONDS,
-} from '@yourbestaccent/core/constants/voice-cloning-constants'
+} from '@template-app/core/constants/voice-cloning-constants'
 import { AudioRecorder } from '@/components/audio-recorder'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useAudioRecorder } from '@/hooks/use-audio-recorder'
 import { LinearGradient } from 'expo-linear-gradient'
 import MaskedView from '@react-native-masked-view/masked-view'
@@ -23,8 +23,8 @@ import {
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import * as FileSystem from 'expo-file-system/legacy'
 import { ORPCError } from '@orpc/client'
-import { AUDIO_TOO_SHORT_MESSAGE } from '@yourbestaccent/api-client/orpc-contracts/user-contract'
-import type { BackendErrorResponse } from '@yourbestaccent/api-client/orpc-contracts/common/error-response-schema'
+import { AUDIO_TOO_SHORT_MESSAGE } from '@template-app/api-client/orpc-contracts/user-contract'
+import type { BackendErrorResponse } from '@template-app/api-client/orpc-contracts/common/error-response-schema'
 import { useLingui } from '@lingui/react/macro'
 
 export default function CloneVoiceView() {

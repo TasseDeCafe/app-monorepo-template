@@ -2,7 +2,7 @@ import {
   isAndroid,
   isFacebookNativeWebviewApp,
   isInstagramWebviewNativeApp,
-} from '@yourbestaccent/core/utils/browser-utils.ts'
+} from '@template-app/core/utils/browser-utils.ts'
 
 export const shouldShowSignInWithGoogle = () => {
   // Google forbids using sign in with Google on certain native webviews

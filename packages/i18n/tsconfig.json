@@ -1,11 +1,11 @@
 {
-  "extends": "@yourbestaccent/typescript-config/library.json",
+  "extends": "@template-app/typescript-config/library.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist",
     "paths": {
-      "@yourbestaccent/core/*": ["../../packages/core/src/*"],
-      "@yourbestaccent/api-client/*": ["../../packages/api-client/src/*"]
+      "@template-app/core/*": ["../../packages/core/src/*"],
+      "@template-app/api-client/*": ["../../packages/api-client/src/*"]
     }
   },
   "include": ["."],

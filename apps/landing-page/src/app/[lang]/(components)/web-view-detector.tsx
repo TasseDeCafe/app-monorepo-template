@@ -10,7 +10,7 @@ import {
   isIos,
   isLinkedinNativeWebview,
   isWykopNativeWebview,
-} from '@yourbestaccent/core/utils/browser-utils'
+} from '@template-app/core/utils/browser-utils'
 
 const tryOpeningInBrowser = () => {
   const referral = `${localStorageWrapper.getReferral()}`
@@ -26,7 +26,7 @@ const tryOpeningInBrowser = () => {
     // when the app is opened in the browser, the colon symbol ":" is stripped from the "https://" part of the url
     // and makes the url not working. We can strip the protocol though, as our landing page redirects urls without protocol
     // to "https://" protocol, I (Kamil) think this was set up in vercel in the past:
-    // https://vercel.com/grammarians/yourbestaccent-com/settings/domains
+    // https://vercel.com/grammarians/template-app-com/settings/domains
     const androidIntentUrl = `intent://${urlWithoutHttps}#Intent;scheme=https;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end`
     // todo the below line is broken after a weird change on android, read more here: https://www.notion.so/grammarians/on-android-instagram-links-to-our-app-open-in-the-instagram-webview-instead-of-opening-the-browser-12c168e7b01a80e596aeea2ccddfdf81
     // there's no easy fix yet

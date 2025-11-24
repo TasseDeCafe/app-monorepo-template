@@ -1,7 +1,7 @@
 import { Checkbox } from '../../../shadcn/checkbox.tsx'
 import { Popover, PopoverContent, PopoverTrigger } from '../../../shadcn/popover.tsx'
 import { CircleHelp } from 'lucide-react'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links.ts'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links.ts'
 import { useLingui } from '@lingui/react/macro'
 
 interface VoiceCloningAndNotificationsConsentProps {
@@ -50,7 +50,7 @@ export const VoiceCloningAndNotificationsConsent = ({
           className='mt-0'
         />
         <label htmlFor='voice-consent' className='cursor-pointer text-sm text-gray-600'>
-          {t`I consent to having my voice cloned for personalized learning experiences within YourBestAccent.com, and I agree to the`}{' '}
+          {t`I consent to having my voice cloned for personalized learning experiences within TemplateApp.com, and I agree to the`}{' '}
           <a
             href={EXTERNAL_LINKS.TERMS_OF_SERVICE_URL}
             className='text-indigo-600 hover:underline'

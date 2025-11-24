@@ -3,8 +3,8 @@ import { Image } from 'expo-image'
 import * as Haptics from 'expo-haptics'
 import { Button } from '@/components/ui/button'
 import { BigCard } from '@/components/ui/big-card'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
-import { BLURHASH } from '@yourbestaccent/core/utils/image-utils'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
+import { BLURHASH } from '@template-app/core/utils/image-utils'
 import { isUsingPolishLanguage } from '@/utils/locale-utils'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useLingui } from '@lingui/react/macro'
@@ -37,7 +37,7 @@ export default function AboutScreen() {
                 placeholder={BLURHASH}
               />
 
-              <Text className='mt-6 text-center text-base text-gray-700'>{t`Hey there! It's Kamil and Sébastien here, the creators of yourbestaccent.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon.`}</Text>
+              <Text className='mt-6 text-center text-base text-gray-700'>{t`Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon.`}</Text>
               <Text className='mt-2 text-center text-base text-gray-700'>{t`Please let us know what you think about the app by filling out our feedback form!`}</Text>
             </View>
           </BigCard>

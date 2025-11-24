@@ -7,9 +7,9 @@ import {
   LANGUAGES_WITH_MULTIPLE_DIALECTS,
   SupportedMotherLanguage,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes.ts'
+} from '@template-app/core/constants/lang-codes.ts'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { ALLOWED_REFERRALS } from '@yourbestaccent/core/constants/referral-constants.ts'
+import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants.ts'
 
 export interface AccountState {
   id: string

@@ -13,7 +13,7 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
   const { i18n } = await getLinguiInstance(lang)
 
   return {
-    title: i18n._(msg`YourBestAccent - Perfect Your Accent with AI Voice Training`),
+    title: i18n._(msg`TemplateApp - Perfect Your Accent with AI Voice Training`),
     description: i18n._(
       msg`Master perfect pronunciation with AI-powered voice cloning. Practice speaking in your target language with your own voice. Try our free trial today!`
     ),

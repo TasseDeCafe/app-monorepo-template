@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { DialectCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
-import { VOICE_OF_THE_USER } from '@yourbestaccent/api-client/orpc-contracts/audio-generation-contract'
-import { isEmoji } from '@yourbestaccent/core/utils/text-utils'
+import { DialectCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
+import { VOICE_OF_THE_USER } from '@template-app/api-client/orpc-contracts/audio-generation-contract'
+import { isEmoji } from '@template-app/core/utils/text-utils'
 
 const validateAndCleanText = (text: string | null | undefined): string => {
   if (!text) return ''

@@ -1,5 +1,5 @@
 {
-  "name": "@yourbestaccent/landing-page",
+  "name": "@template-app/landing-page",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,8 +18,8 @@
     "@lingui/macro": "catalog:",
     "@lingui/react": "catalog:",
     "@sentry/nextjs": "catalog:",
-    "@yourbestaccent/core": "workspace:*",
-    "@yourbestaccent/i18n": "workspace:*",
+    "@template-app/core": "workspace:*",
+    "@template-app/i18n": "workspace:*",
     "import-in-the-middle": "catalog:",
     "lucide-react": "catalog:",
     "motion": "catalog:",
@@ -47,7 +47,7 @@
     "@types/react-dom": "catalog:react19_2",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:",
-    "@yourbestaccent/typescript-config": "workspace:*",
+    "@template-app/typescript-config": "workspace:*",
     "babel-plugin-react-compiler": "catalog:",
     "eslint": "catalog:",
     "eslint-plugin-lingui": "catalog:",

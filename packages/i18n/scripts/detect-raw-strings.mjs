@@ -71,7 +71,7 @@ const EXCLUDE_PATTERNS = [
   /^[a-z_\-]+$/i, // Single lowercase words (likely identifiers)
   /^[A-Z_]+$/, // All caps (likely constants)
   /discord/i, // Service names
-  /yourbestaccent\.com/i,
+  /template-app\.com/i,
   /supabase/i,
   /github/i,
   /google/i,

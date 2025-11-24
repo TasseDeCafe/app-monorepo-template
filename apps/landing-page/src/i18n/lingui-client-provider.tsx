@@ -2,7 +2,7 @@
 
 import { I18nProvider } from '@lingui/react'
 import { setupI18n, type Messages } from '@lingui/core'
-import { Locale } from '@yourbestaccent/i18n/i18n-config'
+import { Locale } from '@template-app/i18n/i18n-config'
 import { ReactNode, useState } from 'react'
 
 type LinguiClientProviderProps = {

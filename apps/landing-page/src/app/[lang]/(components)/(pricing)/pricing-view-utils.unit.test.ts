@@ -5,8 +5,8 @@ import {
   getMonthlyPrice,
   getYearlyPrice,
 } from './pricing-view-utils'
-import { SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
-import { Discounts } from '@yourbestaccent/core/constants/discount-types'
+import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
+import { Discounts } from '@template-app/core/constants/discount-types'
 
 describe('pricing-view-utils', () => {
   const referralDiscountLabel = '{discount}% off with your referral forever!'

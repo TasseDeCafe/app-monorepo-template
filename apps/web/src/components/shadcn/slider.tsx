@@ -1,6 +1,6 @@
 import * as React from 'react'
 import * as SliderPrimitive from '@radix-ui/react-slider'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 const Slider = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Root>,

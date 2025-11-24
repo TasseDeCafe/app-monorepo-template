@@ -6,7 +6,7 @@ import {
   CREATOR_SEARCH_PARAM_NAME,
   EXERCISE_TEXT_SEARCH_PARAM_NAME,
   STUDY_LANGUAGE_SEARCH_PARAM_NAME,
-} from '@yourbestaccent/core/constants/search-params'
+} from '@template-app/core/constants/search-params'
 import { getConfig } from '@/config/environment-config'
 
 const ShareRedirect = () => {

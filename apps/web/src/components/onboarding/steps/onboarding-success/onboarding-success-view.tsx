@@ -6,10 +6,10 @@ import {
   selectHasVoice,
   selectStudyLanguageOrEnglish,
 } from '@/state/slices/account-slice.ts'
-import { DialectCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { VisibleAudioPlayer } from '../../../audio-player/visible-audio-player.tsx'
 
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Skeleton } from '../../../shadcn/skeleton.tsx'
 import { useNavigate } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
@@ -17,11 +17,11 @@ import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { createFilename } from '../../../audio-player/audio-player-utils.ts'
 import { PLAYER_TYPE } from '../../../audio-player/audio-player-types.ts'
 import { WithNavbar } from '../../../navbar/with-navbar.tsx'
-import { GetGenerateAudioData } from '@yourbestaccent/api-client/orpc-contracts/audio-generation-contract.ts'
+import { GetGenerateAudioData } from '@template-app/api-client/orpc-contracts/audio-generation-contract.ts'
 import {
   ONBOARDING_SUCCESS_DEMO_DATA_OBJECTS,
   OnboardingSuccessDemoDataObjects,
-} from '@yourbestaccent/core/constants/onboarding-success-demo-data-objects'
+} from '@template-app/core/constants/onboarding-success-demo-data-objects'
 import { useAudioSpeedOfClonePronunciation } from '@/hooks/api/user-settings/user-settings-hooks'
 import { useGeneratedAudioText } from '@/hooks/api/audio-generation/audio-generation-hooks'
 import { useLingui } from '@lingui/react/macro'

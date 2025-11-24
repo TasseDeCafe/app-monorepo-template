@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { LanguageWithTransliteration, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { LanguageWithTransliteration, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { isLanguageWithTransliteration } from '@yourbestaccent/core/utils/lang-codes-utils'
+import { isLanguageWithTransliteration } from '@template-app/core/utils/lang-codes-utils'
 
 export const useTransliteration = (text: string, studyLanguage: SupportedStudyLanguage) => {
   return useQuery(

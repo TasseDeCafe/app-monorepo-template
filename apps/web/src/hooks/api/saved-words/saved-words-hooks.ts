@@ -1,7 +1,7 @@
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { getConfig } from '@/config/environment-config'
 import { useLingui } from '@lingui/react/macro'
 

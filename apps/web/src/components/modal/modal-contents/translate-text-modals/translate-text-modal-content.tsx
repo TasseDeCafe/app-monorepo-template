@@ -6,7 +6,7 @@ import {
   selectDialectOrDefaultDialectOrEnglishDefaultDialect,
   selectMotherLanguageOrEnglish,
 } from '@/state/slices/account-slice.ts'
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes.ts'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes.ts'
 import { TranslateTextModalContentCommon } from './translate-text-modal-content-common.tsx'
 import { useTranslateText } from '@/hooks/api/translation/translation-hooks'
 

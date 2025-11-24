@@ -4,9 +4,9 @@ import { Keyboard } from 'react-native'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
-import { DialectCode, LangCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
-import { Topic } from '@yourbestaccent/core/constants/topics'
-import { AudioSpeedType } from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+import { DialectCode, LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
+import { Topic } from '@template-app/core/constants/topics'
+import { AudioSpeedType } from '@template-app/api-client/orpc-contracts/user-settings-contract'
 
 export interface IndividualSheetProps {
   [IndividualSheetName.DELETE_ACCOUNT]: undefined

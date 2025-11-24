@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { DialectCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { useSelector } from 'react-redux'
 import {
   selectDialectOrDefaultDialectOrEnglishDefaultDialect,

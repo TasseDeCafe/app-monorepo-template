@@ -1,4 +1,4 @@
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes.ts'
+import { LangCode } from '@template-app/core/constants/lang-codes.ts'
 
 export const isUsingPolishLanguage = (): boolean => {
   const userLanguage = navigator.language

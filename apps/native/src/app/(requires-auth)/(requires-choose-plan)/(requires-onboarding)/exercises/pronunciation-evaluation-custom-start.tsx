@@ -8,7 +8,7 @@ import * as Haptics from 'expo-haptics'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useQueryClient } from '@tanstack/react-query'
-import { DEFAULT_DIALECTS, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DEFAULT_DIALECTS, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { BigCard } from '@/components/ui/big-card'
 import { Button } from '@/components/ui/button'
 import { TextForExercise } from '@/components/exercises/pronunciation-exercise/text-for-exercise'
@@ -32,7 +32,7 @@ import { CustomCircularFlag } from '@/components/ui/custom-circular-flag'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import { useAudioPlayerStore } from '@/stores/audio-player-store'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 // Schema factory function that accepts translated error messages
 const createFormSchema = (tooShortMsg: string, tooLongMsg: string) =>

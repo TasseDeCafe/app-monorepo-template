@@ -10,10 +10,10 @@ import {
   NUMBER_OF_DAYS_IN_FREE_TRIAL,
   PlanInterval,
   SUPPORTED_STRIPE_CURRENCY,
-} from '@yourbestaccent/core/constants/pricing-constants'
-import { LangCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
-import { NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND } from '@yourbestaccent/api-client/key-generation/frontend-api-key-constants'
-import { generateFrontendApiKey } from '@yourbestaccent/api-client/key-generation/frontend-api-key-generator'
+} from '@template-app/core/constants/pricing-constants'
+import { LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
+import { NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND } from '@template-app/api-client/key-generation/frontend-api-key-constants'
+import { generateFrontendApiKey } from '@template-app/api-client/key-generation/frontend-api-key-generator'
 import { __simulateStripeSubscriptionCreatedEvent } from './stripe/stripe-test-utils'
 import { DbInterval } from '../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
 

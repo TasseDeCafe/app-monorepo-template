@@ -4,7 +4,7 @@ import { implement } from '@orpc/server'
 import { createOrpcExpressRouter } from '../orpc/helpers/create-orpc-express-router'
 import { type OrpcContext } from '../orpc/orpc-context'
 import { sql } from '../../transport/database/postgres-client'
-import { healthCheckContract } from '@yourbestaccent/api-client/orpc-contracts/health-check-contract'
+import { healthCheckContract } from '@template-app/api-client/orpc-contracts/health-check-contract'
 
 export const HealthCheckRouter = (): Router => {
   const implementer = implement(healthCheckContract).$context<OrpcContext>()

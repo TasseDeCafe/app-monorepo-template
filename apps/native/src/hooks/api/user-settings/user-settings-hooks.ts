@@ -4,12 +4,12 @@ import {
   AudioSpeedType,
   DEFAULT_WORD_LENGTH,
   UserSettings,
-} from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+} from '@template-app/api-client/orpc-contracts/user-settings-contract'
 import { orpcClient, orpcQuery } from '@/transport/our-backend/orpc-client'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { LangCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { OrpcMutationOverrides } from '@/hooks/api/hook-types'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 export const useUpdateAudioSpeedMutation = () => {

@@ -1,7 +1,7 @@
 import { Copy } from 'lucide-react'
 import discordSvg from '../../../../images/svg/flowbite/discord.svg'
 import { TooltipProvider } from '../../../shadcn/tooltip.tsx'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links.ts'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links.ts'
 import { Button } from '../../../design-system/button.tsx'
 import { toast } from 'sonner'
 

@@ -1,6 +1,6 @@
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode } from '@template-app/core/constants/lang-codes'
 import { LanguageSelectorSheetContent } from './language-selector-sheet-content'
-import { createStudyLanguageFilter } from '@yourbestaccent/i18n/lang-filter-utils'
+import { createStudyLanguageFilter } from '@template-app/i18n/lang-filter-utils'
 import { useLingui } from '@lingui/react/macro'
 import { useMemo } from 'react'
 

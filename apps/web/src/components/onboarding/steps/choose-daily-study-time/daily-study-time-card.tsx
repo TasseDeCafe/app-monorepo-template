@@ -1,4 +1,4 @@
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils.ts'
+import { cn } from '@template-app/core/utils/tailwind-utils.ts'
 
 interface DailyStudyTimeCardProps {
   minutes: number

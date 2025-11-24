@@ -1,5 +1,5 @@
 {
-  "name": "@yourbestaccent/i18n",
+  "name": "@template-app/i18n",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -27,14 +27,14 @@
     "gettext-parser": "catalog:",
     "tsc-alias": "catalog:",
     "typescript": "catalog:",
-    "@yourbestaccent/typescript-config": "workspace:*",
+    "@template-app/typescript-config": "workspace:*",
     "vite": "catalog:",
     "vitest": "catalog:",
     "zod": "catalog:"
   },
   "dependencies": {
     "@lingui/core": "catalog:",
-    "@yourbestaccent/api-client": "workspace:*",
-    "@yourbestaccent/core": "workspace:*"
+    "@template-app/api-client": "workspace:*",
+    "@template-app/core": "workspace:*"
   }
 }

@@ -15,10 +15,10 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
   const { i18n } = await getLinguiInstance(lang)
 
   return {
-    title: i18n._(msg`Contact | YourBestAccent`),
-    description: i18n._(msg`Contact the team behind YourBestAccent. We would love to hear from you!`),
+    title: i18n._(msg`Contact | TemplateApp`),
+    description: i18n._(msg`Contact the team behind TemplateApp. We would love to hear from you!`),
     alternates: {
-      canonical: 'https://www.yourbestaccent.com/contact',
+      canonical: 'https://www.template-app.com/contact',
     },
   }
 }
@@ -48,7 +48,7 @@ const Page = async ({ params }: { params: Promise<LangProps> }) => {
             <div className='mb-8 rounded-lg bg-indigo-50 p-6'>
               <div className='flex items-center'>
                 <Mail className='mr-3 h-6 w-6 text-indigo-600' />
-                <p className='text-xl font-medium text-stone-900'>contact@yourbestaccent.com</p>
+                <p className='text-xl font-medium text-stone-900'>contact@template-app.com</p>
               </div>
               <p className='mt-4 text-stone-700'>
                 <Trans>We typically respond within 1-2 business days. Looking forward to hearing from you!</Trans>
@@ -57,7 +57,7 @@ const Page = async ({ params }: { params: Promise<LangProps> }) => {
 
             <p className='text-lg text-stone-900 sm:text-xl'>
               <Trans>
-                Thank you for your interest in YourBestAccent. Your feedback helps us improve our language learning
+                Thank you for your interest in TemplateApp. Your feedback helps us improve our language learning
                 platform.
               </Trans>
             </p>

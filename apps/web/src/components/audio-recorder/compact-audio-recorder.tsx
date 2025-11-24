@@ -1,4 +1,4 @@
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Loader2, Mic, Square } from 'lucide-react'
 import { ShadcnTooltip } from '../design-system/tooltip.tsx'
 import { Button } from '../design-system/button.tsx'

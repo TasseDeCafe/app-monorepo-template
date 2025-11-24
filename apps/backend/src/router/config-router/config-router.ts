@@ -2,7 +2,7 @@ import { Router } from 'express'
 import { implement } from '@orpc/server'
 import { createOrpcExpressRouter } from '../orpc/helpers/create-orpc-express-router'
 import { type OrpcContext } from '../orpc/orpc-context'
-import { configContract } from '@yourbestaccent/api-client/orpc-contracts/config-contract'
+import { configContract } from '@template-app/api-client/orpc-contracts/config-contract'
 
 const CONFIG = {
   // 1.0.6 - our first ios app version was

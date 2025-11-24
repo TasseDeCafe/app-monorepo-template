@@ -6,7 +6,7 @@ import { AudioPlayerControls } from './components/audio-player-controls'
 import { shareAudioFile } from './audio-utils'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
-import type { AudioSpeedType } from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+import type { AudioSpeedType } from '@template-app/api-client/orpc-contracts/user-settings-contract'
 import colors from 'tailwindcss/colors'
 import {
   useAudioSpeedOfClonePronunciation,

@@ -2,7 +2,7 @@ import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTit
 import { Button } from '../../../shadcn/button.tsx'
 import { useDispatch } from 'react-redux'
 import { modalActions } from '@/state/slices/modal-slice'
-import { MIN_LENGTH_OF_AUDIO_FOR_PRONUNCIATION_EVAlUATION_IN_SECONDS } from '@yourbestaccent/core/constants/pronunciation-evaluation-exercise-constants'
+import { MIN_LENGTH_OF_AUDIO_FOR_PRONUNCIATION_EVAlUATION_IN_SECONDS } from '@template-app/core/constants/pronunciation-evaluation-exercise-constants'
 import { useLingui } from '@lingui/react/macro'
 
 export const AudioTooShortForPronunciationModal = () => {

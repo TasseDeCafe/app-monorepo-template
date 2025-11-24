@@ -9,12 +9,12 @@ const require = createRequire(import.meta.url)
 const linguiLoaderPath = require.resolve('@lingui/loader')
 
 const nextConfig = {
-  allowedDevOrigins: ['http://localhost:3000', '*.yourbestaccent.dev'],
+  allowedDevOrigins: ['http://localhost:3000', '*.template-app.dev'],
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.yourbestaccent.com',
+        hostname: 'www.template-app.com',
       },
     ],
   },
@@ -52,7 +52,7 @@ export default withSentryConfig(nextConfig, {
 
   org: "grammarians",
 
-  project: "yourbestaccent-landing-page",
+  project: "template-app-landing-page",
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,

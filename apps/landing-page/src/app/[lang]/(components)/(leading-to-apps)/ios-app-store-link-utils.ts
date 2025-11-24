@@ -1,4 +1,4 @@
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 
 export const __buildIosAppStoreLink = (
   referral: string,

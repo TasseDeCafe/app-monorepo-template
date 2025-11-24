@@ -26,7 +26,7 @@ export const NavBar = () => {
                   <span className='absolute -top-2 left-[26px] font-nunito text-xs text-indigo-600'>{t`beta`}</span>
                 </div>
                 <span className='hidden items-center justify-end gap-x-3 text-base font-semibold text-slate-800 md:flex'>
-                  YourBestAccent
+                  TemplateApp
                 </span>
               </div>
             </Link>

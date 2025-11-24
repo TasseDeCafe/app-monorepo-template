@@ -1,7 +1,7 @@
 import { Pressable, Text, View } from 'react-native'
-import { DialectCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode } from '@template-app/core/constants/lang-codes'
 import { CustomCircularFlag } from './custom-circular-flag'
-import { dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 type DialectCardProps = {

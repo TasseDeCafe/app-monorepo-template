@@ -1,4 +1,4 @@
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { HTMLAttributes } from 'react'
 
 const Skeleton = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {

@@ -1,4 +1,4 @@
-import { ALLOWED_REFERRALS } from '@yourbestaccent/core/constants/referral-constants'
+import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants'
 export const processReferral = (referral: string | null | undefined): string | null => {
   if (!referral) {
     return null

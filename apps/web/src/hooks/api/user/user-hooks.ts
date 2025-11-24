@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { NicknameValidationSchema } from '@yourbestaccent/api-client/orpc-contracts/user-contract'
+import { NicknameValidationSchema } from '@template-app/api-client/orpc-contracts/user-contract'
 import { useDispatch } from 'react-redux'
 import { accountActions } from '@/state/slices/account-slice'
 import type { OrpcMutationOverrides } from '@/hooks/api/hook-types'

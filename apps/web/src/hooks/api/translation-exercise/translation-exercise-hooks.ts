@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { LangCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { useLingui } from '@lingui/react/macro'
 
 export const useTranslationExercise = (id: string | undefined) => {

@@ -4,7 +4,7 @@ import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
 import { useCallback, useMemo } from 'react'
 import { getConfig } from '@/config/environment-config'
 import { LanguageFilterValue } from '@/components/progress/tabs/stats-tab/stats-subtabs/learned-words/language-filter'
-import { UserWordsData, WordsInLanguageCounter } from '@yourbestaccent/api-client/orpc-contracts/words-contract'
+import { UserWordsData, WordsInLanguageCounter } from '@template-app/api-client/orpc-contracts/words-contract'
 import { useLingui } from '@lingui/react/macro'
 
 export const useGetLearnedWords = (languageFilter: LanguageFilterValue) => {

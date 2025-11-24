@@ -1,6 +1,6 @@
 import { useAuthStore } from '@/stores/auth-store'
-import { SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
-import { POLISH_LOCALE } from '@yourbestaccent/i18n/i18n-config'
+import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
+import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useLocaleStore } from '@/stores/locale-store'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 

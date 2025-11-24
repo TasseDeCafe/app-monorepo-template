@@ -1,4 +1,4 @@
-import { LangCode, SUPPORTED_STUDY_LANGUAGES } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode, SUPPORTED_STUDY_LANGUAGES } from '@template-app/core/constants/lang-codes'
 import { useState } from 'react'
 import { ListRenderItemInfo, Pressable, Text, View } from 'react-native'
 import { BottomSheetFlatList, BottomSheetTextInput } from '@gorhom/bottom-sheet'
@@ -8,7 +8,7 @@ import * as Haptics from 'expo-haptics'
 import { CustomCircularFlag } from '@/components/ui/custom-circular-flag'
 import colors from 'tailwindcss/colors'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export type LeaderboardLanguageFilterValue = LangCode | undefined
 

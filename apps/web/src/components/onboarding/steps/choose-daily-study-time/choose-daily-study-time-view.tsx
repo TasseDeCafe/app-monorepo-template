@@ -1,4 +1,4 @@
-import { DAILY_STUDY_TIME_ONBOARDING_OPTIONS } from '@yourbestaccent/core/constants/daily-study-constants'
+import { DAILY_STUDY_TIME_ONBOARDING_OPTIONS } from '@template-app/core/constants/daily-study-constants'
 import { useEffect, useState } from 'react'
 import { NavigationButton } from '../navigation-button.tsx'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'

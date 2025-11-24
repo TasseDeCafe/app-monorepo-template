@@ -1,9 +1,9 @@
 // TODO: most of this code should be shared,
 // but first, we need to finish the migration to ts-rest
-import { STREAK_BADGE_THRESHOLDS } from '@yourbestaccent/core/constants/badges-constants'
+import { STREAK_BADGE_THRESHOLDS } from '@template-app/core/constants/badges-constants'
 import { useMemo } from 'react'
 import { useGetUser } from '@/hooks/api/user/user-hooks'
-import { UserWordsData } from '@yourbestaccent/api-client/orpc-contracts/words-contract'
+import { UserWordsData } from '@template-app/api-client/orpc-contracts/words-contract'
 
 export const __calculateCurrentStreak = (data: UserWordsData | undefined): number => {
   if (!data || !data.learnedWordsByDay.length) {

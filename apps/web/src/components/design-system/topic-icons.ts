@@ -26,7 +26,7 @@ import {
   Users2,
   Mail,
 } from 'lucide-react'
-import { Topic } from '@yourbestaccent/core/constants/topics.ts'
+import { Topic } from '@template-app/core/constants/topics.ts'
 
 type TopicIcon = {
   type: 'lucide' | 'emoji'

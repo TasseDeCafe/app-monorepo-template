@@ -1,6 +1,6 @@
 import colors from 'tailwindcss/colors'
 import { Pressable, Text, View } from 'react-native'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { ChevronRight } from 'lucide-react-native'
 import { ReactNode } from 'react'
 

@@ -1,6 +1,6 @@
 set -e
 
-PROCESS_NAME="yourbestaccent.com"
+PROCESS_NAME="template-app.com"
 CONFIG_PATH="ecosystem.config.cjs"
 
 export NODE_ENV=production

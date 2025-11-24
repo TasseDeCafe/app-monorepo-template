@@ -17,11 +17,11 @@ import { setI18n } from '@lingui/react/server'
 const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'YourBestAccent - Master Your Pronunciation',
+  title: 'TemplateApp - Master Your Pronunciation',
   description:
     'Master your accent and pronunciation in any language with AI-powered voice cloning technology. Practice with your own voice and achieve native-like pronunciation.',
   alternates: {
-    canonical: 'https://www.yourbestaccent.com',
+    canonical: 'https://www.template-app.com',
   },
 }
 

@@ -6,7 +6,7 @@ import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { SquaresLoader } from '@/components/loader/squares-loader'
 import { SavedWordsTable } from './saved-words-table.tsx'
 import { LanguageFilter, LanguageFilterValue } from '../learned-words/language-filter.tsx'
-import { SUPPORTED_STUDY_LANGUAGES } from '@yourbestaccent/core/constants/lang-codes'
+import { SUPPORTED_STUDY_LANGUAGES } from '@template-app/core/constants/lang-codes'
 import { getSavedWordsInfiniteKey, useSavedWordsInfiniteQuery } from '@/hooks/api/saved-words/saved-words-hooks'
 
 export const SavedWordsSubTab = () => {

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { FlatList, Pressable, Text, View } from 'react-native'
-import { DialectCode, LANGUAGES_TO_DIALECT_MAP } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LANGUAGES_TO_DIALECT_MAP } from '@template-app/core/constants/lang-codes'
 import { useGetUser, usePatchStudyDialect } from '@/hooks/api/user/user-hooks'
 import { Check } from 'lucide-react-native'
-import { dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 export default function DialectScreen() {

@@ -13,7 +13,7 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
   const { i18n } = await getLinguiInstance(lang)
 
   return {
-    title: i18n._(msg`Download YourBestAccent - YourBestAccent - Perfect Your Accent with AI Voice Training`),
+    title: i18n._(msg`Download TemplateApp - TemplateApp - Perfect Your Accent with AI Voice Training`),
     description: i18n._(msg`Download our mobile app to start perfecting your accent with AI voice training`),
     metadataBase: new URL(getConfig().landingPageUrl),
   }

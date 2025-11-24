@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import { AVAILABLE_TOPICS, Topic } from '@yourbestaccent/core/constants/topics'
+import { AVAILABLE_TOPICS, Topic } from '@template-app/core/constants/topics'
 import { Button } from '@/components/ui/button'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { TopicCard } from '@/components/ui/topic-card'

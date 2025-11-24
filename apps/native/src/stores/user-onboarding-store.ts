@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { LangCode, SupportedStudyLanguage, DialectCode } from '@yourbestaccent/core/constants/lang-codes'
-import { Topic } from '@yourbestaccent/core/constants/topics'
+import { LangCode, SupportedStudyLanguage, DialectCode } from '@template-app/core/constants/lang-codes'
+import { Topic } from '@template-app/core/constants/topics'
 
 // todo onboarding: try to remove this store completely and use react query instead
 // Note that we used to use react query here, but our onboarding flow was buggy, for instance:

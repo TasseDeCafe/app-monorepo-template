@@ -1,5 +1,5 @@
 import { ChangeEvent, forwardRef, useEffect, useImperativeHandle, useRef } from 'react'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 interface TextareaProps {
   value: string

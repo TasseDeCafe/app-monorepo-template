@@ -1,7 +1,7 @@
-import { DialectCode } from '@yourbestaccent/core/constants/lang-codes'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { DialectCode } from '@template-app/core/constants/lang-codes'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
-import { dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 type Props = {

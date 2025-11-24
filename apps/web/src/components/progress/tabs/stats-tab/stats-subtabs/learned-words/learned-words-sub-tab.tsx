@@ -10,7 +10,7 @@ import { POSTHOG_EVENTS } from '../../../../../../analytics/posthog/posthog-even
 import { SquaresLoader } from '../../../../../loader/squares-loader.tsx'
 import { LanguageCountersPieChart } from './language-counters-pie-chart.tsx'
 import { LanguageFilter, LanguageFilterValue } from './language-filter.tsx'
-import { SUPPORTED_STUDY_LANGUAGES } from '@yourbestaccent/core/constants/lang-codes'
+import { SUPPORTED_STUDY_LANGUAGES } from '@template-app/core/constants/lang-codes'
 import {
   useGetLearnedWords,
   useGetNumberOfLanguagesLearned,

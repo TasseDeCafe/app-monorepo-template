@@ -1,7 +1,7 @@
 'use server'
 
 import React from 'react'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { Metadata } from 'next'
 import { Trans } from '@lingui/react/macro'
 import { setI18n } from '@lingui/react/server'
@@ -15,12 +15,12 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
   const { i18n } = await getLinguiInstance(lang)
 
   return {
-    title: i18n._(msg`About | YourBestAccent`),
+    title: i18n._(msg`About | TemplateApp`),
     description: i18n._(
-      msg`the creators of yourbestaccent.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app.`
+      msg`the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app.`
     ),
     alternates: {
-      canonical: 'https://www.yourbestaccent.com/about',
+      canonical: 'https://www.template-app.com/about',
     },
   }
 }
@@ -42,7 +42,7 @@ const Page = async ({ params }: { params: Promise<LangProps> }) => {
             </h1>
             <p className='mb-8 text-lg text-stone-900 sm:text-xl'>
               <Trans>
-                Hey there! It&apos;s Kamil and Sébastien here, the creators of yourbestaccent.com. We&apos;ve been
+                Hey there! It&apos;s Kamil and Sébastien here, the creators of template-app.com. We&apos;ve been
                 pouring our hearts into developing the beta version of the app and your feedback is crucial for us.
                 We&apos;re excited to roll out new features soon, and we&apos;re always looking for ways to improve the
                 app.

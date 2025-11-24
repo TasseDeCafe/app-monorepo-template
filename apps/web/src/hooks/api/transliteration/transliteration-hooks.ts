@@ -1,8 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
 import { orpcClient, orpcQuery } from '@/transport/our-backend/orpc-client'
-import { LanguageWithTransliteration, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
-import { isLanguageWithTransliteration } from '@yourbestaccent/core/utils/lang-codes-utils'
+import { LanguageWithTransliteration, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
+import { isLanguageWithTransliteration } from '@template-app/core/utils/lang-codes-utils'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { useLingui } from '@lingui/react/macro'
 

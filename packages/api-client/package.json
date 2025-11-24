@@ -1,5 +1,5 @@
 {
-  "name": "@yourbestaccent/api-client",
+  "name": "@template-app/api-client",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -14,13 +14,13 @@
   },
   "dependencies": {
     "@orpc/contract": "catalog:",
-    "@yourbestaccent/core": "workspace:*",
+    "@template-app/core": "workspace:*",
     "vitest": "catalog:",
     "zod": "catalog:",
     "naughty-words": "catalog:"
   },
   "devDependencies": {
-    "@yourbestaccent/typescript-config": "workspace:*",
+    "@template-app/typescript-config": "workspace:*",
     "@types/naughty-words": "catalog:",
     "typescript": "catalog:",
     "tsc-alias": "catalog:"

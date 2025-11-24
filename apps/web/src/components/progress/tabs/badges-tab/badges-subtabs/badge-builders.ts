@@ -7,7 +7,7 @@ import {
   WORD_COUNT_BADGE_THRESHOLDS,
   WORD_COUNT_BADGE_TITLES,
   STREAK_BADGE_TITLES,
-} from '@yourbestaccent/core/constants/badges-constants'
+} from '@template-app/core/constants/badges-constants'
 
 export const createStreakBadges = (currentStreak: number, longestStreak: number): BadgeData[] => {
   return STREAK_BADGE_THRESHOLDS.map((threshold) => ({

@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity } from 'react-native'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 interface DailyStudyTimeCardProps {
   minutes: number

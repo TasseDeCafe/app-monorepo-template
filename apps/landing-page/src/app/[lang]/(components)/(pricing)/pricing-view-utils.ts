@@ -4,9 +4,9 @@ import {
   STRIPE_YEARLY_PRICE_IN_EUR,
   STRIPE_YEARLY_PRICE_IN_PLN,
   SUPPORTED_STRIPE_CURRENCY,
-} from '@yourbestaccent/core/constants/pricing-constants'
-import { ALLOWED_REFERRALS } from '@yourbestaccent/core/constants/referral-constants'
-import { Discounts } from '@yourbestaccent/core/constants/discount-types'
+} from '@template-app/core/constants/pricing-constants'
+import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants'
+import { Discounts } from '@template-app/core/constants/discount-types'
 
 export const getMonthlyPrice = (discounts: Discounts, currency: SUPPORTED_STRIPE_CURRENCY): number => {
   const basePrice =

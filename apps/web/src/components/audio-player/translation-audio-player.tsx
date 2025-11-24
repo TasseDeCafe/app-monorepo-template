@@ -5,7 +5,7 @@ import {
   selectHasVoice,
   selectStudyLanguageOrEnglish,
 } from '@/state/slices/account-slice'
-import { DialectCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { sanitizeTextForFileName } from './audio-player-utils'
 import { useAudioPlayer } from './hooks/use-audio-player'
 import { AudioPlayerControls } from './components/audio-player-controls'

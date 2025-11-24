@@ -15,7 +15,7 @@ export default defineConfig({
     tsconfigPaths(),
     sentryVitePlugin({
       org: 'grammarians',
-      project: 'yourbestaccent-web',
+      project: 'template-app-web',
       authToken: process.env.SENTRY_AUTH_TOKEN,
       sourcemaps: {
         filesToDeleteAfterUpload: ['**/*.js.map'],
@@ -29,7 +29,7 @@ export default defineConfig({
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   server: {
-    // Necessary to make sure that yourbestaccent.dev is allowed
+    // Necessary to make sure that template-app.dev is allowed
     // when false, only localhost is allowed
     allowedHosts: true,
   },

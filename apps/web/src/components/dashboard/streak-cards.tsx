@@ -1,6 +1,6 @@
 import { CircleHelp, Zap } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/popover.tsx'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import {
   useCurrentStreakFromXp,
   useGetNumberOfDaysOfNextStreakBadgeFromXp,

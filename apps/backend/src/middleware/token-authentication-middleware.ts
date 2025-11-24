@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { NextFunction, Request, Response } from 'express'
 import { getConfig } from '../config/environment-config'
-import { ERROR_CODE_FOR_INVALID_TOKEN } from '@yourbestaccent/api-client/key-generation/frontend-api-key-constants'
+import { ERROR_CODE_FOR_INVALID_TOKEN } from '@template-app/api-client/key-generation/frontend-api-key-constants'
 import { ORPCError } from '@orpc/server'
 import { setRequestContext } from '../context/request-context'
 

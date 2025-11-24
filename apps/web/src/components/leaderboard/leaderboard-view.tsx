@@ -1,6 +1,6 @@
 import { BigCard } from '../design-system/big-card'
 import { TrendingUp, Trophy } from 'lucide-react'
-import { SUPPORTED_STUDY_LANGUAGES } from '@yourbestaccent/core/constants/lang-codes'
+import { SUPPORTED_STUDY_LANGUAGES } from '@template-app/core/constants/lang-codes'
 import { useState } from 'react'
 import {
   LanguageFilter,
@@ -10,7 +10,7 @@ import { TimePeriodFilter, TimePeriodFilterValue } from './time-period-filter'
 import { FullViewSquaresLoader } from '../loader/full-view-squares-loader.tsx'
 import { WithNavbar } from '../navbar/with-navbar.tsx'
 import { useUserNickname } from '@/hooks/api/user/user-hooks'
-import { LeaderboardEntry } from '@yourbestaccent/api-client/orpc-contracts/leaderboard-contract'
+import { LeaderboardEntry } from '@template-app/api-client/orpc-contracts/leaderboard-contract'
 import { useGetLeaderboard } from '@/hooks/api/leaderboard/leaderboard-hooks'
 import { useLingui } from '@lingui/react/macro'
 

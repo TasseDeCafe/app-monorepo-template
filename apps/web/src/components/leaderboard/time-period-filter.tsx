@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Check, ChevronDown, Calendar, Clock } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/popover.tsx'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Command, CommandGroup, CommandItem, CommandList } from '../shadcn/command.tsx'
 import { Button } from '../design-system/button.tsx'
-import { TimePeriodKey } from '@yourbestaccent/api-client/orpc-contracts/leaderboard-contract'
+import { TimePeriodKey } from '@template-app/api-client/orpc-contracts/leaderboard-contract'
 import { useLingui } from '@lingui/react/macro'
 
 export type TimePeriodFilterValue = TimePeriodKey

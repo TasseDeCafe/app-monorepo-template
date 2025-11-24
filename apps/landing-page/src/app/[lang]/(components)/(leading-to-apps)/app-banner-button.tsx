@@ -2,8 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 import { Button } from '@/design-system/button'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
-import { isAndroid } from '@yourbestaccent/core/utils/browser-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
+import { isAndroid } from '@template-app/core/utils/browser-utils'
 import { buildIosAppStoreLink } from '@/app/[lang]/(components)/(leading-to-apps)/ios-app-store-link-utils'
 import { buildAndroidPlayStoreLink } from '@/app/[lang]/(components)/(leading-to-apps)/google-play-store-link-utils'
 

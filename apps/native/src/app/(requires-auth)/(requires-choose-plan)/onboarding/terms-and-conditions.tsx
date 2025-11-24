@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Linking, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { ArrowLeft, HelpCircle } from 'lucide-react-native'
 import { OnboardingLayout } from '@/components/ui/onboarding-layout'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useUpdateMarketingPreferences } from '@/hooks/api/user-marketing-preferences/user-marketing-preferences-hooks'
 import { BigCard } from '@/components/ui/big-card'
@@ -132,7 +132,7 @@ export default function TermsConditionsView() {
               </View>
               <View className='flex-1'>
                 <Text className='text-base text-gray-600'>
-                  {t`I consent to having my voice cloned for personalized learning experiences within YourBestAccent.com, and I agree to the`}{' '}
+                  {t`I consent to having my voice cloned for personalized learning experiences within TemplateApp.com, and I agree to the`}{' '}
                   <Text className='text-indigo-600' onPress={openTermsOfService}>
                     {t`Terms of Service`}
                   </Text>{' '}

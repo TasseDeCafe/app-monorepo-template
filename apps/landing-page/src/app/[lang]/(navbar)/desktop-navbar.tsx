@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { LangProps } from '@/types/lang-props'
 import { Trans } from '@lingui/react/macro'
 import { DiscordIcon } from '@/app/[lang]/(navbar)/discord-icon'
@@ -13,7 +13,7 @@ const DesktopNavbar = ({ lang }: LangProps) => {
   return (
     <>
       <Link href={`/${lang}`} className='relative flex flex-row items-center'>
-        <Image src='/images/logo-full.svg' alt='YourBestAccent logo' width={33} height={33} priority />
+        <Image src='/images/logo-full.svg' alt='TemplateApp logo' width={33} height={33} priority />
         <div className='font-nunito ml-1 hidden flex-col items-center font-semibold text-indigo-600 md:flex'>
           <span className='text-xl leading-4'>YourBest</span>
           <span className='text-xl leading-4'>Accent</span>

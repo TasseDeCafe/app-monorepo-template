@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import { View } from 'react-native'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 interface BigCardProps {
   children: ReactNode

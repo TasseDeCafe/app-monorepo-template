@@ -9,7 +9,7 @@ import {
   AGREED_TO_ALL_COOKIE,
   AGREED_TO_ESSENTIALS_ONLY_COOKIE,
   COOKIE_EXPIRATION_TIME_IN_SECONDS,
-} from '@yourbestaccent/core/constants/cookie-constants'
+} from '@template-app/core/constants/cookie-constants'
 import { COOKIE_CONSENT_EVENT_NAME } from '@/constants/document-event-names'
 
 import { ReactNode } from 'react'

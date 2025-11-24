@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
 

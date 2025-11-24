@@ -2,10 +2,10 @@ import { useMemo } from 'react'
 import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../../../../shadcn/table.tsx'
 import { LanguageFilterValue } from './language-filter.tsx'
-import { CorrectUserPronunciation } from '@yourbestaccent/api-client/orpc-contracts/words-contract'
+import { CorrectUserPronunciation } from '@template-app/api-client/orpc-contracts/words-contract'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 const columnHelper = createColumnHelper<CorrectUserPronunciation>()
 

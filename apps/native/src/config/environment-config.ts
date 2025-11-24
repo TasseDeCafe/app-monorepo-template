@@ -8,7 +8,7 @@ export type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  frontendUrl: 'https://app.yourbestaccent.com',
+  frontendUrl: 'https://app.template-app.com',
   apiHost: env.EXPO_PUBLIC_API_HOST,
   supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL,
   supabaseProjectKey: env.EXPO_PUBLIC_SUPABASE_PROJECT_KEY,

@@ -5,8 +5,8 @@ import { FullViewSquaresLoader } from '../../loader/full-view-squares-loader.tsx
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { getConfig } from '@/config/environment-config.ts'
 import { shouldShowPaywall } from '@/components/auth/payment/require-credit-card-route.utils.ts'
-import { SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
-import { POLISH_LOCALE } from '@yourbestaccent/i18n/i18n-config'
+import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
+import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { getBrowserLocale } from '@/i18n/i18n'
 

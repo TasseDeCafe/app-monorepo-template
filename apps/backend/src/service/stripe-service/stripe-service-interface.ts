@@ -1,5 +1,5 @@
 import { StripeCustomerId } from '../../transport/third-party/stripe/stripe-api'
-import { PlanInterval, SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
+import { PlanInterval, SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 
 export interface StripeServiceInterface {
   createCheckoutSession: (

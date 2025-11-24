@@ -1,5 +1,5 @@
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { CircleFlag, CircleFlagLanguage } from 'react-circle-flags'
 
 type FlagProps = {

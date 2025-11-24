@@ -1,15 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import {
   DEFAULT_AUDIO_SPEED,
   DEFAULT_POSITION_IN_FREQUENCY_LIST,
   DEFAULT_WORD_LENGTH,
-} from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+} from '@template-app/api-client/orpc-contracts/user-settings-contract'
 import { useSelector } from 'react-redux'
 import { selectIsSignedIn } from '@/state/slices/account-slice'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 export const useUpdateAudioSpeedMutation = () => {

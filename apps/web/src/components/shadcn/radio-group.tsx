@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { CheckIcon } from 'lucide-react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,

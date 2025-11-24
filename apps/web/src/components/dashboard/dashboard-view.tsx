@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { AudioLines, FileAudio, Languages, MessageSquareMoreIcon, Mic } from 'lucide-react'
 import { StreakProgressBar } from './streak-progress-bar.tsx'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links.ts'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links.ts'
 import { ExercisesList } from './exercises-list.tsx'
 import { MobileStreakCard } from './mobile-streak-card.tsx'
 import { MobileStreakProgressBar } from './mobile-streak-progress-bar.tsx'
@@ -17,7 +17,7 @@ import { getConfig } from '@/config/environment-config.ts'
 import { WithNavbar } from '../navbar/with-navbar.tsx'
 import { checkIsTestUser } from '@/utils/test-users-utils'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 const DashboardDesktop = () => {
   const { t, i18n } = useLingui()

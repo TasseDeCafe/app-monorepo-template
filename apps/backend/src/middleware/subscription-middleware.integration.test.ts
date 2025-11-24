@@ -1,6 +1,6 @@
 import { afterAll, beforeEach, describe, expect, test } from 'vitest'
 import request from 'supertest'
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
 import { buildApp } from '../app'
 import {
   __createOrGetUserWithOurApi,

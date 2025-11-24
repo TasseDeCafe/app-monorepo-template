@@ -3,7 +3,7 @@
 import { getConfig } from '@/config/environment-config'
 import { AppBannerButton } from '@/app/[lang]/(components)/(leading-to-apps)/app-banner-button'
 import Image from 'next/image'
-import { isAndroid } from '@yourbestaccent/core/utils/browser-utils'
+import { isAndroid } from '@template-app/core/utils/browser-utils'
 
 import { ReactNode } from 'react'
 
@@ -28,7 +28,7 @@ export const AppBanner = ({ appName, category, purchases }: AppBannerProps) => {
     <div className='relative z-50 flex w-full items-center border-b border-gray-200 bg-white px-4 py-2 sm:hidden'>
       <div className='flex flex-1 items-center space-x-3'>
         <div className='flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl border border-gray-200 bg-gray-50'>
-          <Image src='/images/logo-full.svg' alt='YourBestAccent logo' width={40} height={40} priority />
+          <Image src='/images/logo-full.svg' alt='TemplateApp logo' width={40} height={40} priority />
         </div>
         <div className='flex-1'>
           <p className='text-base font-medium text-gray-900'>{appName}</p>

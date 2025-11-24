@@ -5,13 +5,13 @@ import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 import { ArrowLeft } from 'lucide-react-native'
 import { OnboardingLayout } from '@/components/ui/onboarding-layout'
-import { AVAILABLE_TOPICS, Topic } from '@yourbestaccent/core/constants/topics'
+import { AVAILABLE_TOPICS, Topic } from '@template-app/core/constants/topics'
 import colors from 'tailwindcss/colors'
-import { withOpacity } from '@yourbestaccent/core/utils/tailwind-utils'
+import { withOpacity } from '@template-app/core/utils/tailwind-utils'
 import { usePatchTopics } from '@/hooks/api/user/user-hooks'
 import { TopicCard } from '@/components/ui/topic-card'
 import { useUserOnboardingStore } from '@/stores/user-onboarding-store'
-import { LANGUAGES_WITH_MULTIPLE_DIALECTS, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { LANGUAGES_WITH_MULTIPLE_DIALECTS, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import {
   useOnboardingNavigationCleanup,
   useRedirectToNextOnboardingStep,

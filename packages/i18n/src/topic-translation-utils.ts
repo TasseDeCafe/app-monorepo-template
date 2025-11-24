@@ -1,6 +1,6 @@
 import { msg } from '@lingui/core/macro'
 import type { MessageDescriptor } from '@lingui/core'
-import { Topic } from '@yourbestaccent/core/constants/topics'
+import { Topic } from '@template-app/core/constants/topics'
 export const topicMessages: Record<Topic, MessageDescriptor> = {
   greetings: msg`Greetings`,
   intro: msg`Introductions`,

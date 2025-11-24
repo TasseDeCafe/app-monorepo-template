@@ -1,5 +1,5 @@
 import { ROUTE_PATHS } from '@/constants/route-paths'
-import { LANGUAGES_WITH_MULTIPLE_DIALECTS } from '@yourbestaccent/core/constants/lang-codes'
+import { LANGUAGES_WITH_MULTIPLE_DIALECTS } from '@template-app/core/constants/lang-codes'
 import { useUserOnboardingStore } from '@/stores/user-onboarding-store'
 import { Route } from 'expo-router'
 

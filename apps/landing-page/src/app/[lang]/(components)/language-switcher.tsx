@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
 import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode } from '@template-app/core/constants/lang-codes'
 
 const LanguageSwitcher = () => {
   const pathname = usePathname()

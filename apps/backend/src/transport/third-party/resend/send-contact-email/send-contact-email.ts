@@ -12,8 +12,8 @@ export const sendContactEmail = async (
   try {
     const nameDisplay = username ? `<p><strong>Name:</strong> ${username}</p>` : ''
     await resend.emails.send({
-      from: 'Your Best Accent <support@yourbestaccent.com>',
-      to: ['support@yourbestaccent.com'],
+      from: 'Your Best Accent <support@template-app.com>',
+      to: ['support@template-app.com'],
       replyTo: [email],
       subject: 'New message from your contact form',
       html: `

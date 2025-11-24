@@ -6,9 +6,9 @@ import { selectAccountAccessToken } from '@/state/slices/account-slice'
 import { useState } from 'react'
 
 import { AudioSpeedType } from '../../audio-player-types.ts'
-import { UserSettings } from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract.ts'
+import { UserSettings } from '@template-app/api-client/orpc-contracts/user-settings-contract.ts'
 import { useUpdateAudioSpeedMutation, useUserSettings } from '@/hooks/api/user-settings/user-settings-hooks'
-import { MAX_AUDIO_SPEED, MIN_AUDIO_SPEED } from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+import { MAX_AUDIO_SPEED, MIN_AUDIO_SPEED } from '@template-app/api-client/orpc-contracts/user-settings-contract'
 
 type SpeedControlProps = {
   currentSpeed: number

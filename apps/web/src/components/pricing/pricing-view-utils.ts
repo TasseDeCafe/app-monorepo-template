@@ -5,9 +5,9 @@ import {
   STRIPE_YEARLY_PRICE_IN_EUR,
   STRIPE_YEARLY_PRICE_IN_PLN,
   SUPPORTED_STRIPE_CURRENCY,
-} from '@yourbestaccent/core/constants/pricing-constants.ts'
-import { POLISH_LOCALE } from '@yourbestaccent/i18n/i18n-config.ts'
-import { PlanType, UserStripePricingDetails } from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+} from '@template-app/core/constants/pricing-constants.ts'
+import { POLISH_LOCALE } from '@template-app/i18n/i18n-config.ts'
+import { PlanType, UserStripePricingDetails } from '@template-app/api-client/orpc-contracts/billing-contract'
 import { t } from '@lingui/core/macro'
 import { getBrowserLocale } from '@/i18n/i18n'
 

@@ -10,7 +10,7 @@ import { WithNavbar } from '../../../navbar/with-navbar'
 import { SquaresLoader } from '../../../loader/squares-loader'
 import { useRetrievePronunciationEvaluationExerciseHistory } from '@/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export const HistoryTab = () => {
   const { t, i18n } = useLingui()

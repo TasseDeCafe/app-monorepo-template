@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import { initializePosthog } from '@/analytics/posthog/posthog-initializer'
 import { COOKIE_CONSENT_EVENT_NAME } from '@/constants/document-event-names'
-import { AGREED_TO_ALL_COOKIE } from '@yourbestaccent/core/constants/cookie-constants'
+import { AGREED_TO_ALL_COOKIE } from '@template-app/core/constants/cookie-constants'
 import { initializeOurAnalytics } from '@/analytics/our-analytics/our-analytics-initializer'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 

@@ -8,7 +8,7 @@ import {
   SUPPORTED_STUDY_LANGUAGES,
   SupportedMotherLanguage,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { useEffect, useMemo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
@@ -41,14 +41,14 @@ import { IpaToggle } from '@/components/exercises/pronunciation-evaluation-exerc
 import { TransliterationToggle } from '@/components/exercises/pronunciation-evaluation-exercise/controls/atoms/transliteration-toggle.tsx'
 import { CefrLevelSelector } from '@/components/exercises/pronunciation-evaluation-exercise/controls/atoms/cefr-level-selector/cefr-level-selector.tsx'
 import { DailyStudyMinutesSettings } from './daily-study-minutes-settings.tsx'
-import { UserSettings } from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract.ts'
-import { MIN_DAILY_STUDY_MINUTES, MAX_DAILY_STUDY_MINUTES } from '@yourbestaccent/core/constants/daily-study-constants'
+import { UserSettings } from '@template-app/api-client/orpc-contracts/user-settings-contract.ts'
+import { MIN_DAILY_STUDY_MINUTES, MAX_DAILY_STUDY_MINUTES } from '@template-app/core/constants/daily-study-constants'
 import {
   useFrequencySliderPosition,
   useUpdateFrequencyListPositionMutation,
   useUserSettings,
 } from '@/hooks/api/user-settings/user-settings-hooks'
-import { MAX_NUMBER_OF_WORDS_IN_FREQUENCY_LIST } from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+import { MAX_NUMBER_OF_WORDS_IN_FREQUENCY_LIST } from '@template-app/api-client/orpc-contracts/user-settings-contract'
 import { useLingui } from '@lingui/react/macro'
 
 type FormInputs = {

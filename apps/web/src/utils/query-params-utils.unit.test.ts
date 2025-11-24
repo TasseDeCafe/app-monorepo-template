@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { generateQueryString } from './query-params-utils.ts'
-import { GetCorrectUserPronunciationsRequest } from '@yourbestaccent/api-client/orpc-contracts/words-contract'
+import { GetCorrectUserPronunciationsRequest } from '@template-app/api-client/orpc-contracts/words-contract'
 
 describe('generateQueryString', () => {
   it('should generate a query string with all parameters', () => {

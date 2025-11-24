@@ -94,7 +94,7 @@ double_confirm_changes = true
 enable_confirmations = false
 
 [auth.email.template.magic_link]
-subject = "YourBestAccent.com Sign In Link"
+subject = "TemplateApp.com Sign In Link"
 content_path = "./supabase/templates/magic-link-verification.html"
 
 # Uncomment to customize email template

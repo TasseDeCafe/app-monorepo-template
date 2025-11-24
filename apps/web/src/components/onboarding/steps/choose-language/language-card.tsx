@@ -1,7 +1,7 @@
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { LangCode } from '@template-app/core/constants/lang-codes'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 type LanguageCardProps = {

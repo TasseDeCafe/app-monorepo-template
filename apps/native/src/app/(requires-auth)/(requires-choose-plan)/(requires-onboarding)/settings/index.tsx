@@ -7,7 +7,7 @@ import {
   usePatchStudyLanguageAndDialect,
   usePatchTopics,
 } from '@/hooks/api/user/user-hooks'
-import { getCurrentLevel } from '@yourbestaccent/core/utils/cefr-level-selector-utils'
+import { getCurrentLevel } from '@template-app/core/utils/cefr-level-selector-utils'
 import { SettingsItem } from '@/components/ui/settings-item'
 import { ToggleSettingsItem } from '@/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
@@ -17,7 +17,7 @@ import {
   LangCode,
   LANGUAGES_TO_DIALECT_MAP,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import * as Haptics from 'expo-haptics'
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
 import React, { useState } from 'react'
@@ -26,8 +26,8 @@ import cloneDeep from 'lodash.clonedeep'
 import { CircleHelp } from 'lucide-react-native'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import colors from 'tailwindcss/colors'
-import { Topic } from '@yourbestaccent/core/constants/topics'
-import { topicMessages } from '@yourbestaccent/i18n/topic-translation-utils'
+import { Topic } from '@template-app/core/constants/topics'
+import { topicMessages } from '@template-app/i18n/topic-translation-utils'
 import { CustomCircularFlag } from '@/components/ui/custom-circular-flag'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import {
@@ -36,9 +36,9 @@ import {
   useUpdateSettings,
 } from '@/hooks/api/user-settings/user-settings-hooks'
 import { usePreferencesStore } from '@/stores/preferences-store'
-import { isLanguageWithTransliteration } from '@yourbestaccent/core/utils/lang-codes-utils'
+import { isLanguageWithTransliteration } from '@template-app/core/utils/lang-codes-utils'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages, dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages, dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export default function SettingsScreen() {
   const { t, i18n } = useLingui()

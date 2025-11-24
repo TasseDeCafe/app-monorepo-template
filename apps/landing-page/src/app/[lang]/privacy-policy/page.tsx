@@ -24,7 +24,7 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
         </h1>
         <p className='text-xl font-light'>
           <Trans>
-            Welcome to YourBestAccent.com. We are committed to protecting your privacy. This Privacy Policy outlines how
+            Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how
             we collect, handle, store, and safeguard your personal data as you interact with our services.
           </Trans>
         </p>
@@ -202,7 +202,7 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
         <p className='mt-4 text-xl font-light'>
           <Trans>
             This automated deletion system is accessible 24/7 through your secure account dashboard. For additional
-            assistance, our dedicated privacy team is available at contact@yourbestaccent.com to process your requests
+            assistance, our dedicated privacy team is available at contact@template-app.com to process your requests
             with the same level of immediacy and thoroughness.
           </Trans>
         </p>
@@ -211,7 +211,7 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
         </h2>
         <p className='text-xl font-light'>
           <Trans>
-            If you have any questions about this Privacy Policy, please contact us via email: contact@yourbestaccent.com
+            If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com
           </Trans>
         </p>
       </div>

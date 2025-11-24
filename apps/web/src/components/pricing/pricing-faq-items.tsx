@@ -1,11 +1,11 @@
 import React from 'react'
 import { FAQItem } from '../FAQItem'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { useSelector } from 'react-redux'
 import { selectHasAllowedReferral } from '../../state/slices/account-slice.ts'
 import { getConfig } from '../../config/environment-config.ts'
 import { useLingui } from '@lingui/react/macro'
-import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@yourbestaccent/core/constants/pricing-constants'
+import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@template-app/core/constants/pricing-constants'
 
 export const PricingFaqItems: React.FC = () => {
   const { t } = useLingui()

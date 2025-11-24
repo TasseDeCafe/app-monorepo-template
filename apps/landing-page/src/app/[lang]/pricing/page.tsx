@@ -16,12 +16,12 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
   const { i18n } = await getLinguiInstance(lang)
 
   return {
-    title: i18n._(msg`Pricing | YourBestAccent`),
+    title: i18n._(msg`Pricing | TemplateApp`),
     description: i18n._(
       msg`Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training.`
     ),
     alternates: {
-      canonical: 'https://www.yourbestaccent.com/pricing',
+      canonical: 'https://www.template-app.com/pricing',
     },
   }
 }

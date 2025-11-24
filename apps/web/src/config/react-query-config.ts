@@ -3,14 +3,14 @@ import {
   ERROR_CODE_FOR_AUTHENTICATING_FRONTEND,
   ERROR_CODE_FOR_INVALID_TOKEN,
   ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED,
-} from '@yourbestaccent/api-client/key-generation/frontend-api-key-constants'
-import { buildOrpcErrorContext } from '@yourbestaccent/api-client/utils/backend-error-utils'
+} from '@template-app/api-client/key-generation/frontend-api-key-constants'
+import { buildOrpcErrorContext } from '@template-app/api-client/utils/backend-error-utils'
 import {
   getBackendErrorCode,
   getBackendErrorMessage,
   isExpectedValidationError,
   queryRetryHandler,
-} from '@yourbestaccent/api-client/utils/orpc-error-utils'
+} from '@template-app/api-client/utils/orpc-error-utils'
 import { toast } from 'sonner'
 import { QueryMeta } from '@/hooks/api/hook-types'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'

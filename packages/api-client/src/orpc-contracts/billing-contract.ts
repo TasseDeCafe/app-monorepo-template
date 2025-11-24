@@ -1,6 +1,6 @@
 import { oc } from '@orpc/contract'
 import { z } from 'zod'
-import { SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
+import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 
 // Common error schemas
 const errorResponseSchema = z.object({

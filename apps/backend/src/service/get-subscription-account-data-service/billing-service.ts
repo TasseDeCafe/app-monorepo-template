@@ -1,5 +1,5 @@
 import { calculateStripePricingDetails } from './billing-service-utils'
-import { referralToDiscount } from '@yourbestaccent/core/constants/referral-constants'
+import { referralToDiscount } from '@template-app/core/constants/referral-constants'
 import { isStripeSubscriptionActive } from '../long-running/subscription-cache-service/stripe-subscription.utils'
 import { DbUser, UsersRepositoryInterface } from '../../transport/database/users/users-repository'
 import {
@@ -11,13 +11,13 @@ import { logWithSentry } from '../../transport/third-party/sentry/error-monitori
 import {
   NUMBER_OF_DAYS_IN_FREE_TRIAL,
   SUPPORTED_STRIPE_CURRENCY,
-} from '@yourbestaccent/core/constants/pricing-constants'
+} from '@template-app/core/constants/pricing-constants'
 import {
   GetSubscriptionInfoResponse,
   PlanType,
   SupportedBillingPlatform,
   UserStripePricingDetails,
-} from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+} from '@template-app/api-client/orpc-contracts/billing-contract'
 import { getConfig } from '../../config/environment-config'
 import { RevenuecatServiceInterface } from '../revenuecat-service/revenuecat-service-interface'
 

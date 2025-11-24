@@ -1,6 +1,6 @@
 // TODO: add to shared package
 
-import { Topic } from '@yourbestaccent/core/constants/topics'
+import { Topic } from '@template-app/core/constants/topics'
 import {
   Brain,
   Briefcase,

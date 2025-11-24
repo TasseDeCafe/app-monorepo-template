@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Check, ChevronDown } from 'lucide-react'
 
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Button } from '../shadcn/button.tsx'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../shadcn/command.tsx'
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/popover.tsx'
-import { DialectCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode } from '@template-app/core/constants/lang-codes'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
-import { dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 type DialectSelectorProps = {

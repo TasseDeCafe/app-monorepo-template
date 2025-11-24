@@ -1,7 +1,7 @@
-import { PlanType } from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 import { Platform } from 'react-native'
 import { posthog } from '@/analytics/posthog/posthog'
-import { DialectCode, LangCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 
 const defaultProperties = () => ({
   platform: 'native',

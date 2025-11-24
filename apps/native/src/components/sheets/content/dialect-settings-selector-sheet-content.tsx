@@ -5,11 +5,11 @@ import {
   DialectCode,
   LANGUAGES_TO_DIALECT_MAP,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { Check } from 'lucide-react-native'
 import { CustomCircularFlag } from '@/components/ui/custom-circular-flag'
 import { useLingui } from '@lingui/react/macro'
-import { dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export type DialectSelectorSheetContentProps = {
   close: () => void

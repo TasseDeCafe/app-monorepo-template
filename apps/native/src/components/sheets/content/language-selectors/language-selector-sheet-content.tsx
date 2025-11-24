@@ -1,13 +1,13 @@
 import { ListRenderItemInfo, Pressable, Text, View } from 'react-native'
 import { BottomSheetFlatList, BottomSheetTextInput } from '@gorhom/bottom-sheet'
 import { useBottomSheetPadding } from '@/hooks/use-bottom-sheet-padding'
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode } from '@template-app/core/constants/lang-codes'
 import { Check, Search } from 'lucide-react-native'
 import * as Haptics from 'expo-haptics'
 import { useState } from 'react'
 import { CustomCircularFlag } from '@/components/ui/custom-circular-flag'
 import colors from 'tailwindcss/colors'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 export type LanguageSelectorSheetContentProps = {

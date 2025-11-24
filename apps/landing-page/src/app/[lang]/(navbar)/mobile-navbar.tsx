@@ -3,14 +3,14 @@
 import { ReactNode, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { Info, Menu, Sparkles, Users, X, Zap } from 'lucide-react'
 import { LangProps } from '@/types/lang-props'
 import { DiscordIcon } from '@/app/[lang]/(navbar)/discord-icon'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
 import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
 import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode } from '@template-app/core/constants/lang-codes'
 
 type MobileNavLinkProps = {
   href: string

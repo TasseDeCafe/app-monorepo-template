@@ -3,7 +3,7 @@
 import React, { ReactNode, useEffect, useState } from 'react'
 import { Button } from '@/design-system/button'
 import { buildIosAppStoreLink } from '@/app/[lang]/(components)/(leading-to-apps)/ios-app-store-link-utils'
-import { isAndroid } from '@yourbestaccent/core/utils/browser-utils'
+import { isAndroid } from '@template-app/core/utils/browser-utils'
 import { buildAndroidPlayStoreLink } from '@/app/[lang]/(components)/(leading-to-apps)/google-play-store-link-utils'
 import { getConfig } from '@/config/environment-config'
 

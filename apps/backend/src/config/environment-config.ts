@@ -13,12 +13,12 @@ import { EnvironmentConfig } from './environment-config-schema'
 const productionConfig: EnvironmentConfig = {
   environmentName: 'production',
   port: 4004,
-  frontendUrl: 'https://app.yourbestaccent.com',
+  frontendUrl: 'https://app.template-app.com',
   shouldLogRequests: false,
   allowedCorsOrigins: [
-    'https://yourbestaccent.com',
-    'https://www.yourbestaccent.com',
-    'https://app.yourbestaccent.com',
+    'https://template-app.com',
+    'https://www.template-app.com',
+    'https://app.template-app.com',
     /https:\/\/.*-grammarians\.vercel\.app(\/.*)?/, // Vercel Preview URLs
   ],
   elevenlabsApiKey: process.env.ELEVENLABS_API_KEY || '',
@@ -39,7 +39,7 @@ const productionConfig: EnvironmentConfig = {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
       profilesSampleRate: 1.0,
-      tracePropagationTargets: ['https://app.yourbestaccent.com', 'https://api.yourbestaccent.com'],
+      tracePropagationTargets: ['https://app.template-app.com', 'https://api.template-app.com'],
     },
   },
   // shown by `supabase start` command

@@ -1,4 +1,4 @@
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
 
 const langCodeToLanguageNameMap: Record<LangCode, string> = {
   [LangCode.ENGLISH]: 'English',

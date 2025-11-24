@@ -1,4 +1,4 @@
-import { rootOrpcContract } from '@yourbestaccent/api-client/orpc-contracts/root-contract'
+import { rootOrpcContract } from '@template-app/api-client/orpc-contracts/root-contract'
 
 type ContractNode = {
   [key: string]: unknown

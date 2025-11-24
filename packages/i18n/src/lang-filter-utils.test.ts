@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import type { I18n } from '@lingui/core'
 
-import { LangCode, SUPPORTED_MOTHER_LANGUAGES } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode, SUPPORTED_MOTHER_LANGUAGES } from '@template-app/core/constants/lang-codes'
 import { createMotherLanguageFilter } from './lang-filter-utils'
 
 // Create a mock i18n instance for testing

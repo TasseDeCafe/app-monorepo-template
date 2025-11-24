@@ -4,7 +4,7 @@ import { BigCard } from '@/components/ui/big-card'
 import { useTabBarHeight } from '@/hooks/use-tab-bar-height'
 import { useGetUser } from '@/hooks/api/user/user-hooks'
 import { Calendar, Globe, TrendingUp, Trophy } from 'lucide-react-native'
-import { LeaderboardEntry } from '@yourbestaccent/api-client/orpc-contracts/leaderboard-contract'
+import { LeaderboardEntry } from '@template-app/api-client/orpc-contracts/leaderboard-contract'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
 import colors from 'tailwindcss/colors'
@@ -17,7 +17,7 @@ import {
 } from '@/hooks/api/leaderboard/leaderboard-hooks'
 import { useState } from 'react'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 const LeaderboardTable = ({ entries }: { entries: LeaderboardEntry[] }) => {
   const { t } = useLingui()

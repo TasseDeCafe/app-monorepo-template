@@ -1,6 +1,6 @@
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { DialectCode, LangCode, SupportedMotherLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode, SupportedMotherLanguage } from '@template-app/core/constants/lang-codes'
 import { useQuery } from '@tanstack/react-query'
 
 export const useTranslateWord = (

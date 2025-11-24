@@ -10,8 +10,8 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../shadcn/form'
 import { z } from 'zod'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
-import { formSchema } from '@yourbestaccent/api-client/orpc-contracts/contact-email-contract'
+import { cn } from '@template-app/core/utils/tailwind-utils'
+import { formSchema } from '@template-app/api-client/orpc-contracts/contact-email-contract'
 import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
 
@@ -50,7 +50,7 @@ export const ContactUsModalContent = () => {
   return (
     <DialogContent className='w-11/12 rounded-xl bg-white p-8 sm:max-w-md'>
       <DialogHeader>
-        <DialogTitle>{t`Help us improve YourBestAccent`}</DialogTitle>
+        <DialogTitle>{t`Help us improve TemplateApp`}</DialogTitle>
         <p className='text-sm text-gray-500'>{t`Share your feedback or suggest improvements to the founders. We read and reply to every submission!`}</p>
         <DialogDescription className='hidden'></DialogDescription>
       </DialogHeader>

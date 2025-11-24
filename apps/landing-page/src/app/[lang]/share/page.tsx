@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { getConfig } from '@/config/environment-config'
 import { LangProps } from '@/types/lang-props'
-import { EXERCISE_TEXT_SEARCH_PARAM_NAME } from '@yourbestaccent/core/constants/search-params'
+import { EXERCISE_TEXT_SEARCH_PARAM_NAME } from '@template-app/core/constants/search-params'
 import ShareRedirect from '@/app/[lang]/share/(components)/share'
 import { getLinguiInstance } from '@/i18n/get-lingui-instance'
 import { msg } from '@lingui/core/macro'

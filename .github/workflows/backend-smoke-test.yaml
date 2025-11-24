@@ -36,17 +36,17 @@ jobs:
         run: pnpm install
 
       - name: Build backend
-        run: pnpm --filter @yourbestaccent/backend run build
+        run: pnpm --filter @template-app/backend run build
 
       - name: Production smoke test
         run: |
           set -euxo pipefail
-          pnpm install --filter @yourbestaccent/backend --prod --no-frozen-lockfile
-          pnpm --filter @yourbestaccent/backend exec sh -c 'mkdir -p dist/apps/backend/src/assets && cp -R src/assets/. dist/apps/backend/src/assets/'
+          pnpm install --filter @template-app/backend --prod --no-frozen-lockfile
+          pnpm --filter @template-app/backend exec sh -c 'mkdir -p dist/apps/backend/src/assets && cp -R src/assets/. dist/apps/backend/src/assets/'
           # we set the environment to test to avoid using doppler secrets completely
           export NODE_ENV=test
           status=0
-          timeout 10 pnpm --filter @yourbestaccent/backend exec node dist/apps/backend/src/index.js || status=$?
+          timeout 10 pnpm --filter @template-app/backend exec node dist/apps/backend/src/index.js || status=$?
           if [ "$status" -eq 124 ]; then
             echo 'Process timed out after 10s (expected when server keeps running).'
           elif [ "$status" -ne 0 ]; then

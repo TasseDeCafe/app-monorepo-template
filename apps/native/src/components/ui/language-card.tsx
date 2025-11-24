@@ -1,8 +1,8 @@
 import { Text, TouchableOpacity, View } from 'react-native'
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { LangCode } from '@template-app/core/constants/lang-codes'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { CustomCircularFlag } from '@/components/ui/custom-circular-flag'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 import { useLingui } from '@lingui/react/macro'
 
 type LanguageCardProps = {

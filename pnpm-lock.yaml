@@ -825,10 +825,10 @@ importers:
       '@typescript-eslint/parser':
         specifier: 'catalog:'
         version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
-      '@yourbestaccent/api-client':
+      '@template-app/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
-      '@yourbestaccent/core':
+      '@template-app/core':
         specifier: workspace:*
         version: link:../../packages/core
       axios:
@@ -964,7 +964,7 @@ importers:
       '@types/supertest':
         specifier: 'catalog:'
         version: 6.0.3
-      '@yourbestaccent/typescript-config':
+      '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       eslint-plugin-import:
@@ -1012,10 +1012,10 @@ importers:
       '@sentry/nextjs':
         specifier: 'catalog:'
         version: 10.23.0(@opentelemetry/context-async-hooks@2.1.0(@opentelemetry/api@1.9.0))(@opentelemetry/core@2.1.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.1.0(@opentelemetry/api@1.9.0))(encoding@0.1.13)(next@16.0.3(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(webpack@5.102.1)
-      '@yourbestaccent/core':
+      '@template-app/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@yourbestaccent/i18n':
+      '@template-app/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
       import-in-the-middle:
@@ -1094,7 +1094,7 @@ importers:
       '@typescript-eslint/parser':
         specifier: 'catalog:'
         version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
-      '@yourbestaccent/typescript-config':
+      '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       babel-plugin-react-compiler:
@@ -1232,13 +1232,13 @@ importers:
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.90.5(react@19.1.0)
-      '@yourbestaccent/api-client':
+      '@template-app/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
-      '@yourbestaccent/core':
+      '@template-app/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@yourbestaccent/i18n':
+      '@template-app/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
       babel-preset-expo:
@@ -1584,13 +1584,13 @@ importers:
       '@typescript-eslint/parser':
         specifier: 'catalog:'
         version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
-      '@yourbestaccent/api-client':
+      '@template-app/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
-      '@yourbestaccent/core':
+      '@template-app/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@yourbestaccent/i18n':
+      '@template-app/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
       class-variance-authority:
@@ -1717,7 +1717,7 @@ importers:
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 5.0.4(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))
-      '@yourbestaccent/typescript-config':
+      '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       autoprefixer:
@@ -1768,7 +1768,7 @@ importers:
       '@orpc/contract':
         specifier: 'catalog:'
         version: 1.10.0(@opentelemetry/api@1.9.0)
-      '@yourbestaccent/core':
+      '@template-app/core':
         specifier: workspace:*
         version: link:../core
       naughty-words:
@@ -1784,7 +1784,7 @@ importers:
       '@types/naughty-words':
         specifier: 'catalog:'
         version: 1.2.3
-      '@yourbestaccent/typescript-config':
+      '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       tsc-alias:
@@ -1806,7 +1806,7 @@ importers:
         specifier: 'catalog:'
         version: 4.1.12
     devDependencies:
-      '@yourbestaccent/typescript-config':
+      '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       tsc-alias:
@@ -1824,10 +1824,10 @@ importers:
       '@lingui/core':
         specifier: 'catalog:'
         version: 5.6.0(@lingui/babel-plugin-lingui-macro@5.6.0(babel-plugin-macros@3.1.0)(typescript@5.9.2))(babel-plugin-macros@3.1.0)
-      '@yourbestaccent/api-client':
+      '@template-app/api-client':
         specifier: workspace:*
         version: link:../api-client
-      '@yourbestaccent/core':
+      '@template-app/core':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -1846,7 +1846,7 @@ importers:
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 5.0.4(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))
-      '@yourbestaccent/typescript-config':
+      '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       ai:

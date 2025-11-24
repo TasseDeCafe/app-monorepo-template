@@ -5,7 +5,7 @@ import { Circle } from 'lucide-react'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
 import { getConfig } from '@/config/environment-config'
 import { localStorageWrapper } from '@/local-storage/local-storage'
-import { ALLOWED_REFERRALS, getDiscountsForReferral } from '@yourbestaccent/core/constants/referral-constants'
+import { ALLOWED_REFERRALS, getDiscountsForReferral } from '@template-app/core/constants/referral-constants'
 import {
   getCanSubscribeWithReferralDiscount,
   getMonthlyDiscountString,
@@ -15,10 +15,10 @@ import {
 } from '@/app/[lang]/(components)/(pricing)/pricing-view-utils'
 import { Card } from '@/design-system/card'
 import { Button } from '@/design-system/button'
-import { Discounts } from '@yourbestaccent/core/constants/discount-types'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
-import { SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
-import { POLISH_LOCALE } from '@yourbestaccent/i18n/i18n-config'
+import { Discounts } from '@template-app/core/constants/discount-types'
+import { cn } from '@template-app/core/utils/tailwind-utils'
+import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
+import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
 import { msg } from '@lingui/core/macro'

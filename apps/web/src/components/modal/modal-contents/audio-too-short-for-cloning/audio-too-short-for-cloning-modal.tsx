@@ -3,7 +3,7 @@ import { Button } from '../../../shadcn/button.tsx'
 import { useDispatch, useSelector } from 'react-redux'
 import { modalActions } from '../../../../state/slices/modal-slice.ts'
 import { selectMotherLanguageOrEnglish } from '../../../../state/slices/account-slice.ts'
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes.ts'
+import { LangCode } from '@template-app/core/constants/lang-codes.ts'
 import { useLingui } from '@lingui/react/macro'
 
 export const AudioTooShortForCloningModal = () => {

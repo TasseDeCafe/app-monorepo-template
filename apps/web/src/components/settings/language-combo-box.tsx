@@ -2,15 +2,15 @@ import { useState } from 'react'
 import { Check, ChevronDown } from 'lucide-react'
 import { Controller } from 'react-hook-form'
 
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Button } from '../shadcn/button.tsx'
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '../shadcn/command.tsx'
 import { FormControl, FormDescription, FormItem, FormLabel, FormMessage } from '../shadcn/form.tsx'
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/popover.tsx'
-import { LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { LangCode } from '@template-app/core/constants/lang-codes'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 type LanguageSelectProps = {
   name: string

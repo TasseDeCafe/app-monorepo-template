@@ -1,4 +1,4 @@
-import { PlanInterval } from '@yourbestaccent/core/constants/pricing-constants.ts'
+import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
 
 export const ROUTE_PATHS = {
   ONBOARDING_MOTHER_LANGUAGE: '/onboarding/mother-language',

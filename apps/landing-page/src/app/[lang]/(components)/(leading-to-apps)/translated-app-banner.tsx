@@ -7,7 +7,7 @@ import { AppBanner } from '@/app/[lang]/(components)/(leading-to-apps)/app-banne
 export const TranslatedAppBanner = async () => {
   return (
     <AppBanner
-      appName={<Trans>YourBestAccent</Trans>}
+      appName={<Trans>TemplateApp</Trans>}
       category={<Trans>Education</Trans>}
       purchases={<Trans>In-App Purchases</Trans>}
     />

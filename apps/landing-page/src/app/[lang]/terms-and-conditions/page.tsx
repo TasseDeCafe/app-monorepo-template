@@ -24,7 +24,7 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
         </h1>
         <p>
           <Trans>
-            By accessing and using our website, YourBestAccent.com, and any associated services, you agree to be bound
+            By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound
             by these Terms of Service (&quot;Terms&quot;).
           </Trans>
         </p>
@@ -35,7 +35,7 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
           <Trans>
             The content, features, and functionality of our services, including but not limited to text, graphics,
             logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive
-            property of YourBestAccent.com and its licensors. These are protected by copyright, trademark, and other
+            property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other
             intellectual property or proprietary rights laws.
           </Trans>
         </p>
@@ -121,7 +121,7 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
         </h1>
         <div className='text-xl font-light'>
           <Trans>
-            In no event shall YourBestAccent.com, nor its directors, employees, partners, agents, suppliers, or
+            In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or
             affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including
             without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
           </Trans>
@@ -148,7 +148,7 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
         <div>
           <Trans>
             If you have any questions about these Terms of Service, please contact us via email
-            contact@yourbestaccent.com
+            contact@template-app.com
           </Trans>
         </div>
       </div>

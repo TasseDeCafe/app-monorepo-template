@@ -4,9 +4,9 @@ import { createORPCClient } from '@orpc/client'
 import { createTanstackQueryUtils } from '@orpc/tanstack-query'
 import { OpenAPILink } from '@orpc/openapi-client/fetch'
 import { getConfig } from '@/config/environment-config'
-import { NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND } from '@yourbestaccent/api-client/key-generation/frontend-api-key-constants'
-import { generateFrontendApiKey } from '@yourbestaccent/api-client/key-generation/frontend-api-key-generator'
-import { rootOrpcContract } from '@yourbestaccent/api-client/orpc-contracts/root-contract'
+import { NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND } from '@template-app/api-client/key-generation/frontend-api-key-constants'
+import { generateFrontendApiKey } from '@template-app/api-client/key-generation/frontend-api-key-generator'
+import { rootOrpcContract } from '@template-app/api-client/orpc-contracts/root-contract'
 
 export const apiPrefix = '/api/v1'
 const hostWithPrefix = `${getConfig().apiHost}${apiPrefix}`

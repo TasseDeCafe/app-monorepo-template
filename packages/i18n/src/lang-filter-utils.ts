@@ -4,11 +4,11 @@ import {
   SUPPORTED_MOTHER_LANGUAGES,
   SUPPORTED_STUDY_LANGUAGES,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import {
   langCodeToNativeLanguageName,
   langCodeToNativeLatinLanguageName,
-} from '@yourbestaccent/core/utils/lang-native-utils'
+} from '@template-app/core/utils/lang-native-utils'
 import { langNameMessages } from './lang-code-translation-utils'
 
 const createLanguageFilter = <T extends LangCode>(languagesToFilter: T[], i18n: I18n) => {

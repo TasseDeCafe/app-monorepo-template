@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 
 export const TitleWithGradient = ({ children, className }: { children: ReactNode; className?: string }) => {
   return (

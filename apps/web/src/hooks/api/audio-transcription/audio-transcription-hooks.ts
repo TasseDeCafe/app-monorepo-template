@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { orpcClient } from '@/transport/our-backend/orpc-client'
-import { getTranscription } from '@yourbestaccent/core/exercises/exercise-utils'
+import { getTranscription } from '@template-app/core/exercises/exercise-utils'
 import { useLingui } from '@lingui/react/macro'
 
 export const useTranscribeAudioToText = (

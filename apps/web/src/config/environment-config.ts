@@ -9,8 +9,8 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
   apiHost: import.meta.env.VITE_API_HOST,
-  frontendUrl: 'https://app.yourbestaccent.com',
-  domain: 'yourbestaccent.com',
+  frontendUrl: 'https://app.template-app.com',
+  domain: 'template-app.com',
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,
   supabaseProjectUrl: import.meta.env.VITE_SUPABASE_PROJECT_URL,
   supabaseProjectKey: import.meta.env.VITE_SUPABASE_PROJECT_KEY,
@@ -91,7 +91,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
   frontendUrl: import.meta.env.VITE_FRONTEND_URL_MOBILE,
-  domain: 'yourbestaccent.dev',
+  domain: 'template-app.dev',
   environmentName: 'development-for-mobile',
   apiHost: import.meta.env.VITE_API_HOST,
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,

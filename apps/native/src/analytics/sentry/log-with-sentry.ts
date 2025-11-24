@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react-native'
 import { ORPCError } from '@orpc/contract'
-import { buildOrpcErrorContext } from '@yourbestaccent/api-client/utils/backend-error-utils'
+import { buildOrpcErrorContext } from '@template-app/api-client/utils/backend-error-utils'
 import { getConfig } from '@/config/environment-config'
 
 type Stringifiable = string | number | boolean | null | undefined | { toString(): string }

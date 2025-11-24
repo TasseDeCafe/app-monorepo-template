@@ -3,48 +3,48 @@ const IS_PREVIEW = process.env.APP_VARIANT === 'preview'
 
 export const getUniqueIosIdentifier = () => {
   if (IS_DEV) {
-    return 'com.yourbestaccent.ios.dev'
+    return 'com.template-app.ios.dev'
   }
   if (IS_PREVIEW) {
-    return 'com.yourbestaccent.ios.preview'
+    return 'com.template-app.ios.preview'
   }
-  return 'com.yourbestaccent.ios'
+  return 'com.template-app.ios'
 }
 
 export const getUniqueAndroidIdentifier = () => {
   if (IS_DEV) {
-    return 'com.yourbestaccent.android.dev'
+    return 'com.template-app.android.dev'
   }
   if (IS_PREVIEW) {
-    return 'com.yourbestaccent.android.preview'
+    return 'com.template-app.android.preview'
   }
-  return 'com.yourbestaccent.android'
+  return 'com.template-app.android'
 }
 
 const getAppName = () => {
   if (IS_DEV) {
-    return 'DEV - YourBestAccent'
+    return 'DEV - TemplateApp'
   }
   if (IS_PREVIEW) {
-    return 'PREVIEW - YourBestAccent'
+    return 'PREVIEW - TemplateApp'
   }
-  return 'YourBestAccent'
+  return 'TemplateApp'
 }
 
 const getAppHost = () => {
   if (IS_DEV) {
-    return '*.yourbestaccent.dev'
+    return '*.template-app.dev'
   }
-  return 'app.yourbestaccent.com'
+  return 'app.template-app.com'
 }
 
 const getAssociatedDomains = () => {
-  const productionDomains = ['applinks:app.yourbestaccent.com']
+  const productionDomains = ['applinks:app.template-app.com']
   if (IS_DEV) {
     return [
       ...productionDomains,
-      'applinks:frontend-kamil.yourbestaccent.dev',
-      'applinks:frontend-sebastien.yourbestaccent.dev',
+      'applinks:frontend-kamil.template-app.dev',
+      'applinks:frontend-sebastien.template-app.dev',
     ]
   }
   return productionDomains
@@ -53,12 +53,12 @@ const getAssociatedDomains = () => {
 const config = {
   expo: {
     name: getAppName(),
-    owner: 'yourbestaccent',
+    owner: 'template-app',
     slug: 'native',
     version: '1.1.3',
     orientation: 'portrait',
     icon: './src/assets/images/icon.png',
-    scheme: 'yourbestaccent',
+    scheme: 'template-app',
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
     ios: {
@@ -158,7 +158,7 @@ const config = {
         'expo-audio',
         {
           microphonePermission:
-            'YourBestAccent records your voice to: 1) Create a personalized AI voice clone with a native accent (30-second recording), and 2) Analyze your pronunciation during practice exercises and provide feedback to improve your accent. For example, the app will help you pronounce "Massachusetts" with a perfect American accent.',
+            'TemplateApp records your voice to: 1) Create a personalized AI voice clone with a native accent (30-second recording), and 2) Analyze your pronunciation during practice exercises and provide feedback to improve your accent. For example, the app will help you pronounce "Massachusetts" with a perfect American accent.',
         },
       ],
       //required by expo-audio
@@ -183,7 +183,7 @@ const config = {
         '@sentry/react-native/expo',
         {
           url: 'https://sentry.io/',
-          project: 'yourbestaccent-native',
+          project: 'template-app-native',
           organization: 'grammarians',
         },
       ],

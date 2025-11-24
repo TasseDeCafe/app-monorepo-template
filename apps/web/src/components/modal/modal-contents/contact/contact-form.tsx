@@ -8,9 +8,9 @@ import { useSelector } from 'react-redux'
 import { selectEmail, selectName } from '../../../../state/slices/account-slice.ts'
 import { toast } from 'sonner'
 import { Copy, Loader2, Mail, Send } from 'lucide-react'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Button } from '../../../design-system/button.tsx'
-import { formSchema } from '@yourbestaccent/api-client/orpc-contracts/contact-email-contract'
+import { formSchema } from '@template-app/api-client/orpc-contracts/contact-email-contract'
 import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
 
@@ -29,7 +29,7 @@ export const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
     },
   })
 
-  const ourEmail: string = 'contact@yourbestaccent.com'
+  const ourEmail: string = 'contact@template-app.com'
 
   const copyEmailToClipboard = () => {
     navigator.clipboard.writeText(ourEmail).then()
@@ -57,11 +57,11 @@ export const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
       <div className='flex items-center justify-between rounded-md'>
         <div className='flex items-center'>
           <a
-            href='mailto:contact@yourbestaccent.com'
+            href='mailto:contact@template-app.com'
             className='flex flex-row items-center text-sm text-gray-700 hover:underline'
           >
             <Mail className='mr-2 h-5 w-5 text-gray-500' />
-            contact@yourbestaccent.com
+            contact@template-app.com
           </a>
         </div>
         <Button className='h-10 w-10 bg-white text-gray-500' onClick={copyEmailToClipboard}>

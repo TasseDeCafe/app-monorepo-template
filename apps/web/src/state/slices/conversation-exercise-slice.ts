@@ -1,8 +1,8 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 import type { RootState } from '../app-reducer'
-import { PersonalityCode } from '@yourbestaccent/api-client/orpc-contracts/messages-contract.ts'
-import { CustomVoice, VoiceOption } from '@yourbestaccent/api-client/orpc-contracts/audio-generation-contract'
+import { PersonalityCode } from '@template-app/api-client/orpc-contracts/messages-contract.ts'
+import { CustomVoice, VoiceOption } from '@template-app/api-client/orpc-contracts/audio-generation-contract'
 
 export interface ConversationExerciseState {
   // these eventually will be stored in the user settings in the db in the future, and we will migrate it to react-query

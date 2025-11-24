@@ -1,4 +1,4 @@
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useCurrentStreakFromXp, useGetNumberOfDaysOfNextStreakBadgeFromXp } from '@/hooks/api/user/user-hooks'
 import { useLingui } from '@lingui/react/macro'
 

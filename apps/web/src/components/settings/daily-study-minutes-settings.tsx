@@ -5,7 +5,7 @@ import {
   DAILY_STUDY_TIME_ONBOARDING_OPTIONS,
   MAX_DAILY_STUDY_MINUTES,
   MIN_DAILY_STUDY_MINUTES,
-} from '@yourbestaccent/core/constants/daily-study-constants'
+} from '@template-app/core/constants/daily-study-constants'
 import { CircleHelp } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/popover.tsx'
 import { useLingui } from '@lingui/react/macro'

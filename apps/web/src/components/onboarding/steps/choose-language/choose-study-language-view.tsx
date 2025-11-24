@@ -2,7 +2,7 @@ import {
   LANGUAGES_WITH_MULTIPLE_DIALECTS,
   SUPPORTED_STUDY_LANGUAGES,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { useEffect, useState } from 'react'
 import { accountActions } from '@/state/slices/account-slice.ts'
 import { useDispatch } from 'react-redux'

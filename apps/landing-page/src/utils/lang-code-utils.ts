@@ -1,6 +1,6 @@
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages, dialectNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages, dialectNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export const useLangCodeToLanguageName = () => {
   const { i18n } = useLingui()

@@ -1,5 +1,5 @@
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../shadcn/dialog.tsx'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links.ts'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links.ts'
 import { isUsingPolishLanguage } from '@/utils/language-detection-utils.ts'
 import { Button } from '../../design-system/button.tsx'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
@@ -27,7 +27,7 @@ export const AboutModalContent = () => {
       <div className='mb-4 flex w-full items-center justify-center'>
         <img src='/sebastien-and-kamil.jpg' className='h-20 w-20 rounded-full' alt={t`Kamil and Sébastien`} />
       </div>
-      <p className='mb-4 text-sm text-gray-700'>{t`Hey there! It's Kamil and Sébastien here, the creators of yourbestaccent.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon.`}</p>
+      <p className='mb-4 text-sm text-gray-700'>{t`Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon.`}</p>
       <p className='mb-6 text-sm text-gray-700'>{t`Please let us know what you think about the app by filling out our feedback form!`}</p>
       <Button onClick={handleClick} className='w-full rounded-xl bg-indigo-600 px-4 py-2 text-white'>
         {t`Open the form`}

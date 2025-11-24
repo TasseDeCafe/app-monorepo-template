@@ -4,7 +4,7 @@ import { BigCard } from '@/components/ui/big-card'
 import * as Haptics from 'expo-haptics'
 import { Button } from '@/components/ui/button'
 import { Image } from 'expo-image'
-import { BLURHASH } from '@yourbestaccent/core/utils/image-utils'
+import { BLURHASH } from '@template-app/core/utils/image-utils'
 import { getConfig } from '@/config/environment-config'
 import { useLingui } from '@lingui/react/macro'
 

@@ -10,7 +10,7 @@ import {
   selectMotherLanguageOrEnglish,
   selectStudyLanguageOrEnglish,
 } from '../../../../../../state/slices/account-slice.ts'
-import { DialectCode, LangCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes.ts'
+import { DialectCode, LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes.ts'
 import { Download } from 'lucide-react'
 import { PlaySavedWord } from './play-saved-word.tsx'
 import { POSTHOG_EVENTS } from '../../../../../../analytics/posthog/posthog-events.ts'

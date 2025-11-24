@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Check, ChevronDown } from 'lucide-react'
 import { Popover, PopoverContent, PopoverTrigger } from '../../../../../shadcn/popover.tsx'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { Command, CommandGroup, CommandInput, CommandItem, CommandList } from '../../../../../shadcn/command.tsx'
-import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes.ts'
+import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes.ts'
 import { Button } from '../../../../../design-system/button.tsx'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export type LanguageFilterValue = SupportedStudyLanguage | undefined
 

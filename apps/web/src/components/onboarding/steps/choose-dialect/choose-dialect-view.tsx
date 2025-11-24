@@ -2,7 +2,7 @@ import {
   DialectCode,
   LANGUAGES_TO_DIALECT_MAP,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { useEffect, useState } from 'react'
 import { accountActions, selectStudyLanguageOrEnglish } from '@/state/slices/account-slice.ts'
 import { useDispatch, useSelector } from 'react-redux'

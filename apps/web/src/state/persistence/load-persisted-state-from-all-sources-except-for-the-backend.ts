@@ -2,8 +2,8 @@ import { store } from '../store'
 import { accountActions } from '../slices/account-slice'
 import { preferencesActions } from '../slices/preferences-slice'
 import { localStorageWrapper } from '@/local-storage/local-storage-wrapper'
-import { AGREED_TO_ALL_COOKIE, AGREED_TO_ESSENTIALS_ONLY_COOKIE } from '@yourbestaccent/core/constants/cookie-constants'
-import { ALLOWED_REFERRALS } from '@yourbestaccent/core/constants/referral-constants.ts'
+import { AGREED_TO_ALL_COOKIE, AGREED_TO_ESSENTIALS_ONLY_COOKIE } from '@template-app/core/constants/cookie-constants'
+import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants.ts'
 
 // Loads persisted state from localStorage, cookies, and URL parameters synchronously before the app renders.
 // This makes Redux the single source of truth from the very beginning.

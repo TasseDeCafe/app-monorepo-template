@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text } from 'react-native'
 import { TOPIC_TO_ICONS_MAP } from '@/constants/topic-icons'
-import { topicMessages } from '@yourbestaccent/i18n/topic-translation-utils'
-import { Topic } from '@yourbestaccent/core/constants/topics'
+import { topicMessages } from '@template-app/i18n/topic-translation-utils'
+import { Topic } from '@template-app/core/constants/topics'
 import colors from 'tailwindcss/colors'
 import { useLingui } from '@lingui/react/macro'
 

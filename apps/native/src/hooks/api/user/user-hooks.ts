@@ -1,14 +1,14 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { DEFAULT_DIALECTS, LangCode, SUPPORTED_STUDY_LANGUAGES } from '@yourbestaccent/core/constants/lang-codes'
+import { DEFAULT_DIALECTS, LangCode, SUPPORTED_STUDY_LANGUAGES } from '@template-app/core/constants/lang-codes'
 import { OrpcMutationOverrides } from '../hook-types'
 import {
   DEFAULT_AUDIO_SPEED,
   DEFAULT_POSITION_IN_FREQUENCY_LIST,
   DEFAULT_WORD_LENGTH,
-} from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
-import { NicknameValidationSchema } from '@yourbestaccent/api-client/orpc-contracts/user-contract'
+} from '@template-app/api-client/orpc-contracts/user-settings-contract'
+import { NicknameValidationSchema } from '@template-app/api-client/orpc-contracts/user-contract'
 import { useLingui } from '@lingui/react/macro'
 
 export function useGetUser() {

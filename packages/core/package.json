@@ -1,5 +1,5 @@
 {
-  "name": "@yourbestaccent/core",
+  "name": "@template-app/core",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -16,7 +16,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@yourbestaccent/typescript-config": "workspace:*",
+    "@template-app/typescript-config": "workspace:*",
     "typescript": "catalog:",
     "tsc-alias": "catalog:",
     "vitest": "catalog:"

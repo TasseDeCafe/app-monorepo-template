@@ -1,6 +1,6 @@
 import { msg } from '@lingui/core/macro'
 import type { MessageDescriptor } from '@lingui/core'
-import { PersonalityCode } from '@yourbestaccent/api-client/orpc-contracts/messages-contract'
+import { PersonalityCode } from '@template-app/api-client/orpc-contracts/messages-contract'
 
 export const personalityMessages: Record<PersonalityCode, MessageDescriptor> = {
   [PersonalityCode.FRIENDLY]: msg`Friendly`,

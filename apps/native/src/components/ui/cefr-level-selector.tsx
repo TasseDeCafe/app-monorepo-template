@@ -6,7 +6,7 @@ import {
   totalVisualWidth,
   positionToSliderValue,
   sliderValueToPosition,
-} from '@yourbestaccent/core/utils/cefr-level-selector-utils'
+} from '@template-app/core/utils/cefr-level-selector-utils'
 import { Slider } from '@/components/slider'
 import { useLingui } from '@lingui/react/macro'
 

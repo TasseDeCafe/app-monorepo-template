@@ -1,4 +1,4 @@
-# yourbestaccent.com backend
+# template-app.com backend
 
 ## run
 
@@ -104,7 +104,7 @@ https://platform.openai.com/api-keys
 
 needed for "sign in with google"
 
-Do it at this link: https://console.cloud.google.com/apis/credentials?referrer=search&project=yourbestaccent
+Do it at this link: https://console.cloud.google.com/apis/credentials?referrer=search&project=template-app
 
 Create a OAuth 2.0 Client so that you end up with something like:
 ![](docs/images/google-oauth2-client.png)

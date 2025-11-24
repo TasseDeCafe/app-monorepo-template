@@ -7,7 +7,7 @@ import {
   LANGUAGES_WITH_MULTIPLE_DIALECTS,
   SUPPORTED_STUDY_LANGUAGES,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { useDialectCodeToDialectName, useLangCodeToLanguageName } from '@/utils/lang-code-utils'
 import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
 

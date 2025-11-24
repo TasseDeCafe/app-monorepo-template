@@ -4,10 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '../../../../../shadcn/chart.tsx'
 
 import colors from 'tailwindcss/colors'
-import { WordsInLanguageCounter } from '@yourbestaccent/api-client/orpc-contracts/words-contract'
+import { WordsInLanguageCounter } from '@template-app/api-client/orpc-contracts/words-contract'
 import { useGetWordsPronouncedCorrectlyCounters } from '@/hooks/api/words/words-hooks'
 import { useLingui } from '@lingui/react/macro'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 const chartColors = [
   colors.green[400],

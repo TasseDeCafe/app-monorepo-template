@@ -6,7 +6,7 @@ import {
   DAILY_STUDY_TIME_ONBOARDING_OPTIONS,
   MAX_DAILY_STUDY_MINUTES,
   MIN_DAILY_STUDY_MINUTES,
-} from '@yourbestaccent/core/constants/daily-study-constants'
+} from '@template-app/core/constants/daily-study-constants'
 import colors from 'tailwindcss/colors'
 import { useLingui } from '@lingui/react/macro'
 

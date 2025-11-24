@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import { StreakTab } from './tabs/streak/streak-tab'
 import { StatsTab } from './tabs/stats-tab/stats-tab'
 import { FC, Fragment, useEffect, useState } from 'react'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { ROUTE_PATHS } from '../../routing/route-paths.ts'
 import { BadgesTab } from './tabs/badges-tab/badges-tab.tsx'
 

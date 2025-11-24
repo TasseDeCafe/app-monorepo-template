@@ -4,7 +4,7 @@ import { Slider } from '@/components/slider'
 import {
   MAX_EXERCISE_WORD_LENGTH,
   MIN_EXERCISE_WORD_LENGTH,
-} from '@yourbestaccent/api-client/orpc-contracts/user-settings-contract'
+} from '@template-app/api-client/orpc-contracts/user-settings-contract'
 import { useLingui } from '@lingui/react/macro'
 
 interface LengthSetting {

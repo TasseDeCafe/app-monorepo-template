@@ -77,7 +77,7 @@ const FAQSection = () => {
       ),
     },
     {
-      question: <Trans>Why should I trust YourBestAccent with my voice data?</Trans>,
+      question: <Trans>Why should I trust TemplateApp with my voice data?</Trans>,
       answer: (
         <Trans>
           We understand your concerns about data privacy. We are committed to transparency in our data handling

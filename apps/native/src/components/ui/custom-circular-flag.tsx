@@ -1,4 +1,4 @@
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
 import { Image, View, ViewStyle } from 'react-native'
 import * as Flags from 'react-native-svg-circle-country-flags'
 import { Languages as LanguagesFlags } from 'react-native-svg-circle-country-flags'

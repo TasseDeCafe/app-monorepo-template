@@ -1,15 +1,15 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
-import { DialectCode, SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import {
   CustomVoice,
   GetGenerateAudioData,
   VOICE_OF_THE_USER,
   VoiceOption,
-} from '@yourbestaccent/api-client/orpc-contracts/audio-generation-contract'
+} from '@template-app/api-client/orpc-contracts/audio-generation-contract'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { isEmoji } from '@yourbestaccent/core/utils/text-utils'
+import { isEmoji } from '@template-app/core/utils/text-utils'
 import { useLingui } from '@lingui/react/macro'
 
 const validateAndCleanText = (text: string | null | undefined): string => {

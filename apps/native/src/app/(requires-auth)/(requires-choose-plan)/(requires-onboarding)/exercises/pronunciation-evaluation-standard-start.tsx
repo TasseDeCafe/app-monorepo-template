@@ -17,7 +17,7 @@ import {
   useGeneratePronunciationEvaluationExerciseMutation,
   useRetrievePronunciationEvaluationExercise,
 } from '@/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks'
-import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes'
+import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import { useTranslateText } from '@/hooks/api/translation/translation-hooks'
 import { useFrequencySliderPosition, useFrequencyWordLength } from '@/hooks/api/user-settings/user-settings-hooks'

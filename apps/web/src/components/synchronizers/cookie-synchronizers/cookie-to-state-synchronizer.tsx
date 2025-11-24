@@ -4,7 +4,7 @@ import { accountActions } from '@/state/slices/account-slice.ts'
 import {
   AGREED_TO_ALL_COOKIE,
   AGREED_TO_ESSENTIALS_ONLY_COOKIE,
-} from '@yourbestaccent/core/constants/cookie-constants.ts'
+} from '@template-app/core/constants/cookie-constants.ts'
 
 // we need this to sync the cookie consent state with redux at startup
 export const CookieToStateSynchronizer = () => {

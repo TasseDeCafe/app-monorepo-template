@@ -4,7 +4,7 @@ import { useBottomSheetPadding } from '@/hooks/use-bottom-sheet-padding'
 import { Check, Calendar, Clock } from 'lucide-react-native'
 import * as Haptics from 'expo-haptics'
 import { useState } from 'react'
-import { TimePeriodKey } from '@yourbestaccent/api-client/orpc-contracts/leaderboard-contract'
+import { TimePeriodKey } from '@template-app/api-client/orpc-contracts/leaderboard-contract'
 import colors from 'tailwindcss/colors'
 import { useLingui } from '@lingui/react/macro'
 

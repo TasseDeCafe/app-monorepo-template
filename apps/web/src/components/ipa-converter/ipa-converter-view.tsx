@@ -12,7 +12,7 @@ import {
   LANGUAGES_WITH_MULTIPLE_DIALECTS,
   SUPPORTED_STUDY_LANGUAGES,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { Button } from '../shadcn/button.tsx'
 import { Textarea } from '../shadcn/textarea.tsx'
 import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/popover.tsx'
@@ -37,7 +37,7 @@ import {
 import {
   MAX_UPPER_LIMIT_TO_PROTECT_FROM_HACKERS,
   IPA_TRANSCRIPTION_CHARACTER_LIMIT_FOR_NOT_SIGNED_IN_USERS,
-} from '@yourbestaccent/core/constants/api-constants.ts'
+} from '@template-app/core/constants/api-constants.ts'
 import { usePatchStudyLanguageAndDialect, usePatchStudyDialect } from '@/hooks/api/user/user-hooks.ts'
 import { useTranscribeTextForConverter } from '@/hooks/open-api/ipa-transcription/ipa-transcription-hooks'
 import { useLingui } from '@lingui/react/macro'

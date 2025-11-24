@@ -1,6 +1,6 @@
 import { InfiniteData, useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Dispatch, RefObject, SetStateAction } from 'react'
-import type { Message } from '@yourbestaccent/api-client/orpc-contracts/messages-contract'
+import type { Message } from '@template-app/api-client/orpc-contracts/messages-contract'
 import { TextareaRef } from '@/components/design-system/textarea'
 import { getConfig } from '@/config/environment-config'
 import { orpcClient, orpcQuery } from '@/transport/our-backend/orpc-client'

@@ -1,4 +1,4 @@
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { ReactNode } from 'react'
 import { Button } from '../../design-system/button.tsx'
 

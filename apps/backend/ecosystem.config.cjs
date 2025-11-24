@@ -3,7 +3,7 @@
 module.exports = {
   apps: [
     {
-      name: 'yourbestaccent.com',
+      name: 'template-app.com',
       script: './dist/apps/backend/src/index.js',
       instances: 2,
       exec_mode: 'cluster',

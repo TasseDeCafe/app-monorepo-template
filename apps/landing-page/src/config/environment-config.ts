@@ -6,9 +6,9 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  domain: 'yourbestaccent.com',
-  frontendUrl: 'https://app.yourbestaccent.com',
-  landingPageUrl: 'https://www.yourbestaccent.com',
+  domain: 'template-app.com',
+  frontendUrl: 'https://app.template-app.com',
+  landingPageUrl: 'https://www.template-app.com',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
   sentry: {
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
@@ -52,7 +52,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 
 const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
-  domain: 'yourbestaccent.dev',
+  domain: 'template-app.dev',
   environmentName: 'development-for-mobile',
   frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL_MOBILE || '',
   landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL || '',

@@ -1,9 +1,9 @@
 import { FAQItem } from '@/app/[lang]/(components)/(faq-section)/faq-item'
 import { FaqItemDependingOnCardDetails } from '@/app/[lang]/(components)/(faq-section)/faq-item-depending-on-card-details'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { Trans } from '@lingui/react/macro'
 import { ReactNode } from 'react'
-import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@yourbestaccent/core/constants/pricing-constants'
+import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@template-app/core/constants/pricing-constants'
 
 type PricingFaqItem = {
   question: ReactNode

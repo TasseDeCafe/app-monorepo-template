@@ -1,6 +1,6 @@
 import { msg } from '@lingui/core/macro'
 import type { MessageDescriptor } from '@lingui/core'
-import { DialectCode, LangCode } from '@yourbestaccent/core/constants/lang-codes'
+import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
 
 export const langNameMessages: Record<LangCode, MessageDescriptor> = {
   [LangCode.ENGLISH]: msg`English`,

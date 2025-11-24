@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest'
 import { calculateStripePricingDetails } from './billing-service-utils'
-import { referralToDiscount } from '@yourbestaccent/core/constants/referral-constants'
-import { Discounts } from '@yourbestaccent/core/constants/discount-types'
-import { SUPPORTED_STRIPE_CURRENCY } from '@yourbestaccent/core/constants/pricing-constants'
+import { referralToDiscount } from '@template-app/core/constants/referral-constants'
+import { Discounts } from '@template-app/core/constants/discount-types'
+import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 
 describe('calculatePricingDetails', () => {
   const soundLikeARussianActiveDiscountsAsMap: Record<string, Discounts> = {

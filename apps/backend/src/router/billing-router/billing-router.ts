@@ -7,7 +7,7 @@ import type { BillingServiceInterface } from '../../service/get-subscription-acc
 import {
   billingContract,
   GetSubscriptionInfoResponse,
-} from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+} from '@template-app/api-client/orpc-contracts/billing-contract'
 
 export const BillingRouter = (billingService: BillingServiceInterface, usersWithFreeAccess: string[]): Router => {
   const implementer = implement(billingContract).$context<OrpcContext>()

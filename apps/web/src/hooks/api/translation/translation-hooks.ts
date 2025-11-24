@@ -6,7 +6,7 @@ import {
   DialectCode,
   LangCode,
   SupportedStudyLanguage,
-} from '@yourbestaccent/core/constants/lang-codes'
+} from '@template-app/core/constants/lang-codes'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import type { GrammarPattern } from '@/components/exercises/translation-exercise/types'
 import { useLingui } from '@lingui/react/macro'

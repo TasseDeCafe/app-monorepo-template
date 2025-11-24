@@ -406,8 +406,8 @@ msgid "About"
 msgstr "About"
 
 #: apps/landing-page/src/app/[lang]/about/page.tsx:18
-msgid "About | YourBestAccent"
-msgstr "About | YourBestAccent"
+msgid "About | TemplateApp"
+msgstr "About | TemplateApp"
 
 #: apps/landing-page/src/app/[lang]/about/page.tsx:41
 msgid "About Us"
@@ -672,8 +672,8 @@ msgid "Business"
 msgstr "Business"
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:26
-msgid "By accessing and using our website, YourBestAccent.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
-msgstr "By accessing and using our website, YourBestAccent.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
+msgid "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
+msgstr "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
 
 #: apps/landing-page/src/app/[lang]/(components)/(faq-section)/pricing-faq-items.tsx:74
 #: apps/web/src/components/pricing/pricing-faq-items.tsx:48
@@ -929,12 +929,12 @@ msgid "Contact"
 msgstr "Contact"
 
 #: apps/landing-page/src/app/[lang]/contact/page.tsx:18
-msgid "Contact | YourBestAccent"
-msgstr "Contact | YourBestAccent"
+msgid "Contact | TemplateApp"
+msgstr "Contact | TemplateApp"
 
 #: apps/landing-page/src/app/[lang]/contact/page.tsx:19
-msgid "Contact the team behind YourBestAccent. We would love to hear from you!"
-msgstr "Contact the team behind YourBestAccent. We would love to hear from you!"
+msgid "Contact the team behind TemplateApp. We would love to hear from you!"
+msgstr "Contact the team behind TemplateApp. We would love to hear from you!"
 
 #: apps/landing-page/src/app/[lang]/contact/page.tsx:39
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:87
@@ -1176,8 +1176,8 @@ msgid "Download the App"
 msgstr "Download the App"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:16
-msgid "Download YourBestAccent - YourBestAccent - Perfect Your Accent with AI Voice Training"
-msgstr "Download YourBestAccent - YourBestAccent - Perfect Your Accent with AI Voice Training"
+msgid "Download TemplateApp - TemplateApp - Perfect Your Accent with AI Voice Training"
+msgstr "Download TemplateApp - TemplateApp - Perfect Your Accent with AI Voice Training"
 
 #: packages/i18n/src/lang-code-translation-utils.ts:30
 msgid "Dutch"
@@ -1832,8 +1832,8 @@ msgstr "Having a voice clone to practice accents? That's like having a personal 
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:79
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:53
-msgid "Help us improve YourBestAccent"
-msgstr "Help us improve YourBestAccent"
+msgid "Help us improve TemplateApp"
+msgstr "Help us improve TemplateApp"
 
 #: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:22
 #: apps/web/src/components/cookie-banner/cookie-banner.tsx:88
@@ -1841,13 +1841,13 @@ msgid "Help us understand how visitors interact with our website. This data is a
 msgstr "Help us understand how visitors interact with our website. This data is anonymized."
 
 #: apps/landing-page/src/app/[lang]/about/page.tsx:44
-msgid "Hey there! It's Kamil and Sébastien here, the creators of yourbestaccent.com. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
-msgstr "Hey there! It's Kamil and Sébastien here, the creators of yourbestaccent.com. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgid "Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgstr "Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/about/index.tsx:40
 #: apps/web/src/components/modal/modal-contents/about-modal-content.tsx:30
-msgid "Hey there! It's Kamil and Sébastien here, the creators of yourbestaccent.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon."
-msgstr "Hey there! It's Kamil and Sébastien here, the creators of yourbestaccent.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon."
+msgid "Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon."
+msgstr "Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon."
 
 #: apps/web/src/components/modal/modal-contents/audio-too-short-for-cloning/audio-too-short-for-cloning-modal.tsx:22
 #: apps/web/src/components/modal/modal-contents/audio-too-short-for-pronunciation/audio-too-short-for-pronunciation-modal.tsx:16
@@ -1928,20 +1928,20 @@ msgstr "I am learning:"
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:135
 #: apps/web/src/components/onboarding/steps/terms-and-conditions/voice-cloning-and-notifications-consent.tsx:53
-msgid "I consent to having my voice cloned for personalized learning experiences within YourBestAccent.com, and I agree to the"
-msgstr "I consent to having my voice cloned for personalized learning experiences within YourBestAccent.com, and I agree to the"
+msgid "I consent to having my voice cloned for personalized learning experiences within TemplateApp.com, and I agree to the"
+msgstr "I consent to having my voice cloned for personalized learning experiences within TemplateApp.com, and I agree to the"
 
 #: apps/web/src/components/modal/modal-contents/danger-zone-modal/delete-account-alert-dialog.tsx:23
 msgid "I want to delete my account"
 msgstr "I want to delete my account"
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:149
-msgid "If you have any questions about these Terms of Service, please contact us via email contact@yourbestaccent.com"
-msgstr "If you have any questions about these Terms of Service, please contact us via email contact@yourbestaccent.com"
+msgid "If you have any questions about these Terms of Service, please contact us via email contact@template-app.com"
+msgstr "If you have any questions about these Terms of Service, please contact us via email contact@template-app.com"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:213
-msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@yourbestaccent.com"
-msgstr "If you have any questions about this Privacy Policy, please contact us via email: contact@yourbestaccent.com"
+msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
+msgstr "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
 
 #: apps/web/src/components/auth/account-removed-success-view.tsx:32
 msgid "If you'd like to create a new account, sign up again below."
@@ -1952,8 +1952,8 @@ msgid "If you'd like to create a new account, you can sign up again."
 msgstr "If you'd like to create a new account, you can sign up again."
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:123
-msgid "In no event shall YourBestAccent.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
-msgstr "In no event shall YourBestAccent.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
+msgid "In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
+msgstr "In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:91
 #: apps/web/src/components/onboarding/steps/terms-and-conditions/terms-and-conditions-view.tsx:69
@@ -2698,8 +2698,8 @@ msgid "Pricing"
 msgstr "Pricing"
 
 #: apps/landing-page/src/app/[lang]/pricing/page.tsx:19
-msgid "Pricing | YourBestAccent"
-msgstr "Pricing | YourBestAccent"
+msgid "Pricing | TemplateApp"
+msgstr "Pricing | TemplateApp"
 
 #: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:42
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:141
@@ -3432,8 +3432,8 @@ msgid "Thank you for your feedback!"
 msgstr "Thank you for your feedback!"
 
 #: apps/landing-page/src/app/[lang]/contact/page.tsx:59
-msgid "Thank you for your interest in YourBestAccent. Your feedback helps us improve our language learning platform."
-msgstr "Thank you for your interest in YourBestAccent. Your feedback helps us improve our language learning platform."
+msgid "Thank you for your interest in TemplateApp. Your feedback helps us improve our language learning platform."
+msgstr "Thank you for your interest in TemplateApp. Your feedback helps us improve our language learning platform."
 
 #: apps/web/src/components/ipa-converter/ipa-converter-view.tsx:256
 msgid "The character limit is {IPA_TRANSCRIPTION_CHARACTER_LIMIT_FOR_NOT_SIGNED_IN_USERS}. You can increase the limit to {MAX_UPPER_LIMIT_TO_PROTECT_FROM_HACKERS} by signing in."
@@ -3449,12 +3449,12 @@ msgid "The Common European Framework of Reference (CEFR) defines language profic
 msgstr "The Common European Framework of Reference (CEFR) defines language proficiency across six levels: A1 and A2 (Basic User), B1 and B2 (Independent User), C1 and C2 (Proficient User). Each level represents increasing language ability, from beginner to near-native fluency. These standardized levels help learners, teachers, and employers understand and compare language skills internationally."
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:35
-msgid "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of YourBestAccent.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
-msgstr "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of YourBestAccent.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
+msgid "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
+msgstr "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
 
 #: apps/landing-page/src/app/[lang]/about/page.tsx:20
-msgid "the creators of yourbestaccent.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
-msgstr "the creators of yourbestaccent.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgid "the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgstr "the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:71
 msgid "The data we collect serves several purposes:"
@@ -3524,8 +3524,8 @@ msgid "This app completely transformed how I learn languages. In a few days, I u
 msgstr "This app completely transformed how I learn languages. In a few days, I understood how to nail my southern Spanish accent. I'm not a gringo anymore when I travel to my beloved Sevilla!"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:203
-msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@yourbestaccent.com to process your requests with the same level of immediacy and thoroughness."
-msgstr "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@yourbestaccent.com to process your requests with the same level of immediacy and thoroughness."
+msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
+msgstr "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/progress/saved-words.tsx:41
 msgid "This feature is still in development for the mobile app."
@@ -3913,8 +3913,8 @@ msgid "Weather"
 msgstr "Weather"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:26
-msgid "Welcome to YourBestAccent.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
-msgstr "Welcome to YourBestAccent.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
+msgid "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
+msgstr "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
 
 #: apps/landing-page/src/app/[lang]/(components)/(video-grid-section)/video-grid-section.tsx:10
 msgid "What Content Creators Say About Us"
@@ -3960,8 +3960,8 @@ msgid "Why should I practice with my voice clone?"
 msgstr "Why should I practice with my voice clone?"
 
 #: apps/landing-page/src/app/[lang]/(components)/(faq-section)/faq-section.tsx:80
-msgid "Why should I trust YourBestAccent with my voice data?"
-msgstr "Why should I trust YourBestAccent with my voice data?"
+msgid "Why should I trust TemplateApp with my voice data?"
+msgstr "Why should I trust TemplateApp with my voice data?"
 
 #: apps/web/src/components/progress/tabs/stats-tab/stats-subtabs/learned-words/learned-words-table.tsx:27
 #: apps/web/src/components/progress/tabs/stats-tab/stats-subtabs/saved-words/saved-words-table.tsx:49
@@ -4259,12 +4259,12 @@ msgid "your@email.com"
 msgstr "your@email.com"
 
 #: apps/landing-page/src/app/[lang]/(components)/(leading-to-apps)/translated-app-banner.tsx:10
-msgid "YourBestAccent"
-msgstr "YourBestAccent"
+msgid "TemplateApp"
+msgstr "TemplateApp"
 
 #: apps/landing-page/src/app/[lang]/page.tsx:16
-msgid "YourBestAccent - Perfect Your Accent with AI Voice Training"
-msgstr "YourBestAccent - Perfect Your Accent with AI Voice Training"
+msgid "TemplateApp - Perfect Your Accent with AI Voice Training"
+msgstr "TemplateApp - Perfect Your Accent with AI Voice Training"
 
 #: apps/landing-page/src/app/[lang]/(components)/testimonial-section.tsx:34
 msgid "Yuki H."

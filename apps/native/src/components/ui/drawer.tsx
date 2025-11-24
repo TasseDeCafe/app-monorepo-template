@@ -19,7 +19,7 @@ import {
   TrendingUp,
   Trophy,
 } from 'lucide-react-native'
-import { EXTERNAL_LINKS } from '@yourbestaccent/core/constants/external-links'
+import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import colors from 'tailwindcss/colors'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'

@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/routing/route-paths'
 import { PopoverForSavedWord } from './popover-for-saved-word.tsx'
 import { useLingui } from '@lingui/react/macro'
-import type { SavedWord } from '@yourbestaccent/api-client/orpc-contracts/saved-words-contract'
+import type { SavedWord } from '@template-app/api-client/orpc-contracts/saved-words-contract'
 import { CustomCircularFlag } from '@/components/design-system/custom-circular-flag.tsx'
 import { useRemoveSavedWord, type SavedWordsInfiniteQueryData } from '@/hooks/api/saved-words/saved-words-hooks'
-import { langNameMessages } from '@yourbestaccent/i18n/lang-code-translation-utils'
+import { langNameMessages } from '@template-app/i18n/lang-code-translation-utils'
 
 export const SavedWordsTable = ({
   data,

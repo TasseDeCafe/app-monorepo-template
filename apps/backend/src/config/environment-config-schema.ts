@@ -55,7 +55,7 @@ export const environmentConfigSchema = z.object({
   stripeYearlyPriceInPlnId: z.string().min(1),
   supabaseJwtSecret: z.string().min(1),
   supabaseConnectionString: z.string().min(1),
-  // https://console.cloud.google.com/apis/credentials?project=yourbestaccent
+  // https://console.cloud.google.com/apis/credentials?project=template-app
   googleVertexAiServiceAccountCredentials: z.string().refine(validateGoogleServiceAccountCredentials),
   googleServiceAccountCredentials: z.string().refine(validateGoogleServiceAccountCredentials),
   googleAffiliateSpreadsheetId: z.string().min(1),

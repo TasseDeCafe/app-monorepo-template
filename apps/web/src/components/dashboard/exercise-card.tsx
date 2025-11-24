@@ -1,5 +1,5 @@
 import { LucideIcon } from 'lucide-react'
-import { cn } from '@yourbestaccent/core/utils/tailwind-utils'
+import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useLingui } from '@lingui/react/macro'
 
 type ExerciseCardProps = {

@@ -5,9 +5,9 @@ import {
   STRIPE_YEARLY_PRICE_IN_EUR,
   STRIPE_YEARLY_PRICE_IN_PLN,
   SUPPORTED_STRIPE_CURRENCY,
-} from '@yourbestaccent/core/constants/pricing-constants'
-import { Discounts } from '@yourbestaccent/core/constants/discount-types'
-import { PlanType, UserStripePricingDetails } from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+} from '@template-app/core/constants/pricing-constants'
+import { Discounts } from '@template-app/core/constants/discount-types'
+import { PlanType, UserStripePricingDetails } from '@template-app/api-client/orpc-contracts/billing-contract'
 
 // normal means the price before discounts are applied
 // we use NonNullable here because there is already a type guard where this function is called

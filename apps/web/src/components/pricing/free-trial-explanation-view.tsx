@@ -10,8 +10,8 @@ import {
   PlanInterval,
   REFUND_PERIOD_IN_DAYS,
   SUPPORTED_STRIPE_CURRENCY,
-} from '@yourbestaccent/core/constants/pricing-constants.ts'
-import { POLISH_LOCALE } from '@yourbestaccent/i18n/i18n-config'
+} from '@template-app/core/constants/pricing-constants.ts'
+import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { getBrowserLocale } from '@/i18n/i18n'

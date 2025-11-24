@@ -1,8 +1,8 @@
 import posthog from 'posthog-js'
 
 import { PLAYER_TYPE } from '@/components/audio-player/audio-player-types.ts'
-import { SupportedStudyLanguage } from '@yourbestaccent/core/constants/lang-codes.ts'
-import { PlanType } from '@yourbestaccent/api-client/orpc-contracts/billing-contract'
+import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes.ts'
+import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 
 const defaultProperties = () => ({
   href: window.location.href,

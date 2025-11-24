@@ -55,7 +55,7 @@ const config = {
     name: getAppName(),
     owner: 'template-app',
     slug: 'native',
-    version: '1.1.3',
+    version: '0.0.1',
     orientation: 'portrait',
     icon: './src/assets/images/icon.png',
     scheme: 'template-app',
@@ -184,7 +184,7 @@ const config = {
         {
           url: 'https://sentry.io/',
           project: 'template-app-native',
-          organization: 'grammarians',
+          organization: 'template-organization',
         },
       ],
       ['expo-font'],

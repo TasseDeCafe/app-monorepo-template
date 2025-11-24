@@ -29,7 +29,7 @@ jobs:
             source ~/.nvm/nvm.sh
             nvm use 22.14.0
 
-            cd /root/projects/grammarians/template-app.com
+            cd /root/projects/template-organization/template-app.com
             echo "PULLING THE CODE - STARTING"
             # disregard local changes, pull the latest code, no matter if the history doesn't match
             # for example because of the force push of an amended commit from inside the instance
@@ -37,7 +37,7 @@ jobs:
             git reset --hard origin/main
             echo "PULLING THE CODE - SUCCESS"
             pwd
-            echo ${{ secrets.DOPPLER_SERVICE_TOKEN }} | doppler configure set token --scope /root/projects/grammarians/template-app.com
+            echo ${{ secrets.DOPPLER_SERVICE_TOKEN }} | doppler configure set token --scope /root/projects/template-organization/template-app.com
             corepack enable
             corepack prepare pnpm@10.18.2 --activate
             pnpm install

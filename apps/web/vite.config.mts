@@ -14,7 +14,7 @@ export default defineConfig({
     lingui(),
     tsconfigPaths(),
     sentryVitePlugin({
-      org: 'grammarians',
+      org: 'template-organization',
       project: 'template-app-web',
       authToken: process.env.SENTRY_AUTH_TOKEN,
       sourcemaps: {

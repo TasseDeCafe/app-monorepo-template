@@ -19,20 +19,13 @@ const productionConfig: EnvironmentConfig = {
     'https://template-app.com',
     'https://www.template-app.com',
     'https://app.template-app.com',
-    /https:\/\/.*-grammarians\.vercel\.app(\/.*)?/, // Vercel Preview URLs
+    /https:\/\/.*-template-organization\.vercel\.app(\/.*)?/, // Vercel Preview URLs
   ],
-  elevenlabsApiKey: process.env.ELEVENLABS_API_KEY || '',
-  personalElevenlabsVoiceId: '',
-  openaiApiKey: process.env.OPENAI_API_KEY || '',
-  anthropicApiKey: process.env.ANTHROPIC_API_KEY || '',
-  deepgramApiKey: process.env.DEEPGRAM_API_KEY || '',
   resendApiKey: process.env.RESEND_API_KEY || '',
   stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
   stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
   stripeMonthlyPriceInEurId: process.env.STRIPE_MONTHLY_PRICE_IN_EUR_ID || '',
   stripeYearlyPriceInEurId: process.env.STRIPE_YEARLY_PRICE_IN_EUR_ID || '',
-  stripeMonthlyPriceInPlnId: process.env.STRIPE_MONTHLY_PRICE_IN_PLN_ID || '',
-  stripeYearlyPriceInPlnId: process.env.STRIPE_YEARLY_PRICE_IN_PLN_ID || '',
   sentry: {
     dsn: process.env.SENTRY_DSN || '',
     options: {
@@ -47,23 +40,13 @@ const productionConfig: EnvironmentConfig = {
   supabaseConnectionString: process.env.SUPABASE_CONNECTION_STRING || '',
   supabaseUrl: process.env.SUPABASE_PROJECT_URL || '',
   supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
-  googleVertexAiServiceAccountCredentials: process.env.GOOGLE_VERTEX_AI_SERVICE_ACCOUNT_CREDENTIALS || '',
-  googleServiceAccountCredentials: process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS || '',
-  googleAffiliateSpreadsheetId: process.env.GOOGLE_AFFILIATE_SPREADSHEET_ID || '',
-  customerioSiteId: process.env.CUSTOMERIO_SITE_ID || '',
-  customerioApiKey: process.env.CUSTOMERIO_API_KEY || '',
-  customerioAppApiKey: process.env.CUSTOMERIO_APP_API_KEY || '',
   revenuecatApiKey: process.env.REVENUECAT_API_KEY || '',
   revenuecatProjectId: process.env.REVENUECAT_PROJECT_ID || '',
   revenuecatWebhookAuthHeader: process.env.REVENUECAT_WEBHOOK_AUTH_HEADER || '',
   posthogApiKey: process.env.POSTHOG_API_KEY || '',
-  googleAiStudioApiKey: process.env.GOOGLE_AI_STUDIO_API_KEY || '',
-  cartesiaApiKey: process.env.CARTESIA_API_KEY || '',
   shouldRateLimit: true,
   shouldMockThirdParties: false,
   shouldSlowDownApiRoutes: false,
-  shouldSkipVoiceCloningChecks: false,
-  shouldHaveSecretFrontendHeader: true,
   usersWithFreeAccess: parseEmails(process.env.USERS_WITH_FREE_ACCESS || '').validEmails,
   emailsOfTestUsers: parseEmails(process.env.EMAILS_OF_TEST_USERS || '').validEmails,
   featureFlags: {
@@ -81,18 +64,11 @@ const developmentConfig: EnvironmentConfig = {
     'http://localhost:5174',
     'http://localhost:4173', // "yarn preview" origin
   ],
-  elevenlabsApiKey: process.env.ELEVENLABS_API_KEY || '',
-  personalElevenlabsVoiceId: process.env.ELEVENLABS_VOICE_ID || '',
-  openaiApiKey: process.env.OPENAI_API_KEY || '',
-  anthropicApiKey: process.env.ANTHROPIC_API_KEY || '',
-  deepgramApiKey: process.env.DEEPGRAM_API_KEY || '',
   resendApiKey: process.env.RESEND_API_KEY || '',
   stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
   stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET || '',
   stripeMonthlyPriceInEurId: process.env.STRIPE_MONTHLY_PRICE_IN_EUR_ID || '',
   stripeYearlyPriceInEurId: process.env.STRIPE_YEARLY_PRICE_IN_EUR_ID || '',
-  stripeMonthlyPriceInPlnId: process.env.STRIPE_MONTHLY_PRICE_IN_PLN_ID || '',
-  stripeYearlyPriceInPlnId: process.env.STRIPE_YEARLY_PRICE_IN_PLN_ID || '',
   sentry: {
     dsn: process.env.SENTRY_DSN || '',
     options: {
@@ -109,23 +85,13 @@ const developmentConfig: EnvironmentConfig = {
   // shown by `yarn db:dev` command
   supabaseServiceRoleKey:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU',
-  googleVertexAiServiceAccountCredentials: process.env.GOOGLE_VERTEX_AI_SERVICE_ACCOUNT_CREDENTIALS || '',
-  googleServiceAccountCredentials: process.env.GOOGLE_SERVICE_ACCOUNT_CREDENTIALS || '',
-  googleAffiliateSpreadsheetId: process.env.GOOGLE_AFFILIATE_SPREADSHEET_ID || '',
-  customerioSiteId: process.env.CUSTOMERIO_SITE_ID || '',
-  customerioApiKey: process.env.CUSTOMERIO_API_KEY || '',
-  customerioAppApiKey: process.env.CUSTOMERIO_APP_API_KEY || '',
   revenuecatApiKey: process.env.REVENUECAT_API_KEY || '',
   revenuecatProjectId: process.env.REVENUECAT_PROJECT_ID || '',
   revenuecatWebhookAuthHeader: process.env.REVENUECAT_WEBHOOK_AUTH_HEADER || '',
   posthogApiKey: process.env.POSTHOG_API_KEY || '',
-  googleAiStudioApiKey: process.env.GOOGLE_AI_STUDIO_API_KEY || '',
-  cartesiaApiKey: process.env.CARTESIA_API_KEY || '',
   shouldRateLimit: true,
   shouldMockThirdParties: false,
   shouldSlowDownApiRoutes: false,
-  shouldSkipVoiceCloningChecks: false,
-  shouldHaveSecretFrontendHeader: true,
   usersWithFreeAccess: parseEmails(process.env.USERS_WITH_FREE_ACCESS || '').validEmails,
   emailsOfTestUsers: parseEmails(process.env.EMAILS_OF_TEST_USERS || '').validEmails,
   featureFlags: {
@@ -149,10 +115,6 @@ const developmentForMobileConfig: EnvironmentConfig = {
 
 const developmentWithoutThirdPartiesConfig: EnvironmentConfig = {
   ...developmentConfig,
-  elevenlabsApiKey: 'dummyElevenlabsApiKey',
-  personalElevenlabsVoiceId: '',
-  openaiApiKey: 'dummyOpenaiApiKey',
-  deepgramApiKey: 'dummyDeepgramApiKey',
   sentry: {
     dsn: 'dummySentryDsn',
     options: {
@@ -179,18 +141,11 @@ const testConfig: EnvironmentConfig = {
   frontendUrl: 'some-frontend-url',
   shouldLogRequests: false,
   allowedCorsOrigins: ['some-frontend-url'],
-  elevenlabsApiKey: 'dummyElevenlabsApiKey',
-  personalElevenlabsVoiceId: '',
-  openaiApiKey: 'dummyOpenaiApiKey',
-  anthropicApiKey: 'dummyAnthropicApiKey',
-  deepgramApiKey: 'dummyDeepgramApiKey',
   resendApiKey: 'dummyResendApiKey',
   stripeSecretKey: 'dummyStripeSecretKey',
   stripeWebhookSecret: 'dummyStripeWebhookSecret',
   stripeMonthlyPriceInEurId: 'dummyStripeMonthlyPriceInEurId',
   stripeYearlyPriceInEurId: 'dummyStripeYearlyPriceInEurId',
-  stripeMonthlyPriceInPlnId: 'dummyStripeMonthlyPriceInPlnId',
-  stripeYearlyPriceInPlnId: 'dummyStripeYearlyPriceInPlnId',
   sentry: {
     // we can't pass 'dummySentryDsn' here, sentry doesn't accept that
     // this was necessary for GRAM-1788
@@ -209,23 +164,13 @@ const testConfig: EnvironmentConfig = {
   // shown by `yarn db:test` command
   supabaseServiceRoleKey:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU',
-  googleVertexAiServiceAccountCredentials: '{"dummy": "google credentials", "project_id": "dummy"}',
-  googleServiceAccountCredentials: '{"dummy": "google credentials"}',
-  googleAffiliateSpreadsheetId: 'dummyGoogleAffiliateSpreadsheetId',
-  customerioSiteId: 'dummyCustomerioSiteId',
-  customerioApiKey: 'dummyCustomerioApiKey',
-  customerioAppApiKey: 'dummyCustomerioAppApiKey',
   revenuecatApiKey: 'dummyRevenuecatApiKey',
   revenuecatProjectId: 'dummyRevenuecatProjectId',
   revenuecatWebhookAuthHeader: 'dummyRevenuecatWebhookAuthHeader',
   posthogApiKey: 'dummyPosthogApiKey',
-  googleAiStudioApiKey: 'dummyGoogleAiStudioApiKey',
-  cartesiaApiKey: 'dummyCartesiaApiKey',
   shouldRateLimit: false,
   shouldMockThirdParties: true,
   shouldSlowDownApiRoutes: false,
-  shouldSkipVoiceCloningChecks: false,
-  shouldHaveSecretFrontendHeader: true,
   usersWithFreeAccess: [],
   emailsOfTestUsers: [],
   featureFlags: {

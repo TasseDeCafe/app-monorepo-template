@@ -13,17 +13,11 @@ export interface __DbRemoval {
   was_successful: boolean
 }
 
-export const insertRemoval = async (
-  userId: string,
-  elevenlabsVoiceId: string | null,
-  email: string,
-  type: RemovalType,
-  wasSuccessful: boolean
-): Promise<string | null> => {
+export const insertRemoval = async (userId: string, email: string, wasSuccessful: boolean): Promise<string | null> => {
   try {
     const result = await sql`
       INSERT INTO public.removals (user_id, elevenlabs_voice_id, email, type, was_successful)
-      VALUES (${userId}, ${elevenlabsVoiceId}, ${email}, ${type}, ${wasSuccessful})
+      VALUES (${userId}, ${email}, ${wasSuccessful})
       RETURNING id
     `
 
@@ -31,13 +25,13 @@ export const insertRemoval = async (
       return result[0].id as string
     } else {
       logMessage(
-        `insertRemoval: Insertion successful, but no id returned, userId = ${userId}, email = ${email}, type = ${type}, wasSuccessful = ${wasSuccessful}`
+        `insertRemoval: Insertion successful, but no id returned, userId = ${userId}, email = ${email}, wasSuccessful = ${wasSuccessful}`
       )
       return null
     }
   } catch (e) {
     logCustomErrorMessageAndError(
-      `insertRemoval, userId = ${userId}, email = ${email}, type = ${type}, wasSuccessful = ${wasSuccessful}`,
+      `insertRemoval, userId = ${userId}, email = ${email}, wasSuccessful = ${wasSuccessful}`,
       e
     )
     return null

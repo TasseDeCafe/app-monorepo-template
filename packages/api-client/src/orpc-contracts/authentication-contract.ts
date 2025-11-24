@@ -1,7 +1,6 @@
 import { oc } from '@orpc/contract'
 import { z } from 'zod'
 
-// Common error schemas
 const errorResponseSchema = z.object({
   errors: z.array(
     z.object({

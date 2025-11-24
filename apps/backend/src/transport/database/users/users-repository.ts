@@ -12,17 +12,6 @@ export interface DbUser {
   utm_term: string | null
   utm_content: string | null
 }
-export const __getAllUsers = async (): Promise<DbUser[]> => {
-  try {
-    return await sql<DbUser[]>`
-      SELECT id, elevenlabs_voice_id
-      FROM public.users
-    `
-  } catch (e) {
-    logCustomErrorMessageAndError('getAllUsers', e)
-    return []
-  }
-}
 
 const insertUser = async (
   id: string,

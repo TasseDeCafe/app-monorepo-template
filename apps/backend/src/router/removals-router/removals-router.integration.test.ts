@@ -55,7 +55,7 @@ describe('removals-router', () => {
   })
 
   describe('removing an account', () => {
-    test('happy path when user has NO elevenlabsVoiceId', async () => {
+    test('happy path', async () => {
       const testApp = buildApp({})
       const { token } = await __createUserInSupabaseAndGetHisIdAndToken('some@email.com')
       await __createOrGetUserWithOurApi({ testApp, token, referral: null })
@@ -71,7 +71,6 @@ describe('removals-router', () => {
       expect(removals[0].type).toBe('account')
       expect(removals[0].was_successful).toBe(true)
       expect(removals[0].email).toBe('some@email.com')
-      expect(removals[0].elevenlabs_voice_id).toBe(null)
     })
 
     test('happy path', async () => {

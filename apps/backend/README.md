@@ -100,8 +100,6 @@ all the keys should be loaded with doppler, but if you want to set them up from 
 
 https://platform.openai.com/api-keys
 
-### elevenlabs
-
 ### google
 
 needed for "sign in with google"

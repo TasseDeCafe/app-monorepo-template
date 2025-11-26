@@ -1,14 +1,10 @@
 import { sql } from '../postgres-client'
 import { logMessage, logCustomErrorMessageAndError } from '../../third-party/sentry/error-monitoring'
 
-export type RemovalType = 'account' | 'voice'
-
 export interface __DbRemoval {
   id: string
   user_id: string
-  elevenlabs_voice_id: string | null
   email: string
-  type: RemovalType
   created_at: Date
   was_successful: boolean
 }
@@ -16,7 +12,7 @@ export interface __DbRemoval {
 export const insertRemoval = async (userId: string, email: string, wasSuccessful: boolean): Promise<string | null> => {
   try {
     const result = await sql`
-      INSERT INTO public.removals (user_id, elevenlabs_voice_id, email, type, was_successful)
+      INSERT INTO public.removals (user_id, email, was_successful)
       VALUES (${userId}, ${email}, ${wasSuccessful})
       RETURNING id
     `

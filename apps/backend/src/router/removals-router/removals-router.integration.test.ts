@@ -68,7 +68,6 @@ describe('removals-router', () => {
       expect(removalResponse.status).toBe(200)
       expect(authUsers).toHaveLength(0)
       expect(removals).toHaveLength(1)
-      expect(removals[0].type).toBe('account')
       expect(removals[0].was_successful).toBe(true)
       expect(removals[0].email).toBe('some@email.com')
     })
@@ -86,10 +85,8 @@ describe('removals-router', () => {
       expect(removalResponse.status).toBe(200)
       expect(authUsers).toHaveLength(0)
       expect(removals).toHaveLength(1)
-      expect(removals[0].type).toBe('account')
       expect(removals[0].was_successful).toBe(true)
       expect(removals[0].email).toBe('some@email.com')
-      expect(removals[0].elevenlabs_voice_id).toBe('1234')
     })
 
     test('should cancel active subscription when account is removed', async () => {

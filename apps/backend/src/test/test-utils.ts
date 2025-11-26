@@ -11,9 +11,6 @@ import {
   PlanInterval,
   SUPPORTED_STRIPE_CURRENCY,
 } from '@template-app/core/constants/pricing-constants'
-import { LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
-import { NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND } from '@template-app/api-client/key-generation/frontend-api-key-constants'
-import { generateFrontendApiKey } from '@template-app/api-client/key-generation/frontend-api-key-generator'
 import { __simulateStripeSubscriptionCreatedEvent } from './stripe/stripe-test-utils'
 import { DbInterval } from '../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
 
@@ -102,12 +99,7 @@ export const __createUserInSupabaseAndGetHisIdAndToken = async (email?: string):
 export const __generateUniqueId = (prefix: string): string =>
   `${prefix}_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`
 
-export const buildAuthorizationHeaderForOpenApi = () => ({
-  [NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND]: generateFrontendApiKey(Date.now(), 0),
-})
-
 export const buildAuthorizationHeaders = (token: string) => ({
-  [NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND]: generateFrontendApiKey(Date.now(), 0),
   Authorization: `Bearer ${token}`,
 })
 
@@ -148,28 +140,6 @@ export const __callCheckoutEndpoint = async (testApp: Express, token: string): P
       planInterval: 'month',
       currency: SUPPORTED_STRIPE_CURRENCY.EUR,
     })
-}
-
-export const __updateMotherLanguageWithOurApi = async (
-  testApp: Express,
-  token: string,
-  motherLanguage?: LangCode
-): Promise<request.Response> => {
-  return await request(testApp)
-    .patch('/api/v1/users/me/mother_language')
-    .set(buildAuthorizationHeaders(token))
-    .send({ motherLanguage: motherLanguage || LangCode.ENGLISH })
-}
-
-export const __updateStudyLanguageWithOurApi = async (
-  testApp: Express,
-  token: string,
-  studyLanguage?: SupportedStudyLanguage
-): Promise<request.Response> => {
-  return await request(testApp)
-    .patch('/api/v1/users/me/study_language')
-    .set(buildAuthorizationHeaders(token))
-    .send({ studyLanguage: studyLanguage || LangCode.POLISH })
 }
 
 export const __createCheckoutSessionWithOurApi = async (
@@ -303,8 +273,6 @@ export const __createDefaultInitialStateAfterIntroducingCreditCardAndOnboardingW
   // before this call, our user still does not have a stripe customer id
   await __callCheckoutEndpoint(testApp, token)
   await __simulateStripeSubscriptionCreatedEvent({ testApp, stripeCustomerId, userId })
-  await __updateMotherLanguageWithOurApi(testApp, token)
-  await __updateStudyLanguageWithOurApi(testApp, token)
   return { token, id: userId, testApp, stripeCallsCounters }
 }
 export const __createDefaultInitialStateAfterIntroducingCreditCardAndOnboarding = async ({

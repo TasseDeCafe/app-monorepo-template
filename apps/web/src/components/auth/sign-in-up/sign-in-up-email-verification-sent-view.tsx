@@ -3,8 +3,6 @@ import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '../../../analytics/posthog/posthog-events.ts'
 import { Card } from '../../design-system/card.tsx'
 import { TitleWithGradient } from '../../design-system/typography/title-with-gradient.tsx'
-import { Testimonial } from './testimonial'
-import benGelb from '../../../assets/images/ben-gelb.jpg'
 import { NavbarContactButton } from '../../navbar/navbar-contact-button'
 import { useLingui } from '@lingui/react/macro'
 
@@ -42,14 +40,6 @@ export const SignInUpEmailVerificationSentView = ({ isSignIn }: { isSignIn: bool
             </div>
           </div>
         </Card>
-      </div>
-      <div className='hidden h-full lg:block lg:w-1/2'>
-        <Testimonial
-          quote={t`This app completely transformed how I learn languages. In a few days, I understood how to nail my southern Spanish accent. I'm not a gringo anymore when I travel to my beloved Sevilla!`}
-          author='Ben Gelb'
-          role={t`Product Manager at Sage`}
-          image={benGelb}
-        />
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import { z } from 'zod'
 import { getModeName, isDevelopment, isDevelopmentForMobile, isProduction, isTest } from './environment-utils.ts'
 import { environmentConfigSchema } from './environment-config-schema.ts'
-import { featureFlagsLocalStorageWrapper } from '../local-storage/feature-flags-local-storage-wrapper.ts'
+import { featureFlagsLocalStorageWrapper } from '@/local-storage/feature-flags-local-storage-wrapper'
 import { parseHashedEmails } from './environment-config-utils.ts'
 
 type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
@@ -26,7 +26,6 @@ const getProductionConfig = (): EnvironmentConfig => ({
       networkResponseHeaders: ['X-Custom-Header'],
     },
   },
-  fullstoryOrganizationId: import.meta.env.VITE_FULLSTORY_ORGANIZATION_ID,
   posthogToken: import.meta.env.VITE_POSTHOG_TOKEN,
   areReduxDevToolsEnabled: true,
   shouldLogLocally: false,
@@ -40,8 +39,6 @@ const getProductionConfig = (): EnvironmentConfig => ({
     isPosthogDebugEnabled: () => featureFlagsLocalStorageWrapper.getIsPosthogDebugEnabledFeatureFlag(),
     isCreditCardRequiredForAll: () => true,
     shouldAppBeFreeForEveryone: () => false,
-    isConversationExerciseEnabled: () => true,
-    isTranslationExerciseEnabled: () => true,
   },
 })
 
@@ -68,8 +65,6 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
       networkResponseHeaders: ['X-Custom-Header'],
     },
   },
-  // we cannot afford having another fullstory organization id for development
-  fullstoryOrganizationId: 'dummyFullstoryOrganizationId',
   posthogToken: import.meta.env.VITE_POSTHOG_TOKEN || '',
   areReduxDevToolsEnabled: true,
   shouldLogLocally: true,
@@ -83,8 +78,6 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
     isPosthogDebugEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldAppBeFreeForEveryone: () => false,
-    isConversationExerciseEnabled: () => true,
-    isTranslationExerciseEnabled: () => true,
   },
 })
 
@@ -118,7 +111,6 @@ const getTestConfig = (): EnvironmentConfig => ({
       networkResponseHeaders: [],
     },
   },
-  fullstoryOrganizationId: 'dummyFullstoryOrganizationId',
   posthogToken: '',
   areReduxDevToolsEnabled: true,
   shouldLogLocally: true,
@@ -130,8 +122,6 @@ const getTestConfig = (): EnvironmentConfig => ({
     isPosthogDebugEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldAppBeFreeForEveryone: () => false,
-    isConversationExerciseEnabled: () => true,
-    isTranslationExerciseEnabled: () => true,
   },
 })
 

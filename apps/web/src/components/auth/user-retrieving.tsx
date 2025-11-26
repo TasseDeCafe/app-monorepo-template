@@ -4,21 +4,15 @@ import {
   selectIsBackendUserInfoLoaded,
   selectParamsThatHadOriginallyCameFromLanding,
 } from '@/state/slices/account-slice.ts'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useCreateOrUpdateUser } from '@/hooks/api/user/user-hooks'
-import { useShouldReceiveMarketingEmails } from '@/hooks/api/user-marketing-preferences/user-marketing-preferences-hooks'
 
 export const UserRetrieving = () => {
   const accessToken = useSelector(selectAccountAccessToken)
   const paramsThatHadOriginallyCameFromLanding = useSelector(selectParamsThatHadOriginallyCameFromLanding)
   const isBackendUserInfoLoaded = useSelector(selectIsBackendUserInfoLoaded)
 
-  const [shouldFetchMarketingPreferences, setShouldFetchMarketingPreferences] = useState(false)
-
-  const { mutate: getOrCreateUserData, isPending: isFetchingUserData } = useCreateOrUpdateUser()
-
-  // todo react-query: consider logging errors for this query now that global meta handling is in place
-  useShouldReceiveMarketingEmails(shouldFetchMarketingPreferences)
+  const { mutate: getOrCreateUserData } = useCreateOrUpdateUser()
 
   useEffect(() => {
     if (accessToken && !isBackendUserInfoLoaded && paramsThatHadOriginallyCameFromLanding) {
@@ -34,32 +28,6 @@ export const UserRetrieving = () => {
       })
     }
   }, [accessToken, getOrCreateUserData, isBackendUserInfoLoaded, paramsThatHadOriginallyCameFromLanding])
-
-  useEffect(() => {
-    if (!accessToken) {
-      setShouldFetchMarketingPreferences(false)
-      return
-    }
-
-    if (isFetchingUserData) {
-      setShouldFetchMarketingPreferences(false)
-      return
-    }
-
-    // related to GRAM-1320 https://www.notion.so/grammarians/Marketing-preferences-bug-s-1a3168e7b01a8018949df740993672bb
-    // this is dirty, it turns out that customer.io is not synchronous. Even though they return a 200 response
-    // for a new customer creation (it's called "identify" in their convention), this data is not immediately retrievable
-    // I guess internally creating a customer makes their infrastructure just put a task on a queue
-    // this is why we need this ugly setTimeout
-    const fiveSeconds = 5000
-    const timeoutId = setTimeout(() => {
-      setShouldFetchMarketingPreferences(true)
-    }, fiveSeconds)
-
-    return () => {
-      clearTimeout(timeoutId)
-    }
-  }, [accessToken, isFetchingUserData])
 
   return <></>
 }

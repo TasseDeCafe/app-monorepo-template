@@ -13,7 +13,6 @@ import { i18n } from './i18n/i18n'
 
 import { StateAndHashSynchronizer } from './components/synchronizers/hash-synchronizer/state-and-hash-synchronizer.tsx'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { CookieBanner } from './components/cookie-banner/cookie-banner.tsx'
 import { queryClient } from '@/config/react-query-config'
 
 export const App = () => {
@@ -29,7 +28,6 @@ export const App = () => {
             <StateAndHashSynchronizer />
             <UserRetrieving />
             <Router />
-            <CookieBanner />
           </BrowserRouter>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

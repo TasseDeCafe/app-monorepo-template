@@ -14,8 +14,6 @@ import { Mail } from 'lucide-react'
 import { Card } from '../../design-system/card.tsx'
 import { TitleWithGradient } from '../../design-system/typography/title-with-gradient.tsx'
 import { shouldShowSignInWithGoogle } from './sign-in-up-utils.ts'
-import { Testimonial } from './testimonial'
-import benGelb from '../../../assets/images/ben-gelb.jpg'
 import { NavbarContactButton } from '../../navbar/navbar-contact-button.tsx'
 import { useLingui } from '@lingui/react/macro'
 
@@ -133,14 +131,6 @@ export const SignInUp = ({ isSignIn = true }: { isSignIn?: boolean }) => {
               </a>
             </div>
           </Card>
-        </div>
-        <div className='hidden h-full xl:block xl:w-1/2'>
-          <Testimonial
-            quote={t`This app completely transformed how I learn languages. In a few days, I understood how to nail my southern Spanish accent. I'm not a gringo anymore when I travel to my beloved Sevilla!`}
-            author='Ben Gelb'
-            role={t`Product Manager at Sage`}
-            image={benGelb}
-          />
         </div>
       </div>
     )

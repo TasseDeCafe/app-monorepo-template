@@ -1,6 +1,5 @@
 import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query'
 import {
-  ERROR_CODE_FOR_AUTHENTICATING_FRONTEND,
   ERROR_CODE_FOR_INVALID_TOKEN,
   ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED,
 } from '@template-app/api-client/key-generation/frontend-api-key-constants'
@@ -80,26 +79,6 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
   }
 
   if (error.code === 'UNAUTHORIZED') {
-    if (backendErrorCode === ERROR_CODE_FOR_AUTHENTICATING_FRONTEND) {
-      POSTHOG_EVENTS.frontendAuthenticationError()
-      if (showErrorModal) {
-        store.dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.FRONTEND_AUTHENTICATION_ERROR))
-      }
-      const date = new Date()
-      logWithSentry(
-        'Frontend authenticating error',
-        error,
-        {
-          date: date.toString(),
-          timestamp: date.getTime(),
-          backendErrorCode,
-          orpc: buildOrpcErrorContext(error),
-        },
-        'info'
-      )
-      return
-    }
-
     if (backendErrorCode === ERROR_CODE_FOR_INVALID_TOKEN) {
       POSTHOG_EVENTS.invalidTokenError()
       if (showErrorModal) {
@@ -162,13 +141,7 @@ export const queryClient = new QueryClient({
   }),
   defaultOptions: {
     queries: {
-      staleTime: Infinity,
-      refetchOnWindowFocus: false,
       retry: queryRetryHandler,
-      gcTime: Infinity,
-    },
-    mutations: {
-      gcTime: Infinity,
     },
   },
 })

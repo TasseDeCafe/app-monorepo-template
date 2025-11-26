@@ -9,8 +9,6 @@ export const localStorageMiddleware: Middleware<unknown, RootState> = (store) =>
   const result = next(action)
   const state = store.getState()
 
-  localStorageWrapper.setShouldShowIpa(state.preferences.shouldShowIpa)
-  localStorageWrapper.setShouldShowTransliteration(state.preferences.shouldShowTransliteration)
   localStorageWrapper.setUtmSource(state.account.utmSource)
   localStorageWrapper.setUtmMedium(state.account.utmMedium)
   localStorageWrapper.setUtmCampaign(state.account.utmCampaign)

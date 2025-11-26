@@ -25,7 +25,6 @@ export const environmentConfigSchema = z.object({
     dsn: z.string().min(1),
     options: sentryOptionsSchema,
   }),
-  fullstoryOrganizationId: z.string().min(1),
   posthogToken: z.string(),
   areReduxDevToolsEnabled: z.boolean(),
   shouldLogLocally: z.boolean(),
@@ -51,14 +50,6 @@ export const environmentConfigSchema = z.object({
     }),
     shouldAppBeFreeForEveryone: z.function({
       input: [],
-      output: z.boolean(),
-    }),
-    isConversationExerciseEnabled: z.function({
-      input: [z.string().optional()],
-      output: z.boolean(),
-    }),
-    isTranslationExerciseEnabled: z.function({
-      input: [z.string().optional()],
       output: z.boolean(),
     }),
   }),

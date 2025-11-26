@@ -1,7 +1,5 @@
 import posthog from 'posthog-js'
 
-import { PLAYER_TYPE } from '@/components/audio-player/audio-player-types.ts'
-import { SupportedStudyLanguage } from '@template-app/core/constants/lang-codes.ts'
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 
 const defaultProperties = () => ({
@@ -29,9 +27,6 @@ export const POSTHOG_EVENTS = {
   clickPlan: (clickName: string, planType: PlanType) => {
     captureWithDefaults('click', { click_name: clickName, plan_type: planType ?? '' })
   },
-  playAudio: (playerType: PLAYER_TYPE) => {
-    captureWithDefaults('play_audio', { player_type: playerType })
-  },
   viewPage: () => {
     captureWithDefaults('page_view')
   },
@@ -50,23 +45,7 @@ export const POSTHOG_EVENTS = {
   rateLimitUser: () => {
     captureWithDefaults('rate_limit_user')
   },
-  frontendAuthenticationError: () => {
-    captureWithDefaults('frontend_authentication_error')
-  },
   invalidTokenError: () => {
     captureWithDefaults('invalid_token_error')
-  },
-  recordAudio: (attempt: number) => {
-    captureWithDefaults('record_audio', { attempt: String(attempt) })
-  },
-  studyLanguageChanged: (studyLanguage: SupportedStudyLanguage) => {
-    captureWithDefaults('study_language_changed', { study_language: studyLanguage })
-  },
-  textTranscribed: (language: SupportedStudyLanguage, textLength: number, isSignedIn: boolean) => {
-    captureWithDefaults('text_transcribed', {
-      language: language,
-      text_length: String(textLength),
-      is_signed_in: String(isSignedIn),
-    })
   },
 }

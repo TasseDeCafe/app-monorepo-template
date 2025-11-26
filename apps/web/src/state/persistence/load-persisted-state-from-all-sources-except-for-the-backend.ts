@@ -1,6 +1,5 @@
 import { store } from '../store'
 import { accountActions } from '../slices/account-slice'
-import { preferencesActions } from '../slices/preferences-slice'
 import { localStorageWrapper } from '@/local-storage/local-storage-wrapper'
 import { AGREED_TO_ALL_COOKIE, AGREED_TO_ESSENTIALS_ONLY_COOKIE } from '@template-app/core/constants/cookie-constants'
 import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants.ts'
@@ -29,11 +28,6 @@ export const loadPersistedStateFromAllSourcesExceptForTheBackend = () => {
     utmContent: localStorageWrapper.getUtmContent() || urlUtmContent,
   }
 
-  const userPreferences = {
-    shouldShowIpa: localStorageWrapper.getShouldShowIpa(),
-    shouldShowTransliteration: localStorageWrapper.getShouldShowTransliteration(),
-  }
-
   // Load cookies state
   const cookiesState = (() => {
     if (document.cookie.includes(AGREED_TO_ALL_COOKIE)) {
@@ -50,6 +44,4 @@ export const loadPersistedStateFromAllSourcesExceptForTheBackend = () => {
       cookiesState,
     })
   )
-
-  store.dispatch(preferencesActions.initializeFromLocalStorage(userPreferences))
 }

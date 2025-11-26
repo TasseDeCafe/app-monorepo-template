@@ -49,9 +49,6 @@ export const POSTHOG_EVENTS = {
   invalidTokenError: () => {
     captureWithDefaults('invalid_token_error')
   },
-  recordAudio: (attempt: number) => {
-    captureWithDefaults('record_audio', { attempt: String(attempt) })
-  },
   studyLanguageChanged: (studyLanguage: SupportedStudyLanguage) => {
     captureWithDefaults('study_language_changed', { study_language: studyLanguage })
   },

@@ -39,7 +39,6 @@ export const getPricingViewConfig = ({
   isCreditCardRequiredForAll,
   isPremiumUser,
   hasAllowedReferral,
-  hasFinishedOnboarding,
   currentActivePlan,
 }: {
   isPendingMutation: boolean
@@ -48,7 +47,6 @@ export const getPricingViewConfig = ({
   isCreditCardRequiredForAll: boolean
   isPremiumUser: boolean
   hasAllowedReferral: boolean
-  hasFinishedOnboarding: boolean
   currentActivePlan: PlanType | null
 }): PricingViewConfig => {
   const planOptions: PlanOption[] = []
@@ -148,7 +146,7 @@ export const getPricingViewConfig = ({
     },
     startButton: {
       shouldBeShown: shouldShowStartButton(),
-      text: hasFinishedOnboarding ? t`GO PRACTICE NOW` : t`START`,
+      text: t`Start`,
     },
   }
 }

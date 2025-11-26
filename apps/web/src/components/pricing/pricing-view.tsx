@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Circle } from 'lucide-react'
 import { useSelector } from 'react-redux'
-import { selectHasAllowedReferral, selectHasFinishedOnboarding } from '@/state/slices/account-slice.ts'
+import { selectHasAllowedReferral } from '@/state/slices/account-slice.ts'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { PricingFaqItems } from './pricing-faq-items'
 import { Button } from '../design-system/button.tsx'
 import { Card } from '../design-system/card.tsx'
 import { getPricingViewConfig, PlanOption, PricingViewConfig } from './pricing-view-utils.ts'
@@ -78,7 +77,6 @@ export const PricingView = () => {
   const [clickedPlan, setClickedPlan] = useState<PlanType>('year')
   const hasAllowedReferral = useSelector(selectHasAllowedReferral)
   const navigate = useNavigate()
-  const hasFinishedOnboarding = useSelector(selectHasFinishedOnboarding)
 
   const handlePlanOptionClick = (planType: PlanType) => {
     POSTHOG_EVENTS.clickPlan('plan_radio_button', planType)
@@ -172,8 +170,7 @@ export const PricingView = () => {
     isCreditCardRequiredForAll: getConfig().featureFlags.isCreditCardRequiredForAll(),
     isPremiumUser: isPremiumUser,
     hasAllowedReferral,
-    hasFinishedOnboarding: hasFinishedOnboarding,
-    currentActivePlan: currentActivePlan,
+    currentActivePlan,
   })
 
   return (
@@ -227,7 +224,6 @@ export const PricingView = () => {
 
         <Card className='max-w-2xl shadow'>
           <h2 className='mb-2 text-center text-3xl font-bold text-gray-900 md:mb-8'>{t`Frequently Asked Questions`}</h2>
-          <PricingFaqItems />
         </Card>
       </div>
     </WithNavbar>

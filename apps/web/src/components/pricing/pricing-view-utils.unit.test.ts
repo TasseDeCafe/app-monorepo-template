@@ -25,7 +25,6 @@ describe('pricing-view-utils', () => {
             isCreditCardRequiredForAll,
             isPremiumUser: false,
             hasAllowedReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'free_trial',
           })
           expect(result).toEqual({
@@ -68,7 +67,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'month',
           })
           expect(result).toEqual({
@@ -111,7 +109,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'year',
           })
           expect(result).toEqual({
@@ -155,7 +152,6 @@ describe('pricing-view-utils', () => {
               },
               isPremiumUser: true,
               hasAllowedReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'year',
             })
             expect(result).toEqual({
@@ -198,7 +194,6 @@ describe('pricing-view-utils', () => {
               },
               isPremiumUser: true,
               hasAllowedReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'month',
             })
             expect(result).toEqual({
@@ -257,7 +252,6 @@ describe('pricing-view-utils', () => {
               isCreditCardRequiredForAll,
               isPremiumUser: false,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'free_trial',
             })
             expect(result).toEqual({
@@ -312,7 +306,6 @@ describe('pricing-view-utils', () => {
               isCreditCardRequiredForAll,
               isPremiumUser: false,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'free_trial',
             })
             expect(result).toEqual({
@@ -367,7 +360,6 @@ describe('pricing-view-utils', () => {
               isCreditCardRequiredForAll,
               isPremiumUser: false,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'free_trial',
             })
             expect(result).toEqual({
@@ -415,7 +407,6 @@ describe('pricing-view-utils', () => {
             isCreditCardRequiredForAll,
             isPremiumUser: false,
             hasAllowedReferral: hasReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'free_trial',
           })
           expect(result).toEqual({
@@ -465,7 +456,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral: hasReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'month',
           })
           expect(result).toEqual({
@@ -515,7 +505,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral: hasReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'year',
           })
           expect(result).toEqual({
@@ -571,7 +560,6 @@ describe('pricing-view-utils', () => {
             isCreditCardRequiredForAll,
             isPremiumUser: false,
             hasAllowedReferral: hasReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'free_trial',
           })
           expect(result).toEqual({
@@ -614,7 +602,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral: hasReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'month',
           })
           expect(result).toEqual({
@@ -657,7 +644,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral: hasReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'year',
           })
           expect(result).toEqual({
@@ -701,7 +687,6 @@ describe('pricing-view-utils', () => {
               },
               isPremiumUser: true,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'year',
             })
             expect(result).toEqual({
@@ -744,7 +729,6 @@ describe('pricing-view-utils', () => {
               },
               isPremiumUser: true,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'month',
             })
             expect(result).toEqual({
@@ -803,7 +787,6 @@ describe('pricing-view-utils', () => {
               isCreditCardRequiredForAll,
               isPremiumUser: false,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'free_trial',
             })
             expect(result).toEqual({
@@ -858,7 +841,6 @@ describe('pricing-view-utils', () => {
               isCreditCardRequiredForAll,
               isPremiumUser: false,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'free_trial',
             })
             expect(result).toEqual({
@@ -913,7 +895,6 @@ describe('pricing-view-utils', () => {
               isCreditCardRequiredForAll,
               isPremiumUser: false,
               hasAllowedReferral: hasReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'free_trial',
             })
             expect(result).toEqual({
@@ -961,7 +942,6 @@ describe('pricing-view-utils', () => {
             isCreditCardRequiredForAll,
             isPremiumUser: false,
             hasAllowedReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'free_trial',
           })
           expect(result).toEqual({
@@ -1004,7 +984,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'month',
           })
           expect(result).toEqual({
@@ -1047,7 +1026,6 @@ describe('pricing-view-utils', () => {
             },
             isPremiumUser: true,
             hasAllowedReferral,
-            hasFinishedOnboarding: false,
             currentActivePlan: 'year',
           })
           expect(result).toEqual({
@@ -1091,7 +1069,6 @@ describe('pricing-view-utils', () => {
               },
               isPremiumUser: true,
               hasAllowedReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'year',
             })
             expect(result).toEqual({
@@ -1134,7 +1111,6 @@ describe('pricing-view-utils', () => {
               },
               isPremiumUser: true,
               hasAllowedReferral,
-              hasFinishedOnboarding: false,
               currentActivePlan: 'month',
             })
             expect(result).toEqual({
@@ -1167,186 +1143,5 @@ describe('pricing-view-utils', () => {
         })
       })
     })
-
-    // describe('when free trial feature flag is disabled', () => {
-    //   const isFreeTrialFeatureFlagEnabled = false
-    //   describe('when isCreditCardRequiredForAll flag is disabled', () => {
-    //     describe('without referral', () => {
-    //       const hasReferral = false
-    //       test('a user right after signup who did not click on anything yet', () => {
-    //         const result = getPricingViewConfig({
-    //           isPendingMutation: false,
-    //           clickedPlan: 'year',
-    //           pricingDetails: {
-    //             amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
-    //             hasSubscribedWithADiscount: false,
-    //             currentlyAvailableDiscounts: null,
-    //             currentDiscountInPercentage: 0,
-    //           },
-    //           isFreeTrialFeatureFlagEnabled,
-    //           isPremiumUser: false,
-    //           hasReferral,
-    //           hasFinishedOnboarding: false,
-    //           currentActivePlan: 'free_trial',
-    //         })
-    //         expect(result).toEqual({
-    //           plans: [
-    //             {
-    //               label: 'Yearly',
-    //               value: 'year',
-    //               priceMessage: '€15.75/month',
-    //               billedYearly: 'Billed yearly at €189.00',
-    //               discountMessage: null,
-    //               additionalMessage: 'best value',
-    //             },
-    //             {
-    //               label: 'Monthly',
-    //               value: 'month',
-    //               priceMessage: '€19.00/month',
-    //               discountMessage: null,
-    //             },
-    //           ],
-    //           subscribeButton: {
-    //             isDisabled: false,
-    //             text: 'SUBSCRIBE NOW',
-    //           },
-    //           startButton: {
-    //             shouldBeShown: false,
-    //             text: 'START',
-    //           },
-    //         })
-    //       })
-    //       test('a user right after signup who clicked on monthly plan', () => {
-    //         const result = getPricingViewConfig({
-    //           isPendingMutation: false,
-    //           clickedPlan: 'month',
-    //           pricingDetails: {
-    //             amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
-    //             hasSubscribedWithADiscount: false,
-    //             currentlyAvailableDiscounts: null,
-    //             currentDiscountInPercentage: 0,
-    //           },
-    //           isFreeTrialFeatureFlagEnabled,
-    //           isPremiumUser: false,
-    //           hasReferral,
-    //           hasFinishedOnboarding: false,
-    //           currentActivePlan: 'free_trial',
-    //         })
-    //         expect(result).toEqual({
-    //           plans: [
-    //             {
-    //               label: 'Yearly',
-    //               value: 'year',
-    //               priceMessage: '€15.75/month',
-    //               billedYearly: 'Billed yearly at €189.00',
-    //               discountMessage: null,
-    //               additionalMessage: 'best value',
-    //             },
-    //             {
-    //               label: 'Monthly',
-    //               value: 'month',
-    //               priceMessage: '€19.00/month',
-    //               discountMessage: null,
-    //             },
-    //           ],
-    //           subscribeButton: {
-    //             isDisabled: false,
-    //             text: 'SUBSCRIBE NOW',
-    //           },
-    //           startButton: {
-    //             shouldBeShown: false,
-    //             text: 'START',
-    //           },
-    //         })
-    //       })
-    //       test('a user with month plan who did not click on anything yet', () => {
-    //         const result = getPricingViewConfig({
-    //           isPendingMutation: false,
-    //           clickedPlan: 'year',
-    //           isFreeTrialFeatureFlagEnabled,
-    //           pricingDetails: {
-    //             amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
-    //             hasSubscribedWithADiscount: false,
-    //             currentlyAvailableDiscounts: null,
-    //             currentDiscountInPercentage: 0,
-    //           },
-    //           isPremiumUser: true,
-    //           hasReferral,
-    //           hasFinishedOnboarding: false,
-    //           currentActivePlan: 'month',
-    //         })
-    //         expect(result).toEqual({
-    //           plans: [
-    //             {
-    //               label: 'Yearly',
-    //               value: 'year',
-    //               billedYearly: 'Billed yearly at €189.00',
-    //               priceMessage: '€15.75/month',
-    //               discountMessage: null,
-    //               additionalMessage: 'best value',
-    //             },
-    //             {
-    //               label: 'Monthly (Current)',
-    //               value: 'month',
-    //               priceMessage: '€19.00/month',
-    //               discountMessage: null,
-    //             },
-    //           ],
-    //           subscribeButton: {
-    //             isDisabled: false,
-    //             text: 'Manage Subscription',
-    //           },
-    //           startButton: {
-    //             shouldBeShown: true,
-    //             text: 'START',
-    //           },
-    //         })
-    //       })
-    //       test('a user with yearly plan who did not click on anything yet', () => {
-    //         const result = getPricingViewConfig({
-    //           isPendingMutation: false,
-    //           clickedPlan: 'year',
-    //           isFreeTrialFeatureFlagEnabled,
-    //           pricingDetails: {
-    //             amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
-    //             hasSubscribedWithADiscount: false,
-    //             currentlyAvailableDiscounts: null,
-    //             currentDiscountInPercentage: 0,
-    //           },
-    //           isPremiumUser: true,
-    //           hasReferral,
-    //           hasFinishedOnboarding: false,
-    //           currentActivePlan: 'year',
-    //         })
-    //         expect(result).toEqual({
-    //           plans: [
-    //             {
-    //               label: 'Yearly (Current)',
-    //               value: 'year',
-    //               billedYearly: 'Billed yearly at €189.00',
-    //               priceMessage: '€15.75/month',
-    //               discountMessage: null,
-    //               additionalMessage: 'best value',
-    //             },
-    //             {
-    //               label: 'Monthly',
-    //               value: 'month',
-    //               priceMessage: '€19.00/month',
-    //               discountMessage: null,
-    //             },
-    //           ],
-    //           subscribeButton: {
-    //             isDisabled: false,
-    //             text: 'Manage Subscription',
-    //           },
-    //           startButton: {
-    //             shouldBeShown: true,
-    //             text: 'START',
-    //           },
-    //         })
-    //       })
-    //     })
-    //   })
-    // })
   })
 })

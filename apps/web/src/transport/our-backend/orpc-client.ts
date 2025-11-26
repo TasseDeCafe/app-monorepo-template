@@ -11,9 +11,7 @@ import { generateFrontendApiKey } from '@template-app/api-client/key-generation/
 import { rootOrpcContract } from '@template-app/api-client/orpc-contracts/root-contract'
 
 const apiPrefix = '/api/v1'
-const openApiPrefix = '/api/v1/open'
 const hostWithPrefix = `${getConfig().apiHost}${apiPrefix}`
-const hostWithOpenPrefix = `${getConfig().apiHost}${openApiPrefix}`
 
 const link = new OpenAPILink(rootOrpcContract, {
   url: hostWithPrefix,
@@ -33,20 +31,6 @@ const link = new OpenAPILink(rootOrpcContract, {
   },
 })
 
-const openLink = new OpenAPILink(rootOrpcContract, {
-  url: hostWithOpenPrefix,
-  headers: () => {
-    return {
-      [NAME_OF_SECRET_HEADER_USED_FOR_AUTHENTICATING_FRONTEND]: generateFrontendApiKey(Date.now(), 0),
-    }
-  },
-})
-
 export const orpcClient = createORPCClient(link) as JsonifiedClient<ContractRouterClient<typeof rootOrpcContract>>
 
-export const orpcOpenClient = createORPCClient(openLink) as JsonifiedClient<
-  ContractRouterClient<typeof rootOrpcContract>
->
-
 export const orpcQuery = createTanstackQueryUtils(orpcClient)
-export const orpcOpenQuery = createTanstackQueryUtils(orpcOpenClient)

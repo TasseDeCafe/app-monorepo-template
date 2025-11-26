@@ -15,30 +15,6 @@ export const localStorageWrapper = {
     }
     return referral
   },
-  setShouldShowIpa: (shouldShowIpa: boolean): void => {
-    if (shouldShowIpa) {
-      localStorage.setItem(LOCAL_STORAGE_CONSTANTS.SHOULD_SHOW_IPA, shouldShowIpa.toString())
-    } else {
-      localStorage.removeItem(LOCAL_STORAGE_CONSTANTS.SHOULD_SHOW_IPA)
-    }
-  },
-  getShouldShowIpa: (): boolean => {
-    const shouldShowIpa: string | null = localStorage.getItem(LOCAL_STORAGE_CONSTANTS.SHOULD_SHOW_IPA)
-    return !!shouldShowIpa
-  },
-  setShouldShowTransliteration: (shouldShowIpa: boolean): void => {
-    if (shouldShowIpa) {
-      localStorage.setItem(LOCAL_STORAGE_CONSTANTS.SHOULD_SHOW_TRANSLITERATION, shouldShowIpa.toString())
-    } else {
-      localStorage.removeItem(LOCAL_STORAGE_CONSTANTS.SHOULD_SHOW_TRANSLITERATION)
-    }
-  },
-  getShouldShowTransliteration: (): boolean => {
-    const shouldShowTransliteration: string | null = localStorage.getItem(
-      LOCAL_STORAGE_CONSTANTS.SHOULD_SHOW_TRANSLITERATION
-    )
-    return !!shouldShowTransliteration
-  },
   setUtmSource: (utmSource: string | null): void => {
     if (utmSource) {
       localStorage.setItem(LOCAL_STORAGE_CONSTANTS.UTM_SOURCE, utmSource)
@@ -88,18 +64,5 @@ export const localStorageWrapper = {
   },
   getUtmContent: (): string | null => {
     return localStorage.getItem(LOCAL_STORAGE_CONSTANTS.UTM_CONTENT)
-  },
-  getIpaTranscriptionCount: (): number => {
-    const count: string | null = localStorage.getItem(LOCAL_STORAGE_CONSTANTS.IPA_TRANSCRIPTION_COUNT)
-    return count ? parseInt(count, 10) : 0
-  },
-  setIpaTranscriptionCount: (count: number): void => {
-    localStorage.setItem(LOCAL_STORAGE_CONSTANTS.IPA_TRANSCRIPTION_COUNT, count.toString())
-  },
-  incrementIpaTranscriptionCount: (): number => {
-    const currentCount = localStorageWrapper.getIpaTranscriptionCount()
-    const newCount = currentCount + 1
-    localStorageWrapper.setIpaTranscriptionCount(newCount)
-    return newCount
   },
 }

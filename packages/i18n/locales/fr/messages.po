@@ -135,26 +135,6 @@ msgstr "(iii) tout contenu obtenu à partir du service ; et"
 msgid "(iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage."
 msgstr "(iv) l'accès, l'utilisation ou la modification non autorisés de vos transmissions ou contenus, que ce soit sur la base d'une garantie, d'un contrat, d'un délit (y compris la négligence) ou de toute autre théorie juridique, que nous ayons été informés ou non de la possibilité de tels dommages."
 
-#: apps/native/src/components/ui/words-graph.tsx:161
-msgid "(Need at least two data points)"
-msgstr "(Au moins deux points de données nécessaires)"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/daily-study-minutes.tsx:89
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/dialect.tsx:120
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:134
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/study-language.tsx:99
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/topics.tsx:109
-msgid "(You can always change it later)"
-msgstr "(Vous pourrez le modifier plus tard)"
-
-#: apps/native/src/components/ui/streak-card.tsx:26
-msgid "{currentStreak}-day streak"
-msgstr "Série de {currentStreak} jours"
-
-#: apps/native/src/components/ui/streak-card.tsx:29
-msgid "{daysLeft} days left to achieve {numberOfDaysOfNextStreakBadge}-day streak badge!"
-msgstr "Plus que {daysLeft} jours pour obtenir le badge de série de {numberOfDaysOfNextStreakBadge} jours !"
-
 #: apps/web/src/components/pricing/pricing-view-utils.ts:191
 msgid "{discount}% off with your referral for {durationLimit} months!"
 msgstr "{discount} % de réduction grâce à votre parrainage pendant {durationLimit} mois !"
@@ -181,21 +161,9 @@ msgstr "{discount}% de réduction avec votre parrainage à vie !"
 msgid "{discountPercentage}% off thanks to your past referral!"
 msgstr "{discountPercentage} % de réduction grâce à votre ancien parrainage !"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:108
-msgid "{languageName} has only one supported dialect"
-msgstr "{languageName} n'a qu'un seul dialecte pris en charge"
-
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:172
 msgid "{lifetimeDiscountPercentage}% off with your referral!"
 msgstr "{lifetimeDiscountPercentage}% de réduction avec votre parrainage !"
-
-#: apps/native/src/components/ui/longest-streak-card.tsx:23
-msgid "{longestStreak}-day streak"
-msgstr "Plus longue série : {longestStreak} jours"
-
-#: apps/native/src/components/ui/daily-study-minutes-selector.tsx:68
-msgid "{minutes} minutes per day"
-msgstr "{minutes} minutes par jour"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:149
 msgid "{monthlyDiscountPercentage}% off for {monthlyDurationLimit} months with your referral!"
@@ -340,8 +308,6 @@ msgid "A newer version of the app is required to continue. Please update to the 
 msgstr "Une version plus récente de l'application est requise pour continuer. Veuillez mettre à jour vers la dernière version pour accéder à toutes les fonctionnalités et améliorations."
 
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:27
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/about/_layout.tsx:23
-#: apps/native/src/components/ui/drawer.tsx:249
 msgid "About"
 msgstr "À propos"
 
@@ -353,14 +319,6 @@ msgstr "À propos | TemplateApp"
 msgid "About Us"
 msgstr "À propos de nous"
 
-#: packages/i18n/src/topic-translation-utils.ts:20
-msgid "Academia"
-msgstr "Académie"
-
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:15
-msgid "Accept"
-msgstr "Accepter"
-
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:20
 msgid "Account"
 msgstr "Compte"
@@ -370,41 +328,14 @@ msgstr "Compte"
 msgid "Account Removed"
 msgstr "Compte supprimé"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:23
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:18
 msgid "Actions in this section can lead to permanent data loss."
 msgstr "Les actions dans cette section peuvent entraîner une perte définitive de données."
 
-#: apps/native/src/components/sheets/content/stress-exercise-settings-sheet-content.tsx:44
-msgid "Adjust the difficulty level of your exercises"
-msgstr "Ajustez le niveau de difficulté de vos exercices"
-
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/top-secret-admin-settings.tsx:17
-#: apps/native/src/components/ui/drawer.tsx:267
+#: apps/native/src/components/ui/drawer.tsx:218
 msgid "Admin Settings"
 msgstr "Paramètres Administrateur"
-
-#: apps/native/src/components/ui/cefr-level-selector.tsx:85
-msgid "Advanced"
-msgstr "Avancé"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:42
-msgid "African American Vernacular English"
-msgstr "Anglais vernaculaire afro-américain"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:162
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-language-selector-sheet-content.tsx:40
-msgid "All languages"
-msgstr "Toutes les langues"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:152
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:156
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-time-period-selector-sheet-content.tsx:38
-msgid "All Time"
-msgstr "Tous les temps"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:40
-msgid "American English"
-msgstr "Anglais américain"
 
 #: apps/native/src/components/billing/hooks/use-paywall.ts:62
 msgid "An error occurred while attempting to manage your subscription."
@@ -412,7 +343,6 @@ msgstr "Une erreur est survenue lors de la gestion de votre abonnement."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:146
 #: apps/native/src/hooks/api/removals/removals-hooks.ts:14
-#: apps/native/src/hooks/api/removals/removals-hooks.ts:30
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:139
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:141
 #: apps/web/src/hooks/api/removals/removals-hooks.ts:17
@@ -423,50 +353,17 @@ msgstr "Une erreur s'est produite. Veuillez réessayer."
 msgid "An unexpected error occurred"
 msgstr "Une erreur inattendue s'est produite"
 
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:20
-msgid "Analytics Cookies"
-msgstr "Cookies Analytiques"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:139
-msgid "and"
-msgstr "et"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:51
-msgid "Andalusian Spanish"
-msgstr "Espagnol andalou"
-
 #: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:15
 msgid "Android App"
 msgstr "App Android"
-
-#: packages/i18n/src/personality-translation-utils.ts:13
-msgid "Angry"
-msgstr "En colère"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:66
-msgid "Anonymous User"
-msgstr "Utilisateur Anonyme"
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:27
 msgid "App Store"
 msgstr "App Store"
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:56
-#: apps/native/src/components/sheets/content/delete-voice-sheet-content.tsx:41
 msgid "Are you absolutely sure?"
 msgstr "Êtes-vous absolument sûr ?"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:49
-msgid "Argentinian Spanish"
-msgstr "Espagnol argentin"
-
-#: packages/i18n/src/topic-translation-utils.ts:22
-msgid "Art"
-msgstr "Art"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:43
-msgid "Australian English"
-msgstr "Anglais australien"
 
 #: apps/native/src/config/react-query-config.ts:90
 msgid "Authentication error. Please try again."
@@ -475,14 +372,6 @@ msgstr "Erreur d'authentification. Veuillez réessayer."
 #: apps/native/src/app/(auth)/account/removed.tsx:29
 msgid "Back to Sign Up"
 msgstr "Retour à l'inscription"
-
-#: apps/native/src/components/ui/cefr-level-selector.tsx:84
-msgid "Beginner"
-msgstr "Débutant"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:53
-msgid "Belgian French"
-msgstr "Français de Belgique"
 
 #: apps/web/src/components/pricing/pricing-view-utils.ts:67
 msgid "best value"
@@ -505,123 +394,30 @@ msgstr "Facturé annuellement : {yearlyPriceFormatted} €"
 msgid "Billing"
 msgstr "Facturation"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:58
-msgid "Brazilian Portuguese"
-msgstr "Portugais brésilien"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:41
-msgid "British English"
-msgstr "Anglais britannique"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:35
-msgid "Bulgarian"
-msgstr "Bulgare"
-
-#: packages/i18n/src/topic-translation-utils.ts:15
-msgid "Business"
-msgstr "Affaires"
-
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:26
 msgid "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
 msgstr "En accédant et en utilisant notre site web, TemplateApp.com, et tous les services associés, vous acceptez d'être lié par ces Conditions d'utilisation (« Conditions »)."
 
-#: packages/i18n/src/lang-code-translation-utils.ts:54
-msgid "Canadian French"
-msgstr "Français canadien"
-
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:150
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:109
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:105
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:120
 msgid "Cancel"
 msgstr "Annuler"
 
-#: packages/i18n/src/topic-translation-utils.ts:28
-msgid "Career"
-msgstr "Carrière"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:46
-msgid "Castilian Spanish"
-msgstr "Espagnol castillan"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:36
-msgid "Catalan"
-msgstr "Catalan"
-
-#: apps/landing-page/src/app/[lang]/layout.tsx:51
+#: apps/landing-page/src/app/[lang]/layout.tsx:50
 msgid "Category of the app"
 msgstr ""
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:180
-msgid "CEFR level"
-msgstr "Niveau CECR"
-
-#: apps/native/src/components/sheets/content/cefr-level-settings-sheet-content.tsx:22
-#: apps/native/src/components/ui/cefr-level-selector.tsx:38
-msgid "CEFR Level"
-msgstr "Niveau CECR"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:188
-msgid "CEFR Level is used in the level exercise. Changing it will change the difficulty of the generated sentence."
-msgstr "Le niveau CECR est utilisé dans l'exercice de niveau. Le modifier changera la difficulté de la phrase générée."
-
-#: packages/i18n/src/topic-translation-utils.ts:17
-msgid "Chatting"
-msgstr "Discussion"
 
 #: apps/native/src/components/gates/force-update-gate.tsx:76
 msgid "Checking app version..."
 msgstr "Vérification de la version de l'application..."
 
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:88
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:84
-msgid "Checking availability..."
-msgstr "Vérification de la disponibilité..."
-
 #: apps/native/src/app/(requires-auth)/_layout.tsx:21
 msgid "Checking plan..."
 msgstr "Vérification du plan..."
 
-#: packages/i18n/src/lang-code-translation-utils.ts:17
-msgid "Chinese"
-msgstr "Chinois"
-
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:71
-msgid "Choose a nickname"
-msgstr "Choisissez un pseudo"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/dialect.tsx:118
-msgid "Choose the dialect you want to study:"
-msgstr "Choisissez le dialecte que vous souhaitez étudier :"
-
-#: apps/native/src/components/sheets/content/language-selectors/custom-exercise-language-selector-sheet-content.tsx:23
-msgid "Choose the language of the text you want to practice."
-msgstr "Choisissez la langue du texte que vous souhaitez pratiquer."
-
 #: apps/landing-page/src/app/[lang]/pricing/page.tsx:18
 msgid "Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training."
 msgstr "Choisissez le plan parfait pour votre parcours d'entraînement à l'accent. Options de tarification flexibles pour vous aider à atteindre votre accent parfait grâce à l'entraînement vocal propulsé par l'IA."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/stress.tsx:91
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/stress.tsx:109
-msgid "Choose the stressed syllable"
-msgstr "Choisissez la syllabe accentuée"
-
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-time-period-selector-sheet-content.tsx:62
-msgid "Choose the time period for the leaderboard rankings"
-msgstr "Choisissez la période pour les classements du tableau de bord"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/daily-study-minutes.tsx:87
-msgid "Choose your daily goal for learning"
-msgstr "Choisissez votre objectif quotidien pour étudier"
-
-#: apps/native/src/components/sheets/content/language-selectors/mother-language-settings-selector-sheet-content.tsx:23
-msgid "Choose your native language"
-msgstr "Choisissez votre langue maternelle"
-
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:71
-msgid "Choose your nickname"
-msgstr "Choisissez votre pseudo"
 
 #: apps/web/src/components/pricing/pricing-view.tsx:174
 msgid "Choose your plan"
@@ -631,43 +427,11 @@ msgstr "Choisissez votre forfait"
 msgid "Choose Your Plan"
 msgstr "Choisissez votre formule"
 
-#: apps/native/src/components/sheets/content/dialect-settings-selector-sheet-content.tsx:39
-msgid "Choose your preferred accent"
-msgstr "Choisissez votre accent préféré"
-
-#: packages/i18n/src/topic-translation-utils.ts:34
-msgid "Cinema"
-msgstr "Cinéma"
-
-#: apps/native/src/components/sheets/content/topic-selection-sheet-content.tsx:58
-msgid "Clear topic"
-msgstr "Effacer le thème"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:137
-msgid "Cloning your voice..."
-msgstr "Clonage de votre voix en cours..."
-
 #: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:51
 msgid "Close"
 msgstr "Fermer"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:48
-msgid "Colombian Spanish"
-msgstr "Espagnol colombien"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/progress/saved-words.tsx:38
-msgid "Coming Soon to the App!"
-msgstr "Bientôt disponible dans l'application !"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/conversation.tsx:38
-msgid "Coming Soon!"
-msgstr "Bientôt disponible !"
-
-#: apps/native/src/components/ui/daily-study-minutes-selector.tsx:94
-msgid "Consider setting this time to lower than 1hr for better daily consistency"
-msgstr "Considérez fixer ce temps à moins d'1h pour une meilleure régularité quotidienne"
-
-#: apps/native/src/components/ui/drawer.tsx:245
+#: apps/native/src/components/ui/drawer.tsx:208
 msgid "Contact"
 msgstr "Contact"
 
@@ -678,30 +442,12 @@ msgid "Contact Us"
 msgstr "Contact"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:36
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/daily-study-minutes.tsx:115
 msgid "Continue"
 msgstr "Continuer"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/conversation.tsx:58
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/progress/saved-words.tsx:58
-msgid "Continue on the Web App"
-msgstr "Continuer sur l'application Web"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:110
-msgid "Continue with English"
-msgstr "Continuer avec l'anglais"
-
-#: packages/i18n/src/topic-translation-utils.ts:30
-msgid "Cooking"
-msgstr "Cuisine"
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:29
 msgid "Copied!"
 msgstr "Copié !"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/stress.tsx:162
-msgid "Correct!"
-msgstr "Correct !"
 
 #: apps/native/src/components/billing/hooks/use-paywall.ts:57
 msgid "Could not display payment options at this time."
@@ -715,25 +461,21 @@ msgstr "Impossible de charger les options de paiement en ce moment (aucune offre
 msgid "Could not load payment options. Please try again later."
 msgstr "Impossible de charger les options de paiement. Veuillez réessayer plus tard."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:79
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:66
 msgid "Could not open customer center."
 msgstr "Impossible d'ouvrir le centre client."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:103
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:90
 msgid "Could not open the link. Please visit our website to manage your subscription."
 msgstr "Impossible d'ouvrir le lien. Veuillez visiter notre site web pour gérer votre abonnement."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:88
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:75
 msgid "Could not open upgrade screen."
 msgstr "Impossible d'ouvrir l'écran de mise à niveau."
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:115
+#: apps/native/src/components/gates/user-setup-gate.tsx:78
 msgid "Could not set up your account. Please try restarting the app."
 msgstr "Impossible de configurer votre compte. Veuillez redémarrer l'application."
-
-#: packages/i18n/src/personality-translation-utils.ts:17
-msgid "Crazy"
-msgstr "Fou"
 
 #: apps/native/src/components/gates/force-update-gate.tsx:109
 msgid ""
@@ -741,65 +483,23 @@ msgid ""
 "Required version: {requiredVersion}"
 msgstr "Version actuelle : {currentVersion}\\nVersion requise : {requiredVersion}"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:173
-#: apps/native/src/components/ui/exercises-list.tsx:38
-msgid "Custom pronunciation practice"
-msgstr "Pratique de prononciation personnalisée"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:119
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:136
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:106
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:123
 msgid "Customer Center"
 msgstr "Centre Client"
 
-#: packages/i18n/src/personality-translation-utils.ts:15
-msgid "Cute"
-msgstr "Mignon"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:12
-msgid "Czech"
-msgstr "Tchèque"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:277
-#: apps/native/src/components/sheets/content/daily-study-time-settings-sheet-content.tsx:27
-msgid "Daily Study Time"
-msgstr "Temps d'étude quotidien"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:218
-msgid "Daily study time updated successfully"
-msgstr "Temps d'étude quotidien mis à jour avec succès"
-
-#: packages/i18n/src/topic-translation-utils.ts:35
-msgid "Dancing"
-msgstr "Danse"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:162
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:147
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:52
 msgid "Danger Zone"
 msgstr "Zone Dangereuse"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:28
-msgid "Danish"
-msgstr "Danois"
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:102
+msgid "Dashboard"
+msgstr ""
 
-#: apps/native/src/components/ui/streak-progress-bar.tsx:16
-msgid "days"
-msgstr "jours"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:29
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:24
 msgid "Delete my account"
 msgstr "Supprimer mon compte"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:39
-msgid "Delete my voice"
-msgstr "Supprimer ma voix"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:107
-msgid "Dialect updated successfully"
-msgstr "Dialecte mis à jour avec succès"
-
-#: packages/i18n/src/topic-translation-utils.ts:10
-msgid "Directions"
-msgstr "Directions"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
@@ -807,10 +507,6 @@ msgstr "Directions"
 #: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:123
 msgid "Don't have an account?"
 msgstr "vous n'avez pas de compte ?"
-
-#: apps/native/src/components/sheets/content/stress-exercise-settings-sheet-content.tsx:49
-msgid "Done"
-msgstr "Terminé"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:17
 msgid "Download our mobile app to start perfecting your accent with AI voice training"
@@ -823,14 +519,6 @@ msgstr "Télécharger TemplateApp - TemplateApp - Perfectionnez votre accent ave
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:23
 msgid "Download the App"
 msgstr "Télécharger l'app"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:30
-msgid "Dutch"
-msgstr "Néerlandais"
-
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:67
-msgid "Edit Nickname"
-msgstr "Modifier le pseudo"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:99
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:32
@@ -853,50 +541,19 @@ msgstr "Email copié dans le presse-papiers"
 msgid "Email link is invalid or has expired"
 msgstr "Le lien n'est pas valide ou a expiré"
 
-#: apps/native/src/hooks/api/user-marketing-preferences/user-marketing-preferences-hooks.ts:21
-msgid "Email preferences updated successfully"
-msgstr "Préférences email mises à jour avec succès"
-
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:37
 #: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:28
 msgid "Email Verification Sent"
 msgstr "Email de Vérification Envoyé"
 
-#: packages/i18n/src/topic-translation-utils.ts:26
-msgid "Emotions"
-msgstr "Émotions"
-
-#: packages/i18n/src/personality-translation-utils.ts:10
-msgid "Encouraging"
-msgstr "Encourageant"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:6
-msgid "English"
-msgstr "Anglais"
-
 #: apps/web/src/components/checkout/checkout-success-view.tsx:30
 msgid "Enjoy unlimited access to all our premium features and content."
 msgstr "Profitez d'un accès illimité à toutes nos fonctionnalités et contenus premium."
-
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:77
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:75
-msgid "Enter a nickname"
-msgstr "Entrez un pseudo"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:187
-msgid "Enter text to practice"
-msgstr "Entrez le texte à pratiquer"
 
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:114
 msgid "Enter your message here..."
 msgstr "Écrivez votre message ici..."
 
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:72
-msgid "Enter your new nickname"
-msgstr "Entrez votre nouveau pseudo"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:61
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:98
 #: apps/native/src/components/billing/hooks/use-paywall.ts:62
 #: apps/native/src/components/gates/force-update-gate.tsx:70
 msgid "Error"
@@ -910,77 +567,31 @@ msgstr "Erreur lors de la vérification du plan..."
 msgid "error code: {userFacingErrorCode}"
 msgstr "code d'erreur : {userFacingErrorCode}"
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:119
+#: apps/native/src/components/gates/user-setup-gate.tsx:82
 msgid "Error setting up account..."
 msgstr "Erreur lors de la configuration du compte..."
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:233
+#: apps/native/src/hooks/api/user/user-hooks.ts:34
 #: apps/web/src/hooks/api/user/user-hooks.ts:30
 msgid "Error setting up user data"
 msgstr "Erreur lors de la configuration des données utilisateur"
-
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:18
-msgid "Essential Cookies"
-msgstr "Cookies Essentiels"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:59
-msgid "European Portuguese"
-msgstr "Portugais européen"
 
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:70
 msgid "Even if you get charged you can request an unconditional refund. Just let us know by clicking the \"Contact Us\" button above."
 msgstr "Même si vous êtes facturé, vous pouvez demander un remboursement inconditionnel. Il suffit de nous le faire savoir en cliquant sur le bouton « Nous contacter » ci-dessus."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:217
-msgid "Exercise length"
-msgstr "Durée de l'exercice"
-
-#: apps/native/src/components/sheets/content/exercise-length-settings-sheet-content.tsx:22
-#: apps/native/src/components/ui/exercise-length-slider.tsx:107
-msgid "Exercise Length"
-msgstr "Longueur de l'exercice"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:225
-msgid "Exercise length is used in the level exercise. It determines how many words will be included in your practice sessions."
-msgstr "La longueur de l'exercice est utilisée dans l'exercice de niveau. Elle détermine le nombre de mots inclus dans vos sessions de pratique."
-
-#: apps/native/src/components/sheets/content/stress-exercise-settings-sheet-content.tsx:43
-msgid "Exercise Settings"
-msgstr "Paramètres de l'exercice"
-
-#: apps/native/src/hooks/api/saved-words/saved-words-hooks.ts:42
-msgid "Failed to add word to saved words"
-msgstr "Échec de l'ajout du mot aux mots enregistrés"
-
-#: apps/native/src/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks.ts:62
-msgid "Failed to complete pronunciation exercise."
-msgstr "Échec de la finalisation de l'exercice de prononciation."
-
 #: apps/web/src/hooks/api/checkout/checkout-hooks.ts:22
 msgid "Failed to create checkout session"
 msgstr "Échec de la création de la session de paiement"
-
-#: apps/native/src/hooks/api/leaderboard/leaderboard-hooks.ts:22
-msgid "Failed to fetch leaderboard data"
-msgstr "Échec de la récupération des données du classement"
 
 #: apps/native/src/hooks/api/billing/billing-hooks.ts:11
 #: apps/web/src/hooks/api/billing/billing-hooks.ts:14
 msgid "Failed to fetch subscription details"
 msgstr "Échec de la récupération des détails de l'abonnement"
 
-#: apps/native/src/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks.ts:14
-#: apps/native/src/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks.ts:30
-msgid "Failed to generate pronunciation exercise."
-msgstr "Échec de la génération de l'exercice de prononciation."
-
 #: apps/native/src/components/gates/auth/revenuecat-initializer.tsx:32
 msgid "Failed to initialize payment system. Please restart the app."
 msgstr "Échec de l'initialisation du système de paiement. Veuillez redémarrer l'application."
-
-#: apps/native/src/hooks/api/saved-words/saved-words-hooks.ts:70
-msgid "Failed to remove word from saved words"
-msgstr "Échec de la suppression du mot des mots enregistrés"
 
 #: apps/native/src/app/(requires-auth)/_layout.tsx:25
 msgid "Failed to retrieve payment system. Please restart the app."
@@ -995,84 +606,10 @@ msgstr "Impossible d'envoyer le retour. Veuillez réessayer."
 msgid "Failed to trigger Sentry message"
 msgstr "Échec du déclenchement du message Sentry"
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:219
-msgid "Failed to update daily study time"
-msgstr "Impossible de mettre à jour le temps d'étude quotidien"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:108
-msgid "Failed to update dialect"
-msgstr "Échec de la mise à jour du dialecte"
-
-#: apps/native/src/hooks/api/user-marketing-preferences/user-marketing-preferences-hooks.ts:22
-msgid "Failed to update email preferences"
-msgstr "Impossible de mettre à jour les préférences email"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:80
-msgid "Failed to update native language"
-msgstr "Échec de la mise à jour de la langue maternelle"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:203
-msgid "Failed to update nickname"
-msgstr "Échec de la mise à jour du pseudo"
-
-#: apps/native/src/hooks/api/user-settings/user-settings-hooks.ts:74
-#: apps/native/src/hooks/api/user-settings/user-settings-hooks.ts:89
-msgid "Failed to update settings"
-msgstr "Échec de la mise à jour des paramètres"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:94
-#: apps/native/src/hooks/api/user/user-hooks.ts:125
-msgid "Failed to update study language"
-msgstr "Impossible de mettre à jour la langue d'étude"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:139
-msgid "Failed to update topics"
-msgstr "Échec de la mise à jour des sujets"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:153
-msgid "Failed to update user data or clone voice"
-msgstr "Échec de la mise à jour des données utilisateur ou du clonage de la voix"
-
-#: packages/i18n/src/topic-translation-utils.ts:8
-msgid "Family"
-msgstr "Famille"
-
-#: packages/i18n/src/topic-translation-utils.ts:39
-msgid "Fashion"
-msgstr "Mode"
-
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:21
 #: apps/landing-page/src/app/[lang]/features/page.tsx:15
 msgid "Features"
 msgstr "Fonctionnalités"
-
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-language-selector-sheet-content.tsx:66
-msgid "Filter leaderboard by specific language or show all languages"
-msgstr "Filtrer le classement par langue spécifique ou afficher toutes les langues"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:208
-msgid "Filter Results"
-msgstr "Filtrer les résultats"
-
-#: packages/i18n/src/topic-translation-utils.ts:33
-msgid "Finance"
-msgstr "Finance"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:34
-msgid "Finnish"
-msgstr "Finnois"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:65
-msgid "Flemish"
-msgstr "Flamand"
-
-#: packages/i18n/src/topic-translation-utils.ts:9
-msgid "Food"
-msgstr "Nourriture"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:162
-msgid "For best results, please record in a quiet environment."
-msgstr "Pour de meilleurs résultats, veuillez enregistrer dans un environnement calme."
 
 #: apps/web/src/components/pricing/pricing-view-utils.ts:83
 msgid "Free for {NUMBER_OF_DAYS_IN_FREE_TRIAL} days"
@@ -1083,41 +620,13 @@ msgstr "Gratuit pendant {NUMBER_OF_DAYS_IN_FREE_TRIAL} jours"
 msgid "Free Trial"
 msgstr "Essai gratuit"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:9
-msgid "French"
-msgstr "Français"
-
 #: apps/web/src/components/pricing/pricing-view.tsx:219
 msgid "Frequently Asked Questions"
 msgstr "Foire aux questions"
 
-#: packages/i18n/src/personality-translation-utils.ts:6
-msgid "Friendly"
-msgstr "Amical"
-
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:26
 msgid "Full Name"
 msgstr "Nom complet"
-
-#: packages/i18n/src/topic-translation-utils.ts:31
-msgid "Gaming"
-msgstr "Jeux vidéo"
-
-#: packages/i18n/src/topic-translation-utils.ts:37
-msgid "Gardening"
-msgstr "Jardinage"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:8
-msgid "German"
-msgstr "Allemand"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(has-just-cloned-voice)/onboarding/success.tsx:68
-msgid "Get familiar with your new voice clone, from now on you can practice with it!"
-msgstr "Familiarisez-vous avec votre nouveau clone vocal, vous pouvez désormais vous entraîner avec !"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:83
-msgid "Get ready"
-msgstr "Préparez-vous"
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:45
 msgid "Get Started"
@@ -1126,22 +635,6 @@ msgstr "C'est parti !"
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:24
 msgid "Get the App"
 msgstr "Obtenir l'App"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:159
-msgid "Go to Voice Cloning"
-msgstr "Aller au Clonage Vocal"
-
-#: apps/native/src/components/sheets/content/voice-removed-success-sheet-content.tsx:34
-msgid "Got it"
-msgstr "Compris"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:33
-msgid "Greek"
-msgstr "Grec"
-
-#: packages/i18n/src/topic-translation-utils.ts:5
-msgid "Greetings"
-msgstr "Salutations"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
@@ -1155,46 +648,14 @@ msgstr "Vous avez déjà un compte ?"
 msgid "Help us improve TemplateApp"
 msgstr "Aidez-nous à améliorer TemplateApp"
 
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:22
-msgid "Help us understand how visitors interact with our website. This data is anonymized."
-msgstr "Nous aident à comprendre comment les visiteurs interagissent avec notre site web. Ces données sont anonymisées."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/about/index.tsx:40
-msgid "Hey there! It's Kamil and Sébastien here, the creators of template-app.com. We've been pouring our hearts into developing this app and your feedback is crucial for us. We're excited to roll out new features soon."
-msgstr "Bonjour ! C'est Kamil et Sébastien, les créateurs de template-app.com. Nous avons mis tout notre cœur dans le développement de cette application et vos retours sont essentiels pour nous. Nous sommes impatients de déployer de nouvelles fonctionnalités bientôt."
-
-#: packages/i18n/src/lang-code-translation-utils.ts:18
-msgid "Hindi"
-msgstr "Hindi"
-
-#: packages/i18n/src/topic-translation-utils.ts:23
-msgid "History"
-msgstr "Histoire"
-
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:95
-#: apps/native/src/components/ui/drawer.tsx:222
+#: apps/native/src/components/ui/drawer.tsx:195
 msgid "Home"
 msgstr "Accueil"
 
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:55
 msgid "How your free trial works"
 msgstr "Comment fonctionne votre essai gratuit"
-
-#: packages/i18n/src/personality-translation-utils.ts:8
-msgid "Humorous"
-msgstr "Humoristique"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:32
-msgid "Hungarian"
-msgstr "Hongrois"
-
-#: apps/native/src/components/sheets/content/language-selectors/study-language-settings-selector-sheet-content.tsx:22
-msgid "I am learning"
-msgstr "J'apprends"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:135
-msgid "I consent to having my voice cloned for personalized learning experiences within TemplateApp.com, and I agree to the"
-msgstr "Je consens à ce que ma voix soit clonée pour des expériences d'apprentage personnalisées sur TemplateApp.com, et j'accepte les"
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:149
 msgid "If you have any questions about these Terms of Service, please contact us via email contact@template-app.com"
@@ -1216,25 +677,9 @@ msgstr "Si vous souhaitez créer un nouveau compte, vous pouvez vous inscrire à
 msgid "In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
 msgstr "En aucun cas TemplateApp.com, ni ses directeurs, employés, partenaires, agents, fournisseurs ou affiliés, ne pourront être tenus responsables de dommages indirects, accessoires, spéciaux, consécutifs ou punitifs, y compris, sans s'y limiter, la perte de profits, de données, d'utilisation, de fonds de commerce ou d'autres pertes intangibles, résultant de :"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:91
-msgid "In the next step, you'll read a short text aloud. For best results, ensure you're in a quiet environment. You can make mistakes, they will not affect the voice cloning."
-msgstr "À l'étape suivante, vous lirez un court texte à voix haute. Pour de meilleurs résultats, assurez-vous d'être dans un environnement calme. Vous pouvez faire des erreurs, elles n'affecteront pas le clonage vocal."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(has-just-cloned-voice)/onboarding/success.tsx:74
-msgid "In your target language"
-msgstr "Dans votre langue cible"
-
-#: apps/landing-page/src/app/[lang]/layout.tsx:52
+#: apps/landing-page/src/app/[lang]/layout.tsx:51
 msgid "In-App Purchases"
 msgstr "Achats intégrés"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:45
-msgid "Indian English"
-msgstr "Anglais indien"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:19
-msgid "Indonesian"
-msgstr "Indonésien"
 
 #: apps/native/src/components/gates/auth/revenuecat-initializer.tsx:42
 msgid "Initializing payments..."
@@ -1244,21 +689,9 @@ msgstr "Initialisation des paiements..."
 msgid "Initializing..."
 msgstr "Initialisation..."
 
-#: packages/i18n/src/topic-translation-utils.ts:29
-msgid "Interview"
-msgstr "Entretien"
-
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:63
 msgid "Introduce your card details and get instant access"
 msgstr "Introduisez les détails de votre carte et obtenez accès instantané"
-
-#: packages/i18n/src/topic-translation-utils.ts:6
-msgid "Introductions"
-msgstr "Présentations"
-
-#: packages/i18n/src/personality-translation-utils.ts:16
-msgid "Introvert"
-msgstr "Introverti"
 
 #: apps/native/src/config/react-query-config.ts:97
 msgid "Invalid token. Please sign in again."
@@ -1268,52 +701,13 @@ msgstr "Jeton invalide. Veuillez vous reconnecter."
 msgid "iOS App"
 msgstr "App iOS"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:10
-msgid "Italian"
-msgstr "Italien"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:21
-msgid "Japanese"
-msgstr "Japonais"
-
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:100
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:102
-msgid "Join Leaderboard"
-msgstr "Rejoindre le Classement"
-
 #: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:56
 msgid "Join our Discord"
 msgstr "Rejoignez notre Discord"
 
-#: packages/i18n/src/personality-translation-utils.ts:12
-msgid "Joker"
-msgstr "Farceur"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:22
-msgid "Korean"
-msgstr "Coréen"
-
-#: apps/native/src/components/sheets/content/language-selectors/custom-exercise-language-selector-sheet-content.tsx:22
-msgid "Language of the text"
-msgstr "Langue du texte"
-
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:66
 msgid "Last day to cancel before first charge"
 msgstr "Dernier jour pour annuler avant le premier prélèvement"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:109
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:179
-#: apps/native/src/components/ui/drawer.tsx:235
-msgid "Leaderboard"
-msgstr "Classement"
-
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:17
-msgid "Less"
-msgstr "Moins"
-
-#: packages/i18n/src/topic-translation-utils.ts:16
-msgid "Letters"
-msgstr "Lettres"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
 msgid "Lifetime"
@@ -1327,26 +721,13 @@ msgstr "lien pour compléter votre inscription"
 msgid "link to sign in"
 msgstr "lien pour vous connecter"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/daily-study-minutes.tsx:115
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/dialect.tsx:163
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:107
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/study-language.tsx:163
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/topics.tsx:153
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:77
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: apps/native/src/components/ui/exercise-length-slider.tsx:79
-msgid "Long"
-msgstr "Long"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:20
-msgid "Malay"
-msgstr "Malais"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:138
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:125
 #: apps/web/src/components/pricing/pricing-view-utils.ts:104
 msgid "Manage Subscription"
 msgstr "Gérer l'Abonnement"
@@ -1354,22 +735,6 @@ msgstr "Gérer l'Abonnement"
 #: apps/landing-page/src/app/[lang]/page.tsx:18
 msgid "Master perfect pronunciation with AI-powered voice cloning. Practice speaking in your target language with your own voice. Try our free trial today!"
 msgstr "Maîtrisez une prononciation parfaite grâce au clonage vocal propulsé par l'IA. Pratiquez la parole dans votre langue cible avec votre propre voix. Essayez notre essai gratuit aujourd'hui !"
-
-#: apps/native/src/components/ui/exercises-list.tsx:30
-msgid "Master word stress patterns in sentences"
-msgstr "Maîtrisez l'accent tonique dans des phrases"
-
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:103
-msgid "Maybe Later"
-msgstr "Peut-être plus tard"
-
-#: packages/i18n/src/topic-translation-utils.ts:13
-msgid "Medicine"
-msgstr "Médecine"
-
-#: apps/native/src/components/ui/exercise-length-slider.tsx:79
-msgid "Medium"
-msgstr "Moyen"
 
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:111
 msgid "Message"
@@ -1380,34 +745,14 @@ msgstr "Message"
 msgid "Message to the founders"
 msgstr "Message pour les fondateurs"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:47
-msgid "Mexican Spanish"
-msgstr "Espagnol mexicain"
-
-#: packages/i18n/src/personality-translation-utils.ts:11
-msgid "Mischievous"
-msgstr "Espiègle"
-
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:139
 #: apps/web/src/components/pricing/pricing-view-utils.ts:71
 msgid "Monthly"
 msgstr "Mensuel"
 
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:16
-msgid "More"
-msgstr "Plus"
-
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:132
 msgid "Most Popular"
 msgstr "Le plus populaire"
-
-#: packages/i18n/src/topic-translation-utils.ts:25
-msgid "Music"
-msgstr "Musique"
-
-#: apps/native/src/components/sheets/content/language-selectors/mother-language-settings-selector-sheet-content.tsx:22
-msgid "My native language"
-msgstr "Ma langue maternelle"
 
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:81
 msgid "Name"
@@ -1419,73 +764,9 @@ msgstr "Nom"
 msgid "Name (optional)"
 msgstr "Nom (optionnel)"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:142
-msgid "Native language"
-msgstr "Langue maternelle"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:79
-msgid "Native language updated successfully"
-msgstr "Langue maternelle mise à jour avec succès"
-
-#: packages/i18n/src/topic-translation-utils.ts:27
-msgid "Nature"
-msgstr "Nature"
-
-#: apps/native/src/components/ui/exercise-item.tsx:42
-msgid "New"
-msgstr "Nouveau"
-
-#: packages/i18n/src/topic-translation-utils.ts:19
-msgid "News"
-msgstr "Actualités"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/dialect.tsx:163
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:112
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/study-language.tsx:163
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/topics.tsx:153
-msgid "Next"
-msgstr "Suivant"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/stress.tsx:200
-msgid "Next Word"
-msgstr "Mot suivant"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:202
-msgid "Nickname updated successfully"
-msgstr "Pseudo mis à jour avec succès"
-
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:162
 msgid "No Card Required"
 msgstr "Aucune carte requise"
-
-#: apps/native/src/components/ui/words-graph.tsx:159
-msgid "No data available"
-msgstr "Aucune donnée disponible"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:43
-msgid "No entries yet. Be the first one to make it to the leaderboard!"
-msgstr "Pas encore d'entrées. Soyez le premier à rejoindre le classement !"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:149
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/study-language.tsx:114
-msgid "No languages found matching your search"
-msgstr "Aucune langue ne correspond à votre recherche"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:263
-msgid "No Topic"
-msgstr "Aucun thème"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:27
-msgid "Norwegian"
-msgstr "Norvégien"
-
-#: packages/i18n/src/topic-translation-utils.ts:7
-msgid "Numbers"
-msgstr "Nombres"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:109
-msgid "of"
-msgstr "sur"
 
 #: apps/native/src/components/gates/force-update-gate.tsx:65
 #: apps/native/src/components/gates/force-update-gate.tsx:70
@@ -1496,10 +777,6 @@ msgstr "OK"
 msgid "Open Mail App"
 msgstr "Ouvrir l'Application Mail"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/about/index.tsx:47
-msgid "Open the form"
-msgstr "Ouvrir le formulaire"
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:106
 #: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:106
 msgid "Or"
@@ -1509,23 +786,11 @@ msgstr "Ou"
 msgid "or copy links to"
 msgstr "ou copier les liens vers"
 
-#: apps/native/src/components/ui/daily-study-minutes-selector.tsx:83
-msgid "Or enter a custom time:"
-msgstr "Ou entrez votre temps préféré :"
-
 #: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:58
 msgid "or send us an email"
 msgstr "ou envoyez-nous un email"
 
-#: apps/native/src/components/sheets/content/translation-sheet-content.tsx:53
-msgid "Original Text"
-msgstr "Texte Original"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/conversation.tsx:41
-msgid "Our Conversation feature is currently in development for the mobile app."
-msgstr "Notre fonctionnalité Conversation est actuellement en développement pour l'application mobile."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/index.tsx:29
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/index.tsx:24
 msgid "Our Exercises"
 msgstr "Nos exercices"
 
@@ -1533,25 +798,9 @@ msgstr "Nos exercices"
 msgid "Our security infrastructure is continuously monitored, evaluated, and enhanced to meet evolving cybersecurity challenges. We maintain rigorous standards in data protection and follow security best practices recommended by leading technology security organizations. For complete transparency, we acknowledge that all digital systems require ongoing vigilance, which is why we've implemented comprehensive monitoring and rapid response protocols."
 msgstr "Notre infrastructure de sécurité est continuellement surveillée, évaluée et améliorée pour répondre aux défis évolutifs de la cybersécurité. Nous maintenons des normes rigoureuses en matière de protection des données et suivons les meilleures pratiques de sécurité recommandées par les principales organisations de sécurité technologique. Pour une transparence totale, nous reconnaissons que tous les systèmes numériques nécessitent une vigilance constante, c'est pourquoi nous avons mis en place des protocoles de surveillance complets et de réponse rapide."
 
-#: packages/i18n/src/lang-code-translation-utils.ts:52
-msgid "Parisian French"
-msgstr "Français parisien"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:50
-msgid "Peruvian Spanish"
-msgstr "Espagnol péruvien"
-
-#: packages/i18n/src/topic-translation-utils.ts:38
-msgid "Photography"
-msgstr "Photographie"
-
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:28
 msgid "Play Store"
 msgstr "Play Store"
-
-#: apps/native/src/components/sheets/content/speed-picker-sheet-content.tsx:49
-msgid "Playback Speed"
-msgstr "Vitesse de lecture"
 
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:43
 msgid "Please check your inbox and click on the"
@@ -1571,11 +820,7 @@ msgstr "Veuillez vérifier votre boîte de réception et cliquer sur le lien de 
 msgid "Please enter a valid email address"
 msgstr "Veuillez entrer une adresse email valide"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/about/index.tsx:41
-msgid "Please let us know what you think about the app by filling out our feedback form!"
-msgstr "S'il vous plaît, faites-nous savoir ce que vous pensez de l'application en remplissant notre formulaire !"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:99
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:86
 msgid "Please manage your subscription on our website: {webAccountUrl}"
 msgstr "Veuillez gérer votre abonnement sur notre site web : {webAccountUrl}"
 
@@ -1591,30 +836,13 @@ msgstr "Veuillez réessayer ou actualiser la page."
 msgid "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 msgstr "Veuillez saisir \"{EXPECTED_CONFIRMATION_TEXT}\""
 
-#: packages/i18n/src/lang-code-translation-utils.ts:11
-msgid "Polish"
-msgstr "Polonais"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:15
-msgid "Portuguese"
-msgstr "Portugais"
-
-#: apps/native/src/components/ui/cefr-level-selector.tsx:44
-msgid "Position:"
-msgstr "Position :"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:102
-#: apps/native/src/components/ui/drawer.tsx:225
+#: apps/native/src/components/ui/drawer.tsx:198
 msgid "Practice"
 msgstr "Exercices"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/index.tsx:19
-msgid "Preparing your onboarding..."
-msgstr "Préparation de votre intégration..."
-
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:24
-#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:86
-#: apps/native/src/components/ui/drawer.tsx:241
+#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:85
+#: apps/native/src/components/ui/drawer.tsx:204
 msgid "Pricing"
 msgstr "Tarifs"
 
@@ -1623,126 +851,28 @@ msgid "Pricing | TemplateApp"
 msgstr "Tarifs | TemplateApp"
 
 #: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:23
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:141
-#: apps/native/src/components/ui/drawer.tsx:283
+#: apps/native/src/components/ui/drawer.tsx:234
 msgid "Privacy Policy"
 msgstr "Politique de Confidentialité"
 
-#: packages/i18n/src/personality-translation-utils.ts:7
-msgid "Professional"
-msgstr "Professionnel"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:123
-#: apps/native/src/components/ui/drawer.tsx:255
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:109
+#: apps/native/src/components/ui/drawer.tsx:212
 msgid "Profile"
 msgstr "Profil"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:116
-#: apps/native/src/components/ui/drawer.tsx:230
-msgid "Progress"
-msgstr "Progrès"
-
-#: apps/native/src/components/ui/exercises-list.tsx:21
-msgid "Pronounce words tailored to your language level"
-msgstr "Prononcez des mots adaptés à votre niveau de langue"
-
-#: apps/native/src/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks.ts:63
-msgid "Pronunciation exercise completed successfully."
-msgstr "Exercice de prononciation terminé avec succès."
-
-#: apps/native/src/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks.ts:15
-#: apps/native/src/hooks/api/pronunciation-evaluation-exercise/pronunciation-evaluation-exercise-hooks.ts:31
-msgid "Pronunciation exercise generated successfully."
-msgstr "Exercice de prononciation généré avec succès."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-standard-start.tsx:97
-#: apps/native/src/components/ui/exercises-list.tsx:20
-msgid "Pronunciation practice"
-msgstr "Pratique de la prononciation"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:157
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:73
-msgid "Public nickname"
-msgstr "Pseudo public"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:158
-msgid "Push the record button and"
-msgstr "Appuyez sur le bouton et"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:118
-msgid "Receive updates and tips"
-msgstr "Recevoir les mises à jour et conseils"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:158
-msgid "record the text slowly:"
-msgstr "enregistrez le texte lentement :"
 
 #: apps/web/src/components/modal/modal-contents/refresh-button.tsx:21
 #: apps/web/src/config/react-query-config.ts:39
 msgid "Refresh"
 msgstr "Actualiser"
 
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:19
-msgid "Required for the website to function properly. These cannot be disabled."
-msgstr "Nécessaires au bon fonctionnement du site web. Ils ne peuvent pas être désactivés."
-
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:87
 #: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:83
 msgid "Return to Sign In"
 msgstr "Retour"
 
-#: packages/i18n/src/lang-code-translation-utils.ts:25
-msgid "Romanian"
-msgstr "Roumain"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:14
-msgid "Russian"
-msgstr "Russe"
-
-#: packages/i18n/src/personality-translation-utils.ts:14
-msgid "Sad"
-msgstr "Triste"
-
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:105
-msgid "Save"
-msgstr "Enregistrer"
-
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:105
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:100
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:102
-msgid "Saving..."
-msgstr "Enregistrement..."
-
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:25
 msgid "Scan the QR code to download the app"
 msgstr "Scannez le code QR pour télécharger l'app"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:44
-msgid "Scottish English"
-msgstr "Anglais écossais"
-
-#: apps/native/src/components/sheets/content/language-selectors/custom-exercise-language-selector-sheet-content.tsx:24
-#: apps/native/src/components/sheets/content/language-selectors/mother-language-settings-selector-sheet-content.tsx:24
-#: apps/native/src/components/sheets/content/language-selectors/study-language-settings-selector-sheet-content.tsx:24
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-language-selector-sheet-content.tsx:72
-msgid "Search language..."
-msgstr "Rechercher une langue..."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:203
-msgid "See how you rank against other learners"
-msgstr "Voyez comment vous vous comparez aux autres étudiants"
-
-#: apps/native/src/components/sheets/content/topic-selection-sheet-content.tsx:41
-msgid "Select a topic"
-msgstr "Sélectionner un thème"
-
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-language-selector-sheet-content.tsx:65
-msgid "Select Language"
-msgstr "Sélectionner la langue"
-
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-time-period-selector-sheet-content.tsx:61
-msgid "Select Time Period"
-msgstr "Sélectionner la période"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:147
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:143
@@ -1757,56 +887,22 @@ msgstr "Envoi de l'email"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:142
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:77
-#: apps/native/src/components/sheets/content/delete-voice-sheet-content.tsx:52
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:136
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:138
 msgid "Sending..."
 msgstr "Envoi en cours..."
 
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:69
-msgid "Set a Nickname for Leaderboard"
-msgstr "Définir un pseudo pour le Classement"
-
-#: apps/native/src/components/gates/user-setup-gate.tsx:111
+#: apps/native/src/components/gates/user-setup-gate.tsx:74
 msgid "Setting up account..."
 msgstr "Configuration du compte..."
-
-#: apps/native/src/components/ui/drawer.tsx:261
-msgid "Settings"
-msgstr "Paramètres"
-
-#: apps/native/src/hooks/api/user-settings/user-settings-hooks.ts:73
-#: apps/native/src/hooks/api/user-settings/user-settings-hooks.ts:88
-msgid "Settings updated for {languageName}"
-msgstr "Paramètres mis à jour pour {languageName}"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:80
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:54
 msgid "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 msgstr "Partagez votre avis ou suggérez des améliorations aux fondateurs. Nous lisons et répondons à chaque message !"
 
-#: packages/i18n/src/topic-translation-utils.ts:11
-msgid "Shopping"
-msgstr "Shopping"
-
-#: apps/native/src/components/ui/exercise-length-slider.tsx:79
-msgid "Short"
-msgstr "Court"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/stress.tsx:190
-msgid "Show Answer"
-msgstr "Vérifier la réponse"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:296
-msgid "Show IPA"
-msgstr "Afficher l'IPA"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:305
-msgid "Show Transliteration"
-msgstr "Afficher la translittération"
-
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:37
-#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:127
+#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:123
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
@@ -1838,7 +934,7 @@ msgid "Sign in with Google"
 msgstr "Se connecter avec Google"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:55
-#: apps/native/src/components/ui/drawer.tsx:276
+#: apps/native/src/components/ui/drawer.tsx:227
 msgid "Sign out"
 msgstr "Déconnexion"
 
@@ -1868,28 +964,6 @@ msgstr "S'inscrire avec Email"
 msgid "Sign up with Google"
 msgstr "S'inscrire avec Google"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/dialect.tsx:106
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:122
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/topics.tsx:95
-msgid "Skip"
-msgstr "Passer"
-
-#: packages/i18n/src/topic-translation-utils.ts:18
-msgid "Slang"
-msgstr "Argot"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:29
-msgid "Slovak"
-msgstr "Slovaque"
-
-#: packages/i18n/src/topic-translation-utils.ts:36
-msgid "Social Media"
-msgstr "Réseaux sociaux"
-
-#: packages/i18n/src/topic-translation-utils.ts:24
-msgid "Socializing"
-msgstr "Socialisation"
-
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:16
 msgid "Some super cool text!"
 msgstr ""
@@ -1914,82 +988,6 @@ msgstr "Une erreur s'est produite."
 msgid "Something went wrong. Please refresh the page and try again."
 msgstr "Une erreur est survenue. Veuillez actualiser la page et réessayer."
 
-#: packages/i18n/src/lang-code-translation-utils.ts:7
-msgid "Spanish"
-msgstr "Espagnol"
-
-#: packages/i18n/src/topic-translation-utils.ts:32
-msgid "Sports"
-msgstr "Sports"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:62
-msgid "Standard Czech"
-msgstr "Tchèque standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:63
-msgid "Standard Danish"
-msgstr "Danois standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:64
-msgid "Standard Dutch"
-msgstr "Néerlandais standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:66
-msgid "Standard Finnish"
-msgstr "Finnois standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:55
-msgid "Standard German"
-msgstr "Allemand standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:73
-msgid "Standard Hungarian"
-msgstr "Hongrois standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:67
-msgid "Standard Indonesian"
-msgstr "Indonésien standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:56
-msgid "Standard Italian"
-msgstr "Italien standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:68
-msgid "Standard Malay"
-msgstr "Malais standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:74
-msgid "Standard Norwegian"
-msgstr "Norvégien standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:57
-msgid "Standard Polish"
-msgstr "Polonais standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:69
-msgid "Standard Romanian"
-msgstr "Roumain standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:60
-msgid "Standard Russian"
-msgstr "Russe standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:70
-msgid "Standard Slovak"
-msgstr "Slovaque standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:71
-msgid "Standard Swedish"
-msgstr "Suédois standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:72
-msgid "Standard Turkish"
-msgstr "Turc standard"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:61
-msgid "Standard Ukrainian"
-msgstr "Ukrainien standard"
-
 #: apps/web/src/components/pricing/pricing-view-utils.ts:142
 msgid "Start"
 msgstr ""
@@ -2010,34 +1008,9 @@ msgstr "Commencer l'essai gratuit"
 msgid "Start mastering"
 msgstr "Commencez à maîtriser"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:280
-msgid "Start practicing"
-msgstr "Commencer à pratiquer"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(has-just-cloned-voice)/onboarding/success.tsx:106
 #: apps/web/src/components/checkout/checkout-success-view.tsx:35
 msgid "Start Practicing"
 msgstr "Commencer à Pratiquer"
-
-#: apps/native/src/components/ui/exercises-list.tsx:29
-msgid "Stress practice"
-msgstr "Accent tonique"
-
-#: packages/i18n/src/personality-translation-utils.ts:9
-msgid "Strict"
-msgstr "Strict"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:156
-msgid "Study language"
-msgstr "Langue d'étude"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:124
-msgid "Study language and dialect updated successfully"
-msgstr "Langue d'étude et dialecte mis à jour avec succès"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:93
-msgid "Study language updated successfully"
-msgstr "Langue d'étude mise à jour avec succès"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:186
 msgid "Subscribe Now"
@@ -2058,32 +1031,12 @@ msgstr "Abonnement réussi !"
 msgid "Success!"
 msgstr "Succès !"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(has-just-cloned-voice)/onboarding/success.tsx:67
-msgid "Successfully Cloned"
-msgstr "Clonage réussi"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:26
-msgid "Swedish"
-msgstr "Suédois"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:204
-msgid "switch to:"
-msgstr "passer à :"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:23
-msgid "Tamil"
-msgstr "Tamoul"
-
-#: packages/i18n/src/topic-translation-utils.ts:21
-msgid "Tech"
-msgstr "Technologie"
-
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:90
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:68
 msgid "Tell us what you think or describe any issues you encountered..."
 msgstr "Dites-nous ce que vous pensez ou décrivez tout problème rencontré..."
 
-#: apps/landing-page/src/app/[lang]/layout.tsx:50
+#: apps/landing-page/src/app/[lang]/layout.tsx:49
 msgid "TemplateApp"
 msgstr "TemplateApp"
 
@@ -2095,32 +1048,15 @@ msgstr "TemplateApp - Perfectionnez votre accent avec l'entraînement vocal par 
 msgid "Terms and Conditions"
 msgstr "Conditions d'Utilisation"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:137
-#: apps/native/src/components/ui/drawer.tsx:282
+#: apps/native/src/components/ui/drawer.tsx:233
 msgid "Terms of Service"
 msgstr "Conditions d'Utilisation"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:55
-msgid "Text is too long (maximum 400 characters)"
-msgstr "Le texte est trop long (400 caractères maximum)"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:54
-msgid "Text is too short (minimum 2 characters)"
-msgstr "Le texte est trop court (2 caractères minimum)"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:31
-msgid "Thai"
-msgstr "Thaï"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:144
 #: apps/native/src/hooks/api/contact/contact-hooks.ts:15
 #: apps/web/src/hooks/api/contact-email/contact-hooks.ts:15
 msgid "Thank you for your feedback!"
 msgstr "Merci pour votre retour !"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:190
-msgid "The Common European Framework of Reference (CEFR) defines language proficiency across six levels: A1 and A2 (Basic User), B1 and B2 (Independent User), C1 and C2 (Proficient User). Each level represents increasing language ability, from beginner to near-native fluency. These standardized levels help learners, teachers, and employers understand and compare language skills internationally."
-msgstr "Le Cadre Européen Commun de Référence (CECR) définit la maîtrise d'une langue en six niveaux : A1 et A2 (utilisateur élémentaire), B1 et B2 (utilisateur indépendant), C1 et C2 (utilisateur expérimenté). Chaque niveau représente une compétence linguistique croissante, du débutant au quasi-natif. Ces niveaux standardisés aident les étudiants, les enseignants et les employeurs à comprendre et à comparer les compétences linguistiques internationalement."
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:35
 msgid "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
@@ -2138,11 +1074,6 @@ msgstr "Les données que nous collectons servent plusieurs objectifs :"
 msgid "themselves. Each user must have the legal right to use all the voice data they upload to our platform."
 msgstr "eux-mêmes. Chaque utilisateur doit avoir le droit légal d'utiliser toutes les données vocales qu'il télécharge sur notre plateforme."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:61
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:98
-msgid "There was a problem cloning your voice. Please try again."
-msgstr "Un problème est survenu lors du clonage de votre voix. Veuillez réessayer."
-
 #: apps/native/src/hooks/api/authentication/authentication-hooks.ts:15
 #: apps/web/src/hooks/api/authentication/authentication-hooks.ts:16
 msgid "There was an error sending the verification email. Please try again."
@@ -2156,46 +1087,13 @@ msgstr "Il y a eu une erreur. Veuillez contacter le support."
 msgid "This action cannot be undone. This will permanently delete your account and related data from our servers."
 msgstr "Cette action est irréversible. Cela supprimera définitivement votre compte et les données associées de nos serveurs."
 
-#: apps/native/src/components/sheets/content/delete-voice-sheet-content.tsx:43
-msgid "This action cannot be undone. This will permanently delete your voice from our servers."
-msgstr "Cette action ne peut pas être annulée. Cela supprimera définitivement votre voix de nos serveurs."
-
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:203
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
 msgstr "Ce système de suppression automatisé est accessible 24h/24 et 7j/7 via votre tableau de bord de compte sécurisé. Pour une assistance supplémentaire, notre équipe dédiée à la confidentialité est disponible à contact@template-app.com pour traiter vos demandes avec le même niveau d'immédiateté et de minutie."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/progress/saved-words.tsx:41
-msgid "This feature is still in development for the mobile app."
-msgstr "Cette fonctionnalité est encore en développement pour l'application mobile."
-
-#: apps/native/src/components/sheets/content/language-selectors/study-language-settings-selector-sheet-content.tsx:23
-msgid "This is the language that will be used in the exercises."
-msgstr "C'est la langue qui sera utilisée dans les exercices."
-
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:72
-msgid "This nickname will be public. You can always change it later."
-msgstr "Ce pseudo sera public. Vous pourrez le modifier à tout moment."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:285
-msgid "This time will be used to create daily workouts for you"
-msgstr "Ce temps sera utilisé pour créer des séances d'entraînement quotidiennes pour vous"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:154
-#: apps/native/src/components/sheets/content/leaderboard/leaderboard-time-period-selector-sheet-content.tsx:43
-msgid "This Week"
-msgstr "Cette semaine"
-
-#: apps/native/src/components/sheets/content/dialect-settings-selector-sheet-content.tsx:41
-msgid "This will be the accent used in the audio generated by the app."
-msgstr "Ce sera l'accent utilisé dans l'audio généré par l'application."
-
 #: apps/web/src/components/pricing/pricing-view.tsx:84
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
 msgstr "Pour changer votre plan actuel, veuillez cliquer sur \"Gérer l'Abonnement\"."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:84
-msgid "to clone your voice"
-msgstr "à cloner votre voix"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:64
 msgid "To continue using the app and access all features, see our plans. All of them provide a free trial."
@@ -2217,58 +1115,9 @@ msgstr "Trop de requêtes. Veuillez réessayer plus tard."
 msgid "Too many requests. Please use the app in only one tab and device at a time and try again later."
 msgstr "Trop de requêtes. Veuillez utiliser l'application dans un seul onglet et appareil à la fois et réessayer."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:258
-msgid "Topic is used in the level exercise. It helps generate sentences focused on specific vocabulary and contexts."
-msgstr "Le sujet est utilisé dans l'exercice de niveau. Il aide à générer des phrases axées sur un vocabulaire et des contextes spécifiques."
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:138
-msgid "Topics updated successfully"
-msgstr "Sujets mis à jour avec succès"
-
-#: apps/native/src/components/sheets/content/translation-sheet-content.tsx:38
-#: apps/native/src/components/sheets/content/translation-sheet-content.tsx:42
-msgid "Translation"
-msgstr "Traduction"
-
-#: packages/i18n/src/topic-translation-utils.ts:12
-msgid "Travel"
-msgstr "Voyage"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/stress.tsx:168
-msgid "Try again! The stress is on “{stressedSyllable}”"
-msgstr "Réessayez ! L'accent tonique est sur « {stressedSyllable} »"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-standard-start.tsx:143
-msgid "Try another sentence"
-msgstr "Phrase suivante"
-
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:60
 msgid "Try for Free"
 msgstr "Essayer gratuitement"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:24
-msgid "Turkish"
-msgstr "Turc"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/study-language.tsx:104
-msgid "Type a language"
-msgstr "Saisissez une langue"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:139
-msgid "Type your native language"
-msgstr "Écrivez votre langue maternelle"
-
-#: apps/native/src/components/sheets/content/nickname-sheet-content.tsx:77
-msgid "Type your nickname"
-msgstr "Tapez votre pseudo"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:243
-msgid "Type your text to practice here. Use the language chosen above"
-msgstr "Écrivez ici le texte à pratiquer. Utilisez la langue choisie ci-dessus"
-
-#: packages/i18n/src/lang-code-translation-utils.ts:13
-msgid "Ukrainian"
-msgstr "Ukrainien"
 
 #: apps/web/src/hooks/api/portal-session/portal-session-hooks.ts:14
 msgid "Unable to access your billing section at the moment. Please try again later or contact support if the issue persists."
@@ -2290,7 +1139,7 @@ msgstr "Mettre à jour maintenant"
 msgid "Update Required"
 msgstr "Mise à jour requise"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:130
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:117
 msgid "Upgrade to Premium"
 msgstr "Passer à Premium"
 
@@ -2299,19 +1148,11 @@ msgstr "Passer à Premium"
 msgid "Use on Web"
 msgstr "Utiliser sur Web"
 
-#: apps/native/src/components/ui/exercises-list.tsx:39
-msgid "Use your own text for targeted practice"
-msgstr "Utilisez votre propre texte pour une pratique ciblée"
-
-#: apps/native/src/components/ui/drawer.tsx:82
+#: apps/native/src/components/ui/drawer.tsx:71
 msgid "User"
 msgstr "Utilisateur"
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:152
-msgid "User data updated"
-msgstr "Données utilisateur mises à jour"
-
-#: apps/native/src/hooks/api/user/user-hooks.ts:232
+#: apps/native/src/hooks/api/user/user-hooks.ts:33
 #: apps/web/src/hooks/api/user/user-hooks.ts:29
 msgid "User setup complete"
 msgstr "Configuration de l'utilisateur terminée"
@@ -2338,19 +1179,7 @@ msgstr "Vérifiez Votre Email"
 msgid "Verifying..."
 msgstr "Vérification..."
 
-#: packages/i18n/src/lang-code-translation-utils.ts:16
-msgid "Vietnamese"
-msgstr "Vietnamien"
-
-#: apps/native/src/components/sheets/content/voice-removed-success-sheet-content.tsx:28
-msgid "Voice removed"
-msgstr "Voix supprimée"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/conversation.tsx:45
-msgid "Want to try this feature right away? It's available on our web platform."
-msgstr "Vous voulez essayer cette fonctionnalité dès maintenant ? Elle est disponible sur notre plateforme web."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:22
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:17
 msgid "Warning"
 msgstr "Attention"
 
@@ -2370,21 +1199,9 @@ msgstr "Nous mettons en œuvre et maintenons des mesures de sécurité robustes 
 msgid "We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms. Upon termination, your right to use the service will cease immediately."
 msgstr "Nous pouvons résilier ou suspendre votre compte immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans s'y limiter, si vous violez ces Conditions. Dès la résiliation, votre droit d'utiliser le service cessera immédiatement."
 
-#: apps/landing-page/src/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner.tsx:11
-msgid "We use cookies to enhance your experience. By continuing to visit this site, you agree to our use of cookies."
-msgstr "Nous utilisons des cookies pour améliorer votre expérience. En continuant à visiter ce site, vous acceptez notre utilisation des cookies."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:192
-msgid "We will generate sentences with words at around this position in the frequency list. A frequency list shows which words are used most often in a language. The lower the position of the word in a frequency list the more often it appears in the language. Words at a higher position are less frequent which very often means they are more difficult to learn."
-msgstr "Nous générerons des phrases avec des mots autour de cette position dans la liste de fréquence. Une liste de fréquence montre quels mots sont les plus utilisés dans une langue. Plus la position du mot dans la liste de fréquence est basse, plus il apparaît souvent dans la langue. Les mots en positions plus élevées sont moins fréquents, ce qui signifie souvent qu'ils sont plus difficiles à apprendre."
-
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:172
 msgid "We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our legal agreements and policies."
 msgstr "Nous ne conserverons vos Données personnelles que le temps nécessaire aux fins énoncées dans cette Politique de confidentialité. Nous conserverons et utiliserons vos Données personnelles dans la mesure nécessaire pour nous conformer à nos obligations légales, résoudre les litiges et faire appliquer nos accords et politiques juridiques."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/exercises/pronunciation-evaluation-custom-start.tsx:220
-msgid "We will try to detect the language of your text automatically but it's better if you select it manually."
-msgstr "Nous essaierons de détecter automatiquement la langue de votre texte, mais il est préférable de la sélectionner manuellement."
 
 #: apps/native/src/app/(auth)/account/removed.tsx:19
 #: apps/web/src/components/auth/account-removed-success-view.tsx:28
@@ -2396,56 +1213,16 @@ msgstr "Nous sommes désolés de vous voir partir. Votre compte a été supprim�
 msgid "We've sent a verification email to:"
 msgstr "Nous avons envoyé un email de vérification à :"
 
-#: packages/i18n/src/topic-translation-utils.ts:14
-msgid "Weather"
-msgstr "Météo"
-
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:26
 msgid "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
 msgstr "Bienvenue sur TemplateApp.com. Nous nous engageons à protéger votre vie privée. Cette Politique de confidentialité décrit comment nous collectons, traitons, stockons et protégeons vos données personnelles lorsque vous interagissez avec nos services."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:189
-msgid "What is CEFR?"
-msgstr "Qu'est-ce que le CECR ?"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/mother-language.tsx:133
-msgid "What's your native language?"
-msgstr "Quelle est votre langue maternelle ?"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/study-language.tsx:97
-msgid "Which language do you want to study?"
-msgstr "Quelle langue souhaitez-vous étudier ?"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/topics.tsx:107
-msgid "Which topic do you want to focus on?"
-msgstr "Sur quel sujet souhaitez-vous vous concentrer ?"
-
-#: apps/native/src/hooks/api/saved-words/saved-words-hooks.ts:41
-msgid "Word added to saved words"
-msgstr "Mot ajouté aux mots enregistrés"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/settings/index.tsx:191
-msgid "Word Frequency"
-msgstr "Fréquence des mots"
-
-#: apps/native/src/components/ui/exercise-length-slider.tsx:113
-msgid "word length:"
-msgstr "longueur des mots :"
-
-#: apps/native/src/hooks/api/saved-words/saved-words-hooks.ts:69
-msgid "Word removed from saved words"
-msgstr "Mot supprimé des mots enregistrés"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/progress.tsx:24
-msgid "Words Learned Over Time"
-msgstr "Mots Appris au Fil du Temps"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:117
 #: apps/web/src/components/pricing/pricing-view-utils.ts:63
 msgid "Yearly"
 msgstr "Annuel"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:122
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:109
 msgid "You are a special user with free access. You have no active subscription."
 msgstr "Vous êtes un utilisateur spécial avec un accès gratuit. Vous n'avez pas d'abonnement actif."
 
@@ -2453,25 +1230,13 @@ msgstr "Vous êtes un utilisateur spécial avec un accès gratuit. Vous n'avez p
 msgid "You are now subscribed to Premium!"
 msgstr "Vous êtes maintenant abonné à Premium !"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:101
-msgid "You can always remove your voice clone later. It's not used by anyone outside the app."
-msgstr "Vous pouvez toujours supprimer votre clone vocal plus tard. Il n'est utilisé par personne en dehors de l'application."
-
 #: apps/web/src/components/modal/modal-contents/rate-limiting/rate-limiting-modal-content.tsx:33
 msgid "You can try again in {countdown} seconds"
 msgstr "Vous pourrez réessayer dans {countdown} secondes"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/progress/saved-words.tsx:45
-msgid "You can use this feature today on our web platform."
-msgstr "Vous pouvez utiliser cette fonctionnalité dès aujourd'hui sur notre plateforme web."
-
 #: apps/web/src/components/pricing/pricing-view.tsx:82
 msgid "You have already used your free trial."
 msgstr "Vous avez déjà utilisé votre essai gratuit."
-
-#: apps/native/src/components/sheets/content/voice-removed-success-sheet-content.tsx:30
-msgid "You have successfully removed your voice. You have to recreate your voice if you want to keep using the app."
-msgstr "Vous avez supprimé votre voix avec succès. Vous devez recréer votre voix si vous souhaitez continuer à utiliser l'application."
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:112
 msgid "You understand and agree that your use of our service is at your sole risk. The service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. We expressly disclaim all warranties, whether express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement."
@@ -2481,10 +1246,6 @@ msgstr "Vous comprenez et acceptez que votre utilisation de notre service se fai
 msgid "You used your free trial"
 msgstr "Vous avez déjà utilisé votre essai gratuit"
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:104
-msgid "You're not on the leaderboard yet. Practice some exercises to start competing with others!"
-msgstr "Vous n'êtes pas encore dans le classement. Faites quelques exercices pour commencer à rivaliser avec les autres !"
-
 #: apps/native/src/hooks/api/removals/removals-hooks.ts:13
 #: apps/web/src/hooks/api/removals/removals-hooks.ts:16
 msgid "Your account has been deleted successfully."
@@ -2493,10 +1254,6 @@ msgstr "Votre compte a été supprimé avec succès."
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:21
 msgid "Your account information and settings."
 msgstr "Vos informations et paramètres de compte."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/clone-voice.tsx:54
-msgid "Your audio is too short, it has to be at least {MIN_LENGTH_OF_AUDIO_FOR_CLONING_IN_SECONDS} second(s) long. Please record your voice again."
-msgstr "Votre audio est trop court, il doit durer au moins {MIN_LENGTH_OF_AUDIO_FOR_CLONING_IN_SECONDS} seconde(s). Veuillez réenregistrer votre voix."
 
 #: apps/web/src/components/pricing/pricing-view-utils.ts:94
 msgid "Your current plan"
@@ -2518,48 +1275,19 @@ msgstr "Votre email a été envoyé !"
 msgid "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
 msgstr "Vos informations, y compris les Données personnelles, peuvent être transférées et conservées sur des ordinateurs situés en dehors de votre juridiction où les lois sur la protection des données peuvent différer de celles de votre juridiction."
 
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/index.tsx:24
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/progress.tsx:28
+#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/index.tsx:21
 msgid "Your Learning Streak"
 msgstr "Votre Série d'Apprentissage"
-
-#: apps/native/src/components/ui/longest-streak-card.tsx:25
-msgid "Your Longest Streak"
-msgstr "Votre plus longue série"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:126
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:106
 msgid "Your name"
 msgstr "Votre nom"
 
-#: apps/native/src/components/sheets/content/edit-nickname-sheet-content.tsx:69
-msgid "Your nickname is visible to other users on the leaderboard. You can change it at any time."
-msgstr "Votre pseudonyme est visible par les autres utilisateurs sur le classement. Vous pouvez le modifier à tout moment."
-
-#: apps/native/src/components/sheets/content/leaderboard-nickname-required-sheet-content.tsx:70
-msgid "Your nickname will be displayed on the leaderboard and allows you to compete with other learners."
-msgstr "Votre pseudo sera affiché sur le classement et vous permettra de rivaliser avec les autres apprenants."
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard.tsx:102
-msgid "Your Position"
-msgstr "Votre Position"
-
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:43
 #: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:92
 msgid "your pronunciation"
 msgstr "votre prononciation"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(has-just-cloned-voice)/onboarding/success.tsx:73
-msgid "Your Voice Clone"
-msgstr "Votre Voix Clonée"
-
-#: apps/native/src/app/(requires-auth)/(requires-choose-plan)/onboarding/terms-and-conditions.tsx:96
-msgid "Your voice clone will be integrated into your learning experience, tailoring exercises just for you."
-msgstr "Votre clone vocal sera intégré à votre expérience d'apprentissage, adaptant les exercices spécifiquement pour vous."
-
-#: apps/native/src/hooks/api/removals/removals-hooks.ts:29
-msgid "Your voice has been deleted successfully."
-msgstr "Votre voix a été supprimée avec succès."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:108
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:88

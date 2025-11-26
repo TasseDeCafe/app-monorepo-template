@@ -3,9 +3,3 @@ export const createResponseWithOneError = (errorMessage: string) => {
     errors: [{ message: errorMessage }],
   }
 }
-
-export const createResponseWithOneErrorMessageAndCode = (errorMessage: string, code: string) => {
-  return {
-    errors: [{ message: errorMessage, code }],
-  }
-}

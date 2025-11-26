@@ -154,15 +154,6 @@ const config = {
       favicon: './src/assets/images/favicon.png',
     },
     plugins: [
-      [
-        'expo-audio',
-        {
-          microphonePermission:
-            'TemplateApp records your voice to: 1) Create a personalized AI voice clone with a native accent (30-second recording), and 2) Analyze your pronunciation during practice exercises and provide feedback to improve your accent. For example, the app will help you pronounce "Massachusetts" with a perfect American accent.',
-        },
-      ],
-      //required by expo-audio
-      ['expo-asset'],
       'expo-router',
       [
         'expo-splash-screen',

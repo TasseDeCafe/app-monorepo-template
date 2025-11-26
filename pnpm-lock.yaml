@@ -15,12 +15,6 @@ catalogs:
     '@babel/plugin-transform-react-jsx':
       specifier: 7.27.1
       version: 7.27.1
-    '@cartesia/cartesia-js':
-      specifier: ^2.2.9
-      version: 2.2.9
-    '@deepgram/sdk':
-      specifier: 4.11.2
-      version: 4.11.2
     '@expo/metro-runtime':
       specifier: 6.1.2
       version: 6.1.2
@@ -249,9 +243,6 @@ catalogs:
     '@types/lodash':
       specifier: 4.17.20
       version: 4.17.20
-    '@types/lodash.clonedeep':
-      specifier: 4.5.9
-      version: 4.5.9
     '@types/morgan':
       specifier: 1.9.10
       version: 1.9.10
@@ -375,15 +366,9 @@ catalogs:
     expo-application:
       specifier: 7.0.7
       version: 7.0.7
-    expo-asset:
-      specifier: 12.0.9
-      version: 12.0.9
     expo-atlas:
       specifier: 0.4.3
       version: 0.4.3
-    expo-audio:
-      specifier: 1.0.14
-      version: 1.0.14
     expo-clipboard:
       specifier: 8.0.7
       version: 8.0.7
@@ -486,9 +471,6 @@ catalogs:
     languagedetect:
       specifier: 2.0.0
       version: 2.0.0
-    lodash.clonedeep:
-      specifier: 4.5.0
-      version: 4.5.0
     lodash.merge:
       specifier: 4.6.2
       version: 4.6.2
@@ -786,12 +768,6 @@ importers:
       '@anthropic-ai/sdk':
         specifier: 'catalog:'
         version: 0.64.0(zod@4.1.12)
-      '@cartesia/cartesia-js':
-        specifier: 'catalog:'
-        version: 2.2.9(encoding@0.1.13)
-      '@deepgram/sdk':
-        specifier: 'catalog:'
-        version: 4.11.2(encoding@0.1.13)
       '@google/genai':
         specifier: 'catalog:'
         version: 1.29.0
@@ -819,18 +795,18 @@ importers:
       '@supabase/supabase-js':
         specifier: 'catalog:'
         version: 2.75.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: 'catalog:'
-        version: 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2))(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
-      '@typescript-eslint/parser':
-        specifier: 'catalog:'
-        version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
       '@template-app/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
       '@template-app/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@typescript-eslint/eslint-plugin':
+        specifier: 'catalog:'
+        version: 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2))(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
+      '@typescript-eslint/parser':
+        specifier: 'catalog:'
+        version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
       axios:
         specifier: 'catalog:'
         version: 1.12.2
@@ -934,6 +910,9 @@ importers:
       '@react-email/preview-server':
         specifier: 'catalog:'
         version: 5.0.4(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(babel-plugin-macros@3.1.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@template-app/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/cors':
         specifier: 'catalog:'
         version: 2.8.19
@@ -964,9 +943,6 @@ importers:
       '@types/supertest':
         specifier: 'catalog:'
         version: 6.0.3
-      '@template-app/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       eslint-plugin-import:
         specifier: 'catalog:'
         version: 2.32.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2))(eslint-import-resolver-typescript@3.10.1)(eslint@9.36.0(jiti@2.6.1))
@@ -1067,6 +1043,9 @@ importers:
       '@next/eslint-plugin-next':
         specifier: 'catalog:'
         version: 16.0.3
+      '@template-app/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@testing-library/dom':
         specifier: 'catalog:'
         version: 10.4.1
@@ -1094,9 +1073,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: 'catalog:'
         version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
-      '@template-app/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       babel-plugin-react-compiler:
         specifier: 'catalog:'
         version: 1.0.0
@@ -1256,12 +1232,6 @@ importers:
       expo-application:
         specifier: 'catalog:'
         version: 7.0.7(expo@54.0.23)
-      expo-asset:
-        specifier: 'catalog:'
-        version: 12.0.9(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
-      expo-audio:
-        specifier: 'catalog:'
-        version: 1.0.14(expo-asset@12.0.9(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0))(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
       expo-clipboard:
         specifier: 'catalog:'
         version: 8.0.7(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
@@ -1316,9 +1286,6 @@ importers:
       js-sha256:
         specifier: 'catalog:'
         version: 0.11.1
-      lodash.clonedeep:
-        specifier: 'catalog:'
-        version: 4.5.0
       lucide-react-native:
         specifier: 'catalog:'
         version: 0.545.0(react-native-svg@15.12.1(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
@@ -1422,9 +1389,6 @@ importers:
       '@types/jest':
         specifier: 'catalog:'
         version: 29.5.14
-      '@types/lodash.clonedeep':
-        specifier: 'catalog:'
-        version: 4.5.9
       '@types/react':
         specifier: 'catalog:'
         version: 19.1.10
@@ -1578,12 +1542,6 @@ importers:
       '@tanstack/react-table':
         specifier: 'catalog:'
         version: 8.21.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@typescript-eslint/eslint-plugin':
-        specifier: 'catalog:'
-        version: 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2))(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
-      '@typescript-eslint/parser':
-        specifier: 'catalog:'
-        version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
       '@template-app/api-client':
         specifier: workspace:*
         version: link:../../packages/api-client
@@ -1593,6 +1551,12 @@ importers:
       '@template-app/i18n':
         specifier: workspace:*
         version: link:../../packages/i18n
+      '@typescript-eslint/eslint-plugin':
+        specifier: 'catalog:'
+        version: 8.45.0(@typescript-eslint/parser@8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2))(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
+      '@typescript-eslint/parser':
+        specifier: 'catalog:'
+        version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
@@ -1614,9 +1578,6 @@ importers:
       js-sha256:
         specifier: 'catalog:'
         version: 0.11.1
-      lodash.clonedeep:
-        specifier: 'catalog:'
-        version: 4.5.0
       lodash.merge:
         specifier: 'catalog:'
         version: 4.6.2
@@ -1696,12 +1657,12 @@ importers:
       '@tanstack/eslint-plugin-query':
         specifier: 'catalog:'
         version: 5.91.2(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
+      '@template-app/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
       '@types/lodash':
         specifier: 'catalog:'
         version: 4.17.20
-      '@types/lodash.clonedeep':
-        specifier: 'catalog:'
-        version: 4.5.9
       '@types/naughty-words':
         specifier: 'catalog:'
         version: 1.2.3
@@ -1717,9 +1678,6 @@ importers:
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 5.0.4(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))
-      '@template-app/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
       autoprefixer:
         specifier: 'catalog:'
         version: 10.4.21(postcss@8.5.6)
@@ -1781,12 +1739,12 @@ importers:
         specifier: 'catalog:'
         version: 4.1.12
     devDependencies:
-      '@types/naughty-words':
-        specifier: 'catalog:'
-        version: 1.2.3
       '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      '@types/naughty-words':
+        specifier: 'catalog:'
+        version: 1.2.3
       tsc-alias:
         specifier: 'catalog:'
         version: 1.8.16
@@ -1843,12 +1801,12 @@ importers:
       '@lingui/vite-plugin':
         specifier: 'catalog:'
         version: 5.6.0(babel-plugin-macros@3.1.0)(typescript@5.9.2)(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))
-      '@vitejs/plugin-react':
-        specifier: 'catalog:'
-        version: 5.0.4(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))
       '@template-app/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      '@vitejs/plugin-react':
+        specifier: 'catalog:'
+        version: 5.0.4(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))
       ai:
         specifier: 'catalog:'
         version: 5.0.93(zod@4.1.12)
@@ -2474,9 +2432,6 @@ packages:
   '@borewit/text-codec@0.1.1':
     resolution: {integrity: sha512-5L/uBxmjaCIX5h8Z+uu+kA9BQLkc/Wl06UGR5ajNRxu+/XjonB5i8JpgFMrPj3LXTCPA0pv8yxUvbUi+QthGGA==}
 
-  '@cartesia/cartesia-js@2.2.9':
-    resolution: {integrity: sha512-mstq5EobmlN+Y/awHJS3H2ZXEX1LNpUNVn2JckaZD00iBIKQoBhsmeiVGGjisny/IcTYsucwpI3Hksk5Uo+/tQ==}
-
   '@cfworker/json-schema@4.1.1':
     resolution: {integrity: sha512-gAmrUZSGtKc3AiBL71iNWxDsyUC5uMaKKGdvzYsBoTW/xi42JQHl7eKV2OYzCUqvc+D2RCcf7EXY2iCyFIk6og==}
 
@@ -2513,14 +2468,6 @@ packages:
   '@csstools/css-tokenizer@3.0.4':
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
-
-  '@deepgram/captions@1.2.0':
-    resolution: {integrity: sha512-8B1C/oTxTxyHlSFubAhNRgCbQ2SQ5wwvtlByn8sDYZvdDtdn/VE2yEPZ4BvUnrKWmsbTQY6/ooLV+9Ka2qmDSQ==}
-    engines: {node: '>=18.0.0'}
-
-  '@deepgram/sdk@4.11.2':
-    resolution: {integrity: sha512-lKGxuXxlSixC8bB0BnzmIpbVjUSgYtz17cqvrgv0ZjmazgUPkuUj9egQPj6k+fbPX8wRzWEqlhrL/DXlXqeDXA==}
-    engines: {node: '>=18.0.0'}
 
   '@dominicstop/ts-event-emitter@1.1.0':
     resolution: {integrity: sha512-CcxmJIvUb1vsFheuGGVSQf4KdPZC44XolpUT34+vlal+LyQoBUOn31pjFET5M9ctOxEpt8xa0M3/2M7uUiAoJw==}
@@ -5260,9 +5207,6 @@ packages:
   '@types/jsonwebtoken@9.0.10':
     resolution: {integrity: sha512-asx5hIG9Qmf/1oStypjanR7iKTv0gXQ1Ov/jfrX6kS/EO0OFni8orbmGCn0672NHR3kXHwpAwR+B368ZGN/2rA==}
 
-  '@types/lodash.clonedeep@4.5.9':
-    resolution: {integrity: sha512-19429mWC+FyaAhOLzsS8kZUsI+/GmBAQ0HFiCPsKGU+7pBXOQWhyrY6xNNDwUSX8SMZMJvuFVMF9O5dQOlQK9Q==}
-
   '@types/lodash@4.17.20':
     resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
 
@@ -5286,9 +5230,6 @@ packages:
 
   '@types/negotiator@0.6.4':
     resolution: {integrity: sha512-elf6BsTq+AkyNsb2h5cGNst2Mc7dPliVoAPm1fXglC/BM3f2pFA40BaSSv3E5lyHteEawVKLP+8TwiY1DMNb3A==}
-
-  '@types/node@18.19.130':
-    resolution: {integrity: sha512-GRaXQx6jGfL8sKfaIDD6OupbIHBr9jv7Jnaml9tB7l4v068PAOXqfcujMMo5PhbIs6ggR1XODELqahT2R8v0fg==}
 
   '@types/node@24.7.1':
     resolution: {integrity: sha512-CmyhGZanP88uuC5GpWU9q+fI61j2SkhO3UGMUdfYRE6Bcy0ccyzn1Rqj9YAB/ZY4kOXmNf0ocah5GtphmLMP6Q==}
@@ -6471,9 +6412,6 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
 
-  cross-fetch@3.2.0:
-    resolution: {integrity: sha512-Q+xVJLoGOeIMXZmbUK4HYk+69cQH6LudR0Vu/pRm2YlU/hDV9CiS0gKUMaWY5f2NeUH9C1nV3bsTlCo0FsTV1Q==}
-
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
@@ -7222,14 +7160,6 @@ packages:
     peerDependencies:
       expo: '*'
 
-  expo-audio@1.0.14:
-    resolution: {integrity: sha512-UU8n1mIDPfO9zFQbPnIpnzhHeqC8c8WQUoOOFvlgI5CeOJMUrQ6UXDpX+LBcHxw/amSBhF5HP6VMr58foPKwbA==}
-    peerDependencies:
-      expo: '*'
-      expo-asset: '*'
-      react: '*'
-      react-native: '*'
-
   expo-clipboard@8.0.7:
     resolution: {integrity: sha512-zvlfFV+wB2QQrQnHWlo0EKHAkdi2tycLtE+EXFUWTPZYkgu1XcH+aiKfd4ul7Z0SDF+1IuwoiW9AA9eO35aj3Q==}
     peerDependencies:
@@ -7593,17 +7523,9 @@ packages:
     resolution: {integrity: sha512-gIXjKqtFuWEgzFRJA9WCQeSJLZDjgJUOMCMzxtvFq/37KojM1BFGufqsCy0r4qSQmYLsZYMeyRqzIWOMup03sw==}
     engines: {node: '>=14'}
 
-  form-data-encoder@4.1.0:
-    resolution: {integrity: sha512-G6NsmEW15s0Uw9XnCg+33H3ViYRyiM0hMrMhhqQOR8NFc5GhYrI+6I3u7OTw7b91J2g8rtvMBZJDbcGb2YUniw==}
-    engines: {node: '>= 18'}
-
   form-data@4.0.4:
     resolution: {integrity: sha512-KrGhL9Q4zjj0kiUt5OO4Mr/A/jlI2jDYs5eHBpYHPcBEVSiipAvn2Ko2HnPe20rmcuuvMHNdZFp+4IlGTMF0Ow==}
     engines: {node: '>= 6'}
-
-  formdata-node@6.0.3:
-    resolution: {integrity: sha512-8e1++BCiTzUno9v5IZ2J6bv4RU+3UKDmqWUQD0MIMVCd9AdhWkO1gw57oo1mNEX1dMq2EGI+FbWz4B92pscSQg==}
-    engines: {node: '>= 18'}
 
   formdata-polyfill@4.0.10:
     resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
@@ -7904,10 +7826,6 @@ packages:
   https-proxy-agent@7.0.6:
     resolution: {integrity: sha512-vK9P5/iUfdl95AI+JVyUuIcVtd4ofvtrOr3HNtM2yxC9bnMbEdp3x01OhQNnjb8IJYi38VlTE3mBXwcfvywuSw==}
     engines: {node: '>= 14'}
-
-  human-id@4.1.2:
-    resolution: {integrity: sha512-v/J+4Z/1eIJovEBdlV5TYj1IR+ZiohcYGRY+qN/oC9dAfKzVT023N/Bgw37hrKCoVRBvk3bqyzpr2PP5YeTMSg==}
-    hasBin: true
 
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
@@ -8716,9 +8634,6 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
-
-  lodash.clonedeep@4.5.0:
-    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
 
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
@@ -11190,9 +11105,6 @@ packages:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
 
-  undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
-
   undici-types@7.14.0:
     resolution: {integrity: sha512-QQiYxHuyZ9gQUIrmPo3IA+hUl4KYk8uSA7cHrcKd/l3p1OTpZcM0Tbp9x7FAtXdAYhlasd60ncPpgu6ihG6TOA==}
 
@@ -11245,9 +11157,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  url-join@4.0.1:
-    resolution: {integrity: sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==}
 
   url-parse@1.5.10:
     resolution: {integrity: sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==}
@@ -12520,23 +12429,6 @@ snapshots:
 
   '@borewit/text-codec@0.1.1': {}
 
-  '@cartesia/cartesia-js@2.2.9(encoding@0.1.13)':
-    dependencies:
-      emittery: 0.13.1
-      form-data: 4.0.4
-      form-data-encoder: 4.1.0
-      formdata-node: 6.0.3
-      human-id: 4.1.2
-      node-fetch: 2.7.0(encoding@0.1.13)
-      qs: 6.14.0
-      readable-stream: 4.7.0
-      url-join: 4.0.1
-      ws: 8.18.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - utf-8-validate
-
   '@cfworker/json-schema@4.1.1': {}
 
   '@csstools/color-helpers@5.1.0': {}
@@ -12562,23 +12454,6 @@ snapshots:
       postcss: 8.5.6
 
   '@csstools/css-tokenizer@3.0.4': {}
-
-  '@deepgram/captions@1.2.0':
-    dependencies:
-      dayjs: 1.11.18
-
-  '@deepgram/sdk@4.11.2(encoding@0.1.13)':
-    dependencies:
-      '@deepgram/captions': 1.2.0
-      '@types/node': 18.19.130
-      cross-fetch: 3.2.0(encoding@0.1.13)
-      deepmerge: 4.3.1
-      events: 3.3.0
-      ws: 8.18.3
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - utf-8-validate
 
   '@dominicstop/ts-event-emitter@1.1.0': {}
 
@@ -16121,10 +15996,6 @@ snapshots:
       '@types/ms': 2.1.0
       '@types/node': 24.7.1
 
-  '@types/lodash.clonedeep@4.5.9':
-    dependencies:
-      '@types/lodash': 4.17.20
-
   '@types/lodash@4.17.20': {}
 
   '@types/methods@1.1.4': {}
@@ -16144,10 +16015,6 @@ snapshots:
   '@types/naughty-words@1.2.3': {}
 
   '@types/negotiator@0.6.4': {}
-
-  '@types/node@18.19.130':
-    dependencies:
-      undici-types: 5.26.5
 
   '@types/node@24.7.1':
     dependencies:
@@ -17559,12 +17426,6 @@ snapshots:
       - supports-color
       - ts-node
 
-  cross-fetch@3.2.0(encoding@0.1.13):
-    dependencies:
-      node-fetch: 2.7.0(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
-
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -18498,13 +18359,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  expo-audio@1.0.14(expo-asset@12.0.9(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0))(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      expo: 54.0.23(@babel/core@7.28.5)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
-      expo-asset: 12.0.9(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-native: 0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0)
-
   expo-clipboard@8.0.7(expo@54.0.23)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0):
     dependencies:
       expo: 54.0.23(@babel/core@7.28.5)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(react-native@0.81.5(@babel/core@7.28.5)(@types/react@19.1.10)(react@19.1.0))(react@19.1.0)
@@ -18986,8 +18840,6 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data-encoder@4.1.0: {}
-
   form-data@4.0.4:
     dependencies:
       asynckit: 0.4.0
@@ -18995,8 +18847,6 @@ snapshots:
       es-set-tostringtag: 2.1.0
       hasown: 2.0.2
       mime-types: 2.1.35
-
-  formdata-node@6.0.3: {}
 
   formdata-polyfill@4.0.10:
     dependencies:
@@ -19338,8 +19188,6 @@ snapshots:
       debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
-
-  human-id@4.1.2: {}
 
   human-signals@2.1.0: {}
 
@@ -20376,8 +20224,6 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
-
-  lodash.clonedeep@4.5.0: {}
 
   lodash.debounce@4.0.8: {}
 
@@ -23146,8 +22992,6 @@ snapshots:
       has-symbols: 1.1.0
       which-boxed-primitive: 1.1.1
 
-  undici-types@5.26.5: {}
-
   undici-types@7.14.0: {}
 
   undici@6.22.0: {}
@@ -23213,8 +23057,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  url-join@4.0.1: {}
 
   url-parse@1.5.10:
     dependencies:

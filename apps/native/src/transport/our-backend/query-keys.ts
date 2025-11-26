@@ -1,18 +1,5 @@
 export enum QUERY_KEYS {
-  TRANSLATE_TEXT = 'translate-text',
-  TRANSLATE_WORD = 'translate-word',
-  TRANSLITERATION = 'transliteration',
-  IPA_TRANSCRIPTION = 'ipa-transcription',
-  AUDIO_WITH_ALIGNMENT = 'audio-with-alignment',
-  AUDIO_INDIVIDUAL_WORD = 'audio-individual-word',
-  EXERCISE_TEXT = 'exercise-text',
-  EXERCISE_STRESS = 'exercise-stress',
-  LANGUAGE_DETECTION = 'language-detection',
   SUBSCRIPTION_DETAILS = 'subscription-details',
-  SAVED_WORDS = 'saved-words',
-  NICKNAME_AVAILABILITY = 'nickname-availability',
-  SHOULD_RECEIVE_MARKETING_EMAILS = 'user-marketing-emails',
   USER_DATA = 'user-data',
   CONFIG = 'config',
-  PRONUNCIATION_EVALUATION_EXERCISE = 'pronunciation-evaluation-exercise',
 }

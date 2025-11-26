@@ -4,16 +4,13 @@ import { createOrpcExpressRouter } from '../orpc/helpers/create-orpc-express-rou
 import { type OrpcContext } from '../orpc/orpc-context'
 import { logMessage } from '../../transport/third-party/sentry/error-monitoring'
 import type { BillingServiceInterface } from '../../service/get-subscription-account-data-service/billing-service'
-import {
-  billingContract,
-  GetSubscriptionInfoResponse,
-} from '@template-app/api-client/orpc-contracts/billing-contract'
+import { billingContract, GetSubscriptionInfoResponse } from '@template-app/api-client/orpc-contracts/billing-contract'
 
 export const BillingRouter = (billingService: BillingServiceInterface, usersWithFreeAccess: string[]): Router => {
   const implementer = implement(billingContract).$context<OrpcContext>()
 
   const router = implementer.router({
-    getSubscriptionDetails: implementer.getSubscriptionDetails.handler(async ({ input, context, errors }) => {
+    getSubscriptionDetails: implementer.getSubscriptionDetails.handler(async ({ context, errors }) => {
       const userId = context.res.locals.userId
       const userEmail = context.res.locals.email
 
@@ -30,7 +27,7 @@ export const BillingRouter = (billingService: BillingServiceInterface, usersWith
         }
       }
 
-      const billingData = await billingService.getBillingData(userId, input.currency)
+      const billingData = await billingService.getBillingData(userId)
 
       if (!billingData) {
         logMessage(`subscriptionAccountRouter: User not found for userId - ${userId}`)

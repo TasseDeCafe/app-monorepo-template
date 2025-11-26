@@ -9,7 +9,6 @@ import {
   isInstagramWebviewNativeApp,
   isIos,
   isLinkedinNativeWebview,
-  isWykopNativeWebview,
 } from '@template-app/core/utils/browser-utils'
 
 const tryOpeningInBrowser = () => {
@@ -38,12 +37,7 @@ const tryOpeningInBrowser = () => {
 
 export const WebViewDetector = () => {
   useEffect(() => {
-    if (
-      isLinkedinNativeWebview() ||
-      isInstagramWebviewNativeApp() ||
-      isFacebookNativeWebviewApp() ||
-      isWykopNativeWebview()
-    ) {
+    if (isLinkedinNativeWebview() || isInstagramWebviewNativeApp() || isFacebookNativeWebviewApp()) {
       tryOpeningInBrowser()
     }
   }, [])

@@ -16,8 +16,7 @@ export const CheckoutRouter = (stripeService: StripeServiceInterface): Router =>
         email,
         input.successPathAndHash,
         input.cancelPathAndHash,
-        input.planInterval,
-        input.currency
+        input.planInterval
       )
 
       if (!url) {

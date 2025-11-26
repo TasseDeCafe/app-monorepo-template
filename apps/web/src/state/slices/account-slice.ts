@@ -134,7 +134,6 @@ const accountSlice = createSlice({
           utmTerm: string | null
           utmContent: string | null
         }
-        cookiesState: 'all' | 'essential' | 'none'
       }>
     ) => {
       // Load user details (only if not already loaded from backend)

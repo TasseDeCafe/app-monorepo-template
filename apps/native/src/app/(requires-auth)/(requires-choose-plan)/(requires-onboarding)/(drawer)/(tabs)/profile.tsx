@@ -4,13 +4,9 @@ import { toast } from 'sonner-native'
 import { BigCard } from '@/components/ui/big-card'
 import { useAuthStore } from '@/stores/auth-store'
 import { Avatar } from '@/components/avatar'
-import { useGetUser } from '@/hooks/api/user/user-hooks'
-import { useCallback } from 'react'
 import RevenueCatUI from 'react-native-purchases-ui'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { SettingsItem } from '@/components/ui/settings-item'
-import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
-import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { getConfig } from '@/config/environment-config'
 import { User } from '@supabase/supabase-js'
@@ -40,24 +36,15 @@ export default function ProfileScreen() {
 
   const router = useRouter()
   const session = useAuthStore((state) => state.session)
-  const { defaultedUserData } = useGetUser()
-  const openSheet = useBottomSheetStore((state) => state.open)
 
   const { data: subscriptionDetailsData, isLoading: isSubscriptionLoading } = useGetSubscriptionDetails()
 
   const subscriptionInfo = subscriptionDetailsData
 
-  const currentNickname = defaultedUserData.nickname || ''
-
-  const handlePressNickname = useCallback(() => {
-    openSheet(IndividualSheetName.NICKNAME, { currentNickname })
-  }, [currentNickname, openSheet])
-
   const user: User | undefined = session?.user
   const email = user?.email || ''
   const name: string = user?.user_metadata?.name || ''
   const avatarUrl = user?.user_metadata?.avatar_url || ''
-  const displayNickname = currentNickname || 'No nickname set'
 
   const getInitials = () => {
     if (name) {
@@ -154,8 +141,6 @@ export default function ProfileScreen() {
       </View>
       {/* Account settings */}
       <BigCard className='mb-1'>
-        <SettingsItem title={t`Public nickname`} value={displayNickname} onPress={handlePressNickname} />
-
         {renderBillingItem()}
 
         <SettingsItem

@@ -6,12 +6,6 @@ export const isAndroid = () => {
   return /Android/i.test(navigator.userAgent)
 }
 
-export const isWykopNativeWebview = () => {
-  // todo to implement
-  // we need to implement this because Google sign in is still not working in wykop app
-  return false
-}
-
 export const isFacebookNativeWebviewApp = () => {
   // todo this probably works but needs to be tested
   // this might actually work for messenger app too

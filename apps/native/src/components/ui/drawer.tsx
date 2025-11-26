@@ -7,18 +7,7 @@ import { Avatar } from '../avatar'
 import { useAuthStore } from '@/stores/auth-store'
 import { useDrawerStore } from '@/stores/drawer-store'
 import * as Haptics from 'expo-haptics'
-import {
-  CircleHelp,
-  CircleUserRound,
-  CreditCard,
-  Dumbbell,
-  Home,
-  LogOut,
-  Mail,
-  Settings,
-  TrendingUp,
-  Trophy,
-} from 'lucide-react-native'
+import { CircleUserRound, CreditCard, Dumbbell, Home, LogOut, Mail, Settings } from 'lucide-react-native'
 import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import colors from 'tailwindcss/colors'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
@@ -154,26 +143,10 @@ export const Drawer = React.memo(() => {
     navigateTo('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/dashboard')
   }, [navigateTo])
 
-  const handleProgressPress = useCallback(() => {
-    navigateTo('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/progress')
-  }, [navigateTo])
-
-  const handleLeaderboardPress = useCallback(() => {
-    navigateTo('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/leaderboard')
-  }, [navigateTo])
-
-  const handleSettingsPress = useCallback(() => {
-    navigateTo('/settings')
-  }, [navigateTo])
-
   const handleContactPress = useCallback(() => {
     openSheet(IndividualSheetName.CONTACT_US)
     closeDrawer()
   }, [openSheet, closeDrawer])
-
-  const handleAboutPress = useCallback(() => {
-    navigateTo('/about')
-  }, [navigateTo])
 
   const handlePricingPress = useCallback(() => {
     RevenueCatUI.presentPaywall({ displayCloseButton: false }).catch((paywallError) => {
@@ -225,16 +198,6 @@ export const Drawer = React.memo(() => {
           label={t`Practice`}
           onPress={handleExercisesPress}
         />
-        <MenuItem
-          icon={<TrendingUp size={24} color={colors.stone[900]} />}
-          label={t`Progress`}
-          onPress={handleProgressPress}
-        />
-        <MenuItem
-          icon={<Trophy size={24} color={colors.stone[900]} />}
-          label={t`Leaderboard`}
-          onPress={handleLeaderboardPress}
-        />
 
         <MenuItem
           icon={<CreditCard size={24} color={colors.stone[900]} />}
@@ -245,21 +208,9 @@ export const Drawer = React.memo(() => {
         <MenuItem icon={<Mail size={24} color={colors.stone[900]} />} label={t`Contact`} onPress={handleContactPress} />
 
         <MenuItem
-          icon={<CircleHelp size={24} color={colors.stone[900]} />}
-          label={t`About`}
-          onPress={handleAboutPress}
-        />
-
-        <MenuItem
           icon={<CircleUserRound size={24} color={colors.stone[900]} />}
           label={t`Profile`}
           onPress={handleAccountPress}
-        />
-
-        <MenuItem
-          icon={<Settings size={24} color={colors.stone[900]} />}
-          label={t`Settings`}
-          onPress={handleSettingsPress}
         />
         {isTestUser && (
           <MenuItem

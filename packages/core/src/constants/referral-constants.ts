@@ -1,5 +1,4 @@
 // this object got quite complex because of different discounts and contract conditions we negotiated with the creators
-import { tiengosReferralToDiscountMap } from './serial-tiengos-discounts'
 import { Discounts } from './discount-types'
 
 export const referralToDiscount: Record<string, Discounts> = {
@@ -184,7 +183,6 @@ export const referralToDiscount: Record<string, Discounts> = {
       commissionLimit: null,
     },
   },
-  ...tiengosReferralToDiscountMap,
 }
 
 export const getDiscountsForReferral = (referral: string): Discounts => {

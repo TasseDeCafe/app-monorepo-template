@@ -10,7 +10,6 @@ import { DiscordIcon } from '@/app/[lang]/(navbar)/discord-icon'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
 import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
 import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
-import { LangCode } from '@template-app/core/constants/lang-codes'
 import { Trans } from '@lingui/react/macro'
 
 type MobileNavLinkProps = {
@@ -91,10 +90,7 @@ const MobileNavbar = ({ lang }: LangProps) => {
                 className='flex w-full items-center justify-between rounded-md bg-gray-50 px-4 py-2 text-2xl text-gray-600'
               >
                 <span className='flex items-center'>
-                  <CustomCircularFlag
-                    languageOrDialectCode={currentLanguage.code as LangCode}
-                    className='mr-4 h-6 w-6'
-                  />
+                  <CustomCircularFlag locale={currentLanguage.code} className='mr-4 h-6 w-6' />
                   {currentLanguage.name}
                 </span>
                 <span className={`text-sm transition-transform duration-200 ${isLanguageMenuOpen ? 'rotate-180' : ''}`}>
@@ -113,7 +109,7 @@ const MobileNavbar = ({ lang }: LangProps) => {
                         toggleMenu()
                       }}
                     >
-                      <CustomCircularFlag languageOrDialectCode={language.code as LangCode} className='mr-2 h-5 w-5' />
+                      <CustomCircularFlag locale={language.code} className='mr-2 h-5 w-5' />
                       {language.name}
                     </Link>
                   ))}

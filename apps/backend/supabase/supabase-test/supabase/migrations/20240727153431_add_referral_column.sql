@@ -1,4 +1,0 @@
-ALTER TABLE public.users
-ADD COLUMN referral VARCHAR(30);
-
-ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;

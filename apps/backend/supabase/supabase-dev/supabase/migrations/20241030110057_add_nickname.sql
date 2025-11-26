@@ -1,2 +1,0 @@
-ALTER TABLE public.users
-ADD COLUMN nickname VARCHAR(20) UNIQUE;

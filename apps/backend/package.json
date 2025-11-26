@@ -38,8 +38,6 @@
   "author": "GA1,TasseDeCafe",
   "dependencies": {
     "@anthropic-ai/sdk": "catalog:",
-    "@cartesia/cartesia-js": "catalog:",
-    "@deepgram/sdk": "catalog:",
     "@google/genai": "catalog:",
     "@orpc/contract": "catalog:",
     "@orpc/openapi": "catalog:",

@@ -17,8 +17,6 @@ import { Card } from '@/design-system/card'
 import { Button } from '@/design-system/button'
 import { Discounts } from '@template-app/core/constants/discount-types'
 import { cn } from '@template-app/core/utils/tailwind-utils'
-import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
-import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
 import { msg } from '@lingui/core/macro'
@@ -89,15 +87,10 @@ export const PricingSection = () => {
   const { i18n } = useLingui()
   const [planType, setPlanType] = useState<PlanType>('year')
   const [referral, setReferral] = useState<string>('')
-  const [locale, setLocale] = useState<string>('')
 
   useEffect(() => {
     setReferral(localStorageWrapper.getReferral())
-    setLocale(window.location.pathname.split('/')[1])
   }, [])
-
-  const currency: SUPPORTED_STRIPE_CURRENCY =
-    locale === POLISH_LOCALE ? SUPPORTED_STRIPE_CURRENCY.PLN : SUPPORTED_STRIPE_CURRENCY.EUR
 
   const discounts: Discounts = getDiscountsForReferral(referral)
 
@@ -108,8 +101,8 @@ export const PricingSection = () => {
   const hasAllowedReferral = ALLOWED_REFERRALS.includes(referral)
   const canSubscribeWithReferralDiscount = getCanSubscribeWithReferralDiscount(referral, discounts)
 
-  const monthlyPrice = getMonthlyPrice(discounts, currency)
-  const yearlyPrice = getYearlyPrice(discounts, currency)
+  const monthlyPrice = getMonthlyPrice(discounts)
+  const yearlyPrice = getYearlyPrice(discounts)
   const lifetimePrice = 499
   const lifetimeDiscountPercentage = 60
 

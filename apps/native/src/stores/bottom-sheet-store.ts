@@ -4,65 +4,10 @@ import { Keyboard } from 'react-native'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
-import { DialectCode, LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
-import { Topic } from '@template-app/core/constants/topics'
-import { AudioSpeedType } from '@template-app/api-client/orpc-contracts/user-settings-contract'
 
 export interface IndividualSheetProps {
   [IndividualSheetName.DELETE_ACCOUNT]: undefined
-  [IndividualSheetName.DELETE_VOICE]: undefined
-  [IndividualSheetName.VOICE_REMOVED_SUCCESS]: undefined
-  [IndividualSheetName.NICKNAME]: { currentNickname: string }
-  [IndividualSheetName.NICKNAME_REQUIRED]: undefined
   [IndividualSheetName.CONTACT_US]: undefined
-  [IndividualSheetName.STRESS_EXERCISE_SETTINGS]: undefined
-  [IndividualSheetName.STUDY_LANGUAGE_SETTINGS_SELECTOR]: {
-    onLanguageSelect: (language: SupportedStudyLanguage) => void
-    initialLanguage: SupportedStudyLanguage
-  }
-  [IndividualSheetName.MOTHER_LANGUAGE_SETTINGS_SELECTOR]: {
-    onLanguageSelect: (language: LangCode) => void
-    initialLanguage: LangCode
-  }
-  [IndividualSheetName.CUSTOM_EXERCISE_STUDY_LANGUAGE_SELECTOR]: {
-    onLanguageSelect: (language: SupportedStudyLanguage) => void
-    initialLanguage: SupportedStudyLanguage
-  }
-  [IndividualSheetName.DIALECT_SETTINGS_SELECTOR]: {
-    onDialectSelect: (dialect: DialectCode) => void
-    initialDialect: DialectCode
-    studyLanguage: SupportedStudyLanguage
-  }
-  [IndividualSheetName.TRANSLATION]: undefined
-  [IndividualSheetName.FREQUENCY_LIST_TOPIC_SELECTOR]: {
-    currentTopic: Topic | null
-    onTopicSelect: (topic: Topic | null) => void
-  }
-  [IndividualSheetName.EXERCISE_LENGTH_SETTINGS]: {
-    initialWordCount: number
-    onWordCountCommit: (newWordCount: number) => void
-  }
-  [IndividualSheetName.CEFR_LEVEL_SETTINGS]: {
-    initialPosition: number
-    onPositionCommit: (newPosition: number) => void
-  }
-  [IndividualSheetName.DAILY_STUDY_TIME_SETTINGS]: {
-    initialMinutes: number | null
-    onMinutesChange: (minutes: number) => void
-  }
-  [IndividualSheetName.SPEED_PICKER]: {
-    currentSpeed: number
-    onSpeedChange: (speed: string) => void
-    audioSpeedType?: AudioSpeedType
-  }
-  [IndividualSheetName.LEADERBOARD_TIME_PERIOD_SELECTOR]: {
-    onTimePeriodSelect: (timePeriod: 'allTime' | 'weekly') => void
-    initialTimePeriod: 'allTime' | 'weekly'
-  }
-  [IndividualSheetName.LEADERBOARD_LANGUAGE_SELECTOR]: {
-    onLanguageSelect: (language: SupportedStudyLanguage | undefined) => void
-    initialLanguage: LangCode | undefined
-  }
 }
 
 // Interface for the internal state of the store

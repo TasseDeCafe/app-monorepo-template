@@ -1,24 +1,17 @@
-import {
-  STRIPE_MONTHLY_PRICE_IN_EUR,
-  STRIPE_MONTHLY_PRICE_IN_PLN,
-  STRIPE_YEARLY_PRICE_IN_EUR,
-  STRIPE_YEARLY_PRICE_IN_PLN,
-  SUPPORTED_STRIPE_CURRENCY,
-} from '@template-app/core/constants/pricing-constants'
+import { STRIPE_MONTHLY_PRICE_IN_EUR, STRIPE_YEARLY_PRICE_IN_EUR } from '@template-app/core/constants/pricing-constants'
 import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants'
 import { Discounts } from '@template-app/core/constants/discount-types'
 
-export const getMonthlyPrice = (discounts: Discounts, currency: SUPPORTED_STRIPE_CURRENCY): number => {
-  const basePrice =
-    currency === SUPPORTED_STRIPE_CURRENCY.EUR ? STRIPE_MONTHLY_PRICE_IN_EUR : STRIPE_MONTHLY_PRICE_IN_PLN
+export const getMonthlyPrice = (discounts: Discounts): number => {
+  const basePrice = STRIPE_MONTHLY_PRICE_IN_EUR
   if (!discounts.areActive) {
     return basePrice
   }
   return Number((((100 - discounts.monthly.discountAsPercentage) * basePrice) / 100).toFixed(2))
 }
 
-export const getYearlyPrice = (discounts: Discounts, currency: SUPPORTED_STRIPE_CURRENCY): number => {
-  const basePrice = currency === SUPPORTED_STRIPE_CURRENCY.EUR ? STRIPE_YEARLY_PRICE_IN_EUR : STRIPE_YEARLY_PRICE_IN_PLN
+export const getYearlyPrice = (discounts: Discounts): number => {
+  const basePrice = STRIPE_YEARLY_PRICE_IN_EUR
   if (!discounts.areActive) {
     return basePrice
   }

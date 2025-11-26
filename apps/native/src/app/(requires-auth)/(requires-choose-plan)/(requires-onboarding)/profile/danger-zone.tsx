@@ -1,17 +1,12 @@
 import { Text, View } from 'react-native'
-import { useGetUser } from '@/hooks/api/user/user-hooks'
 import { BigCard } from '@/components/ui/big-card'
-import { SettingsItem } from '@/components/ui/settings-item'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
 import { useLingui } from '@lingui/react/macro'
+import { SettingsItem } from '@/components/ui/settings-item'
 
 export default function DangerZoneScreen() {
   const { t } = useLingui()
-
-  const { defaultedUserData } = useGetUser()
-  const hasVoice = defaultedUserData.hasVoice
-
   const openSheet = useBottomSheetStore((state) => state.open)
 
   return (
@@ -33,17 +28,6 @@ export default function DangerZoneScreen() {
             }}
             variant='destructive'
           />
-
-          {hasVoice && (
-            <SettingsItem
-              title={t`Delete my voice`}
-              value=''
-              onPress={() => {
-                openSheet(IndividualSheetName.DELETE_VOICE)
-              }}
-              variant='destructive'
-            />
-          )}
         </BigCard>
       </View>
     </View>

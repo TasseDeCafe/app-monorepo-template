@@ -18,18 +18,3 @@ export const useDeleteAccount = (options?: OrpcMutationOverrides<typeof orpcQuer
     })
   )
 }
-
-export const useDeleteVoice = (options?: OrpcMutationOverrides<typeof orpcQuery.removals.postRemoval>) => {
-  const { t } = useLingui()
-
-  return useMutation(
-    orpcQuery.removals.postRemoval.mutationOptions({
-      ...options,
-      meta: {
-        successMessage: t`Your voice has been deleted successfully.`,
-        errorMessage: t`An error occurred. Please try again.`,
-        ...options?.meta,
-      },
-    })
-  )
-}

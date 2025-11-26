@@ -4,7 +4,6 @@ import {
   ACCOUNT_MODAL_ID,
   CONTACT_MODAL_ID,
   CONTACT_US_MODAL_ID,
-  PROMPT_SIGN_IN_MODAL_ID,
   RATE_LIMITING_MODAL_ID,
   SOMETHING_WENT_WRONG_MODAL_ID,
 } from './modal-ids.ts'
@@ -15,7 +14,6 @@ import { AccountModalContent } from './modal-contents/account-modal/account-moda
 import { selectIsSignedIn } from '@/state/slices/account-slice.ts'
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { PromptToSignInModalContent } from './modal-contents/prompt-to-sign-in-modal-content.tsx'
 import { isHashEnabledModalId } from './modal-utils.ts'
 import { ContactUsModalContent } from './modal-contents/contact-us-modal-content.tsx'
 import { RateLimitingModalContent } from './modal-contents/rate-limiting/rate-limiting-modal-content.tsx'
@@ -50,7 +48,6 @@ export const Modal = () => {
       {isModalVisible && dialogId === SOMETHING_WENT_WRONG_MODAL_ID && <SomethingWentWrongModalContent />}
       {isModalVisible && dialogId === ACCOUNT_MODAL_ID && <AccountModalContent />}
       {isModalVisible && dialogId === CONTACT_MODAL_ID && <ContactModalContent />}
-      {isModalVisible && dialogId === PROMPT_SIGN_IN_MODAL_ID && <PromptToSignInModalContent />}
       {isModalVisible && dialogId === CONTACT_US_MODAL_ID && <ContactUsModalContent />}
       {isModalVisible && dialogId === RATE_LIMITING_MODAL_ID && <RateLimitingModalContent />}
     </Dialog>

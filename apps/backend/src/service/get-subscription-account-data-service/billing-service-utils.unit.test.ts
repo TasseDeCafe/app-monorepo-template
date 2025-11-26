@@ -2,7 +2,6 @@ import { describe, expect, test } from 'vitest'
 import { calculateStripePricingDetails } from './billing-service-utils'
 import { referralToDiscount } from '@template-app/core/constants/referral-constants'
 import { Discounts } from '@template-app/core/constants/discount-types'
-import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 
 describe('calculatePricingDetails', () => {
   const soundLikeARussianActiveDiscountsAsMap: Record<string, Discounts> = {
@@ -42,13 +41,7 @@ describe('calculatePricingDetails', () => {
 
   describe('discounts connected to real campaigns', () => {
     test('finnishwithheidi', () => {
-      const pricingDetails = calculateStripePricingDetails(
-        'finnishwithheidi',
-        referralToDiscount,
-        null,
-        null,
-        SUPPORTED_STRIPE_CURRENCY.EUR
-      )
+      const pricingDetails = calculateStripePricingDetails('finnishwithheidi', referralToDiscount, null, null)
       expect(pricingDetails).toEqual({
         amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
         currentDiscountInPercentage: 0,
@@ -57,13 +50,7 @@ describe('calculatePricingDetails', () => {
       })
     })
     test('plapla', () => {
-      const pricingDetails = calculateStripePricingDetails(
-        'plapla',
-        referralToDiscount,
-        null,
-        null,
-        SUPPORTED_STRIPE_CURRENCY.EUR
-      )
+      const pricingDetails = calculateStripePricingDetails('plapla', referralToDiscount, null, null)
       expect(pricingDetails).toEqual({
         amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
         currentDiscountInPercentage: 0,
@@ -76,13 +63,7 @@ describe('calculatePricingDetails', () => {
   describe('when discounts are still active', () => {
     describe('when user has no referral', () => {
       test('a user who is not subscribed', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianActiveDiscountsAsMap,
-          null,
-          null,
-          SUPPORTED_STRIPE_CURRENCY.EUR
-        )
+        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianActiveDiscountsAsMap, null, null)
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -95,8 +76,7 @@ describe('calculatePricingDetails', () => {
           null,
           soundLikeARussianActiveDiscountsAsMap,
           null,
-          'free_trial',
-          SUPPORTED_STRIPE_CURRENCY.EUR
+          'free_trial'
         )
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
@@ -106,13 +86,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed monthly', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianActiveDiscountsAsMap,
-          19,
-          'month',
-          SUPPORTED_STRIPE_CURRENCY.EUR
-        )
+        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianActiveDiscountsAsMap, 19, 'month')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
           currentDiscountInPercentage: 0,
@@ -121,13 +95,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed yearly', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianActiveDiscountsAsMap,
-          189,
-          'year',
-          SUPPORTED_STRIPE_CURRENCY.EUR
-        )
+        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianActiveDiscountsAsMap, 189, 'year')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
           currentDiscountInPercentage: 0,
@@ -143,8 +111,7 @@ describe('calculatePricingDetails', () => {
           'sound_like_a_russian',
           soundLikeARussianActiveDiscountsAsMap,
           null,
-          null,
-          SUPPORTED_STRIPE_CURRENCY.EUR
+          null
         )
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
@@ -168,8 +135,7 @@ describe('calculatePricingDetails', () => {
           'sound_like_a_russian',
           soundLikeARussianActiveDiscountsAsMap,
           null,
-          'free_trial',
-          SUPPORTED_STRIPE_CURRENCY.EUR
+          'free_trial'
         )
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
@@ -194,8 +160,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianActiveDiscountsAsMap,
             19,
-            'month',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'month'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
@@ -218,8 +183,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianActiveDiscountsAsMap,
             189,
-            'year',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'year'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
@@ -245,8 +209,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianActiveDiscountsAsMap,
             15.2,
-            'month',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'month'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 15.2,
@@ -269,8 +232,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianActiveDiscountsAsMap,
             113.4,
-            'year',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'year'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 113.4,
@@ -296,13 +258,7 @@ describe('calculatePricingDetails', () => {
   describe('when discounts are not active', () => {
     describe('when user has no referral', () => {
       test('a user who is not subscribed', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianInactiveDiscountsAsMap,
-          null,
-          null,
-          SUPPORTED_STRIPE_CURRENCY.EUR
-        )
+        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, null, null)
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -315,8 +271,7 @@ describe('calculatePricingDetails', () => {
           null,
           soundLikeARussianInactiveDiscountsAsMap,
           null,
-          'free_trial',
-          SUPPORTED_STRIPE_CURRENCY.EUR
+          'free_trial'
         )
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
@@ -326,13 +281,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed monthly', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianInactiveDiscountsAsMap,
-          19,
-          'month',
-          SUPPORTED_STRIPE_CURRENCY.EUR
-        )
+        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 19, 'month')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
           currentDiscountInPercentage: 0,
@@ -341,13 +290,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed yearly', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianInactiveDiscountsAsMap,
-          189,
-          'year',
-          SUPPORTED_STRIPE_CURRENCY.EUR
-        )
+        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 189, 'year')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
           currentDiscountInPercentage: 0,
@@ -363,8 +306,7 @@ describe('calculatePricingDetails', () => {
           'sound_like_a_russian',
           soundLikeARussianInactiveDiscountsAsMap,
           null,
-          null,
-          SUPPORTED_STRIPE_CURRENCY.EUR
+          null
         )
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
@@ -379,8 +321,7 @@ describe('calculatePricingDetails', () => {
           'sound_like_a_russian',
           soundLikeARussianInactiveDiscountsAsMap,
           null,
-          'free_trial',
-          SUPPORTED_STRIPE_CURRENCY.EUR
+          'free_trial'
         )
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
@@ -396,8 +337,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianInactiveDiscountsAsMap,
             19,
-            'month',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'month'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
@@ -411,8 +351,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianInactiveDiscountsAsMap,
             189,
-            'year',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'year'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
@@ -429,8 +368,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianInactiveDiscountsAsMap,
             15.2,
-            'month',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'month'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 15.2,
@@ -444,8 +382,7 @@ describe('calculatePricingDetails', () => {
             'sound_like_a_russian',
             soundLikeARussianInactiveDiscountsAsMap,
             113.4,
-            'year',
-            SUPPORTED_STRIPE_CURRENCY.EUR
+            'year'
           )
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 113.4,
@@ -460,13 +397,7 @@ describe('calculatePricingDetails', () => {
 
   describe('PLN currency support', () => {
     test('a user who is subscribed monthly in PLN', () => {
-      const pricingDetails = calculateStripePricingDetails(
-        null,
-        soundLikeARussianInactiveDiscountsAsMap,
-        79,
-        'month',
-        SUPPORTED_STRIPE_CURRENCY.PLN
-      )
+      const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 79, 'month')
       expect(pricingDetails).toEqual({
         amountInEurosThatUserIsCurrentlyPayingPerInterval: 79,
         currentDiscountInPercentage: 0,
@@ -475,13 +406,7 @@ describe('calculatePricingDetails', () => {
       })
     })
     test('a user who is subscribed yearly in PLN', () => {
-      const pricingDetails = calculateStripePricingDetails(
-        null,
-        soundLikeARussianInactiveDiscountsAsMap,
-        789,
-        'year',
-        SUPPORTED_STRIPE_CURRENCY.PLN
-      )
+      const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 789, 'year')
       expect(pricingDetails).toEqual({
         amountInEurosThatUserIsCurrentlyPayingPerInterval: 789,
         currentDiscountInPercentage: 0,

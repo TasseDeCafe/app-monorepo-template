@@ -1,7 +1,6 @@
 import { store } from '../store'
 import { accountActions } from '../slices/account-slice'
 import { localStorageWrapper } from '@/local-storage/local-storage-wrapper'
-import { AGREED_TO_ALL_COOKIE, AGREED_TO_ESSENTIALS_ONLY_COOKIE } from '@template-app/core/constants/cookie-constants'
 import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants.ts'
 
 // Loads persisted state from localStorage, cookies, and URL parameters synchronously before the app renders.
@@ -28,20 +27,9 @@ export const loadPersistedStateFromAllSourcesExceptForTheBackend = () => {
     utmContent: localStorageWrapper.getUtmContent() || urlUtmContent,
   }
 
-  // Load cookies state
-  const cookiesState = (() => {
-    if (document.cookie.includes(AGREED_TO_ALL_COOKIE)) {
-      return 'all'
-    } else if (document.cookie.includes(AGREED_TO_ESSENTIALS_ONLY_COOKIE)) {
-      return 'essential'
-    }
-    return 'none'
-  })()
-
   store.dispatch(
     accountActions.initializeFromLocalStorage({
       userDetails,
-      cookiesState,
     })
   )
 }

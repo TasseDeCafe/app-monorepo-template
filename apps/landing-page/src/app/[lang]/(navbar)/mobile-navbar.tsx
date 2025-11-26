@@ -4,13 +4,13 @@ import { ReactNode, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
-import { Info, Menu, Sparkles, Users, X, Zap } from 'lucide-react'
+import { Menu, X, Zap } from 'lucide-react'
 import { LangProps } from '@/types/lang-props'
 import { DiscordIcon } from '@/app/[lang]/(navbar)/discord-icon'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
 import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
 import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
-import { LangCode } from '@template-app/core/constants/lang-codes'
+import { Trans } from '@lingui/react/macro'
 
 type MobileNavLinkProps = {
   href: string
@@ -34,22 +34,7 @@ const MobileNavLink = ({ href, children, icon, onClick, isExternal = false }: Mo
   </div>
 )
 
-export type MobileNavbarProps = {
-  featuresText: ReactNode
-  pricingText: ReactNode
-  aboutText: ReactNode
-  affiliatesText: ReactNode
-  signInText: ReactNode
-} & LangProps
-
-const MobileNavbar = ({
-  featuresText,
-  pricingText,
-  aboutText,
-  affiliatesText,
-  signInText,
-  lang,
-}: MobileNavbarProps) => {
+const MobileNavbar = ({ lang }: LangProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -96,34 +81,16 @@ const MobileNavbar = ({
             <MobileNavLink href={EXTERNAL_LINKS.DISCORD_SERVER} icon={<DiscordIcon />} isExternal onClick={toggleMenu}>
               Discord
             </MobileNavLink>
-            <MobileNavLink href={`/${lang}/features`} icon={<Sparkles size={24} />} onClick={toggleMenu}>
-              {featuresText}
-            </MobileNavLink>
             <MobileNavLink href={`/${lang}/pricing`} icon={<Zap size={24} />} onClick={toggleMenu}>
-              {pricingText}
+              <Trans>Pricing</Trans>
             </MobileNavLink>
-            <MobileNavLink href={`/${lang}/about`} icon={<Info size={24} />} onClick={toggleMenu}>
-              {aboutText}
-            </MobileNavLink>
-            <MobileNavLink
-              href={EXTERNAL_LINKS.AFFILIATE_PROGRAM_PAGE}
-              icon={<Users size={24} />}
-              isExternal
-              onClick={toggleMenu}
-            >
-              {affiliatesText}
-            </MobileNavLink>
-
             <div className='relative'>
               <button
                 onClick={toggleLanguageMenu}
                 className='flex w-full items-center justify-between rounded-md bg-gray-50 px-4 py-2 text-2xl text-gray-600'
               >
                 <span className='flex items-center'>
-                  <CustomCircularFlag
-                    languageOrDialectCode={currentLanguage.code as LangCode}
-                    className='mr-4 h-6 w-6'
-                  />
+                  <CustomCircularFlag locale={currentLanguage.code} className='mr-4 h-6 w-6' />
                   {currentLanguage.name}
                 </span>
                 <span className={`text-sm transition-transform duration-200 ${isLanguageMenuOpen ? 'rotate-180' : ''}`}>
@@ -142,7 +109,7 @@ const MobileNavbar = ({
                         toggleMenu()
                       }}
                     >
-                      <CustomCircularFlag languageOrDialectCode={language.code as LangCode} className='mr-2 h-5 w-5' />
+                      <CustomCircularFlag locale={language.code} className='mr-2 h-5 w-5' />
                       {language.name}
                     </Link>
                   ))}
@@ -153,7 +120,7 @@ const MobileNavbar = ({
             <ButtonLeadingToWebapp
               analyticsClickName='sign_in_button_in_mobile_navbar'
               className='mt-4 flex w-full items-center justify-center rounded-xl bg-indigo-600 px-6 py-3 text-2xl text-white transition duration-300 hover:bg-indigo-700 active:bg-indigo-800'
-              buttonText={signInText}
+              buttonText={<Trans>Sign in</Trans>}
             />
           </div>
         </div>

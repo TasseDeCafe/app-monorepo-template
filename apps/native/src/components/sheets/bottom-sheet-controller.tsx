@@ -6,25 +6,8 @@ import { IndividualSheetName } from './bottom-sheet-ids'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 
 import { DeleteAccountSheetContent } from './content/delete-account-sheet-content'
-import { DeleteVoiceSheetContent } from './content/delete-voice-sheet-content'
-import { VoiceRemovedSuccessSheetContent } from './content/voice-removed-success-sheet-content'
-import { NicknameSheetContent } from './content/nickname-sheet-content'
 import { ContactUsSheetContent } from './content/contact-us-sheet-content'
 import { BottomSheetBackdrop } from '@/components/sheets/bottom-sheet-backdrop'
-import { LeaderboardNicknameRequiredSheetContent } from '@/components/sheets/content/leaderboard-nickname-required-sheet-content'
-import { StressExerciseSettingsSheetContent } from '@/components/sheets/content/stress-exercise-settings-sheet-content'
-import { StudyLanguageSettingsSelectorSheetContent } from '@/components/sheets/content/language-selectors/study-language-settings-selector-sheet-content'
-import { MotherLanguageSettingsSelectorSheetContent } from '@/components/sheets/content/language-selectors/mother-language-settings-selector-sheet-content'
-import { CustomExerciseStudyLanguageSelectorSheetContent } from '@/components/sheets/content/language-selectors/custom-exercise-language-selector-sheet-content'
-import { DialectSettingsSelectorSheetContent } from '@/components/sheets/content/dialect-settings-selector-sheet-content'
-import { TopicSelectionSheetContent } from './content/topic-selection-sheet-content'
-import { TranslationSheetContent } from './content/translation-sheet-content'
-import { ExerciseLengthSettingsSheetContent } from './content/exercise-length-settings-sheet-content'
-import { CefrLevelSettingsSheetContent } from './content/cefr-level-settings-sheet-content'
-import { DailyStudyTimeSettingsSheetContent } from './content/daily-study-time-settings-sheet-content'
-import { SpeedPickerSheetContent } from './content/speed-picker-sheet-content'
-import { LeaderboardTimePeriodSelectorSheetContent } from './content/leaderboard/leaderboard-time-period-selector-sheet-content'
-import { LeaderboardLanguageSelectorSheetContent } from './content/leaderboard/leaderboard-language-selector-sheet-content'
 
 interface SheetConfig {
   component: ComponentType<any>
@@ -38,67 +21,9 @@ const BOTTOM_SHEET_CONFIG: Record<IndividualSheetName, SheetConfig> = {
   [IndividualSheetName.DELETE_ACCOUNT]: {
     component: DeleteAccountSheetContent,
   },
-  [IndividualSheetName.DELETE_VOICE]: {
-    component: DeleteVoiceSheetContent,
-  },
-  [IndividualSheetName.VOICE_REMOVED_SUCCESS]: {
-    component: VoiceRemovedSuccessSheetContent,
-  },
-  [IndividualSheetName.NICKNAME]: {
-    component: NicknameSheetContent,
-  },
-  [IndividualSheetName.NICKNAME_REQUIRED]: {
-    component: LeaderboardNicknameRequiredSheetContent,
-  },
   [IndividualSheetName.CONTACT_US]: {
     component: ContactUsSheetContent,
     enableContentPanningGesture: false,
-  },
-  [IndividualSheetName.STRESS_EXERCISE_SETTINGS]: {
-    component: StressExerciseSettingsSheetContent,
-  },
-  [IndividualSheetName.STUDY_LANGUAGE_SETTINGS_SELECTOR]: {
-    component: StudyLanguageSettingsSelectorSheetContent,
-    snapPoints: ['50%'],
-  },
-  [IndividualSheetName.MOTHER_LANGUAGE_SETTINGS_SELECTOR]: {
-    component: MotherLanguageSettingsSelectorSheetContent,
-    snapPoints: ['50%'],
-  },
-  [IndividualSheetName.CUSTOM_EXERCISE_STUDY_LANGUAGE_SELECTOR]: {
-    component: CustomExerciseStudyLanguageSelectorSheetContent,
-    snapPoints: ['50%'],
-  },
-  [IndividualSheetName.DIALECT_SETTINGS_SELECTOR]: {
-    component: DialectSettingsSelectorSheetContent,
-    snapPoints: ['50%'],
-  },
-  [IndividualSheetName.FREQUENCY_LIST_TOPIC_SELECTOR]: {
-    component: TopicSelectionSheetContent,
-    snapPoints: ['80%'],
-  },
-  [IndividualSheetName.TRANSLATION]: {
-    component: TranslationSheetContent,
-    snapPoints: ['50%'],
-  },
-  [IndividualSheetName.EXERCISE_LENGTH_SETTINGS]: {
-    component: ExerciseLengthSettingsSheetContent,
-  },
-  [IndividualSheetName.CEFR_LEVEL_SETTINGS]: {
-    component: CefrLevelSettingsSheetContent,
-  },
-  [IndividualSheetName.DAILY_STUDY_TIME_SETTINGS]: {
-    component: DailyStudyTimeSettingsSheetContent,
-  },
-  [IndividualSheetName.SPEED_PICKER]: {
-    component: SpeedPickerSheetContent,
-  },
-  [IndividualSheetName.LEADERBOARD_TIME_PERIOD_SELECTOR]: {
-    component: LeaderboardTimePeriodSelectorSheetContent,
-  },
-  [IndividualSheetName.LEADERBOARD_LANGUAGE_SELECTOR]: {
-    component: LeaderboardLanguageSelectorSheetContent,
-    snapPoints: ['50%'],
   },
 }
 

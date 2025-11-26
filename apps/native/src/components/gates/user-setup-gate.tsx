@@ -1,10 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { Alert } from 'react-native'
 import { router } from 'expo-router'
 import { useAuthStore } from '@/stores/auth-store'
-import { useUserOnboardingStore } from '@/stores/user-onboarding-store'
 import { useCreateOrUpdateUser } from '@/hooks/api/user/user-hooks'
-import { useGetMarketingPreferences } from '@/hooks/api/user-marketing-preferences/user-marketing-preferences-hooks'
 import { posthog } from '@/analytics/posthog/posthog'
 import { useInstallReferrerParams } from '@/hooks/use-install-referrer-params'
 import { identifyUserWithSentry } from '@/analytics/sentry/sentry-initializer'
@@ -22,38 +20,19 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
   const signOut = useAuthStore((state) => state.signOut)
   const session = useAuthStore((state) => state.session)
   const urlParams = useInstallReferrerParams()
-  const [shouldFetchMarketingPreferences, setShouldFetchMarketingPreferences] = useState(false)
-
-  const initializeOnboardingStore = useUserOnboardingStore((state) => state.initializeOnboardingStore)
 
   const {
     mutate: getOrCreateUserData,
     isPending: isUserPending,
     isError: isUserSetupError,
-    isSuccess: isUserSetupSuccess,
   } = useCreateOrUpdateUser({
     meta: {
       showSuccessToast: false,
     },
   })
 
-  useGetMarketingPreferences(shouldFetchMarketingPreferences && !!session?.user.id)
-
   const accessToken = session?.access_token
   const userId = session?.user.id
-
-  // Handle 5-second delay after user creation, similar to frontend implementation
-  useEffect(() => {
-    if (isUserSetupSuccess && !isUserPending) {
-      // Related to GRAM-1320 - Customer.io is not synchronous
-      // Even though they return a 200 response for a new customer creation,
-      // this data is not immediately retrievable
-      const fiveSeconds = 5000
-      setTimeout(() => {
-        setShouldFetchMarketingPreferences(true)
-      }, fiveSeconds)
-    }
-  }, [isUserSetupSuccess, isUserPending])
 
   useEffect(() => {
     if (userId && urlParams) {
@@ -74,32 +53,16 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
 
   useEffect(() => {
     if (accessToken && urlParams) {
-      getOrCreateUserData(
-        {
-          referral: urlParams.referral,
-          utmSource: urlParams.utmSource,
-          utmMedium: urlParams.utmMedium,
-          utmCampaign: urlParams.utmCampaign,
-          utmTerm: urlParams.utmTerm,
-          utmContent: urlParams.utmContent,
-        },
-        {
-          onSuccess: (response) => {
-            // todo onboarding: try to remove the zustand onboarding store and use react query instead
-            // this is crucial to run before we start using zustand user onboarding store
-            initializeOnboardingStore({
-              motherLanguage: response.data.motherLanguage,
-              studyLanguage: response.data.studyLanguage,
-              dialect: response.data.studyDialect,
-              hasVoice: response.data.hasVoice,
-              topics: response.data.topics,
-              dailyStudyMinutes: response.data.dailyStudyMinutes,
-            })
-          },
-        }
-      )
+      getOrCreateUserData({
+        referral: urlParams.referral,
+        utmSource: urlParams.utmSource,
+        utmMedium: urlParams.utmMedium,
+        utmCampaign: urlParams.utmCampaign,
+        utmTerm: urlParams.utmTerm,
+        utmContent: urlParams.utmContent,
+      })
     }
-  }, [accessToken, getOrCreateUserData, urlParams, initializeOnboardingStore])
+  }, [accessToken, getOrCreateUserData, urlParams])
 
   useEffect(() => {
     if (userId) {

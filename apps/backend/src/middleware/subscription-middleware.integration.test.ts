@@ -1,6 +1,5 @@
 import { afterAll, beforeEach, describe, expect, test } from 'vitest'
 import request from 'supertest'
-import { DialectCode, LangCode } from '@template-app/core/constants/lang-codes'
 import { buildApp } from '../app'
 import {
   __createOrGetUserWithOurApi,
@@ -57,12 +56,11 @@ describe('subscription-middleware', async () => {
 
     await __createOrGetUserWithOurApi({ testApp, token, referral: null })
 
+    //todo template: fix this test by adding a route that requires a subscription
     const response = await request(testApp)
       .post('/api/v1/translate-text')
       .send({
         text: 'translate',
-        sourceDialect: DialectCode.AMERICAN_ENGLISH,
-        targetLanguage: LangCode.SPANISH,
       })
       .set(buildAuthorizationHeaders(token))
 

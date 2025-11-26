@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
 import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
-import { LangCode } from '@template-app/core/constants/lang-codes'
 
 const languages = [
   { code: ENGLISH_LOCALE, name: 'English' },
@@ -52,7 +51,7 @@ const DesktopLanguageSwitcher = ({ lang }: DesktopLanguageSwitcherProps) => {
         onClick={toggleLanguageMenu}
         className='flex items-center justify-center rounded-full p-1 hover:bg-gray-100'
       >
-        <CustomCircularFlag languageOrDialectCode={currentLanguage.code as LangCode} className='h-5 w-5' />
+        <CustomCircularFlag locale={currentLanguage.code} className='h-5 w-5' />
       </button>
       {isLanguageMenuOpen && (
         <div className='absolute right-0 mt-2 w-48 rounded-md bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5'>
@@ -63,7 +62,7 @@ const DesktopLanguageSwitcher = ({ lang }: DesktopLanguageSwitcherProps) => {
               className='flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
               onClick={() => setIsLanguageMenuOpen(false)}
             >
-              <CustomCircularFlag languageOrDialectCode={language.code as LangCode} className='mr-2 h-5 w-5' />
+              <CustomCircularFlag locale={language.code} className='mr-2 h-5 w-5' />
               {language.name}
             </Link>
           ))}

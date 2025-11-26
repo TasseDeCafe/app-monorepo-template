@@ -1,15 +1,10 @@
 import {
   NUMBER_OF_DAYS_IN_FREE_TRIAL,
   STRIPE_MONTHLY_PRICE_IN_EUR,
-  STRIPE_MONTHLY_PRICE_IN_PLN,
   STRIPE_YEARLY_PRICE_IN_EUR,
-  STRIPE_YEARLY_PRICE_IN_PLN,
-  SUPPORTED_STRIPE_CURRENCY,
 } from '@template-app/core/constants/pricing-constants.ts'
-import { POLISH_LOCALE } from '@template-app/i18n/i18n-config.ts'
 import { PlanType, UserStripePricingDetails } from '@template-app/api-client/orpc-contracts/billing-contract'
 import { t } from '@lingui/core/macro'
-import { getBrowserLocale } from '@/i18n/i18n'
 
 export type PlanOption = {
   label: string
@@ -56,10 +51,8 @@ export const getPricingViewConfig = ({
   const isSubscribedToYearlyPlan = currentActivePlan === 'year'
   const canSubscribeWithReferralDiscount = pricingDetails?.currentlyAvailableDiscounts && !isPremiumUser
 
-  const currency: SUPPORTED_STRIPE_CURRENCY =
-    getBrowserLocale() === POLISH_LOCALE ? SUPPORTED_STRIPE_CURRENCY.PLN : SUPPORTED_STRIPE_CURRENCY.EUR
-  const yearlyPrice = getYearlyPrice(pricingDetails, isSubscribedToYearlyPlan, currency)
-  const monthlyPrice = getMonthlyPrice(pricingDetails, isSubscribedToMonthlyPlan, currency)
+  const yearlyPrice = getYearlyPrice(pricingDetails, isSubscribedToYearlyPlan)
+  const monthlyPrice = getMonthlyPrice(pricingDetails, isSubscribedToMonthlyPlan)
 
   const yearlyPricePerMonth = (yearlyPrice / 12).toFixed(2)
   const yearlyPriceTotal = yearlyPrice.toFixed(2)
@@ -153,11 +146,9 @@ export const getPricingViewConfig = ({
 
 export const getMonthlyPrice = (
   pricingDetails: UserStripePricingDetails,
-  isSubscribedToMonthlyPlan: boolean,
-  currency: SUPPORTED_STRIPE_CURRENCY
+  isSubscribedToMonthlyPlan: boolean
 ): number => {
-  const basePrice =
-    currency === SUPPORTED_STRIPE_CURRENCY.EUR ? STRIPE_MONTHLY_PRICE_IN_EUR : STRIPE_MONTHLY_PRICE_IN_PLN
+  const basePrice = STRIPE_MONTHLY_PRICE_IN_EUR
   if (pricingDetails.hasSubscribedWithADiscount && isSubscribedToMonthlyPlan) {
     return basePrice * (1 - pricingDetails.currentDiscountInPercentage / 100)
   }
@@ -167,12 +158,8 @@ export const getMonthlyPrice = (
   return ((100 - pricingDetails.currentlyAvailableDiscounts.monthly.discountAsPercentage) / 100) * basePrice
 }
 
-export const getYearlyPrice = (
-  pricingDetails: UserStripePricingDetails,
-  isSubscribedToYearlyPlan: boolean,
-  currency: SUPPORTED_STRIPE_CURRENCY
-): number => {
-  const basePrice = currency === SUPPORTED_STRIPE_CURRENCY.EUR ? STRIPE_YEARLY_PRICE_IN_EUR : STRIPE_YEARLY_PRICE_IN_PLN
+export const getYearlyPrice = (pricingDetails: UserStripePricingDetails, isSubscribedToYearlyPlan: boolean): number => {
+  const basePrice = STRIPE_YEARLY_PRICE_IN_EUR
   if (pricingDetails.hasSubscribedWithADiscount && isSubscribedToYearlyPlan) {
     return basePrice * (1 - pricingDetails.currentDiscountInPercentage / 100)
   }

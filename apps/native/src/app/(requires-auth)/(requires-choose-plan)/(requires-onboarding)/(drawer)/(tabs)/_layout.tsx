@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router'
-import { CircleUserRound, Dumbbell, Home, TrendingUp, Trophy } from 'lucide-react-native'
+import { CircleUserRound, Dumbbell, Home } from 'lucide-react-native'
 import colors from 'tailwindcss/colors'
 import { DrawerToggleButton } from '@/components/ui/drawer-toggle-button'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
@@ -99,22 +99,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name='dashboard'
         options={{
-          title: t`Practice`,
+          title: t`Dashboard`,
           tabBarIcon: ({ color }) => <Dumbbell size={24} color={color} strokeWidth={2} />,
-        }}
-      />
-      <Tabs.Screen
-        name={'leaderboard'}
-        options={{
-          title: t`Leaderboard`,
-          tabBarIcon: ({ color }) => <Trophy size={24} color={color} strokeWidth={2} />,
-        }}
-      />
-      <Tabs.Screen
-        name='progress'
-        options={{
-          title: t`Progress`,
-          tabBarIcon: ({ color }) => <TrendingUp size={24} color={color} strokeWidth={2} />,
         }}
       />
       <Tabs.Screen

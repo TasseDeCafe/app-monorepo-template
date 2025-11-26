@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { Button } from '../design-system/button.tsx'
-import { modalActions } from '../../state/slices/modal-slice'
+import { modalActions } from '@/state/slices/modal-slice'
 import { CONTACT_US_MODAL_ID } from '../modal/modal-ids'
 import { useLingui } from '@lingui/react/macro'
 

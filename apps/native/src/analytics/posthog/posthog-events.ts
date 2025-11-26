@@ -1,7 +1,6 @@
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 import { Platform } from 'react-native'
 import { posthog } from '@/analytics/posthog/posthog'
-import { DialectCode, LangCode, SupportedStudyLanguage } from '@template-app/core/constants/lang-codes'
 
 const defaultProperties = () => ({
   platform: 'native',
@@ -48,15 +47,6 @@ export const POSTHOG_EVENTS = {
   },
   invalidTokenError: () => {
     captureWithDefaults('invalid_token_error')
-  },
-  studyLanguageChanged: (studyLanguage: SupportedStudyLanguage) => {
-    captureWithDefaults('study_language_changed', { study_language: studyLanguage })
-  },
-  studyDialectChanged: (studyDialect: DialectCode) => {
-    captureWithDefaults('study_dialect_changed', { study_language: studyDialect })
-  },
-  motherLanguageChanged: (motherLanguage: LangCode) => {
-    captureWithDefaults('mother_language_changed', { mother_language: motherLanguage })
   },
   planPurchased: () => {
     captureWithDefaults('plan_purchased', {})

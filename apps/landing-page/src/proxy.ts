@@ -5,7 +5,7 @@ import Negotiator from 'negotiator'
 import { i18nConfig } from './i18n/i18n-config'
 import { createPlainObjectHeaders } from '@/utils/headers-utils'
 
-// the below function is based on the official example from the docs:
+// the function below is based on the official example from the docs:
 // github.com/vercel/next.js/blob/canary/examples/app-dir-i18n-routing/middleware.ts
 const getLocale = (request: NextRequest): string | undefined => {
   const negotiatorHeaders: Record<string, string> = createPlainObjectHeaders(request.headers)

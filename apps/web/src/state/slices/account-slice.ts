@@ -79,17 +79,6 @@ const accountSlice = createSlice({
       state.imageUrl = action.payload.imageUrl
       state.isSupabaseSignInStateLoaded = true
     },
-    setLocalStorageUserDetails: (state, { payload }: PayloadAction<SetLocalStorageUserDetailsPayload>) => {
-      // if by this time we already have a referral and utm params retrieved from the backend, we don't want to override it
-      if (!state.isBackendUserInfoLoaded) {
-        state.referral = payload.referral
-        state.utmSource = payload.utmSource
-        state.utmMedium = payload.utmMedium
-        state.utmCampaign = payload.utmCampaign
-        state.utmTerm = payload.utmTerm
-        state.utmContent = payload.utmContent
-      }
-    },
     setBackendUserInfo: (
       state,
       {

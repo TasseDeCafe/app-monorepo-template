@@ -6,13 +6,13 @@ import Footer from '@/app/[lang]/(footer)/footer'
 import { i18nConfig, Locale } from '@/i18n/i18n-config'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { TranslatedCookieBanner } from '@/app/[lang]/(components)/(cookie-banner)/translated-cookie-banner'
-import { TranslatedAppBanner } from '@/app/[lang]/(components)/(leading-to-apps)/translated-app-banner'
 import { AnalyticsPageViewLauncher } from '@/analytics/posthog/analytics-page-view-launcher'
 import { AnalyticsInitializer } from '@/analytics/analytics-initializer'
 import { LinguiClientProvider } from '@/i18n/lingui-client-provider'
 import { getLinguiInstance } from '@/i18n/get-lingui-instance'
 import { setI18n } from '@lingui/react/server'
+import { Trans } from '@lingui/react/macro'
+import { AppBanner } from '@/app/[lang]/(components)/(leading-to-apps)/app-banner'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -45,13 +45,16 @@ const RootLayout = async ({ children, params }: LayoutProps<'/[lang]'>) => {
         <LinguiClientProvider initialLocale={linguiLocale} initialMessages={messages}>
           <AnalyticsInitializer />
           <AnalyticsPageViewLauncher />
-          <TranslatedAppBanner />
+          <AppBanner
+            appName={<Trans>TemplateApp</Trans>}
+            category={<Trans>Category of the app</Trans>}
+            purchases={<Trans>In-App Purchases</Trans>}
+          />
           <Navbar lang={lang} />
           <main className='flex w-full flex-1 flex-col items-center justify-center transition-all duration-300 ease-in-out'>
             {children}
           </main>
           <Footer lang={lang} />
-          <TranslatedCookieBanner />
         </LinguiClientProvider>
       </body>
     </html>

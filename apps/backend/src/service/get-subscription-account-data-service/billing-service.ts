@@ -8,10 +8,7 @@ import {
 } from '../../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
 import { RevenuecatSubscriptionsRepositoryInterface } from '../../transport/database/revenuecat-subscriptions/revenuecat-subscriptions-repository'
 import { logWithSentry } from '../../transport/third-party/sentry/error-monitoring'
-import {
-  NUMBER_OF_DAYS_IN_FREE_TRIAL,
-  SUPPORTED_STRIPE_CURRENCY,
-} from '@template-app/core/constants/pricing-constants'
+import { NUMBER_OF_DAYS_IN_FREE_TRIAL } from '@template-app/core/constants/pricing-constants'
 import {
   GetSubscriptionInfoResponse,
   PlanType,
@@ -22,10 +19,7 @@ import { getConfig } from '../../config/environment-config'
 import { RevenuecatServiceInterface } from '../revenuecat-service/revenuecat-service-interface'
 
 export interface BillingServiceInterface {
-  getBillingData: (
-    userId: string,
-    requestedCurrency?: SUPPORTED_STRIPE_CURRENCY
-  ) => Promise<GetSubscriptionInfoResponse | null>
+  getBillingData: (userId: string) => Promise<GetSubscriptionInfoResponse | null>
 }
 
 const calculateStripePlan = (subscription: DbStripeSubscription | null): PlanType | null => {
@@ -57,11 +51,7 @@ export const BillingService = (
   revenueCatSubscriptionsRepository: RevenuecatSubscriptionsRepositoryInterface,
   revenuecatService: RevenuecatServiceInterface
 ): BillingServiceInterface => {
-  const getBillingData = async (
-    userId: string,
-    requestedCurrency?: SUPPORTED_STRIPE_CURRENCY
-  ): Promise<GetSubscriptionInfoResponse | null> => {
-    const currency: SUPPORTED_STRIPE_CURRENCY = requestedCurrency || SUPPORTED_STRIPE_CURRENCY.EUR
+  const getBillingData = async (userId: string): Promise<GetSubscriptionInfoResponse | null> => {
     await revenuecatService.syncRevenuecatSubscriptionWithOurDbAndCache(userId)
     const [dbUser, stripeSubscriptions, revenueCatActiveSubscriptions] = await Promise.all([
       usersRepository.findUserByUserId(userId),
@@ -99,7 +89,7 @@ export const BillingService = (
           status: null,
           lastActivePlan: null,
           currentActivePlan: calculatedCurrentActivePlan,
-          userPricingDetails: calculateStripePricingDetails(referral, referralToDiscount, null, null, currency),
+          userPricingDetails: calculateStripePricingDetails(referral, referralToDiscount, null, null),
         },
         revenueCatDetails: {
           managementUrl: null,
@@ -151,8 +141,7 @@ export const BillingService = (
       referral,
       referralToDiscount,
       amountInEuros,
-      currentStripeActivePlan,
-      currency
+      currentStripeActivePlan
     )
 
     return {

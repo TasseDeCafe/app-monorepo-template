@@ -1,7 +1,6 @@
 'use server'
 
 import React from 'react'
-import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
 import { Metadata } from 'next'
 import { Trans } from '@lingui/react/macro'
 import { setI18n } from '@lingui/react/server'
@@ -40,26 +39,6 @@ const Page = async ({ params }: { params: Promise<LangProps> }) => {
             <h1 className='mb-6 text-6xl font-bold text-stone-900'>
               <Trans>About Us</Trans>
             </h1>
-            <p className='mb-8 text-lg text-stone-900 sm:text-xl'>
-              <Trans>
-                Hey there! It&apos;s Kamil and Sébastien here, the creators of template-app.com. We&apos;ve been
-                pouring our hearts into developing the beta version of the app and your feedback is crucial for us.
-                We&apos;re excited to roll out new features soon, and we&apos;re always looking for ways to improve the
-                app.
-              </Trans>
-            </p>
-            <p className='mb-8 text-lg text-stone-900 sm:text-xl'>
-              <Trans>Please let us know what you think about the app by filling out our feedback form!</Trans>
-            </p>
-            <div className='flex items-center justify-center gap-x-2'>
-              <a
-                href={EXTERNAL_LINKS.BETA_VERSION_FEEDBACK_FORM_IN_ENGLISH}
-                rel='noopener noreferrer'
-                className='inline-flex cursor-pointer items-center justify-center rounded-md bg-indigo-600 px-6 py-3 text-lg font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-              >
-                <Trans>Give Feedback</Trans>
-              </a>
-            </div>
           </div>
         </div>
       </div>

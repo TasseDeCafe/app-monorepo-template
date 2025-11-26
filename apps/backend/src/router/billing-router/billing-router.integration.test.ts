@@ -8,7 +8,6 @@ import {
 } from '../../test/test-utils'
 import request from 'supertest'
 import { __deleteAllHandledStripeEvents } from '../../transport/database/webhook-events/handled-stripe-events-repository'
-import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 import { GetSubscriptionInfoResponse } from '@template-app/api-client/orpc-contracts/billing-contract'
 
 describe('billing-router', () => {
@@ -38,7 +37,7 @@ describe('billing-router', () => {
       const testApp = buildApp({})
       const { token } = await __createUserInSupabaseAndGetHisIdAndToken()
       const response = await request(testApp)
-        .get(`/api/v1/billing/subscription-details?currency=${SUPPORTED_STRIPE_CURRENCY.EUR}`)
+        .get(`/api/v1/billing/subscription-details`)
         .set(buildAuthorizationHeaders(token))
       expect(response.status).toBe(404)
     })
@@ -47,7 +46,7 @@ describe('billing-router', () => {
       const { token, testApp } = await __createDefaultInitialStateAfterIntroducingCreditCardAndOnboarding({})
 
       const response = await request(testApp)
-        .get(`/api/v1/billing/subscription-details?currency=${SUPPORTED_STRIPE_CURRENCY.EUR}`)
+        .get(`/api/v1/billing/subscription-details`)
         .set(buildAuthorizationHeaders(token))
 
       expect(response.status).toBe(200)
@@ -71,7 +70,7 @@ describe('billing-router', () => {
       })
 
       const response = await request(testApp)
-        .get(`/api/v1/billing/subscription-details?currency=${SUPPORTED_STRIPE_CURRENCY.EUR}`)
+        .get(`/api/v1/billing/subscription-details`)
         .set(buildAuthorizationHeaders(token))
 
       expect(response.status).toBe(200)

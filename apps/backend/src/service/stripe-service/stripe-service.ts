@@ -2,19 +2,15 @@ import { logWithSentry } from '../../transport/third-party/sentry/error-monitori
 import { StripeApi, StripeCustomerId } from '../../transport/third-party/stripe/stripe-api'
 import { getConfig } from '../../config/environment-config'
 import { getDiscountsForReferral } from '@template-app/core/constants/referral-constants'
-import {
-  NUMBER_OF_DAYS_IN_FREE_TRIAL,
-  PlanInterval,
-  SUPPORTED_STRIPE_CURRENCY,
-} from '@template-app/core/constants/pricing-constants'
+import { NUMBER_OF_DAYS_IN_FREE_TRIAL, PlanInterval } from '@template-app/core/constants/pricing-constants'
 import { StripeServiceInterface } from './stripe-service-interface'
 import { DbUser, UsersRepositoryInterface } from '../../transport/database/users/users-repository'
 
-const getPriceId = (planType: PlanInterval, currency?: SUPPORTED_STRIPE_CURRENCY): string | null => {
+const getPriceId = (planType: PlanInterval): string | null => {
   if (planType === 'month') {
-    return currency === 'eur' ? getConfig().stripeMonthlyPriceInEurId : getConfig().stripeMonthlyPriceInPlnId
+    return getConfig().stripeMonthlyPriceInEurId
   } else if (planType === 'year') {
-    return currency === 'eur' ? getConfig().stripeYearlyPriceInEurId : getConfig().stripeYearlyPriceInPlnId
+    return getConfig().stripeYearlyPriceInEurId
   } else {
     return null
   }
@@ -29,8 +25,7 @@ export const StripeService = (
     email: string,
     successPathAndHash: string,
     cancelPathAndHash: string,
-    planInterval: PlanInterval,
-    currency?: SUPPORTED_STRIPE_CURRENCY
+    planInterval: PlanInterval
   ): Promise<string | null> => {
     const user: DbUser | null = await usersRepository.findUserByUserId(userId)
     if (!user) {
@@ -99,13 +94,12 @@ export const StripeService = (
       }
     }
 
-    const priceId: string | null = getPriceId(planInterval, currency)
+    const priceId: string | null = getPriceId(planInterval)
     if (!priceId) {
       logWithSentry({
         message: 'price id could not be chosen',
         params: {
           planInterval,
-          currency,
           referral,
           userId,
           priceId,

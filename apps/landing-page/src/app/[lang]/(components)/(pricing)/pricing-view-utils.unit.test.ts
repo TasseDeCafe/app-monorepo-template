@@ -1,11 +1,10 @@
 import { describe, expect, test } from 'vitest'
 import {
   getMonthlyDiscountString,
-  getYearlyDiscountString,
   getMonthlyPrice,
+  getYearlyDiscountString,
   getYearlyPrice,
 } from './pricing-view-utils'
-import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 import { Discounts } from '@template-app/core/constants/discount-types'
 
 describe('pricing-view-utils', () => {
@@ -49,19 +48,11 @@ describe('pricing-view-utils', () => {
     }
 
     test('returns full price when no active discounts in EUR', () => {
-      expect(getMonthlyPrice(inactiveDiscounts, SUPPORTED_STRIPE_CURRENCY.EUR)).toBe(19)
+      expect(getMonthlyPrice(inactiveDiscounts)).toBe(19)
     })
 
     test('returns discounted price when active discounts in EUR', () => {
-      expect(getMonthlyPrice(activeDiscounts, SUPPORTED_STRIPE_CURRENCY.EUR)).toBe(15.2)
-    })
-
-    test('returns full price when no active discounts in PLN', () => {
-      expect(getMonthlyPrice(inactiveDiscounts, SUPPORTED_STRIPE_CURRENCY.PLN)).toBe(79)
-    })
-
-    test('returns discounted price when active discounts in PLN', () => {
-      expect(getMonthlyPrice(activeDiscounts, SUPPORTED_STRIPE_CURRENCY.PLN)).toBe(63.2)
+      expect(getMonthlyPrice(activeDiscounts)).toBe(15.2)
     })
   })
 
@@ -99,19 +90,11 @@ describe('pricing-view-utils', () => {
     }
 
     test('returns full price when no active discounts in EUR', () => {
-      expect(getYearlyPrice(inactiveDiscounts, SUPPORTED_STRIPE_CURRENCY.EUR)).toBe(189)
+      expect(getYearlyPrice(inactiveDiscounts)).toBe(189)
     })
 
     test('returns discounted price when active discounts in EUR', () => {
-      expect(getYearlyPrice(activeDiscounts, SUPPORTED_STRIPE_CURRENCY.EUR)).toBe(113.4)
-    })
-
-    test('returns full price when no active discounts in PLN', () => {
-      expect(getYearlyPrice(inactiveDiscounts, SUPPORTED_STRIPE_CURRENCY.PLN)).toBe(789)
-    })
-
-    test('returns discounted price when active discounts in PLN', () => {
-      expect(getYearlyPrice(activeDiscounts, SUPPORTED_STRIPE_CURRENCY.PLN)).toBe(473.4)
+      expect(getYearlyPrice(activeDiscounts)).toBe(113.4)
     })
   })
 

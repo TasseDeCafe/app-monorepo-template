@@ -1,6 +1,5 @@
 import { oc } from '@orpc/contract'
 import { z } from 'zod'
-import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 
 export const CHECKOUT_PATH = '/payment/create-checkout-session' as const
 
@@ -10,7 +9,6 @@ export const checkoutInputSchema = z.object({
   successPathAndHash: z.string(),
   cancelPathAndHash: z.string(),
   planInterval: planIntervalSchema,
-  currency: z.enum(SUPPORTED_STRIPE_CURRENCY),
 })
 
 export const checkoutContract = {

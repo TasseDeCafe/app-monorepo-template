@@ -27,22 +27,10 @@ export default function MainLayout() {
         }}
       />
       <Stack.Screen
-        name='settings'
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
         name='pricing'
         options={{
           headerShown: true,
           title: 'Pricing',
-        }}
-      />
-      <Stack.Screen
-        name='about'
-        options={{
-          headerShown: false,
         }}
       />
       <Stack.Screen

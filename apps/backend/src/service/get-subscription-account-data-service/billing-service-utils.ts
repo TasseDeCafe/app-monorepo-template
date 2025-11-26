@@ -1,26 +1,20 @@
 import {
-  LIFETIME_PRICE,
   STRIPE_MONTHLY_PRICE_IN_EUR,
-  STRIPE_MONTHLY_PRICE_IN_PLN,
   STRIPE_YEARLY_PRICE_IN_EUR,
-  STRIPE_YEARLY_PRICE_IN_PLN,
-  SUPPORTED_STRIPE_CURRENCY,
 } from '@template-app/core/constants/pricing-constants'
 import { Discounts } from '@template-app/core/constants/discount-types'
 import { PlanType, UserStripePricingDetails } from '@template-app/api-client/orpc-contracts/billing-contract'
 
 // normal means the price before discounts are applied
 // we use NonNullable here because there is already a type guard where this function is called
-const getPlanNormalPrice = (planType: NonNullable<PlanType>, currency: SUPPORTED_STRIPE_CURRENCY): number => {
+const getPlanNormalPrice = (planType: NonNullable<PlanType>): number => {
   switch (planType) {
     case 'free_trial':
       return 0
     case 'month':
-      return currency === 'eur' ? STRIPE_MONTHLY_PRICE_IN_EUR : STRIPE_MONTHLY_PRICE_IN_PLN
+      return STRIPE_MONTHLY_PRICE_IN_EUR
     case 'year':
-      return currency === 'eur' ? STRIPE_YEARLY_PRICE_IN_EUR : STRIPE_YEARLY_PRICE_IN_PLN
-    case 'lifetime':
-      return LIFETIME_PRICE
+      return STRIPE_YEARLY_PRICE_IN_EUR
   }
 }
 
@@ -28,12 +22,11 @@ export const calculateStripePricingDetails = (
   referral: string | null,
   referralToDiscountsMap: Record<string, Discounts>,
   amount: number | null,
-  currentActivePlan: PlanType | null,
-  stripeCurrency: SUPPORTED_STRIPE_CURRENCY
+  currentActivePlan: PlanType | null
 ): UserStripePricingDetails => {
   let currentPlanNormalPrice: number | null
   if (currentActivePlan) {
-    currentPlanNormalPrice = getPlanNormalPrice(currentActivePlan, stripeCurrency)
+    currentPlanNormalPrice = getPlanNormalPrice(currentActivePlan)
   } else {
     currentPlanNormalPrice = null
   }

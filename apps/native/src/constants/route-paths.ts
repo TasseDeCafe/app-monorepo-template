@@ -24,8 +24,6 @@ export const ROUTE_PATHS = {
 
   ACCOUNT_REMOVED: '/account/removed',
   ADMIN_SETTINGS: '/top-secret-admin-settings',
-  LEADERBOARD: '/leaderboard',
-
   // the ones below do not exist in the frontend
   SEE_PLANS: '/choose-plan',
 } as const

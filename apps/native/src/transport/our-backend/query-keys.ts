@@ -11,7 +11,6 @@ export enum QUERY_KEYS {
   SUBSCRIPTION_DETAILS = 'subscription-details',
   SAVED_WORDS = 'saved-words',
   NICKNAME_AVAILABILITY = 'nickname-availability',
-  LEADERBOARD = 'leaderboard',
   SHOULD_RECEIVE_MARKETING_EMAILS = 'user-marketing-emails',
   USER_DATA = 'user-data',
   CONFIG = 'config',

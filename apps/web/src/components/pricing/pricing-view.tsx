@@ -12,14 +12,12 @@ import { toast } from 'sonner'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useNavigate } from 'react-router-dom'
-import { PlanInterval, SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants.ts'
+import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
-import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
-import { getBrowserLocale } from '@/i18n/i18n'
 
 const LeftPartOfButton = ({ option, isChosen }: { option: PlanOption; isChosen: boolean }) => {
   const desktopVersion = (
@@ -94,10 +92,8 @@ export const PricingView = () => {
     useCreateCustomerPortalSession()
 
   const { mutate, isPending: isPendingCheckoutMutation } = useCheckoutMutation()
-  const currency: SUPPORTED_STRIPE_CURRENCY =
-    getBrowserLocale() === POLISH_LOCALE ? SUPPORTED_STRIPE_CURRENCY.PLN : SUPPORTED_STRIPE_CURRENCY.EUR
 
-  const { data: subscriptionData } = useGetSubscriptionDetails(currency)
+  const { data: subscriptionData } = useGetSubscriptionDetails()
 
   const stripeDetails = subscriptionData?.stripeDetails
   const currentActivePlan = stripeDetails?.currentActivePlan || null
@@ -143,7 +139,6 @@ export const PricingView = () => {
         successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
         cancelPathAndHash: ROUTE_PATHS.PRICING,
         planInterval: clickedPlan as PlanInterval,
-        currency,
       })
     }
   }

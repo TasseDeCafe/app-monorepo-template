@@ -1,5 +1,5 @@
 import { StripeCustomerId } from '../../transport/third-party/stripe/stripe-api'
-import { PlanInterval, SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
+import { PlanInterval } from '@template-app/core/constants/pricing-constants'
 
 export interface StripeServiceInterface {
   createCheckoutSession: (
@@ -7,8 +7,7 @@ export interface StripeServiceInterface {
     userEmail: string,
     successPathAndHash: string,
     cancelPathAndHash: string,
-    plan: PlanInterval,
-    currency?: SUPPORTED_STRIPE_CURRENCY
+    plan: PlanInterval
   ) => Promise<string | null>
 
   createStripeCustomer: (userId: string, userEmail: string, referral: string | null) => Promise<StripeCustomerId | null>

@@ -8,12 +8,9 @@ import {
   NUMBER_OF_DAYS_IN_FREE_TRIAL,
   PlanInterval,
   REFUND_PERIOD_IN_DAYS,
-  SUPPORTED_STRIPE_CURRENCY,
 } from '@template-app/core/constants/pricing-constants.ts'
-import { POLISH_LOCALE } from '@template-app/i18n/i18n-config'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
-import { getBrowserLocale } from '@/i18n/i18n'
 
 const TimelineItem = ({ day, description }: { day: string; description: string }) => {
   return (
@@ -33,8 +30,6 @@ export const FreeTrialExplanationView = () => {
   const { mutate, isPending: isPendingCheckoutMutation } = useCheckoutMutation()
   const [searchParams] = useSearchParams()
   const planInterval: string | null = searchParams.get('planInterval')
-  const currency: SUPPORTED_STRIPE_CURRENCY =
-    getBrowserLocale() === POLISH_LOCALE ? SUPPORTED_STRIPE_CURRENCY.PLN : SUPPORTED_STRIPE_CURRENCY.EUR
 
   useEffect(() => {
     POSTHOG_EVENTS.viewPage()
@@ -47,7 +42,6 @@ export const FreeTrialExplanationView = () => {
       successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
       cancelPathAndHash: buildPricingFreeTrialPath(interval),
       planInterval: interval,
-      currency,
     })
   }
 

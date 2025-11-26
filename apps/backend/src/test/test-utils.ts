@@ -6,11 +6,7 @@ import { Express } from 'express'
 import request from 'supertest'
 import { AppDependencies, buildApp } from '../app'
 import { MockStripeApi, StripeApi } from '../transport/third-party/stripe/stripe-api'
-import {
-  NUMBER_OF_DAYS_IN_FREE_TRIAL,
-  PlanInterval,
-  SUPPORTED_STRIPE_CURRENCY,
-} from '@template-app/core/constants/pricing-constants'
+import { NUMBER_OF_DAYS_IN_FREE_TRIAL, PlanInterval } from '@template-app/core/constants/pricing-constants'
 import { __simulateStripeSubscriptionCreatedEvent } from './stripe/stripe-test-utils'
 import { DbInterval } from '../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
 
@@ -138,7 +134,6 @@ export const __callCheckoutEndpoint = async (testApp: Express, token: string): P
       successPathAndHash: 'someCheckoutSessionSuccessPathAndHash',
       cancelPathAndHash: 'someCheckoutSessionCancelPathAndHash',
       planInterval: 'month',
-      currency: SUPPORTED_STRIPE_CURRENCY.EUR,
     })
 }
 
@@ -147,8 +142,7 @@ export const __createCheckoutSessionWithOurApi = async (
   token: string,
   successPathAndHash: string = 'some_return_path_and_hash',
   cancelPathAndHash: string = 'some_cancel_path_and_hash',
-  planInterval: PlanInterval = 'month',
-  currency: SUPPORTED_STRIPE_CURRENCY = SUPPORTED_STRIPE_CURRENCY.EUR
+  planInterval: PlanInterval = 'month'
 ): Promise<request.Response> => {
   return await request(testApp)
     .post('/api/v1/payment/create-checkout-session')
@@ -157,7 +151,6 @@ export const __createCheckoutSessionWithOurApi = async (
       successPathAndHash: successPathAndHash,
       cancelPathAndHash: cancelPathAndHash,
       planInterval: planInterval,
-      currency,
     })
 }
 

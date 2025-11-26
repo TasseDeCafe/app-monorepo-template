@@ -1,6 +1,5 @@
 import { oc } from '@orpc/contract'
 import { z } from 'zod'
-import { SUPPORTED_STRIPE_CURRENCY } from '@template-app/core/constants/pricing-constants'
 
 // Common error schemas
 const errorResponseSchema = z.object({
@@ -15,10 +14,7 @@ const errorResponseSchema = z.object({
 const stripeSubscriptionStatusSchema = z
   .enum(['active', 'trialing', 'past_due', 'canceled', 'unpaid', 'incomplete_expired', 'incomplete', 'paused'])
   .nullable()
-// todo stripe v2, remove lifetime
-// todo stripe v2, think if we still need free_trial plan
-// todo stripe v2, think if this should be named PlanType or just PlanInterval
-const planTypeSchema = z.enum(['month', 'year', 'free_trial', 'lifetime']).nullable()
+const planTypeSchema = z.enum(['month', 'year', 'free_trial']).nullable()
 // these translate to web, ios, android apps respectively
 const billingPlatformSchema = z.enum(['stripe', 'app_store', 'play_store']).nullable()
 
@@ -81,11 +77,6 @@ export const billingContract = {
         data: errorResponseSchema,
       },
     })
-    .input(
-      z.object({
-        currency: z.enum(SUPPORTED_STRIPE_CURRENCY),
-      })
-    )
     .output(
       z.object({
         data: getSubscriptionInfoResponseSchema,

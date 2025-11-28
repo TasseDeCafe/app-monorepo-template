@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
 // All Supabase instances that need the email templates
-const SUPABASE_INSTANCES = ['supabase-dev', 'supabase-dev-mobile', 'supabase-test', 'supabase-prod']
+const SUPABASE_INSTANCES = ['supabase-dev', 'supabase-dev-tunnel', 'supabase-test', 'supabase-prod']
 
 async function buildEmailTemplates() {
   console.log('Building email templates...\n')

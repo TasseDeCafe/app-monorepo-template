@@ -5,20 +5,21 @@
     "apps/*",
     "packages/*"
   ],
-  "packageManager": "pnpm@10.22.0",
+  "packageManager": "pnpm@10.24.0",
   "scripts": {
     "dev": "turbo run dev",
-    "dev:mobile": "turbo run dev:mobile",
+    "dev:tunnel": "scripts/dev-tunnel.sh",
+    "start-tunnels": "scripts/start-tunnels.sh",
     "dev:frontend": "turbo run dev --filter=@template-app/web",
     "dev:backend": "turbo run dev --filter=@template-app/backend",
     "dev:landing": "turbo run dev --filter=@template-app/landing-page",
-    "dev:all:native": "concurrently \"pnpm dev:frontend:mobile\" \"pnpm dev:backend:mobile\" \"pnpm dev:landing:mobile\" \"pnpm start\"",
-    "dev:all:native:tunnel": "concurrently \"pnpm dev:frontend:mobile\" \"pnpm dev:backend:mobile\" \"pnpm dev:landing:mobile\" \"pnpm start:tunnel\"",
-    "dev:frontend:mobile": "turbo run dev:mobile --filter=@template-app/web",
-    "dev:backend:mobile": "turbo run dev:mobile --filter=@template-app/backend",
-    "dev:landing:mobile": "turbo run dev:mobile --filter=@template-app/landing-page",
+    "dev:all:native": "concurrently \"pnpm dev:frontend:tunnel\" \"pnpm dev:backend:tunnel\" \"pnpm dev:landing:tunnel\" \"pnpm start\"",
+    "dev:all:native:tunnel": "concurrently \"pnpm dev:frontend:tunnel\" \"pnpm dev:backend:tunnel\" \"pnpm dev:landing:tunnel\" \"pnpm start:tunnel\"",
+    "dev:frontend:tunnel": "turbo run dev:tunnel --filter=@template-app/web",
+    "dev:backend:tunnel": "turbo run dev:tunnel --filter=@template-app/backend",
+    "dev:landing:tunnel": "turbo run dev:tunnel --filter=@template-app/landing-page",
     "dev:backend:no-third": "turbo run dev:without-third-parties --filter=@template-app/backend",
-    "dev:backend:no-third:mobile": "turbo run dev:without-third-parties:mobile --filter=@template-app/backend",
+    "dev:backend:no-third:tunnel": "turbo run dev:without-third-parties:tunnel --filter=@template-app/backend",
     "prod:backend:install:ffmpeg": "turbo run install:ffmpeg --filter=@template-app/backend",
     "prod:backend:check-changes": "turbo run check:changes --filter=@template-app/backend",
     "prod:backend:sentry": "turbo run sentry:prod --filter=@template-app/backend",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@lingui/cli": "catalog:",
     "@lingui/macro": "catalog:",
+    "@react-email/components": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:",
     "babel-plugin-macros": "catalog:",
@@ -53,10 +55,9 @@
     "eslint-plugin-prettier": "catalog:",
     "prettier": "catalog:",
     "prettier-plugin-tailwindcss": "catalog:",
+    "react-email": "catalog:",
     "turbo": "catalog:",
     "typescript": "catalog:",
-    "vite-tsconfig-paths": "catalog:",
-    "@react-email/components": "catalog:",
-    "react-email": "catalog:"
+    "vite-tsconfig-paths": "catalog:"
   }
 }

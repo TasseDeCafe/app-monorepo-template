@@ -53,7 +53,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
   domain: 'template-app.dev',
-  environmentName: 'development-for-mobile',
+  environmentName: 'development-tunnel',
   frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL_MOBILE || '',
   landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL || '',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',

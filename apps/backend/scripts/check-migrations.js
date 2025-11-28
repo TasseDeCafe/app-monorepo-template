@@ -9,7 +9,7 @@ const MIGRATION_DIRS = [
   'supabase/supabase-dev/supabase/migrations',
   'supabase/supabase-test/supabase/migrations',
   'supabase/supabase-prod/supabase/migrations',
-  'supabase/supabase-dev-mobile/supabase/migrations',
+  'supabase/supabase-dev-tunnel/supabase/migrations',
 ]
 
 function getMigrationFiles(dir) {

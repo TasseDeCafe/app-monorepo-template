@@ -4,7 +4,7 @@ import { getConfig } from '@/config/environment-config.ts'
 const getSentryEnvironment = (configEnvironment: string): string => {
   switch (configEnvironment) {
     case 'development':
-    case 'development-for-mobile':
+    case 'development-tunnel':
       return 'development'
     default:
       return configEnvironment

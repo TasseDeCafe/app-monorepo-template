@@ -85,7 +85,7 @@ const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
   frontendUrl: import.meta.env.VITE_FRONTEND_URL_MOBILE,
   domain: 'template-app.dev',
-  environmentName: 'development-for-mobile',
+  environmentName: 'development-tunnel',
   apiHost: import.meta.env.VITE_API_HOST,
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,
   supabaseProjectUrl: import.meta.env.VITE_SUPABASE_PROJECT_URL,

@@ -1,10 +1,10 @@
 export enum SupportedEnvironments {
   PRODUCTION = 'production',
   DEVELOPMENT = 'development',
-  DEVELOPMENT_FOR_MOBILE = 'development-for-mobile',
+  DEVELOPMENT_TUNNEL = 'development-tunnel',
   TEST = 'test',
   DEVELOPMENT_WITHOUT_THIRD_PARTIES = 'development-without-third-parties',
-  DEVELOPMENT_WITHOUT_THIRD_PARTIES_FOR_MOBILE = 'development-without-third-parties-for-mobile',
+  DEVELOPMENT_WITHOUT_THIRD_PARTIES_TUNNEL = 'development-without-third-parties-tunnel',
 }
 
 export const isProduction = (): boolean => {
@@ -16,7 +16,7 @@ export const isDevelopment = (): boolean => {
 }
 
 export const isDevelopmentForMobile = (): boolean => {
-  return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_FOR_MOBILE
+  return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_TUNNEL
 }
 
 export const isTest = (): boolean => {
@@ -28,7 +28,7 @@ export const isDevelopmentWithoutThirdParties = (): boolean => {
 }
 
 export const isDevelopmentWithoutThirdPartiesForMobile = (): boolean => {
-  return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_WITHOUT_THIRD_PARTIES_FOR_MOBILE
+  return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_WITHOUT_THIRD_PARTIES_TUNNEL
 }
 
 export const getEnvironmentName = (): string | undefined => {

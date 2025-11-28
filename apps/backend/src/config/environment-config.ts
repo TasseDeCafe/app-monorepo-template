@@ -106,9 +106,9 @@ const developmentForMobileConfig: EnvironmentConfig = {
   frontendUrl: process.env.FRONTEND_URL_MOBILE || '',
   allowedCorsOrigins: [process.env.FRONTEND_URL_MOBILE || ''],
   supabaseConnectionString: 'postgresql://postgres:postgres@127.0.0.1:34322/postgres',
-  // shown by `yarn db:dev:mobile` command
+  // shown by `yarn db:dev:tunnel` command
   supabaseUrl: 'http://127.0.0.1:34321',
-  // shown by `yarn db:dev:mobile` command
+  // shown by `yarn db:dev:tunnel` command
   supabaseServiceRoleKey:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImV4cCI6MTk4MzgxMjk5Nn0.EGIM96RAZx35lJzdJsyH-qQwv8Hdp7fsn3W0YpN81IU',
 }

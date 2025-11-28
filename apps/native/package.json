@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "test": "jest",
-    "dev:mobile": "APP_VARIANT=development doppler run -- expo start",
-    "start:tunnel": "APP_VARIANT=development doppler run -- expo start --tunnel",
+    "dev:tunnel": "APP_VARIANT=development doppler run -- expo start",
+    "start:ngrok": "APP_VARIANT=development doppler run -- expo start --tunnel",
     "start:production-mode": "APP_VARIANT=development doppler run -- expo start --no-dev --minify -c",
     "ios": "./scripts/expo-run-on-device.sh ios",
     "ios:kamil-iphone12": "APP_VARIANT=development doppler run -- npx expo run:ios --device 00008101-000561D40AB9003A",

@@ -27,7 +27,7 @@ export const PortalSessionRouter = (usersRepository: UsersRepositoryInterface, s
 
       const sessionUrl = await stripeApi.createBillingPortalUrl(
         user.stripe_customer_id,
-        `${getConfig().frontendUrl}${returnPath}`
+        `${getConfig().webUrl}${returnPath}`
       )
 
       if (!sessionUrl) {

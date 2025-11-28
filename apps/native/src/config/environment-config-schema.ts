@@ -15,7 +15,7 @@ const sentryOptionsSchema = z.object({
 
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
-  frontendUrl: z.url(),
+  webUrl: z.url(),
   apiHost: z.url(),
   supabaseProjectUrl: z.url(),
   supabaseProjectKey: z.string().min(1),
@@ -36,9 +36,9 @@ export const environmentConfigSchema = z.object({
 })
 
 const processEnvSchema = z.object({
-  EXPO_PUBLIC_API_HOST: z.string(),
-  EXPO_PUBLIC_FRONTEND_URL_MOBILE: z.string(),
-  EXPO_PUBLIC_SUPABASE_PROJECT_URL: z.string(),
+  EXPO_PUBLIC_API_HOST_TUNNEL: z.string(),
+  EXPO_PUBLIC_WEB_URL_TUNNEL: z.string(),
+  EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL: z.string(),
   EXPO_PUBLIC_SUPABASE_PROJECT_KEY: z.string(),
   EXPO_PUBLIC_GOOGLE_CLIENT_ID: z.string(),
   EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID: z.string(),
@@ -51,9 +51,9 @@ const processEnvSchema = z.object({
 })
 
 export const env = processEnvSchema.parse({
-  EXPO_PUBLIC_API_HOST: process.env.EXPO_PUBLIC_API_HOST,
-  EXPO_PUBLIC_FRONTEND_URL_MOBILE: process.env.EXPO_PUBLIC_FRONTEND_URL_MOBILE,
-  EXPO_PUBLIC_SUPABASE_PROJECT_URL: process.env.EXPO_PUBLIC_SUPABASE_PROJECT_URL,
+  EXPO_PUBLIC_API_HOST_TUNNEL: process.env.EXPO_PUBLIC_API_HOST_TUNNEL,
+  EXPO_PUBLIC_WEB_URL_TUNNEL: process.env.EXPO_PUBLIC_WEB_URL_TUNNEL,
+  EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL: process.env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
   EXPO_PUBLIC_SUPABASE_PROJECT_KEY: process.env.EXPO_PUBLIC_SUPABASE_PROJECT_KEY,
   EXPO_PUBLIC_GOOGLE_CLIENT_ID: process.env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
   EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID: process.env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,

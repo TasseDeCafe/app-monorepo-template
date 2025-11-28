@@ -12,7 +12,7 @@ const sentryOptionsSchema = z.object({
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   port: z.number().min(1).max(65535),
-  frontendUrl: z.url(),
+  webUrl: z.url(),
   allowedCorsOrigins: z.array(z.union([z.string(), z.instanceof(RegExp)])).min(1),
   // https://resend.com/api-keys
   resendApiKey: z.string().min(1),

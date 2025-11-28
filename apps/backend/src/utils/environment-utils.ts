@@ -15,7 +15,7 @@ export const isDevelopment = (): boolean => {
   return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT
 }
 
-export const isDevelopmentForMobile = (): boolean => {
+export const isDevelopmentTunnel = (): boolean => {
   return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_TUNNEL
 }
 
@@ -27,7 +27,7 @@ export const isDevelopmentWithoutThirdParties = (): boolean => {
   return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_WITHOUT_THIRD_PARTIES
 }
 
-export const isDevelopmentWithoutThirdPartiesForMobile = (): boolean => {
+export const isDevelopmentWithoutThirdPartiesTunnel = (): boolean => {
   return getEnvironmentName() === SupportedEnvironments.DEVELOPMENT_WITHOUT_THIRD_PARTIES_TUNNEL
 }
 

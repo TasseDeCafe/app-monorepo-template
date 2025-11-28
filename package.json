@@ -38,7 +38,7 @@
     "sync-env": "./apps/native/scripts/sync-env-if-changed.sh",
     "sync-env:force": "pnpm --filter native sync-env",
     "start": "pnpm --filter native start",
-    "start:tunnel": "pnpm --filter native start:tunnel",
+    "start:ngrok": "pnpm --filter native start:ngrok",
     "ios": "pnpm --filter native ios",
     "android": "pnpm --filter native android"
   },

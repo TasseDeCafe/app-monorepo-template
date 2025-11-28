@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { getModeName, isDevelopment, isDevelopmentForMobile, isProduction, isTest } from './environment-utils.ts'
+import { getModeName, isDevelopment, isDevelopmentTunnel, isProduction, isTest } from './environment-utils.ts'
 import { environmentConfigSchema } from './environment-config-schema.ts'
 import { featureFlagsLocalStorageWrapper } from '@/local-storage/feature-flags-local-storage-wrapper'
 import { parseHashedEmails } from './environment-config-utils.ts'
@@ -9,7 +9,7 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
   apiHost: import.meta.env.VITE_API_HOST,
-  frontendUrl: 'https://app.template-app.com',
+  webUrl: 'https://app.template-app.com',
   domain: 'template-app.com',
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,
   supabaseProjectUrl: import.meta.env.VITE_SUPABASE_PROJECT_URL,
@@ -45,7 +45,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
 const getDevelopmentConfig = (): EnvironmentConfig => ({
   environmentName: 'development',
   apiHost: 'http://localhost:4003',
-  frontendUrl: 'http://localhost:5174',
+  webUrl: 'http://localhost:5174',
   domain: 'localhost',
   landingPageUrl: 'http://localhost:3000',
   // shown by `supabase start` command
@@ -81,9 +81,9 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   },
 })
 
-const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
+const getDevelopmentTunnelConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
-  frontendUrl: import.meta.env.VITE_FRONTEND_URL_MOBILE,
+  webUrl: import.meta.env.VITE_WEB_URL_TUNNEL,
   domain: 'template-app.dev',
   environmentName: 'development-tunnel',
   apiHost: import.meta.env.VITE_API_HOST,
@@ -94,7 +94,7 @@ const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
 const getTestConfig = (): EnvironmentConfig => ({
   environmentName: 'test',
   apiHost: 'no-host-because-it-is-a-test',
-  frontendUrl: 'no-frontend-url-because-it-is-a-test',
+  webUrl: 'no-web-url-because-it-is-a-test',
   domain: 'some-domain',
   landingPageUrl: 'some-landing-page-url',
   supabaseProjectUrl: 'dummy-supabase-project-url',
@@ -133,8 +133,8 @@ export const getConfig = (): EnvironmentConfig => {
       config = getProductionConfig()
     } else if (isDevelopment()) {
       config = getDevelopmentConfig()
-    } else if (isDevelopmentForMobile()) {
-      config = getDevelopmentForMobileConfig()
+    } else if (isDevelopmentTunnel()) {
+      config = getDevelopmentTunnelConfig()
     } else if (isTest()) {
       config = getTestConfig()
     } else {

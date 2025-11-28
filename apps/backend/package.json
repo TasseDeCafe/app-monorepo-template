@@ -20,7 +20,6 @@
     "check:types": "tsc --noEmit",
     "clean": "rm -rf dist",
     "build:dev": "npx tsc --project tsconfig.dev.json && npx tsc-alias --project tsconfig.dev.json",
-    "cloudflared": "./scripts/cloudflared.sh",
     "db:test": "./scripts/db--test.sh",
     "db:dev": "./scripts/db--dev.sh",
     "db:dev:tunnel": "scripts/db--dev--tunnel.sh",

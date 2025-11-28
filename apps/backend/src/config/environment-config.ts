@@ -1,9 +1,9 @@
 import {
   getEnvironmentName,
   isDevelopment,
-  isDevelopmentForMobile,
+  isDevelopmentTunnel,
   isDevelopmentWithoutThirdParties,
-  isDevelopmentWithoutThirdPartiesForMobile,
+  isDevelopmentWithoutThirdPartiesTunnel,
   isProduction,
   isTest,
 } from '../utils/environment-utils'
@@ -13,7 +13,7 @@ import { EnvironmentConfig } from './environment-config-schema'
 const productionConfig: EnvironmentConfig = {
   environmentName: 'production',
   port: 4004,
-  frontendUrl: 'https://app.template-app.com',
+  webUrl: 'https://app.template-app.com',
   shouldLogRequests: false,
   allowedCorsOrigins: [
     'https://template-app.com',
@@ -58,7 +58,7 @@ const productionConfig: EnvironmentConfig = {
 const developmentConfig: EnvironmentConfig = {
   environmentName: 'development',
   port: 4003,
-  frontendUrl: 'http://localhost:5174',
+  webUrl: 'http://localhost:5174',
   shouldLogRequests: true,
   allowedCorsOrigins: [
     'http://localhost:5174',
@@ -100,11 +100,11 @@ const developmentConfig: EnvironmentConfig = {
   },
 }
 
-const developmentForMobileConfig: EnvironmentConfig = {
+const developmentTunnelConfig: EnvironmentConfig = {
   ...developmentConfig,
   port: 4002,
-  frontendUrl: process.env.FRONTEND_URL_MOBILE || '',
-  allowedCorsOrigins: [process.env.FRONTEND_URL_MOBILE || ''],
+  webUrl: process.env.WEB_URL_TUNNEL || '',
+  allowedCorsOrigins: [process.env.WEB_URL_TUNNEL || ''],
   supabaseConnectionString: 'postgresql://postgres:postgres@127.0.0.1:34322/postgres',
   // shown by `yarn db:dev:tunnel` command
   supabaseUrl: 'http://127.0.0.1:34321',
@@ -128,19 +128,19 @@ const developmentWithoutThirdPartiesConfig: EnvironmentConfig = {
   shouldSlowDownApiRoutes: false,
 }
 
-const developmentWithoutThirdPartiesForMobileConfig: EnvironmentConfig = {
+const developmentWithoutThirdPartiesTunnelConfig: EnvironmentConfig = {
   ...developmentWithoutThirdPartiesConfig,
-  frontendUrl: process.env.FRONTEND_URL_MOBILE || '',
-  allowedCorsOrigins: [process.env.FRONTEND_URL_MOBILE || ''],
+  webUrl: process.env.WEB_URL_TUNNEL || '',
+  allowedCorsOrigins: [process.env.WEB_URL_TUNNEL || ''],
   supabaseConnectionString: 'postgresql://postgres:postgres@127.0.0.1:34322/postgres',
 }
 
 const testConfig: EnvironmentConfig = {
   environmentName: 'test',
   port: 1,
-  frontendUrl: 'some-frontend-url',
+  webUrl: 'some-web-url',
   shouldLogRequests: false,
-  allowedCorsOrigins: ['some-frontend-url'],
+  allowedCorsOrigins: ['some-web-url'],
   resendApiKey: 'dummyResendApiKey',
   stripeSecretKey: 'dummyStripeSecretKey',
   stripeWebhookSecret: 'dummyStripeWebhookSecret',
@@ -186,12 +186,12 @@ export const getConfig = (): EnvironmentConfig => {
       environmentConfig = productionConfig
     } else if (isDevelopment()) {
       environmentConfig = developmentConfig
-    } else if (isDevelopmentForMobile()) {
-      environmentConfig = developmentForMobileConfig
+    } else if (isDevelopmentTunnel()) {
+      environmentConfig = developmentTunnelConfig
     } else if (isDevelopmentWithoutThirdParties()) {
       environmentConfig = developmentWithoutThirdPartiesConfig
-    } else if (isDevelopmentWithoutThirdPartiesForMobile()) {
-      environmentConfig = developmentWithoutThirdPartiesForMobileConfig
+    } else if (isDevelopmentWithoutThirdPartiesTunnel()) {
+      environmentConfig = developmentWithoutThirdPartiesTunnelConfig
     } else if (isTest()) {
       environmentConfig = testConfig
     } else {

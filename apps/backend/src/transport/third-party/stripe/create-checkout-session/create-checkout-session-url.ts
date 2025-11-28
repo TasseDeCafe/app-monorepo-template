@@ -17,8 +17,8 @@ export const createCheckoutSessionUrl = async (
     const discounts = couponId ? [{ coupon: couponId }] : []
     const params: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
-      success_url: `${getConfig().frontendUrl}${successPathAndHash}`,
-      cancel_url: `${getConfig().frontendUrl}${cancelPathAndHash}`,
+      success_url: `${getConfig().webUrl}${successPathAndHash}`,
+      cancel_url: `${getConfig().webUrl}${cancelPathAndHash}`,
       payment_method_types: ['card', 'link', 'paypal'],
       mode: 'subscription',
       line_items: [{ price: priceId, quantity: 1 }],

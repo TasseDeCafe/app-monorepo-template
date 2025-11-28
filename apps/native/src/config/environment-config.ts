@@ -8,9 +8,9 @@ export type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  frontendUrl: 'https://app.template-app.com',
-  apiHost: env.EXPO_PUBLIC_API_HOST,
-  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL,
+  webUrl: 'https://app.template-app.com',
+  apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
+  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
   supabaseProjectKey: env.EXPO_PUBLIC_SUPABASE_PROJECT_KEY,
   googleClientId: env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
   googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
@@ -39,9 +39,9 @@ const getProductionConfig = (): EnvironmentConfig => ({
 
 const getDevelopmentConfig = (): EnvironmentConfig => ({
   environmentName: 'development',
-  frontendUrl: env.EXPO_PUBLIC_FRONTEND_URL_MOBILE,
-  apiHost: env.EXPO_PUBLIC_API_HOST,
-  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL,
+  webUrl: env.EXPO_PUBLIC_WEB_URL_TUNNEL,
+  apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
+  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
   supabaseProjectKey: env.EXPO_PUBLIC_SUPABASE_PROJECT_KEY,
   googleClientId: env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
   googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
@@ -70,7 +70,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 
 const getTestConfig = (): EnvironmentConfig => ({
   environmentName: 'test',
-  frontendUrl: 'http://dummy-frontend-url.com',
+  webUrl: 'http://dummy-web-url.com',
   apiHost: 'dummy-api-host',
   supabaseProjectUrl: 'http://dummy-supabase-url.com',
   supabaseProjectKey: 'dummy-key',

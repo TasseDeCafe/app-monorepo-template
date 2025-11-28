@@ -16,7 +16,7 @@ const sentryOptionsSchema = z.object({
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   apiHost: z.url(),
-  frontendUrl: z.url(),
+  webUrl: z.url(),
   domain: z.string(),
   landingPageUrl: z.url(),
   supabaseProjectUrl: z.url(),

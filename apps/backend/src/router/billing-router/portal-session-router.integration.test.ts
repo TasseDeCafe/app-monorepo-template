@@ -93,7 +93,7 @@ describe('portal-session-router', async () => {
       .set(buildAuthorizationHeaders(token))
 
     expect(response.status).toBe(200)
-    expect(capturedReturnUrl).toBe(`${getConfig().frontendUrl}${returnPath}`)
+    expect(capturedReturnUrl).toBe(`${getConfig().webUrl}${returnPath}`)
     expect(response.body).toEqual({
       data: {
         url: 'https://billing.stripe.com/session/test_123',

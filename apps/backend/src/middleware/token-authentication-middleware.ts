@@ -1,9 +1,8 @@
-import jwt from 'jsonwebtoken'
 import { NextFunction, Request, Response } from 'express'
-import { getConfig } from '../config/environment-config'
 import { ERROR_CODE_FOR_INVALID_TOKEN } from '@template-app/api-client/key-generation/frontend-api-key-constants'
 import { ORPCError } from '@orpc/server'
 import { setRequestContext } from '../context/request-context'
+import { verifySupabaseToken } from '../utils/jwt-verification-utils'
 
 export interface SupabaseClaims {
   sub: string
@@ -36,11 +35,11 @@ export const tokenAuthenticationMiddleware = async (req: Request, res: Response,
     return
   } else {
     try {
-      const decoded = jwt.verify(token, getConfig().supabaseJwtSecret)
+      const decoded = await verifySupabaseToken(token)
       const {
         sub,
         user_metadata: { name, full_name, email, avatar_url },
-      } = decoded as SupabaseClaims
+      } = decoded
       res.locals.name = name
       res.locals.userId = sub
       res.locals.lastName = full_name

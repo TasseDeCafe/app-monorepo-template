@@ -5,7 +5,7 @@ let supabase: ReturnType<typeof createClient>
 
 export const getSupabase = () => {
   if (!supabase) {
-    supabase = createClient(getConfig().supabaseUrl, getConfig().supabaseServiceRoleKey)
+    supabase = createClient(getConfig().supabaseProjectUrl, getConfig().supabaseSecretKey)
   }
   return supabase
 }

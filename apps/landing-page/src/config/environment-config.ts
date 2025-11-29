@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { getModeName, isDevelopment, isDevelopmentForMobile, isProduction, isTest } from './environment-utils'
+import { getModeName, isDevelopment, isDevelopmentTunnel, isProduction, isTest } from './environment-utils'
 import { environmentConfigSchema } from './environment-config-schema'
 
 type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
@@ -7,7 +7,7 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
   domain: 'template-app.com',
-  frontendUrl: 'https://app.template-app.com',
+  webUrl: 'https://app.template-app.com',
   landingPageUrl: 'https://www.template-app.com',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
   sentry: {
@@ -30,7 +30,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
 const getDevelopmentConfig = (): EnvironmentConfig => ({
   environmentName: 'development',
   domain: 'localhost',
-  frontendUrl: 'http://localhost:5174',
+  webUrl: 'http://localhost:5174',
   landingPageUrl: 'http://localhost:3000',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
   sentry: {
@@ -50,18 +50,18 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   },
 })
 
-const getDevelopmentForMobileConfig = (): EnvironmentConfig => ({
+const getDevelopmentTunnelConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
   domain: 'template-app.dev',
-  environmentName: 'development-for-mobile',
-  frontendUrl: process.env.NEXT_PUBLIC_FRONTEND_URL_MOBILE || '',
-  landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL || '',
+  environmentName: 'development-tunnel',
+  webUrl: process.env.NEXT_PUBLIC_WEB_URL_TUNNEL || '',
+  landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL_TUNNEL || '',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
 })
 
 const getTestConfig = (): EnvironmentConfig => ({
   environmentName: 'test',
-  frontendUrl: 'http://localhost:5173',
+  webUrl: 'http://localhost:5173',
   landingPageUrl: 'localhost:3000',
   posthogToken: '',
   sentry: {
@@ -90,8 +90,8 @@ export const getConfig = (): EnvironmentConfig => {
       config = getProductionConfig()
     } else if (isDevelopment()) {
       config = getDevelopmentConfig()
-    } else if (isDevelopmentForMobile()) {
-      config = getDevelopmentForMobileConfig()
+    } else if (isDevelopmentTunnel()) {
+      config = getDevelopmentTunnelConfig()
     } else if (isTest()) {
       config = getTestConfig()
     } else {

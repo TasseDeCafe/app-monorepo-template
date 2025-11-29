@@ -17,13 +17,13 @@ pnpm dev
 run the dev server on mobile (expose the url to the internet)
 
 ```
-pnpm db:dev:mobile
+pnpm db:dev:tunnel
 ```
 
 then
 
 ```
-pnpm dev:mobile
+pnpm dev:tunnel
 ```
 
 ## Database

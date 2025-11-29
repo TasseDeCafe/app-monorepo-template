@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const environments = ['dev', 'test', 'prod', 'dev-mobile']
+const environments = ['dev', 'test', 'prod', 'dev-tunnel']
 
 const getTemplateFiles = (env) => {
   const templateDir = path.join(__dirname, `../supabase/supabase-${env}/supabase/templates`)

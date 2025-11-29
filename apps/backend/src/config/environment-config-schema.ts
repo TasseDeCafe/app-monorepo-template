@@ -12,7 +12,7 @@ const sentryOptionsSchema = z.object({
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   port: z.number().min(1).max(65535),
-  frontendUrl: z.url(),
+  webUrl: z.url(),
   allowedCorsOrigins: z.array(z.union([z.string(), z.instanceof(RegExp)])).min(1),
   // https://resend.com/api-keys
   resendApiKey: z.string().min(1),
@@ -20,8 +20,6 @@ export const environmentConfigSchema = z.object({
   stripeWebhookSecret: z.string().min(1),
   stripeMonthlyPriceInEurId: z.string().min(1),
   stripeYearlyPriceInEurId: z.string().min(1),
-  supabaseJwtSecret: z.string().min(1),
-  supabaseConnectionString: z.string().min(1),
   // https://app.revenuecat.com/projects/da60432b/api-keys
   revenuecatApiKey: z.string().min(1),
   // https://app.revenuecat.com/projects/da60432b/settings
@@ -34,8 +32,12 @@ export const environmentConfigSchema = z.object({
     dsn: z.string().min(1),
     options: sentryOptionsSchema,
   }),
-  supabaseUrl: z.string(),
-  supabaseServiceRoleKey: z.string(),
+  supabaseProjectUrl: z.string().min(1),
+  supabaseSecretKey: z.string().min(1),
+  // JWKS URI (asymmetric)
+  // Format: https://<project_ref>.supabase.co/auth/v1/.well-known/jwks.json
+  supabaseJwksUri: z.url(),
+  supabaseConnectionString: z.string().min(1),
   shouldRateLimit: z.boolean(),
   shouldMockThirdParties: z.boolean(),
   shouldSlowDownApiRoutes: z.boolean(),

@@ -8,10 +8,10 @@ export type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  frontendUrl: 'https://app.template-app.com',
-  apiHost: env.EXPO_PUBLIC_API_HOST,
-  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL,
-  supabaseProjectKey: env.EXPO_PUBLIC_SUPABASE_PROJECT_KEY,
+  webUrl: 'https://app.template-app.com',
+  apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
+  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
+  supabasePublishableKey: env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
   googleClientId: env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
   googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
   revenueCatAppleApiKey: env.EXPO_PUBLIC_REVENUE_CAT_APPLE_API_KEY,
@@ -39,10 +39,10 @@ const getProductionConfig = (): EnvironmentConfig => ({
 
 const getDevelopmentConfig = (): EnvironmentConfig => ({
   environmentName: 'development',
-  frontendUrl: env.EXPO_PUBLIC_FRONTEND_URL_MOBILE,
-  apiHost: env.EXPO_PUBLIC_API_HOST,
-  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL,
-  supabaseProjectKey: env.EXPO_PUBLIC_SUPABASE_PROJECT_KEY,
+  webUrl: env.EXPO_PUBLIC_WEB_URL_TUNNEL,
+  apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
+  supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
+  supabasePublishableKey: 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH',
   googleClientId: env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
   googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
   revenueCatAppleApiKey: env.EXPO_PUBLIC_REVENUE_CAT_APPLE_API_KEY,
@@ -70,10 +70,10 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 
 const getTestConfig = (): EnvironmentConfig => ({
   environmentName: 'test',
-  frontendUrl: 'http://dummy-frontend-url.com',
+  webUrl: 'http://dummy-web-url.com',
   apiHost: 'dummy-api-host',
   supabaseProjectUrl: 'http://dummy-supabase-url.com',
-  supabaseProjectKey: 'dummy-key',
+  supabasePublishableKey: 'dummy-key',
   googleClientId: 'dummy-google-client-id',
   googleIosClientId: 'dummy-google-ios-client-id',
   revenueCatAppleApiKey: 'dummy-revenue-cat-apple-api-key',

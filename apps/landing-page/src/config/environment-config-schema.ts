@@ -12,7 +12,7 @@ const sentryOptionsSchema = z.object({
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   domain: z.string(),
-  frontendUrl: z.url(),
+  webUrl: z.url(),
   landingPageUrl: z.url(),
   posthogToken: z.string(),
   sentry: z.object({

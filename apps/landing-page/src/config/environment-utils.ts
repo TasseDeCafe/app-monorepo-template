@@ -1,17 +1,17 @@
 export const isProduction = (): boolean => {
-  return !isDevelopmentForMobile() && getModeName() === 'production'
+  return !isDevelopmentTunnel() && getModeName() === 'production'
 }
 
 export const isTest = (): boolean => {
-  return !isDevelopmentForMobile() && getModeName() === 'test'
+  return !isDevelopmentTunnel() && getModeName() === 'test'
 }
 
 export const isDevelopment = () => {
-  return !isDevelopmentForMobile() && getModeName() === 'development'
+  return !isDevelopmentTunnel() && getModeName() === 'development'
 }
 
-export const isDevelopmentForMobile = () => {
-  return process.env.NEXT_PUBLIC_IS_FOR_MOBILE === 'true' && getModeName() === 'development'
+export const isDevelopmentTunnel = () => {
+  return process.env.NEXT_PUBLIC_IS_TUNNEL === 'true' && getModeName() === 'development'
 }
 
 export const getModeName = () => {

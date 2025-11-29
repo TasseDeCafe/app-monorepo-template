@@ -6,7 +6,7 @@
   "author": "GA1,TasseDeCafe",
   "scripts": {
     "dev": "./scripts/dev.sh",
-    "dev:mobile": "pnpm prebuild && ./scripts/dev--mobile.sh",
+    "dev:tunnel": "pnpm prebuild && scripts/dev--tunnel.sh",
     "test": "vitest",
     "test:run": "vitest run",
     "prebuild": "node scripts/generate-well-known-files.js",

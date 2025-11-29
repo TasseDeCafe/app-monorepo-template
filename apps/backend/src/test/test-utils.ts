@@ -1,14 +1,18 @@
-import jwt from 'jsonwebtoken'
-import { getConfig } from '../config/environment-config'
 import { SupabaseClaims } from '../middleware/token-authentication-middleware'
 import { getSupabase } from '../transport/database/supabase'
+import { signSupabaseToken } from '../utils/jwt-verification-utils'
 import { Express } from 'express'
+import path from 'path'
 import request from 'supertest'
 import { AppDependencies, buildApp } from '../app'
 import { MockStripeApi, StripeApi } from '../transport/third-party/stripe/stripe-api'
 import { NUMBER_OF_DAYS_IN_FREE_TRIAL, PlanInterval } from '@template-app/core/constants/pricing-constants'
 import { __simulateStripeSubscriptionCreatedEvent } from './stripe/stripe-test-utils'
 import { DbInterval } from '../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
+
+// Path to the signing key used by the test Supabase instance
+// you can regenerate this key with supabase gen signing-key
+const SIGNING_KEY_PATH = path.join(__dirname, '../../supabase/supabase-test/supabase/signing_key.json')
 
 const id1 = '0330e333-8d3a-4cfd-92c5-f8baf67eb8b5'
 const name1 = 'John'
@@ -25,7 +29,7 @@ const supabaseClaims1: SupabaseClaims = {
   },
 }
 
-export const __getSupabaseTokenWithIdAndEmail = (id: string, email: string) => {
+export const __getSupabaseTokenWithIdAndEmail = async (id: string, email: string): Promise<string> => {
   const supabaseClaims: SupabaseClaims = {
     sub: id,
     user_metadata: {
@@ -35,9 +39,7 @@ export const __getSupabaseTokenWithIdAndEmail = (id: string, email: string) => {
       avatar_url: 'https://www.example.com/john-doe.png',
     },
   }
-  return jwt.sign(supabaseClaims, getConfig().supabaseJwtSecret, {
-    expiresIn: '1h',
-  })
+  return await signSupabaseToken(supabaseClaims, SIGNING_KEY_PATH)
 }
 
 export const __removeAllAuthUsersFromSupabase = async () => {
@@ -85,7 +87,7 @@ export const __createUserInSupabaseAndGetHisIdAndToken = async (email?: string):
     throw new Error('Failed to create user in supabase: ' + error.message)
   }
   const id = data?.user?.id || ''
-  const supabaseToken = __getSupabaseTokenWithIdAndEmail(id, userEmail)
+  const supabaseToken = await __getSupabaseTokenWithIdAndEmail(id, userEmail)
   return {
     id,
     token: supabaseToken,

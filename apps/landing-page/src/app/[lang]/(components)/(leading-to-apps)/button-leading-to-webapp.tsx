@@ -57,8 +57,7 @@ export const ButtonLeadingToWebapp = ({
     }
 
     const queryString = params.toString()
-    const newUrl = `${getConfig().frontendUrl}/from-landing${queryString ? `?${queryString}` : ''}`
-
+    const newUrl = `${getConfig().webUrl}/from-landing${queryString ? `?${queryString}` : ''}`
     window.location.href = newUrl
   }
 

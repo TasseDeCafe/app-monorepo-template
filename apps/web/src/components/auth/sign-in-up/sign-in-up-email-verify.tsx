@@ -12,7 +12,7 @@ import { useLingui } from '@lingui/react/macro'
 // the user lands here after clicking on the sign in/up magic link in the email.
 // The email template is defined:
 // dev:        backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
-// dev-mobile: backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
+// dev-tunnel: backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
 // prod:       https://supabase.com/dashboard/project/krtllimmygzciwxngbmd/auth/templates
 export const SignInUpEmailVerify = () => {
   const { t } = useLingui()

@@ -77,7 +77,7 @@ export default function ProfileScreen() {
   }
 
   const handlePressManageWebSubscription = async () => {
-    const webAccountUrl = `${getConfig().frontendUrl}/dashboard#account`
+    const webAccountUrl = `${getConfig().webUrl}/dashboard#account`
     try {
       const supported = await Linking.canOpenURL(webAccountUrl)
       if (supported) {

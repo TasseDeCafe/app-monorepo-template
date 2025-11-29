@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "./scripts/dev.sh",
-    "dev:mobile": "./scripts/dev--mobile.sh",
+    "dev:tunnel": "scripts/dev--tunnel.sh",
     "test": "vitest",
     "test:run": "vitest --run",
     "build": "next build",

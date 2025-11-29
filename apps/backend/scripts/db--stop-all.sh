@@ -11,7 +11,7 @@ supabase stop
 cd ../../../
 
 
-cd supabase/supabase-dev-mobile/supabase &&
+cd supabase/supabase-dev-tunnel/supabase &&
 # even though it's a stop command, supabase still requires us to set the env vars.
 doppler run -- supabase stop
 cd ../../../

@@ -3,7 +3,7 @@ import { getConfig } from '@/config/environment-config'
 
 const supabaseClient: ReturnType<typeof createClient> = createClient(
   getConfig().supabaseProjectUrl,
-  getConfig().supabaseProjectKey
+  getConfig().supabasePublishableKey
 )
 
 export const getSupabaseClient = () => {

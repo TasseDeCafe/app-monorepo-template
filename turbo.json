@@ -6,7 +6,7 @@
       "cache": false,
       "persistent": true
     },
-    "dev:mobile": {
+    "dev:tunnel": {
       "cache": false,
       "persistent": true
     },
@@ -14,7 +14,7 @@
       "cache": false,
       "persistent": true
     },
-    "dev:without-third-parties:mobile": {
+    "dev:without-third-parties:tunnel": {
       "cache": false,
       "persistent": true
     },

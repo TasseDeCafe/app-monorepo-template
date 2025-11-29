@@ -1,6 +1,6 @@
 # A string used to distinguish different Supabase projects on the same host. Defaults to the
 # working directory name when running `supabase init`.
-project_id = "supabase-dev-mobile"
+project_id = "supabase-dev-tunnel"
 
 [api]
 enabled = true
@@ -69,7 +69,7 @@ file_size_limit = "50MiB"
 enabled = true
 # The base URL of your website. Used as an allow-list for redirects and for constructing URLs used
 # in emails.
-site_url = "env(FRONTEND_URL_MOBILE)"
+site_url = "env(WEB_URL_TUNNEL)"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
 additional_redirect_urls = ["https://127.0.0.1:3000"]
 # How long tokens are valid for, in seconds. Defaults to 3600 (1 hour), maximum 604,800 (1 week).
@@ -83,6 +83,8 @@ refresh_token_reuse_interval = 10
 enable_signup = true
 # Allow/disallow testing manual linking of accounts
 enable_manual_linking = false
+
+signing_keys_path = "./signing_key.json"
 
 [auth.email]
 # Allow/disallow new user signups via email to your project.
@@ -138,7 +140,7 @@ client_id = "env(SUPABASE_AUTH_EXTERNAL_APPLE_CLIENT_ID)"
 # We do not need to add this secret, because we are signing in with Apple natively on iOS.
 secret = "env(SUPABASE_AUTH_EXTERNAL_APPLE_SECRET)"
 # Overrides the default auth redirectUrl.
-redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_APPLE_REDIRECT_URI_MOBILE)"
+redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_APPLE_REDIRECT_URI_TUNNEL)"
 # Overrides the default auth provider URL. Used to support self-hosted gitlab, single-tenant Azure,
 # or any other third-party OIDC providers.
 url = ""
@@ -152,7 +154,7 @@ client_id = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID)"
 # DO NOT commit your OAuth provider secret to git. Use environment variable substitution instead:
 secret = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_SECRET)"
 # Overrides the default auth redirectUrl.
-redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_REDIRECT_URI_MOBILE)"
+redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_GOOGLE_REDIRECT_URI_TUNNEL)"
 # Overrides the default auth provider URL. Used to support self-hosted gitlab, single-tenant Azure,
 # or any other third-party OIDC providers.
 url = ""

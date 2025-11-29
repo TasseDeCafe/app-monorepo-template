@@ -84,6 +84,8 @@ enable_signup = true
 # Allow/disallow testing manual linking of accounts
 enable_manual_linking = false
 
+signing_keys_path = "./signing_key.json"
+
 [auth.email]
 # Allow/disallow new user signups via email to your project.
 enable_signup = true
@@ -138,7 +140,7 @@ client_id = "env(SUPABASE_AUTH_EXTERNAL_APPLE_CLIENT_ID)"
 # We do not need to add this secret, because we are signing in with Apple natively on iOS.
 secret = "env(SUPABASE_AUTH_EXTERNAL_APPLE_SECRET)"
 # Overrides the default auth redirectUrl.
-redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_APPLE_REDIRECT_URI_MOBILE)"
+redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_APPLE_REDIRECT_URI_TUNNEL)"
 # Overrides the default auth provider URL. Used to support self-hosted gitlab, single-tenant Azure,
 # or any other third-party OIDC providers.
 url = ""

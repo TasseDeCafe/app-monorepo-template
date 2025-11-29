@@ -12,9 +12,9 @@ const mmkvSupabaseSupportedStorage = {
 } satisfies SupportedStorage
 
 const supabaseProjectUrl = getConfig().supabaseProjectUrl
-const supabaseProjectKey = getConfig().supabaseProjectKey
+const supabasePublishableKey = getConfig().supabasePublishableKey
 
-export const supabaseClient = createClient(supabaseProjectUrl, supabaseProjectKey, {
+export const supabaseClient = createClient(supabaseProjectUrl, supabasePublishableKey, {
   auth: {
     // This config is taken directly from the Expo docs: https://docs.expo.dev/guides/using-supabase/
     storage: mmkvSupabaseSupportedStorage,

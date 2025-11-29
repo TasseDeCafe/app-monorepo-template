@@ -13,7 +13,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
   domain: 'template-app.com',
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,
   supabaseProjectUrl: import.meta.env.VITE_SUPABASE_PROJECT_URL,
-  supabaseProjectKey: import.meta.env.VITE_SUPABASE_PROJECT_KEY,
+  supabasePublishableKey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
   sentry: {
     dsn: import.meta.env.VITE_SENTRY_DSN,
     options: {
@@ -51,8 +51,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   // shown by `supabase start` command
   supabaseProjectUrl: 'http://127.0.0.1:54321',
   // shown by `supabase start` command
-  supabaseProjectKey:
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0',
+  supabasePublishableKey: 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH',
   sentry: {
     dsn: import.meta.env.VITE_SENTRY_DSN,
     options: {
@@ -98,7 +97,7 @@ const getTestConfig = (): EnvironmentConfig => ({
   domain: 'some-domain',
   landingPageUrl: 'some-landing-page-url',
   supabaseProjectUrl: 'dummy-supabase-project-url',
-  supabaseProjectKey: 'dummy-supabase-project-key',
+  supabasePublishableKey: 'dummy-supabase-project-key',
   sentry: {
     dsn: 'dummySentryDsn',
     options: {

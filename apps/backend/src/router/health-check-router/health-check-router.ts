@@ -6,32 +6,35 @@ import { type OrpcContext } from '../orpc/orpc-context'
 import { sql } from '../../transport/database/postgres-client'
 import { healthCheckContract } from '@template-app/api-client/orpc-contracts/health-check-contract'
 
+const getGitCommit = (): string => {
+  try {
+    return execSync('git rev-parse --short HEAD').toString().trim()
+  } catch {
+    // In production containers, .git may not be available
+    return process.env.RAILWAY_GIT_COMMIT_SHA?.slice(0, 7) || 'unknown'
+  }
+}
+
 export const HealthCheckRouter = (): Router => {
   const implementer = implement(healthCheckContract).$context<OrpcContext>()
 
   const router = implementer.router({
     getHealthCheck: implementer.getHealthCheck.handler(async () => {
-      // todo: we should check the commit of the deployed version, not just the commit of pulled code
-      const gitCommit = execSync('git rev-parse --short HEAD').toString().trim()
-
       return {
         data: {
           isHealthy: true,
-          gitCommit,
+          gitCommit: getGitCommit(),
         },
       }
     }),
 
     getDatabaseHealthCheck: implementer.getDatabaseHealthCheck.handler(async ({ errors }) => {
-      // todo: we should check the commit of the deployed version, not just the commit of pulled code
-      const gitCommit = execSync('git rev-parse --short HEAD').toString().trim()
-
       try {
         await sql`SELECT 1`
         return {
           data: {
             isDatabaseConnectionHealthy: true,
-            gitCommit,
+            gitCommit: getGitCommit(),
           },
         }
       } catch {

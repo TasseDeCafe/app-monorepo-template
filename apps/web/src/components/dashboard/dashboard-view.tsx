@@ -5,7 +5,7 @@ export const DashboardView = () => {
 
   return (
     <div className='hidden w-full flex-col items-center p-2 py-4 md:container lg:flex 3xl:py-16'>
-      {t`Some text for the dashboard.`}
+      {t`Some longer text for the dashboard.`}
     </div>
   )
 }

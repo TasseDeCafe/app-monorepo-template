@@ -3,7 +3,7 @@
 module.exports = {
   apps: [
     {
-      name: 'template-app.com',
+      name: 'app-monorepo-template',
       script: './dist/apps/backend/src/index.js',
       instances: 2,
       exec_mode: 'cluster',

@@ -1,0 +1,10 @@
+[build]
+builder = "nixpacks"
+buildCommand = "pnpm install --frozen-lockfile && pnpm turbo run build --filter=@template-app/backend"
+
+[deploy]
+startCommand = "node --enable-source-maps apps/backend/dist/apps/backend/src/index.js"
+healthcheckPath = "/api/v1/database-health-check"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5

@@ -12,14 +12,16 @@ import { EnvironmentConfig } from './environment-config-schema'
 
 const productionConfig: EnvironmentConfig = {
   environmentName: 'production',
-  port: 4004,
-  webUrl: 'https://app.template-app.com',
+  // Railway injects PORT env var, fallback to 4004 for other deployments
+  port: parseInt(process.env.PORT || '4004', 10),
+  webUrl: process.env.WEB_URL || 'https://app.app-monorepo-template.dev',
   shouldLogRequests: false,
   allowedCorsOrigins: [
-    'https://template-app.com',
-    'https://www.template-app.com',
-    'https://app.template-app.com',
+    'https://app-monorepo-template.dev',
+    'https://www.app-monorepo-template.dev',
+    'https://app.app-monorepo-template.dev',
     /https:\/\/.*-template-organization\.vercel\.app(\/.*)?/, // Vercel Preview URLs
+    /https:\/\/.*\.up\.railway\.app(\/.*)?/, // Railway Preview URLs
   ],
   resendApiKey: process.env.RESEND_API_KEY || '',
   stripeSecretKey: process.env.STRIPE_SECRET_KEY || '',
@@ -32,7 +34,10 @@ const productionConfig: EnvironmentConfig = {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
       profilesSampleRate: 1.0,
-      tracePropagationTargets: ['https://app.template-app.com', 'https://api.template-app.com'],
+      tracePropagationTargets: [
+        'https://app.app-monorepo-template.dev',
+        'https://api.app-monorepo-template.dev',
+      ],
     },
   },
   supabaseJwksUri: process.env.SUPABASE_JWKS_URI || '',

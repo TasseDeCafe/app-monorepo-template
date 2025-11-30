@@ -9,8 +9,8 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
   apiHost: import.meta.env.VITE_API_HOST,
-  webUrl: 'https://app.template-app.com',
-  domain: 'template-app.com',
+  webUrl: import.meta.env.VITE_WEB_URL || 'https://app.app-monorepo-template.dev',
+  domain: import.meta.env.VITE_DOMAIN || 'app-monorepo-template.dev',
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,
   supabaseProjectUrl: import.meta.env.VITE_SUPABASE_PROJECT_URL,
   supabasePublishableKey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,

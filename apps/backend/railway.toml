@@ -3,17 +3,9 @@ builder = "nixpacks"
 buildCommand = "pnpm install --frozen-lockfile && pnpm turbo run build --filter=@template-app/backend"
 
 [deploy]
-# For PR previews, dynamically set WEB_URL based on environment name
-# For production, WEB_URL should be set via Doppler
-startCommand = """
-if [ "$RAILWAY_ENVIRONMENT_NAME" != "production" ] && [ -n "$RAILWAY_ENVIRONMENT_NAME" ]; then \
-  export WEB_URL="https://template-appweb-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app"; \
-  echo "Preview environment: WEB_URL=$WEB_URL"; \
-fi && \
-NODE_ENV=production node --enable-source-maps apps/backend/dist/apps/backend/src/index.js
-"""
+# For PR previews, WEB_URL is set dynamically. For production, set via Doppler.
+startCommand = "sh -c 'if [ \"$RAILWAY_ENVIRONMENT_NAME\" != \"production\" ] && [ -n \"$RAILWAY_ENVIRONMENT_NAME\" ]; then export WEB_URL=\"https://template-appweb-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app\"; fi && NODE_ENV=production node --enable-source-maps apps/backend/dist/apps/backend/src/index.js'"
 healthcheckPath = "/api/v1/health-check"
-# Note: /api/v1/database-health-check is also available if you want to verify DB connection
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 5

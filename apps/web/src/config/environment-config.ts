@@ -9,8 +9,8 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
   apiHost: import.meta.env.VITE_API_HOST,
-  webUrl: import.meta.env.VITE_WEB_URL || 'https://app.app-monorepo-template.dev',
-  domain: import.meta.env.VITE_DOMAIN || 'app-monorepo-template.dev',
+  webUrl: 'https://app.app-monorepo-template.dev',
+  domain: 'app-monorepo-template.dev',
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,
   supabaseProjectUrl: import.meta.env.VITE_SUPABASE_PROJECT_URL,
   supabasePublishableKey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY,
@@ -82,8 +82,8 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 
 const getDevelopmentTunnelConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
-  webUrl: import.meta.env.VITE_WEB_URL_TUNNEL,
-  domain: 'template-app.dev',
+  webUrl: import.meta.env.VITE_WEB_URL,
+  domain: 'app-monorepo-template.dev',
   environmentName: 'development-tunnel',
   apiHost: import.meta.env.VITE_API_HOST,
   landingPageUrl: import.meta.env.VITE_LANDING_PAGE_URL,

@@ -14,7 +14,7 @@ const productionConfig: EnvironmentConfig = {
   environmentName: 'production',
   // Railway injects PORT env var, fallback to 4004 for other deployments
   port: parseInt(process.env.PORT || '4004', 10),
-  webUrl: process.env.WEB_URL || 'https://app.app-monorepo-template.dev',
+  webUrl: 'https://app.app-monorepo-template.dev',
   shouldLogRequests: false,
   allowedCorsOrigins: [
     'https://app-monorepo-template.dev',
@@ -34,10 +34,7 @@ const productionConfig: EnvironmentConfig = {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
       profilesSampleRate: 1.0,
-      tracePropagationTargets: [
-        'https://app.app-monorepo-template.dev',
-        'https://api.app-monorepo-template.dev',
-      ],
+      tracePropagationTargets: ['https://app.app-monorepo-template.dev', 'https://api.app-monorepo-template.dev'],
     },
   },
   supabaseJwksUri: process.env.SUPABASE_JWKS_URI || '',
@@ -108,8 +105,8 @@ const developmentConfig: EnvironmentConfig = {
 const developmentTunnelConfig: EnvironmentConfig = {
   ...developmentConfig,
   port: 4002,
-  webUrl: process.env.WEB_URL_TUNNEL || '',
-  allowedCorsOrigins: [process.env.WEB_URL_TUNNEL || ''],
+  webUrl: process.env.WEB_URL || '',
+  allowedCorsOrigins: [process.env.WEB_URL || ''],
   // Uses JWKS endpoint from local Supabase (supabase-dev-tunnel)
   supabaseJwksUri: 'http://127.0.0.1:34321/auth/v1/.well-known/jwks.json',
   supabaseConnectionString: 'postgresql://postgres:postgres@127.0.0.1:34322/postgres',
@@ -136,8 +133,8 @@ const developmentWithoutThirdPartiesConfig: EnvironmentConfig = {
 
 const developmentWithoutThirdPartiesTunnelConfig: EnvironmentConfig = {
   ...developmentWithoutThirdPartiesConfig,
-  webUrl: process.env.WEB_URL_TUNNEL || '',
-  allowedCorsOrigins: [process.env.WEB_URL_TUNNEL || ''],
+  webUrl: process.env.WEB_URL || '',
+  allowedCorsOrigins: [process.env.WEB_URL || ''],
   supabaseConnectionString: 'postgresql://postgres:postgres@127.0.0.1:34322/postgres',
 }
 

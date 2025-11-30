@@ -1,6 +1,16 @@
 [build]
 builder = "nixpacks"
-buildCommand = "pnpm install --frozen-lockfile && pnpm turbo run build --filter=@template-app/web"
+# For PR previews, dynamically set VITE_API_HOST based on environment name
+# For production, VITE_API_HOST should be set via Doppler/env vars
+# Note: RAILWAY_ENVIRONMENT_NAME is "production" for prod, or something like "pr-5" for PRs
+buildCommand = """
+pnpm install --frozen-lockfile && \
+if [ "$RAILWAY_ENVIRONMENT_NAME" != "production" ] && [ -n "$RAILWAY_ENVIRONMENT_NAME" ]; then \
+  export VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app"; \
+  echo "Preview build: VITE_API_HOST=$VITE_API_HOST"; \
+fi && \
+pnpm turbo run build --filter=@template-app/web
+"""
 
 [deploy]
 startCommand = "npx serve apps/web/dist -s -l $PORT"

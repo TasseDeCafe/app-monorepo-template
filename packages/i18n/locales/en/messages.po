@@ -966,6 +966,10 @@ msgstr "Sign up with Email"
 msgid "Sign up with Google"
 msgstr "Sign up with Google"
 
+#: apps/web/src/components/dashboard/dashboard-view.tsx:8
+msgid "Some longer text for the dashboard."
+msgstr "Some longer text for the dashboard."
+
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:16
 msgid "Some super cool text!"
 msgstr "Some super cool text!"
@@ -973,10 +977,6 @@ msgstr "Some super cool text!"
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:13
 msgid "Some super cool title!"
 msgstr "Some super cool title!"
-
-#: apps/web/src/components/dashboard/dashboard-view.tsx:8
-msgid "Some text for the dashboard."
-msgstr "Some text for the dashboard."
 
 #: apps/native/src/config/react-query-config.ts:25
 msgid "Something went wrong"

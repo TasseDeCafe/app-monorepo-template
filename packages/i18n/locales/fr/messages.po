@@ -964,16 +964,16 @@ msgstr "S'inscrire avec Email"
 msgid "Sign up with Google"
 msgstr "S'inscrire avec Google"
 
+#: apps/web/src/components/dashboard/dashboard-view.tsx:8
+msgid "Some longer text for the dashboard."
+msgstr ""
+
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:16
 msgid "Some super cool text!"
 msgstr ""
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:13
 msgid "Some super cool title!"
-msgstr ""
-
-#: apps/web/src/components/dashboard/dashboard-view.tsx:8
-msgid "Some text for the dashboard."
 msgstr ""
 
 #: apps/native/src/config/react-query-config.ts:25

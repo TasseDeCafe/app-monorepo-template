@@ -50,7 +50,7 @@ export const authenticationRouter = (): Router => {
         // We pass the platform here because it is ephemeral and shouldn't be stored in the user metadata
         // Supabase will only pass the metadata at user creation. Subsequent sign ins will not pass them.
         // TODO: we need to pass the referral here too, otherwise it is stripped when signing in from the native app
-        const emailRedirectTo = `${getConfig().webUrl}/sign-in-up/email/verify?`
+        const emailRedirectTo = `${getConfig().webUrl}/login/email/verify?`
         const params = {
           email: input.email,
           options: {

@@ -17,7 +17,7 @@ export const AccountRemovedSuccessView = () => {
   }, [isSignedIn, navigate])
 
   const handleTakeToSignIn = () => {
-    navigate(ROUTE_PATHS.SIGN_UP, { replace: true })
+    navigate(ROUTE_PATHS.LOGIN, { replace: true })
   }
 
   return (

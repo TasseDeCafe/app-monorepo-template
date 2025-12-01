@@ -3,18 +3,16 @@ import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-cli
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { useNavigate } from 'react-router-dom'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { Button } from '../../design-system/button.tsx'
+import { Button } from '../../shadcn/button.tsx'
 import { useMutation } from '@tanstack/react-query'
-import { Card } from '../../design-system/card.tsx'
-import { TitleWithGradient } from '../../design-system/typography/title-with-gradient.tsx'
 import { useLingui } from '@lingui/react/macro'
 
-// the user lands here after clicking on the sign in/up magic link in the email.
+// the user lands here after clicking on the magic link in the email.
 // The email template is defined:
 // dev:        backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
 // dev-tunnel: backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
-// prod:       https://supabase.com/dashboard/project/krtllimmygzciwxngbmd/auth/templates
-export const SignInUpEmailVerify = () => {
+// prod:       https://supabase.com/dashboard/project/<project-id>/auth/templates
+export const AuthEmailVerifyView = () => {
   const { t } = useLingui()
 
   const [isError, setIsError] = useState(false)
@@ -63,41 +61,29 @@ export const SignInUpEmailVerify = () => {
     verifyOtp()
   }
 
-  const handleReturnToSignIn = () => {
-    POSTHOG_EVENTS.click('return_to_sign_in_button')
-    navigate(ROUTE_PATHS.SIGN_IN, { replace: true })
+  const handleReturnToAuth = () => {
+    POSTHOG_EVENTS.click('return_to_auth_button')
+    navigate(ROUTE_PATHS.LOGIN, { replace: true })
   }
 
   return (
-    <div className='flex w-full flex-1 flex-col items-center justify-center px-2'>
-      <Card className='gap-y-8'>
+    <div className='flex w-full flex-1 items-center justify-center'>
+      <div className='flex w-full max-w-md flex-col gap-y-4 p-4 text-center'>
         {isError ? (
           <>
-            <div className='text-center'>
-              <TitleWithGradient>{t`Email link is invalid or has expired`}</TitleWithGradient>
-            </div>
-            <Button
-              onClick={handleReturnToSignIn}
-              className='flex h-12 w-full items-center justify-center rounded-md bg-indigo-600 px-4 py-2 font-medium text-white shadow-sm transition-all hover:bg-indigo-500'
-            >
-              {t`Return to Sign In`}
-            </Button>
+            <h1 className='text-xl font-semibold'>{t`Link expired or invalid`}</h1>
+            <p className='text-gray-600'>{t`Please request a new verification link.`}</p>
+            <Button onClick={handleReturnToAuth}>{t`Back to login`}</Button>
           </>
         ) : (
           <>
-            <div className='text-center'>
-              <TitleWithGradient>{t`Verify Your Email`}</TitleWithGradient>
-            </div>
-            <Button
-              onClick={handleVerifyEmailClick}
-              disabled={isPending}
-              className='flex h-12 w-full items-center justify-center rounded-md bg-indigo-600 px-4 py-2 font-medium text-white shadow-sm transition-all hover:bg-indigo-500 disabled:bg-indigo-400'
-            >
+            <h1 className='text-xl font-semibold'>{t`Verify your email`}</h1>
+            <Button onClick={handleVerifyEmailClick} disabled={isPending}>
               {isPending ? t`Verifying...` : t`Verify`}
             </Button>
           </>
         )}
-      </Card>
+      </div>
     </div>
   )
 }

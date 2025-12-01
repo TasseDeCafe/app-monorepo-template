@@ -1,0 +1,84 @@
+import { ChangeEvent, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
+import { Button } from '../../shadcn/button.tsx'
+import { ROUTE_PATHS } from '@/routing/route-paths.ts'
+import { selectParamsThatHadOriginallyCameFromLanding } from '@/state/slices/account-slice.ts'
+import { useSelector } from 'react-redux'
+import { useSendVerificationEmail } from '@/hooks/api/authentication/authentication-hooks'
+import { useLingui } from '@lingui/react/macro'
+
+export const AuthEmailView = () => {
+  const { t } = useLingui()
+
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const paramsThatHadOriginallyCameFromLanding = useSelector(selectParamsThatHadOriginallyCameFromLanding)
+
+  const validateEmail = (email: string) => {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    return re.test(email)
+  }
+
+  useEffect(() => {
+    POSTHOG_EVENTS.viewPage()
+  }, [])
+
+  const { mutate: sendVerificationEmail, isPending } = useSendVerificationEmail({
+    onSuccess: () => {
+      navigate(ROUTE_PATHS.LOGIN_EMAIL_SENT, { state: { email } })
+    },
+  })
+
+  const handleContinue = async () => {
+    if (!paramsThatHadOriginallyCameFromLanding) {
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setEmailError(t`Please enter a valid email address`)
+      return
+    }
+
+    POSTHOG_EVENTS.click('continue_with_email_button')
+    sendVerificationEmail({
+      email,
+      referral: paramsThatHadOriginallyCameFromLanding.referral,
+      platform: 'web',
+      utmSource: paramsThatHadOriginallyCameFromLanding.utmSource,
+      utmMedium: paramsThatHadOriginallyCameFromLanding.utmMedium,
+      utmCampaign: paramsThatHadOriginallyCameFromLanding.utmCampaign,
+      utmTerm: paramsThatHadOriginallyCameFromLanding.utmTerm,
+      utmContent: paramsThatHadOriginallyCameFromLanding.utmContent,
+    })
+  }
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value)
+    setEmailError('')
+  }
+
+  return (
+    <div className='flex w-full flex-1 items-center justify-center'>
+      <div className='flex w-full max-w-md flex-col gap-y-4 p-4'>
+        <div className='w-full space-y-1'>
+          <input
+            type='email'
+            id='email'
+            name='email'
+            autoComplete='username email'
+            placeholder={t`Email address`}
+            value={email}
+            onChange={handleEmailChange}
+            className='h-10 w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500'
+          />
+          {emailError && <p className='text-xs text-red-500'>{t`Please enter a valid email address`}</p>}
+        </div>
+        <Button disabled={isPending} onClick={handleContinue}>
+          {isPending ? t`Sending...` : t`Continue`}
+        </Button>
+      </div>
+    </div>
+  )
+}

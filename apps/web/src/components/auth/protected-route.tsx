@@ -17,7 +17,7 @@ export const ProtectedRoute = () => {
   if (isSupabaseSignInStateLoading) {
     return <FullViewSquaresLoader />
   } else if (!isSignedIn) {
-    return <Navigate to={ROUTE_PATHS.SIGN_IN} state={{ from: location }} replace />
+    return <Navigate to={ROUTE_PATHS.LOGIN} state={{ from: location }} replace />
   } else if (isBackendUserInfoLoading) {
     return <FullViewSquaresLoader />
   }

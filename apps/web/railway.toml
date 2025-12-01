@@ -1,5 +1,5 @@
 [build]
-builder = "nixpacks"
+builder = "railpack"
 # For PR previews, dynamically set VITE_API_HOST based on environment name
 # For production, VITE_API_HOST should be set via Doppler/env vars
 # Note: RAILWAY_ENVIRONMENT_NAME is "production" for prod, or something like "pr-5" for PRs

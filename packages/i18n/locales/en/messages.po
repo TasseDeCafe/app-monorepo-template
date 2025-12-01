@@ -369,6 +369,15 @@ msgstr "Are you absolutely sure?"
 msgid "Authentication error. Please try again."
 msgstr "Authentication error. Please try again."
 
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:46
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:58
+msgid "Authentication failed"
+msgstr "Authentication failed"
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:76
+msgid "Back to login"
+msgstr "Back to login"
+
 #: apps/native/src/app/(auth)/account/removed.tsx:29
 msgid "Back to Sign Up"
 msgstr "Back to Sign Up"
@@ -407,6 +416,10 @@ msgstr "Cancel"
 msgid "Category of the app"
 msgstr "Category of the app"
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:19
+msgid "Check your email"
+msgstr "Check your email"
+
 #: apps/native/src/components/gates/force-update-gate.tsx:76
 msgid "Checking app version..."
 msgstr "Checking app version..."
@@ -427,6 +440,10 @@ msgstr "Choose your plan"
 msgid "Choose Your Plan"
 msgstr "Choose Your Plan"
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:22
+msgid "Click the link in the email to continue."
+msgstr "Click the link in the email to continue."
+
 #: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:51
 msgid "Close"
 msgstr "Close"
@@ -442,8 +459,21 @@ msgid "Contact Us"
 msgstr "Contact Us"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:36
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:79
 msgid "Continue"
 msgstr "Continue"
+
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:93
+msgid "Continue with Apple"
+msgstr "Continue with Apple"
+
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:83
+msgid "Continue with Email"
+msgstr "Continue with Email"
+
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:88
+msgid "Continue with Google"
+msgstr "Continue with Google"
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:29
 msgid "Copied!"
@@ -499,14 +529,16 @@ msgstr "Danger Zone"
 msgid "Dashboard"
 msgstr "Dashboard"
 
+#: apps/web/src/components/dashboard/dashboard-view.tsx:25
+msgid "Dashboard."
+msgstr "Dashboard."
+
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:24
 msgid "Delete my account"
 msgstr "Delete my account"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:111
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:123
 msgid "Don't have an account?"
 msgstr "Don't have an account?"
 
@@ -530,7 +562,7 @@ msgid "Email"
 msgstr "Email"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:79
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:85
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:71
 msgid "Email address"
 msgstr "Email address"
 
@@ -539,12 +571,10 @@ msgid "Email copied to clipboard"
 msgstr "Email copied to clipboard"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:77
 msgid "Email link is invalid or has expired"
 msgstr "Email link is invalid or has expired"
 
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:37
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:28
 msgid "Email Verification Sent"
 msgstr "Email Verification Sent"
 
@@ -622,10 +652,6 @@ msgstr "Free for {NUMBER_OF_DAYS_IN_FREE_TRIAL} days"
 msgid "Free Trial"
 msgstr "Free Trial"
 
-#: apps/web/src/components/pricing/pricing-view.tsx:219
-msgid "Frequently Asked Questions"
-msgstr "Frequently Asked Questions"
-
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:26
 msgid "Full Name"
 msgstr "Full Name"
@@ -640,8 +666,6 @@ msgstr "Get the App"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:111
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:123
 msgid "Have an account?"
 msgstr "Have an account?"
 
@@ -715,6 +739,10 @@ msgstr "Last day to cancel before first charge"
 msgid "Lifetime"
 msgstr "Lifetime"
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:74
+msgid "Link expired or invalid"
+msgstr "Link expired or invalid"
+
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:44
 msgid "link to complete your sign up"
 msgstr "link to complete your sign up"
@@ -780,7 +808,6 @@ msgid "Open Mail App"
 msgstr "Open Mail App"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:106
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:106
 msgid "Or"
 msgstr "Or"
 
@@ -808,17 +835,9 @@ msgstr "Play Store"
 msgid "Please check your inbox and click on the"
 msgstr "Please check your inbox and click on the"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:38
-msgid "Please check your inbox and click the verification link to complete your sign up."
-msgstr "Please check your inbox and click the verification link to complete your sign up."
-
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:37
-msgid "Please check your inbox and click the verification link to sign in."
-msgstr "Please check your inbox and click the verification link to sign in."
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:94
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:44
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:90
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:40
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:76
 msgid "Please enter a valid email address"
 msgstr "Please enter a valid email address"
 
@@ -829,6 +848,10 @@ msgstr "Please manage your subscription on our website: {webAccountUrl}"
 #: apps/native/src/components/gates/force-update-gate.tsx:64
 msgid "Please manually update the app through your device's app store."
 msgstr "Please manually update the app through your device's app store."
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:75
+msgid "Please request a new verification link."
+msgstr "Please request a new verification link."
 
 #: apps/web/src/config/react-query-config.ts:37
 msgid "Please try again or refresh the page."
@@ -868,7 +891,6 @@ msgid "Refresh"
 msgstr "Refresh"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:87
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:83
 msgid "Return to Sign In"
 msgstr "Return to Sign In"
 
@@ -883,12 +905,12 @@ msgid "Send Message"
 msgstr "Send Message"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:97
 msgid "Sending an email"
 msgstr "Sending an email"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:142
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:77
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:79
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:136
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:138
 msgid "Sending..."
@@ -908,67 +930,43 @@ msgstr "Share your feedback or suggest improvements to the founders. We read and
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:22
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:118
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:130
 msgid "Sign in"
 msgstr "Sign in"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:45
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:57
-msgid "Sign in failed"
-msgstr "Sign in failed"
-
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:118
-msgid "Sign in with Apple"
-msgstr "Sign in with Apple"
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:73
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:55
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:75
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:102
 msgid "Sign in with Email"
 msgstr "Sign in with Email"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:66
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:110
 msgid "Sign in with Google"
 msgstr "Sign in with Google"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:55
 #: apps/native/src/components/ui/drawer.tsx:227
+#: apps/web/src/components/dashboard/dashboard-view.tsx:32
 msgid "Sign out"
 msgstr "Sign out"
+
+#: apps/web/src/components/dashboard/dashboard-view.tsx:20
+msgid "Sign out success"
+msgstr "Sign out success"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
 #: apps/web/src/components/auth/account-removed-success-view.tsx:35
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:22
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:118
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:130
 msgid "Sign up"
 msgstr "Sign up"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:118
-msgid "Sign up with Apple"
-msgstr "Sign up with Apple"
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:73
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:55
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:75
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:102
 msgid "Sign up with Email"
 msgstr "Sign up with Email"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:66
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:110
 msgid "Sign up with Google"
 msgstr "Sign up with Google"
-
-#: apps/web/src/components/dashboard/dashboard-view.tsx:8
-msgid "Some longer text for the dashboard."
-msgstr "Some longer text for the dashboard."
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:16
 msgid "Some super cool text!"
@@ -1006,7 +1004,6 @@ msgid "Start Free Trial"
 msgstr "Start Free Trial"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:42
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:90
 msgid "Start mastering"
 msgstr "Start mastering"
 
@@ -1167,17 +1164,20 @@ msgstr "Users retain all rights to any content they upload, submit, post, or dis
 msgid "Verification successful! Redirecting..."
 msgstr "Verification successful! Redirecting..."
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:96
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:82
 msgid "Verify"
 msgstr "Verify"
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:80
+msgid "Verify your email"
+msgstr "Verify your email"
+
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:89
 msgid "Verify Your Email"
 msgstr "Verify Your Email"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:81
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:96
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:82
 msgid "Verifying..."
 msgstr "Verifying..."
 
@@ -1211,9 +1211,12 @@ msgid "We're sorry to see you go. Your account has been successfully removed."
 msgstr "We're sorry to see you go. Your account has been successfully removed."
 
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:40
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:31
 msgid "We've sent a verification email to:"
 msgstr "We've sent a verification email to:"
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:20
+msgid "We've sent a verification link to:"
+msgstr "We've sent a verification link to:"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:26
 msgid "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
@@ -1265,7 +1268,7 @@ msgstr "Your current plan"
 msgid "Your email"
 msgstr "Your email"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:13
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:10
 msgid "your email address"
 msgstr "your email address"
 
@@ -1287,7 +1290,6 @@ msgid "Your name"
 msgstr "Your name"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:43
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:92
 msgid "your pronunciation"
 msgstr "your pronunciation"
 

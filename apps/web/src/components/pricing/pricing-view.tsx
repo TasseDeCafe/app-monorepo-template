@@ -214,10 +214,6 @@ export const PricingView = () => {
           </div>
         </div>
       </Card>
-
-      <Card className='max-w-2xl shadow'>
-        <h2 className='mb-2 text-center text-3xl font-bold text-gray-900 md:mb-8'>{t`Frequently Asked Questions`}</h2>
-      </Card>
     </div>
   )
 }

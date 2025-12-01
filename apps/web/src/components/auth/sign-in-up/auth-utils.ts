@@ -15,7 +15,6 @@ export const shouldShowSignInWithGoogle = () => {
   if (isFacebookNativeWebviewApp() && isAndroid()) {
     return false
   }
-  // todo: try to do the same for wykop, as it's currently broken, currently users just get an error when signing in with Google
   // todo: check if sign in with Google works on whatsapp, reddit and other apps
   return true
 }

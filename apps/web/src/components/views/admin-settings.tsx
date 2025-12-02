@@ -1,28 +1,10 @@
-import { useState } from 'react'
-import { Checkbox } from '../shadcn/checkbox.tsx'
-import { Label } from '../shadcn/label.tsx'
 import { Button } from '../shadcn/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
-import { featureFlagsLocalStorageWrapper } from '@/local-storage/feature-flags-local-storage-wrapper.ts'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
 import { useTriggerSentryMessageMutation } from '@/hooks/api/sentry-debug/sentry-debug-hooks.ts'
 
-const getInitialPosthogDebugState = () => {
-  if (typeof window === 'undefined') {
-    return false
-  }
-
-  return featureFlagsLocalStorageWrapper.getIsPosthogDebugEnabledFeatureFlag()
-}
-
 export const AdminSettings = () => {
-  const [isPosthogDebugEnabled, setIsPosthogDebugEnabled] = useState(getInitialPosthogDebugState)
   const triggerSentryMessageMutation = useTriggerSentryMessageMutation()
-
-  const handlePosthogDebugToggle = (checked: boolean) => {
-    setIsPosthogDebugEnabled(checked)
-    featureFlagsLocalStorageWrapper.setIsPosthogDebugEnabledFeatureFlag(checked)
-  }
 
   const handleTestSentryLog = () => {
     logWithSentry(
@@ -61,20 +43,6 @@ export const AdminSettings = () => {
         <h1 className='mb-8 text-center text-4xl font-bold tracking-tighter text-stone-900 md:text-5xl'>
           Admin settings
         </h1>
-
-        <Card className='mb-6'>
-          <CardHeader>
-            <CardTitle>Feature Flags</CardTitle>
-          </CardHeader>
-          <CardContent className='space-y-4'>
-            <div className='flex items-center space-x-3 rounded-md p-2 hover:bg-stone-50'>
-              <Checkbox id='posthog-debug' checked={isPosthogDebugEnabled} onCheckedChange={handlePosthogDebugToggle} />
-              <Label htmlFor='posthog-debug' className='cursor-pointer font-medium'>
-                Enable Posthog Debug
-              </Label>
-            </div>
-          </CardContent>
-        </Card>
 
         <Card>
           <CardHeader>

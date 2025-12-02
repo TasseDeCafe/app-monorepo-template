@@ -6,10 +6,11 @@ import * as Sentry from '@sentry/react'
 import { checkIsTestUser } from '@/utils/test-users-utils'
 import { useAuthStore, getUserId, getUserEmail } from '@/stores/auth-store'
 import { useTrackingStore } from '@/stores/tracking-store'
+import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 
 export const AnalyticsInitializer = () => {
   const userId = useAuthStore(getUserId)
-  const isUserSetupComplete = useAuthStore((state) => state.isUserSetupComplete)
+  const isUserSetupComplete = useIsUserSetupComplete()
   const referral = useTrackingStore((state) => state.referral)
   const email = useAuthStore(getUserEmail)
   const isTestUser = checkIsTestUser(email)
@@ -25,7 +26,6 @@ export const AnalyticsInitializer = () => {
 
   useEffect(() => {
     if (userId) {
-      // no need to check for cookies because sentry is an error logging software, not analytics software
       identifyUserWithSentry(userId)
     }
   }, [userId])

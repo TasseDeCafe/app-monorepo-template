@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'motion/react'
 import { CheckCircle } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { ContactForm } from './contact-form.tsx'
-import { DiscordForm } from './discord-button.tsx'
 import { Button } from '../../../design-system/button.tsx'
 import { useLingui } from '@lingui/react/macro'
 import { useModalStore } from '@/stores/modal-store'
@@ -53,7 +52,6 @@ export const ContactModalContent = () => {
         ) : (
           <>
             <span className='text-sm text-gray-400'>{t`Join our Discord`}</span>
-            <DiscordForm />
             <span className='text-sm text-gray-400'>{t`or send us an email`}</span>
             <ContactForm onSuccess={handleSuccess} />
           </>

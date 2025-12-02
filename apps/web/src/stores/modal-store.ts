@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { USER_FACING_ERROR_CODE } from '@/components/modal/modal-contents/something-went-wrong/types'
+import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
 import { ACCOUNT_MODAL_ID, DANGER_ZONE_MODAL_ID, SOMETHING_WENT_WRONG_MODAL_ID } from '@/components/modal/modal-ids'
 import { isHashEnabledModalId } from '@/components/modal/modal-utils'
 

@@ -2,12 +2,13 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/routing/route-paths'
 import { FullViewLoader } from '../loader/full-view-loader.tsx'
 import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
+import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 
 export const ProtectedRoute = () => {
   const location = useLocation()
   const isSignedIn = useAuthStore(getIsSignedIn)
   const isLoading = useAuthStore((state) => state.isLoading)
-  const isUserSetupComplete = useAuthStore((state) => state.isUserSetupComplete)
+  const isUserSetupComplete = useIsUserSetupComplete()
 
   if (isLoading) {
     return <FullViewLoader />

@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import { useCreateOrUpdateUser } from '@/hooks/api/user/user-hooks'
+import { useCreateOrUpdateUser, useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 import { useAuthStore, getAccessToken } from '@/stores/auth-store'
 import { useTrackingStore } from '@/stores/tracking-store'
 import { useShallow } from 'zustand/react/shallow'
 
 export const UserSetup = () => {
   const accessToken = useAuthStore(getAccessToken)
-  const isUserSetupComplete = useAuthStore((state) => state.isUserSetupComplete)
+  const isUserSetupComplete = useIsUserSetupComplete()
 
   // Use useShallow to prevent object reference changes from causing re-renders
   const trackingParams = useTrackingStore(

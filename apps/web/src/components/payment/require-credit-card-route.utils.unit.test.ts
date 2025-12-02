@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { shouldShowPaywall } from '@/components/auth/payment/require-credit-card-route.utils.ts'
+import { shouldShowPaywall } from '@/components/payment/require-credit-card-route.utils.ts'
 
 describe('shouldShowPaywall', () => {
   describe('if paid, we should never show the paywall', () => {

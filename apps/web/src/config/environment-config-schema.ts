@@ -26,24 +26,11 @@ export const environmentConfigSchema = z.object({
     options: sentryOptionsSchema,
   }),
   posthogToken: z.string().min(1),
-  areReduxDevToolsEnabled: z.boolean(),
   shouldLogLocally: z.boolean(),
-  paginationLimit: z.number().min(1).max(1000),
   hashedEmailsOfTestUsers: z.array(z.string().min(1)),
-  // it was used for the first time when testing the conversation
-  hashedEmailsOfUsersWithEarlyAccessToFeatures: z.array(z.string().min(1)),
   featureFlags: z.object({
-    isLifetimePricingEnabled: z.function({
-      input: [z.string().optional()],
-      output: z.boolean(),
-    }),
-    isPosthogDebugEnabled: z.function({
-      input: [],
-      output: z.boolean(),
-    }),
     // means that all users have to introduce a credit card to get a free trial
-    // more about this flag here: https://www.notion.so/grammarians/Try-to-make-the-app-closed-for-everyone-164168e7b01a802abc1ce87221ab704b
-    // the below two flags should never be set to true at the same time, as it doesn't make sense
+    // the two flags should never be set to true at the same time, as it doesn't make sense
     isCreditCardRequiredForAll: z.function({
       input: [],
       output: z.boolean(),

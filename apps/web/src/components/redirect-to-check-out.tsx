@@ -4,7 +4,7 @@ import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths'
 import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useTrackingStore } from '@/stores/tracking-store'
-import { useAuthStore } from '@/stores/auth-store'
+import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 
 // This component is reached after the route /from-landing.
 // We want to redirect users who clicked on the premium button on the landing page to be directed to the checkout page
@@ -14,7 +14,7 @@ export const RedirectToCheckOut = () => {
   const navigate = useNavigate()
   const params = useParams<{ planInterval: string }>()
   const referral = useTrackingStore((state) => state.referral)
-  const isUserSetupComplete = useAuthStore((state) => state.isUserSetupComplete)
+  const isUserSetupComplete = useIsUserSetupComplete()
 
   const { mutate } = useCheckoutMutation()
 

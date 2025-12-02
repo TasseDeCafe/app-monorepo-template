@@ -1,9 +1,9 @@
-import { selectIsBackendUserInfoLoaded, selectReferral } from '../state/slices/account-slice.ts'
+import { selectIsBackendUserInfoLoaded, selectReferral } from '@/state/slices/account-slice'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
-import { buildPricingFreeTrialPath, ROUTE_PATHS } from '../routing/route-paths.ts'
-import { FullViewSquaresLoader } from './loader/full-view-squares-loader.tsx'
+import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths'
+import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 
 // This component is reached after the route /from-landing.
@@ -37,5 +37,5 @@ export const RedirectToCheckOut = () => {
     }
   }, [params.planInterval, mutate, isBackendUserInfoLoaded, referral, navigate])
 
-  return <FullViewSquaresLoader />
+  return <FullViewLoader />
 }

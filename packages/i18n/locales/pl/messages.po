@@ -369,6 +369,15 @@ msgstr "Czy jesteś absolutnie pewien?"
 msgid "Authentication error. Please try again."
 msgstr "Błąd uwierzytelniania. Spróbuj ponownie."
 
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:46
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:58
+msgid "Authentication failed"
+msgstr ""
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:76
+msgid "Back to login"
+msgstr ""
+
 #: apps/native/src/app/(auth)/account/removed.tsx:29
 msgid "Back to Sign Up"
 msgstr "Wróć do rejestracji"
@@ -407,6 +416,10 @@ msgstr "Anuluj"
 msgid "Category of the app"
 msgstr ""
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:19
+msgid "Check your email"
+msgstr ""
+
 #: apps/native/src/components/gates/force-update-gate.tsx:76
 msgid "Checking app version..."
 msgstr "Sprawdzanie wersji aplikacji..."
@@ -419,13 +432,17 @@ msgstr "Sprawdzanie planu..."
 msgid "Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training."
 msgstr "Wybierz idealny plan na swoją drogę doskonalenia akcentu. Elastyczne opcje cenowe pomogą Ci osiągnąć perfekcyjną wymowę dzięki treningowi głosu wspieranemu przez AI."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:174
+#: apps/web/src/components/pricing/pricing-view.tsx:188
 msgid "Choose your plan"
 msgstr "Wybierz plan"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:195
 msgid "Choose Your Plan"
 msgstr "Wybierz plan"
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:22
+msgid "Click the link in the email to continue."
+msgstr ""
 
 #: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:51
 msgid "Close"
@@ -442,8 +459,21 @@ msgid "Contact Us"
 msgstr "Skontaktuj się z nami"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:36
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:79
 msgid "Continue"
 msgstr "Kontynuuj"
+
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:93
+msgid "Continue with Apple"
+msgstr ""
+
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:83
+msgid "Continue with Email"
+msgstr ""
+
+#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:88
+msgid "Continue with Google"
+msgstr ""
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:29
 msgid "Copied!"
@@ -497,14 +527,16 @@ msgstr "Strefa Niebezpieczna"
 msgid "Dashboard"
 msgstr ""
 
+#: apps/web/src/components/dashboard/dashboard-view.tsx:26
+msgid "Dashboard."
+msgstr ""
+
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:24
 msgid "Delete my account"
 msgstr "Usuń moje konto"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:111
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:123
 msgid "Don't have an account?"
 msgstr "Nie masz konta?"
 
@@ -528,7 +560,7 @@ msgid "Email"
 msgstr "Email"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:79
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:85
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:71
 msgid "Email address"
 msgstr "Adres email"
 
@@ -537,12 +569,10 @@ msgid "Email copied to clipboard"
 msgstr "Email skopiowany do schowka"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:77
 msgid "Email link is invalid or has expired"
 msgstr "Link jest nieprawidłowy lub wygasł"
 
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:37
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:28
 msgid "Email Verification Sent"
 msgstr "Email weryfikacyjny wysłany"
 
@@ -620,10 +650,6 @@ msgstr "Darmowy przez {NUMBER_OF_DAYS_IN_FREE_TRIAL} dni"
 msgid "Free Trial"
 msgstr "Okres próbny"
 
-#: apps/web/src/components/pricing/pricing-view.tsx:219
-msgid "Frequently Asked Questions"
-msgstr "Często zadawane pytania"
-
 #: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:26
 msgid "Full Name"
 msgstr "Imię i nazwisko"
@@ -638,8 +664,6 @@ msgstr "Pobierz Aplikację"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:111
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:123
 msgid "Have an account?"
 msgstr "Masz już konto?"
 
@@ -713,6 +737,10 @@ msgstr "Ostatni dzień na anulowanie przed pierwszym pobraniem opłaty"
 msgid "Lifetime"
 msgstr "Dożywotnio"
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:74
+msgid "Link expired or invalid"
+msgstr ""
+
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:44
 msgid "link to complete your sign up"
 msgstr "link aby dokończyć rejestrację"
@@ -778,7 +806,6 @@ msgid "Open Mail App"
 msgstr "Otwórz Aplikację Pocztową"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:106
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:106
 msgid "Or"
 msgstr "Lub"
 
@@ -806,17 +833,9 @@ msgstr "Play Store"
 msgid "Please check your inbox and click on the"
 msgstr "Sprawdź swoją skrzynkę i kliknij w"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:38
-msgid "Please check your inbox and click the verification link to complete your sign up."
-msgstr "Sprawdź swoją skrzynkę odbiorczą i kliknij link weryfikacyjny, aby ukończyć rejestrację."
-
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:37
-msgid "Please check your inbox and click the verification link to sign in."
-msgstr "Sprawdź swoją skrzynkę odbiorczą i kliknij link weryfikacyjny, aby się zalogować."
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:94
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:44
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:90
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:40
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:76
 msgid "Please enter a valid email address"
 msgstr "Wprowadź poprawny adres email"
 
@@ -827,6 +846,10 @@ msgstr "Zarządzaj subskrypcją na naszej stronie internetowej: {webAccountUrl}"
 #: apps/native/src/components/gates/force-update-gate.tsx:64
 msgid "Please manually update the app through your device's app store."
 msgstr "Proszę ręcznie zaktualizować aplikację przez sklep aplikacji swojego urządzenia."
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:75
+msgid "Please request a new verification link."
+msgstr ""
 
 #: apps/web/src/config/react-query-config.ts:37
 msgid "Please try again or refresh the page."
@@ -866,7 +889,6 @@ msgid "Refresh"
 msgstr "Odśwież"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:87
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:83
 msgid "Return to Sign In"
 msgstr "Wróć do logowania"
 
@@ -881,12 +903,12 @@ msgid "Send Message"
 msgstr "Wyślij wiadomość"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:97
 msgid "Sending an email"
 msgstr "Wysyłanie emaila"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:142
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:77
+#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:79
 #: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:136
 #: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:138
 msgid "Sending..."
@@ -906,67 +928,45 @@ msgstr "Podziel się swoją opinią lub zasugeruj ulepszenia założycielom. Czy
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:22
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:118
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:130
 msgid "Sign in"
 msgstr "Zaloguj"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:45
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:57
-msgid "Sign in failed"
-msgstr "Logowanie nie powiodło się"
-
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:118
-msgid "Sign in with Apple"
-msgstr "Zaloguj się przez Apple"
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:73
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:55
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:75
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:102
 msgid "Sign in with Email"
 msgstr "Zaloguj się przez Email"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:66
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:110
 msgid "Sign in with Google"
 msgstr "Zaloguj się przez Google"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:55
 #: apps/native/src/components/ui/drawer.tsx:227
+#: apps/web/src/components/dashboard/dashboard-view.tsx:30
+#: apps/web/src/components/pricing/pricing-view.tsx:233
 msgid "Sign out"
 msgstr "Wyloguj się"
+
+#: apps/web/src/components/dashboard/dashboard-view.tsx:21
+#: apps/web/src/components/pricing/pricing-view.tsx:162
+msgid "Sign out success"
+msgstr ""
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
 #: apps/web/src/components/auth/account-removed-success-view.tsx:35
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:22
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:118
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:130
 msgid "Sign up"
 msgstr "Zarejestruj się"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:118
-msgid "Sign up with Apple"
-msgstr "Zarejestruj się przez Apple"
-
 #: apps/native/src/components/gates/auth/email-auth.tsx:73
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:55
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email.tsx:75
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:102
 msgid "Sign up with Email"
 msgstr "Zarejestruj się przez Email"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:66
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:110
 msgid "Sign up with Google"
 msgstr "Zarejestruj się przez Google"
-
-#: apps/web/src/components/dashboard/dashboard-view.tsx:8
-msgid "Some longer text for the dashboard."
-msgstr ""
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:16
 msgid "Some super cool text!"
@@ -1004,7 +1004,6 @@ msgid "Start Free Trial"
 msgstr "Rozpocznij darmowy okres próbny"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:42
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:90
 msgid "Start mastering"
 msgstr "Zacznij doskonalić"
 
@@ -1079,7 +1078,7 @@ msgstr "samych siebie. Każdy użytkownik musi mieć prawo do korzystania z wsze
 msgid "There was an error sending the verification email. Please try again."
 msgstr "Wystąpił błąd podczas wysyłania e-maila weryfikacyjnego. Spróbuj ponownie."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:132
+#: apps/web/src/components/pricing/pricing-view.tsx:137
 msgid "There was an error. Please contact support."
 msgstr "Wystąpił błąd. Skontaktuj się z pomocą techniczną."
 
@@ -1091,7 +1090,7 @@ msgstr "Tej akcji nie można cofnąć. Spowoduje to trwałe usunięcie Twojego k
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
 msgstr "Ten zautomatyzowany system usuwania jest dostępny 24/7 z poziomu bezpiecznego panelu konta. Jeśli potrzebujesz dodatkowej pomocy, nasz dedykowany zespół ds. prywatności pod adresem contact@template-app.com zajmie się Twoją prośbą z taką samą szybkością i starannością."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:84
+#: apps/web/src/components/pricing/pricing-view.tsx:89
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
 msgstr "Aby zmienić obecny plan, kliknij \"Zarządzaj subskrypcją\"."
 
@@ -1165,17 +1164,20 @@ msgstr "Użytkownicy zachowują pełne prawa do wszelkich treści, które przesy
 msgid "Verification successful! Redirecting..."
 msgstr "Weryfikacja zakończona pomyślnie! Przekierowywanie..."
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:96
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:82
 msgid "Verify"
 msgstr "Zweryfikuj"
 
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:80
+msgid "Verify your email"
+msgstr ""
+
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:89
 msgid "Verify Your Email"
 msgstr "Zweryfikuj swój Email"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:81
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verify.tsx:96
+#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:82
 msgid "Verifying..."
 msgstr "Weryfikacja..."
 
@@ -1209,9 +1211,12 @@ msgid "We're sorry to see you go. Your account has been successfully removed."
 msgstr "Przykro nam, że odchodzisz. Twoje konto zostało pomyślnie usunięte."
 
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:40
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:31
 msgid "We've sent a verification email to:"
 msgstr "Wysłaliśmy email weryfikacyjny na adres:"
+
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:20
+msgid "We've sent a verification link to:"
+msgstr ""
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:26
 msgid "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
@@ -1234,7 +1239,7 @@ msgstr "Jesteś teraz subskrybentem Premium!"
 msgid "You can try again in {countdown} seconds"
 msgstr "Możesz spróbować ponownie za {countdown} sekund"
 
-#: apps/web/src/components/pricing/pricing-view.tsx:82
+#: apps/web/src/components/pricing/pricing-view.tsx:87
 msgid "You have already used your free trial."
 msgstr "Wykorzystałeś już swój okres próbny."
 
@@ -1263,7 +1268,7 @@ msgstr "Twój obecny plan"
 msgid "Your email"
 msgstr "Twój email"
 
-#: apps/web/src/components/auth/sign-in-up/sign-in-up-email-verification-sent-view.tsx:13
+#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:10
 msgid "your email address"
 msgstr "Twój adres e-mail"
 
@@ -1285,7 +1290,6 @@ msgid "Your name"
 msgstr "Twoje imię"
 
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:43
-#: apps/web/src/components/auth/sign-in-up/sign-in-up.tsx:92
 msgid "your pronunciation"
 msgstr "swoją wymowę"
 

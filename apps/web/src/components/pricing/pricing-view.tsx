@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Circle } from 'lucide-react'
+import { Circle, LogOut } from 'lucide-react'
 import { useSelector } from 'react-redux'
+import posthog from 'posthog-js'
 import { selectHasAllowedReferral } from '@/state/slices/account-slice.ts'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { Button } from '../design-system/button.tsx'
+import { Button as ShadcnButton } from '../shadcn/button.tsx'
 import { Card } from '../design-system/card.tsx'
 import { getPricingViewConfig, PlanOption, PricingViewConfig } from './pricing-view-utils.ts'
 import { toast } from 'sonner'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
+import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useNavigate } from 'react-router-dom'
 import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
@@ -18,6 +21,8 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
+import { queryClient } from '@/config/react-query-config'
+import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
 
 const LeftPartOfButton = ({ option, isChosen }: { option: PlanOption; isChosen: boolean }) => {
   const desktopVersion = (
@@ -148,6 +153,15 @@ export const PricingView = () => {
     navigate(ROUTE_PATHS.DASHBOARD)
   }
 
+  const handleSignOut = async () => {
+    window.localStorage.clear()
+    await getSupabaseClient().auth.signOut({ scope: 'local' })
+    posthog.reset()
+    queryClient.clear()
+    clearSentryUser()
+    toast.success(t`Sign out success`)
+  }
+
   useEffect(() => {
     POSTHOG_EVENTS.viewPage()
   }, [])
@@ -214,10 +228,10 @@ export const PricingView = () => {
           </div>
         </div>
       </Card>
-
-      <Card className='max-w-2xl shadow'>
-        <h2 className='mb-2 text-center text-3xl font-bold text-gray-900 md:mb-8'>{t`Frequently Asked Questions`}</h2>
-      </Card>
+      <ShadcnButton variant='ghost' onClick={handleSignOut}>
+        <LogOut size={20} />
+        <span>{t`Sign out`}</span>
+      </ShadcnButton>
     </div>
   )
 }

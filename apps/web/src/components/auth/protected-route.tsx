@@ -4,9 +4,9 @@ import {
   selectIsBackendUserInfoLoading,
   selectIsSignedIn,
   selectIsSupabaseSignInStateLoading,
-} from '../../state/slices/account-slice.ts'
-import { ROUTE_PATHS } from '../../routing/route-paths.ts'
-import { FullViewSquaresLoader } from '../loader/full-view-squares-loader.tsx'
+} from '@/state/slices/account-slice'
+import { ROUTE_PATHS } from '@/routing/route-paths'
+import { FullViewLoader } from '../loader/full-view-loader.tsx'
 
 export const ProtectedRoute = () => {
   const location = useLocation()
@@ -15,11 +15,11 @@ export const ProtectedRoute = () => {
   const isBackendUserInfoLoading = useSelector(selectIsBackendUserInfoLoading)
 
   if (isSupabaseSignInStateLoading) {
-    return <FullViewSquaresLoader />
+    return <FullViewLoader />
   } else if (!isSignedIn) {
     return <Navigate to={ROUTE_PATHS.LOGIN} state={{ from: location }} replace />
   } else if (isBackendUserInfoLoading) {
-    return <FullViewSquaresLoader />
+    return <FullViewLoader />
   }
 
   return <Outlet />

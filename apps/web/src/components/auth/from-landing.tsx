@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { buildCheckOutRightAfterSignUpPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { FullViewSquaresLoader } from '../loader/full-view-squares-loader.tsx'
+import { FullViewLoader } from '../loader/full-view-loader.tsx'
 
 // all external links going from the landing page to the app are handled in this component
 export const FromLanding = () => {
@@ -24,6 +24,6 @@ export const FromLanding = () => {
   if (!planInterval) {
     return <Navigate to={ROUTE_PATHS.DASHBOARD} />
   } else {
-    return <FullViewSquaresLoader />
+    return <FullViewLoader />
   }
 }

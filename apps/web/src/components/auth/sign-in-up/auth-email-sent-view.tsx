@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
-import { POSTHOG_EVENTS } from '../../../analytics/posthog/posthog-events.ts'
+import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import { useLingui } from '@lingui/react/macro'
 
 export const AuthEmailSentView = () => {

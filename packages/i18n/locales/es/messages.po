@@ -177,11 +177,11 @@ msgstr "¡{monthlyDiscountPercentage}% de descuento por 1 mes con tu referido!"
 msgid "{monthlyDiscountPercentage}% off with your referral!"
 msgstr "¡{monthlyDiscountPercentage}% de descuento con tu referido!"
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:65
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:62
 msgid "{NUMBER_OF_DAYS_IN_FREE_TRIAL} days"
 msgstr "{NUMBER_OF_DAYS_IN_FREE_TRIAL} días"
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:69
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:66
 msgid "{REFUND_PERIOD_PLUS_FREE_TRIAL_DAYS} days"
 msgstr "{REFUND_PERIOD_PLUS_FREE_TRIAL_DAYS} días"
 
@@ -319,12 +319,8 @@ msgstr "Acerca de | TemplateApp"
 msgid "About Us"
 msgstr "Sobre Nosotros"
 
-#: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:20
-msgid "Account"
-msgstr "Cuenta"
-
 #: apps/native/src/app/(auth)/account/removed.tsx:16
-#: apps/web/src/components/auth/account-removed-success-view.tsx:26
+#: apps/web/src/components/auth/account-removed-success-view.tsx:25
 msgid "Account Removed"
 msgstr "Cuenta Eliminada"
 
@@ -343,8 +339,7 @@ msgstr "Se ha producido un error al intentar gestionar tu suscripción."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:146
 #: apps/native/src/hooks/api/removals/removals-hooks.ts:14
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:139
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:141
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:121
 #: apps/web/src/hooks/api/removals/removals-hooks.ts:17
 msgid "An error occurred. Please try again."
 msgstr "Se ha producido un error. Inténtalo de nuevo."
@@ -369,12 +364,12 @@ msgstr "¿Estás completamente seguro?"
 msgid "Authentication error. Please try again."
 msgstr "Error de autenticación. Por favor, inténtalo de nuevo."
 
-#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:46
-#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:58
+#: apps/web/src/components/auth/auth/auth-view.tsx:45
+#: apps/web/src/components/auth/auth/auth-view.tsx:57
 msgid "Authentication failed"
 msgstr ""
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:76
+#: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:76
 msgid "Back to login"
 msgstr ""
 
@@ -399,16 +394,12 @@ msgstr "Facturado anualmente por {yearlyPriceTotal} €"
 msgid "Billed yearly: €{yearlyPriceFormatted}"
 msgstr "Facturado anualmente: {yearlyPriceFormatted} €"
 
-#: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:43
-msgid "Billing"
-msgstr "Facturación"
-
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:26
 msgid "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
 msgstr "Al acceder y usar nuestro sitio web, TemplateApp.com, y cualquier servicio asociado, aceptas estar sujeto a estos Términos de Servicio (\"Términos\")."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:150
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:120
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:105
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -416,7 +407,7 @@ msgstr "Cancelar"
 msgid "Category of the app"
 msgstr ""
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:19
+#: apps/web/src/components/auth/auth/auth-email-sent-view.tsx:19
 msgid "Check your email"
 msgstr ""
 
@@ -432,7 +423,7 @@ msgstr "Comprobando tu plan..."
 msgid "Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training."
 msgstr "Elige el plan perfecto para tu viaje de entrenamiento de acento. Opciones de precios flexibles para ayudarte a lograr tu acento perfecto con entrenamiento de voz impulsado por IA."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:188
+#: apps/web/src/components/pricing/pricing-view.tsx:139
 msgid "Choose your plan"
 msgstr "Elige tu plan"
 
@@ -440,38 +431,33 @@ msgstr "Elige tu plan"
 msgid "Choose Your Plan"
 msgstr "Elige Tu Plan"
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:22
+#: apps/web/src/components/auth/auth/auth-email-sent-view.tsx:22
 msgid "Click the link in the email to continue."
 msgstr ""
-
-#: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:51
-msgid "Close"
-msgstr "Cerrar"
 
 #: apps/native/src/components/ui/drawer.tsx:208
 msgid "Contact"
 msgstr "Contacto"
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/_layout.tsx:87
-#: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:32
-#: apps/web/src/components/navbar/navbar-contact-button.tsx:20
+#: apps/web/src/components/navbar/contact-us-button.tsx:16
 msgid "Contact Us"
 msgstr "Contáctanos"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:36
-#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:79
+#: apps/web/src/components/auth/auth/auth-email-view.tsx:84
 msgid "Continue"
 msgstr "Continuar"
 
-#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:93
+#: apps/web/src/components/auth/auth/auth-view.tsx:92
 msgid "Continue with Apple"
 msgstr ""
 
-#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:83
+#: apps/web/src/components/auth/auth/auth-view.tsx:82
 msgid "Continue with Email"
 msgstr ""
 
-#: apps/web/src/components/auth/sign-in-up/auth-view.tsx:88
+#: apps/web/src/components/auth/auth/auth-view.tsx:87
 msgid "Continue with Google"
 msgstr ""
 
@@ -521,7 +507,6 @@ msgid "Customer Center"
 msgstr "Centro de clientes"
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile.tsx:147
-#: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:52
 msgid "Danger Zone"
 msgstr "Zona de peligro"
 
@@ -529,8 +514,12 @@ msgstr "Zona de peligro"
 msgid "Dashboard"
 msgstr ""
 
-#: apps/web/src/components/dashboard/dashboard-view.tsx:26
+#: apps/web/src/components/dashboard/dashboard-view.tsx:28
 msgid "Dashboard."
+msgstr ""
+
+#: apps/web/src/components/dashboard/dashboard-view.tsx:36
+msgid "Delete account"
 msgstr ""
 
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/profile/danger-zone.tsx:24
@@ -555,20 +544,14 @@ msgid "Download the App"
 msgstr "Descargar la App"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:99
-#: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:32
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:82
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:98
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:80
 msgid "Email"
 msgstr "Email"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:79
-#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:71
+#: apps/web/src/components/auth/auth/auth-email-view.tsx:76
 msgid "Email address"
 msgstr "Dirección de email"
-
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:36
-msgid "Email copied to clipboard"
-msgstr "Email copiado al portapapeles"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
 msgid "Email link is invalid or has expired"
@@ -578,13 +561,9 @@ msgstr "El enlace de email no es válido o ha caducado"
 msgid "Email Verification Sent"
 msgstr "Verificación por email enviada"
 
-#: apps/web/src/components/checkout/checkout-success-view.tsx:30
+#: apps/web/src/components/checkout/checkout-success-view.tsx:29
 msgid "Enjoy unlimited access to all our premium features and content."
 msgstr "Disfruta de acceso ilimitado a todas nuestras funciones y contenido premium."
-
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:114
-msgid "Enter your message here..."
-msgstr "Escribe tu mensaje aquí..."
 
 #: apps/native/src/components/billing/hooks/use-paywall.ts:62
 #: apps/native/src/components/gates/force-update-gate.tsx:70
@@ -595,7 +574,7 @@ msgstr "Error"
 msgid "Error checking plan..."
 msgstr "Error al comprobar el plan..."
 
-#: apps/web/src/components/modal/modal-contents/something-went-wrong/something-went-wrong-modal-content.tsx:20
+#: apps/web/src/components/modal/modal-contents/something-went-wrong/something-went-wrong-modal-content.tsx:19
 msgid "error code: {userFacingErrorCode}"
 msgstr "código de error: {userFacingErrorCode}"
 
@@ -604,20 +583,20 @@ msgid "Error setting up account..."
 msgstr "Error al configurar la cuenta..."
 
 #: apps/native/src/hooks/api/user/user-hooks.ts:34
-#: apps/web/src/hooks/api/user/user-hooks.ts:30
+#: apps/web/src/hooks/api/user/user-hooks.ts:27
 msgid "Error setting up user data"
 msgstr "Error al configurar los datos del usuario"
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:70
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:67
 msgid "Even if you get charged you can request an unconditional refund. Just let us know by clicking the \"Contact Us\" button above."
 msgstr "Aunque se te cobre, puedes solicitar un reembolso incondicional. Solo tienes que avisarnos haciendo clic en el botón «Contáctanos» de arriba."
 
-#: apps/web/src/hooks/api/checkout/checkout-hooks.ts:22
+#: apps/web/src/hooks/api/checkout/checkout-hooks.ts:20
 msgid "Failed to create checkout session"
 msgstr "No se pudo crear la sesión de pago"
 
 #: apps/native/src/hooks/api/billing/billing-hooks.ts:11
-#: apps/web/src/hooks/api/billing/billing-hooks.ts:14
+#: apps/web/src/hooks/api/billing/billing-hooks.ts:12
 msgid "Failed to fetch subscription details"
 msgstr "Error al obtener los detalles de la suscripción"
 
@@ -652,10 +631,6 @@ msgstr "Gratis durante {NUMBER_OF_DAYS_IN_FREE_TRIAL} días"
 msgid "Free Trial"
 msgstr "Prueba gratuita"
 
-#: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:26
-msgid "Full Name"
-msgstr "Nombre completo"
-
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:45
 msgid "Get Started"
 msgstr "Empezar"
@@ -664,13 +639,17 @@ msgstr "Empezar"
 msgid "Get the App"
 msgstr "Obtener la App"
 
+#: apps/web/src/components/checkout/checkout-success-view.tsx:33
+msgid "Go to Dashboard"
+msgstr ""
+
 #: apps/native/src/components/gates/auth/email-auth.tsx:112
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:89
 msgid "Have an account?"
 msgstr "¿Tienes cuenta?"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:79
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:53
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:52
 msgid "Help us improve TemplateApp"
 msgstr "Ayúdanos a mejorar TemplateApp"
 
@@ -679,7 +658,7 @@ msgstr "Ayúdanos a mejorar TemplateApp"
 msgid "Home"
 msgstr "Inicio"
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:55
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:54
 msgid "How your free trial works"
 msgstr "Cómo funciona tu prueba gratuita"
 
@@ -691,7 +670,7 @@ msgstr "Si tienes alguna pregunta sobre estos Términos de Servicio, contáctano
 msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
 msgstr "Si tienes alguna pregunta sobre esta Política de Privacidad, contáctanos por correo electrónico: contact@template-app.com"
 
-#: apps/web/src/components/auth/account-removed-success-view.tsx:30
+#: apps/web/src/components/auth/account-removed-success-view.tsx:29
 msgid "If you'd like to create a new account, sign up again below."
 msgstr "Si deseas crear una nueva cuenta, regístrate nuevamente a continuación."
 
@@ -715,7 +694,7 @@ msgstr "Iniciando pagos..."
 msgid "Initializing..."
 msgstr "Inicializando..."
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:63
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:60
 msgid "Introduce your card details and get instant access"
 msgstr "Introduce los datos de tu tarjeta y obtén acceso inmediato"
 
@@ -727,11 +706,7 @@ msgstr "Token inválido. Por favor, inicia sesión nuevamente."
 msgid "iOS App"
 msgstr "App iOS"
 
-#: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:56
-msgid "Join our Discord"
-msgstr "Únete a nuestro Discord"
-
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:66
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:63
 msgid "Last day to cancel before first charge"
 msgstr "Último día para cancelar antes del primer cobro"
 
@@ -739,7 +714,7 @@ msgstr "Último día para cancelar antes del primer cobro"
 msgid "Lifetime"
 msgstr "De por vida"
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:74
+#: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:74
 msgid "Link expired or invalid"
 msgstr ""
 
@@ -751,7 +726,7 @@ msgstr "enlace para completar tu registro"
 msgid "link to sign in"
 msgstr "enlace para iniciar sesión"
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:77
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:73
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
 msgid "Loading..."
@@ -766,12 +741,8 @@ msgstr "Gestionar suscripción"
 msgid "Master perfect pronunciation with AI-powered voice cloning. Practice speaking in your target language with your own voice. Try our free trial today!"
 msgstr "Domina la pronunciación perfecta con clonación de voz impulsada por IA. Practica hablar en tu idioma objetivo con tu propia voz. ¡Prueba nuestra prueba gratuita hoy!"
 
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:111
-msgid "Message"
-msgstr "Mensaje"
-
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:81
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:64
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:63
 msgid "Message to the founders"
 msgstr "Mensaje para los fundadores"
 
@@ -784,13 +755,8 @@ msgstr "Mensual"
 msgid "Most Popular"
 msgstr "Más Popular"
 
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:81
-msgid "Name"
-msgstr "Nombre"
-
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:117
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:101
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:77
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:94
 msgid "Name (optional)"
 msgstr "Nombre (opcional)"
 
@@ -815,10 +781,6 @@ msgstr "O"
 msgid "or copy links to"
 msgstr "o copiar enlaces a"
 
-#: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:58
-msgid "or send us an email"
-msgstr "o envíanos un email"
-
 #: apps/native/src/app/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/index.tsx:24
 msgid "Our Exercises"
 msgstr "Nuestros ejercicios"
@@ -836,8 +798,8 @@ msgid "Please check your inbox and click on the"
 msgstr "Por favor, revisa tu bandeja de entrada y haz clic en el"
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:94
-#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:40
-#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:76
+#: apps/web/src/components/auth/auth/auth-email-view.tsx:45
+#: apps/web/src/components/auth/auth/auth-email-view.tsx:81
 msgid "Please enter a valid email address"
 msgstr "Introduce una dirección de email válida"
 
@@ -849,11 +811,11 @@ msgstr "Gestiona tu suscripción en nuestra web: {webAccountUrl}"
 msgid "Please manually update the app through your device's app store."
 msgstr "Actualiza la aplicación manualmente desde la tienda de tu dispositivo."
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:75
+#: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:75
 msgid "Please request a new verification link."
 msgstr ""
 
-#: apps/web/src/config/react-query-config.ts:37
+#: apps/web/src/config/react-query-config.ts:36
 msgid "Please try again or refresh the page."
 msgstr "Por favor, inténtalo de nuevo o actualiza la página."
 
@@ -885,8 +847,8 @@ msgstr "Política de privacidad"
 msgid "Profile"
 msgstr "Perfil"
 
-#: apps/web/src/components/modal/modal-contents/refresh-button.tsx:21
-#: apps/web/src/config/react-query-config.ts:39
+#: apps/web/src/components/modal/modal-contents/refresh-button.tsx:17
+#: apps/web/src/config/react-query-config.ts:38
 msgid "Refresh"
 msgstr "Actualizar"
 
@@ -899,8 +861,7 @@ msgid "Scan the QR code to download the app"
 msgstr "Escanea el código QR para descargar la app"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:147
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:143
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:145
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:125
 msgid "Send Message"
 msgstr "Enviar mensaje"
 
@@ -910,9 +871,8 @@ msgstr "Enviando un email"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:142
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:77
-#: apps/web/src/components/auth/sign-in-up/auth-email-view.tsx:79
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:136
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:138
+#: apps/web/src/components/auth/auth/auth-email-view.tsx:84
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:118
 msgid "Sending..."
 msgstr "Enviando..."
 
@@ -921,7 +881,7 @@ msgid "Setting up account..."
 msgstr "Configurando la cuenta..."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:80
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:54
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:53
 msgid "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 msgstr "Comparte tus comentarios o sugiere mejoras a los fundadores. ¡Leemos y respondemos a todos los mensajes!"
 
@@ -944,20 +904,20 @@ msgstr "Iniciar sesión con Google"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:55
 #: apps/native/src/components/ui/drawer.tsx:227
-#: apps/web/src/components/dashboard/dashboard-view.tsx:30
-#: apps/web/src/components/pricing/pricing-view.tsx:233
+#: apps/web/src/components/dashboard/dashboard-view.tsx:32
+#: apps/web/src/components/pricing/pricing-view.tsx:180
 msgid "Sign out"
 msgstr "Cerrar sesión"
 
-#: apps/web/src/components/dashboard/dashboard-view.tsx:21
-#: apps/web/src/components/pricing/pricing-view.tsx:162
+#: apps/web/src/components/dashboard/dashboard-view.tsx:23
+#: apps/web/src/components/pricing/pricing-view.tsx:113
 msgid "Sign out success"
 msgstr ""
 
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
-#: apps/web/src/components/auth/account-removed-success-view.tsx:35
+#: apps/web/src/components/auth/account-removed-success-view.tsx:34
 msgid "Sign up"
 msgstr "Crear cuenta"
 
@@ -982,11 +942,11 @@ msgstr ""
 msgid "Something went wrong"
 msgstr "Algo salió mal"
 
-#: apps/web/src/config/react-query-config.ts:31
+#: apps/web/src/config/react-query-config.ts:30
 msgid "Something went wrong."
 msgstr "Algo salió mal."
 
-#: apps/web/src/components/modal/modal-contents/something-went-wrong/something-went-wrong-modal-content.tsx:19
+#: apps/web/src/components/modal/modal-contents/something-went-wrong/something-went-wrong-modal-content.tsx:18
 msgid "Something went wrong. Please refresh the page and try again."
 msgstr "Algo ha salido mal. Actualiza la página e inténtalo de nuevo."
 
@@ -994,7 +954,7 @@ msgstr "Algo ha salido mal. Actualiza la página e inténtalo de nuevo."
 msgid "Start"
 msgstr ""
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:77
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:73
 #: apps/web/src/components/pricing/pricing-view-utils.ts:91
 #: apps/web/src/components/pricing/pricing-view-utils.ts:111
 #: apps/web/src/components/pricing/pricing-view-utils.ts:113
@@ -1009,10 +969,6 @@ msgstr "Iniciar Prueba Gratuita"
 msgid "Start mastering"
 msgstr "Empieza a dominar"
 
-#: apps/web/src/components/checkout/checkout-success-view.tsx:35
-msgid "Start Practicing"
-msgstr "Empezar a practicar"
-
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:186
 msgid "Subscribe Now"
 msgstr "Suscribirse Ahora"
@@ -1023,17 +979,17 @@ msgstr "Suscribirse Ahora"
 msgid "Subscription Required"
 msgstr "Suscripción necesaria"
 
-#: apps/web/src/components/checkout/checkout-success-view.tsx:23
+#: apps/web/src/components/checkout/checkout-success-view.tsx:25
 msgid "Subscription Successful!"
 msgstr "¡Suscripción exitosa!"
 
 #: apps/native/src/config/react-query-config.ts:134
-#: apps/web/src/config/react-query-config.ts:122
+#: apps/web/src/config/react-query-config.ts:121
 msgid "Success!"
 msgstr "¡Éxito!"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:90
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:68
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:67
 msgid "Tell us what you think or describe any issues you encountered..."
 msgstr "Cuéntanos qué piensas o describe cualquier problema que hayas encontrado..."
 
@@ -1080,7 +1036,7 @@ msgstr "ellos mismos. Cada usuario debe tener el derecho legal de usar todos los
 msgid "There was an error sending the verification email. Please try again."
 msgstr "Hubo un error al enviar el correo de verificación. Por favor, inténtalo de nuevo."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:137
+#: apps/web/src/components/pricing/pricing-view.tsx:88
 msgid "There was an error. Please contact support."
 msgstr "Se ha producido un error. Contacta con soporte."
 
@@ -1092,7 +1048,7 @@ msgstr "Esta acción no se puede deshacer. Se eliminarán de forma permanente tu
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
 msgstr "Este sistema de eliminación automatizado está accesible 24/7 a través de tu panel de cuenta seguro. Para asistencia adicional, nuestro equipo dedicado de privacidad está disponible en contact@template-app.com para procesar tus solicitudes con el mismo nivel de inmediatez y minuciosidad."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:89
+#: apps/web/src/components/pricing/pricing-view.tsx:40
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
 msgstr "Para cambiar tu tipo de plan actual, haz clic en «Gestionar suscripción»."
 
@@ -1100,7 +1056,7 @@ msgstr "Para cambiar tu tipo de plan actual, haz clic en «Gestionar suscripció
 msgid "To continue using the app and access all features, see our plans. All of them provide a free trial."
 msgstr "Para seguir usando la aplicación y acceder a todas las funciones, consulta nuestros planes. Todos incluyen un periodo de prueba gratuito."
 
-#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:63
+#: apps/web/src/components/pricing/free-trial-explanation-view.tsx:60
 msgid "Today"
 msgstr "Hoy"
 
@@ -1154,7 +1110,7 @@ msgid "User"
 msgstr "Usuario"
 
 #: apps/native/src/hooks/api/user/user-hooks.ts:33
-#: apps/web/src/hooks/api/user/user-hooks.ts:29
+#: apps/web/src/hooks/api/user/user-hooks.ts:26
 msgid "User setup complete"
 msgstr "Configuración de usuario completada"
 
@@ -1166,11 +1122,11 @@ msgstr "Los usuarios conservan todos los derechos sobre cualquier contenido que 
 msgid "Verification successful! Redirecting..."
 msgstr "Verificación correcta. Redirigiendo..."
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:82
+#: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:82
 msgid "Verify"
 msgstr "Verificar"
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:80
+#: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:80
 msgid "Verify your email"
 msgstr ""
 
@@ -1179,7 +1135,7 @@ msgid "Verify Your Email"
 msgstr "Verifica tu email"
 
 #: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:81
-#: apps/web/src/components/auth/sign-in-up/auth-email-verify-view.tsx:82
+#: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:82
 msgid "Verifying..."
 msgstr "Verificando..."
 
@@ -1208,7 +1164,7 @@ msgid "We will retain your Personal Data only for as long as is necessary for th
 msgstr "Conservaremos tus Datos Personales solo durante el tiempo necesario para los propósitos establecidos en esta Política de Privacidad. Conservaremos y usaremos tus Datos Personales en la medida necesaria para cumplir con nuestras obligaciones legales, resolver disputas y hacer cumplir nuestros acuerdos y políticas legales."
 
 #: apps/native/src/app/(auth)/account/removed.tsx:19
-#: apps/web/src/components/auth/account-removed-success-view.tsx:28
+#: apps/web/src/components/auth/account-removed-success-view.tsx:27
 msgid "We're sorry to see you go. Your account has been successfully removed."
 msgstr "Lamentamos que te vayas. Tu cuenta ha sido eliminada exitosamente."
 
@@ -1216,7 +1172,7 @@ msgstr "Lamentamos que te vayas. Tu cuenta ha sido eliminada exitosamente."
 msgid "We've sent a verification email to:"
 msgstr "Hemos enviado un email de verificación a:"
 
-#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:20
+#: apps/web/src/components/auth/auth/auth-email-sent-view.tsx:20
 msgid "We've sent a verification link to:"
 msgstr ""
 
@@ -1233,7 +1189,7 @@ msgstr "Anual"
 msgid "You are a special user with free access. You have no active subscription."
 msgstr "Eres un usuario especial con acceso gratuito. No tienes ninguna suscripción activa."
 
-#: apps/web/src/components/checkout/checkout-success-view.tsx:29
+#: apps/web/src/components/checkout/checkout-success-view.tsx:26
 msgid "You are now subscribed to Premium!"
 msgstr "¡Ahora estás suscrito a Premium!"
 
@@ -1241,7 +1197,7 @@ msgstr "¡Ahora estás suscrito a Premium!"
 msgid "You can try again in {countdown} seconds"
 msgstr "Puedes intentarlo de nuevo en {countdown} segundos"
 
-#: apps/web/src/components/pricing/pricing-view.tsx:87
+#: apps/web/src/components/pricing/pricing-view.tsx:38
 msgid "You have already used your free trial."
 msgstr "Ya has utilizado tu periodo de prueba gratuito."
 
@@ -1258,25 +1214,13 @@ msgstr "Has utilizado tu periodo de prueba gratuito"
 msgid "Your account has been deleted successfully."
 msgstr "Tu cuenta se ha eliminado correctamente."
 
-#: apps/web/src/components/modal/modal-contents/account-modal/account-modal-content.tsx:21
-msgid "Your account information and settings."
-msgstr "Información de tu cuenta y configuración."
-
 #: apps/web/src/components/pricing/pricing-view-utils.ts:94
 msgid "Your current plan"
 msgstr "Tu plan actual"
 
-#: apps/web/src/components/modal/modal-contents/contact/contact-form.tsx:94
-msgid "Your email"
-msgstr "Tu email"
-
-#: apps/web/src/components/auth/sign-in-up/auth-email-sent-view.tsx:10
+#: apps/web/src/components/auth/auth/auth-email-sent-view.tsx:10
 msgid "your email address"
 msgstr "tu dirección de correo electrónico"
-
-#: apps/web/src/components/modal/modal-contents/contact/contact-modal-content.tsx:46
-msgid "Your email has been sent!"
-msgstr "¡Tu email ha sido enviado!"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:100
 msgid "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
@@ -1287,7 +1231,7 @@ msgid "Your Learning Streak"
 msgstr "Tu racha de aprendizaje"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:126
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:106
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:96
 msgid "Your name"
 msgstr "Tu nombre"
 
@@ -1296,6 +1240,6 @@ msgid "your pronunciation"
 msgstr "tu pronunciación"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:108
-#: apps/web/src/components/modal/modal-contents/contact-us-modal-content.tsx:88
+#: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:82
 msgid "your@email.com"
 msgstr "tunombre@email.com"

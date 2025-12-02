@@ -432,7 +432,7 @@ msgstr "Vérification du plan..."
 msgid "Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training."
 msgstr "Choisissez le plan parfait pour votre parcours d'entraînement à l'accent. Options de tarification flexibles pour vous aider à atteindre votre accent parfait grâce à l'entraînement vocal propulsé par l'IA."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:174
+#: apps/web/src/components/pricing/pricing-view.tsx:188
 msgid "Choose your plan"
 msgstr "Choisissez votre forfait"
 
@@ -527,7 +527,7 @@ msgstr "Zone Dangereuse"
 msgid "Dashboard"
 msgstr ""
 
-#: apps/web/src/components/dashboard/dashboard-view.tsx:25
+#: apps/web/src/components/dashboard/dashboard-view.tsx:26
 msgid "Dashboard."
 msgstr ""
 
@@ -942,11 +942,13 @@ msgstr "Se connecter avec Google"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:55
 #: apps/native/src/components/ui/drawer.tsx:227
-#: apps/web/src/components/dashboard/dashboard-view.tsx:32
+#: apps/web/src/components/dashboard/dashboard-view.tsx:30
+#: apps/web/src/components/pricing/pricing-view.tsx:233
 msgid "Sign out"
 msgstr "Déconnexion"
 
-#: apps/web/src/components/dashboard/dashboard-view.tsx:20
+#: apps/web/src/components/dashboard/dashboard-view.tsx:21
+#: apps/web/src/components/pricing/pricing-view.tsx:162
 msgid "Sign out success"
 msgstr ""
 
@@ -1076,7 +1078,7 @@ msgstr "eux-mêmes. Chaque utilisateur doit avoir le droit légal d'utiliser tou
 msgid "There was an error sending the verification email. Please try again."
 msgstr "Une erreur s'est produite lors de l'envoi de l'e-mail de vérification. Veuillez réessayer."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:132
+#: apps/web/src/components/pricing/pricing-view.tsx:137
 msgid "There was an error. Please contact support."
 msgstr "Il y a eu une erreur. Veuillez contacter le support."
 
@@ -1088,7 +1090,7 @@ msgstr "Cette action est irréversible. Cela supprimera définitivement votre co
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
 msgstr "Ce système de suppression automatisé est accessible 24h/24 et 7j/7 via votre tableau de bord de compte sécurisé. Pour une assistance supplémentaire, notre équipe dédiée à la confidentialité est disponible à contact@template-app.com pour traiter vos demandes avec le même niveau d'immédiateté et de minutie."
 
-#: apps/web/src/components/pricing/pricing-view.tsx:84
+#: apps/web/src/components/pricing/pricing-view.tsx:89
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
 msgstr "Pour changer votre plan actuel, veuillez cliquer sur \"Gérer l'Abonnement\"."
 
@@ -1237,7 +1239,7 @@ msgstr "Vous êtes maintenant abonné à Premium !"
 msgid "You can try again in {countdown} seconds"
 msgstr "Vous pourrez réessayer dans {countdown} secondes"
 
-#: apps/web/src/components/pricing/pricing-view.tsx:82
+#: apps/web/src/components/pricing/pricing-view.tsx:87
 msgid "You have already used your free trial."
 msgstr "Vous avez déjà utilisé votre essai gratuit."
 

@@ -1,11 +1,10 @@
-import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../shadcn/dialog'
-import { Button } from '../../design-system/button'
+import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../../shadcn/dialog'
 import { Loader2, Send } from 'lucide-react'
-import { Textarea } from '../../shadcn/textarea'
-import { Input } from '../../shadcn/input'
+import { Textarea } from '../../../shadcn/textarea'
+import { Input } from '../../../shadcn/input'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../shadcn/form'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../../shadcn/form'
 import { z } from 'zod'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { formSchema } from '@template-app/api-client/orpc-contracts/contact-email-contract'
@@ -13,6 +12,7 @@ import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { useAuthStore, getUserEmail, getUserName } from '@/stores/auth-store'
 import { useModalStore } from '@/stores/modal-store'
+import { Button } from '@/components/shadcn/button'
 
 export const ContactUsModalContent = () => {
   const { t } = useLingui()
@@ -47,7 +47,7 @@ export const ContactUsModalContent = () => {
   }
 
   return (
-    <DialogContent className='w-11/12 rounded-xl bg-white p-8 sm:max-w-md'>
+    <DialogContent>
       <DialogHeader>
         <DialogTitle>{t`Help us improve TemplateApp`}</DialogTitle>
         <p className='text-sm text-gray-500'>{t`Share your feedback or suggest improvements to the founders. We read and reply to every submission!`}</p>
@@ -60,12 +60,11 @@ export const ContactUsModalContent = () => {
             name='message'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-sm font-medium text-gray-700'>{t`Message to the founders`}</FormLabel>
+                <FormLabel>{t`Message to the founders`}</FormLabel>
                 <FormControl>
                   <Textarea
                     {...field}
                     placeholder={t`Tell us what you think or describe any issues you encountered...`}
-                    className='mt-1 min-h-[120px] resize-none rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500'
                   />
                 </FormControl>
                 <FormMessage />
@@ -78,14 +77,9 @@ export const ContactUsModalContent = () => {
             name='email'
             render={({ field }) => (
               <FormItem>
-                <FormLabel className='text-sm font-medium text-gray-700'>{t`Email`}</FormLabel>
+                <FormLabel>{t`Email`}</FormLabel>
                 <FormControl>
-                  <Input
-                    {...field}
-                    type='email'
-                    className='mt-1 block w-full rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500'
-                    placeholder={t`your@email.com`}
-                  />
+                  <Input {...field} type='email' placeholder={t`your@email.com`} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -97,13 +91,9 @@ export const ContactUsModalContent = () => {
             name='username'
             render={({ field }) => (
               <FormItem className='pb-4'>
-                <FormLabel className='text-sm font-medium text-gray-700'>{t`Name (optional)`}</FormLabel>
+                <FormLabel>{t`Name (optional)`}</FormLabel>
                 <FormControl>
-                  <Input
-                    {...field}
-                    className='mt-1 block w-full rounded-xl border-gray-200 focus:border-indigo-500 focus:ring-indigo-500'
-                    placeholder={t`Your name`}
-                  />
+                  <Input {...field} placeholder={t`Your name`} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -111,23 +101,16 @@ export const ContactUsModalContent = () => {
           />
 
           <div className='flex justify-end gap-3'>
-            <Button
-              onClick={() => closeModal()}
-              type='button'
-              className='border border-gray-200 bg-white px-6 text-gray-700 hover:bg-gray-50'
-            >
+            <Button variant='outline' onClick={() => closeModal()} type='button'>
               {t`Cancel`}
             </Button>
             <Button
               type='submit'
               disabled={isPending}
-              className={cn(
-                'w-full rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-500 px-4 py-2 font-medium text-white',
-                {
-                  'cursor-not-allowed bg-gray-500': isPending || isSuccess,
-                  'bg-red-500 hover:bg-red-600': isError,
-                }
-              )}
+              className={cn({
+                'cursor-not-allowed bg-gray-500': isPending || isSuccess,
+                'bg-red-500 hover:bg-red-600': isError,
+              })}
             >
               {isPending ? (
                 <>

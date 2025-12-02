@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
-import { Circle, LogOut } from 'lucide-react'
+import { LogOut } from 'lucide-react'
 import posthog from 'posthog-js'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { Button } from '../design-system/button.tsx'
-import { Button as ShadcnButton } from '../shadcn/button.tsx'
-import { Card } from '../design-system/card.tsx'
-import { getPricingViewConfig, PlanOption, PricingViewConfig } from './pricing-view-utils.ts'
+import { Button } from '../shadcn/button.tsx'
+import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
+import { RadioGroup, RadioGroupItem } from '../shadcn/radio-group.tsx'
+import { Label } from '../shadcn/label.tsx'
+import { Badge } from '../shadcn/badge.tsx'
+import { getPricingViewConfig, PricingViewConfig } from './pricing-view-utils.ts'
 import { toast } from 'sonner'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
 import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
-import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useNavigate } from 'react-router-dom'
 import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
@@ -22,55 +23,6 @@ import { useLingui } from '@lingui/react/macro'
 import { queryClient } from '@/config/react-query-config'
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
 import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
-
-const LeftPartOfButton = ({ option, isChosen }: { option: PlanOption; isChosen: boolean }) => {
-  const desktopVersion = (
-    <div className='hidden items-center md:flex'>
-      <div className='mr-2'>
-        {isChosen ? (
-          <Circle className='h-5 w-5 fill-indigo-600 text-indigo-600' />
-        ) : (
-          <Circle className='h-5 w-5 text-gray-400' />
-        )}
-      </div>
-      <div>
-        <span>{option.label}</span>
-        {option.additionalMessage && (
-          <span className='ml-2 rounded-full bg-indigo-100 px-2 py-1 text-sm font-medium text-indigo-800'>
-            {option.additionalMessage}
-          </span>
-        )}
-      </div>
-    </div>
-  )
-
-  const mobileVersion = (
-    <div className='flex flex-col items-start gap-y-2 md:hidden'>
-      <div className='flex items-center'>
-        <div className='mr-2'>
-          {isChosen ? (
-            <Circle className='h-5 w-5 fill-indigo-600 text-indigo-600' />
-          ) : (
-            <Circle className='h-5 w-5 text-gray-400' />
-          )}
-        </div>
-        <span>{option.label}</span>
-      </div>
-      {option.additionalMessage && (
-        <span className='rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-800'>
-          {option.additionalMessage}
-        </span>
-      )}
-    </div>
-  )
-
-  return (
-    <>
-      {desktopVersion}
-      {mobileVersion}
-    </>
-  )
-}
 
 export const PricingView = () => {
   const { t } = useLingui()
@@ -181,56 +133,52 @@ export const PricingView = () => {
   })
 
   return (
-    <div className='mx-auto flex w-full max-w-6xl flex-col items-center gap-y-4 px-1 py-4 md:gap-y-8 md:px-4 md:py-8'>
-      <Card className='max-w-2xl p-0 shadow'>
-        <div className='px-6 py-4 md:py-8'>
-          <h1 className='w-full text-center text-3xl font-bold text-stone-800'>{t`Choose your plan`}</h1>
-        </div>
-        <div className='px-2 pb-2 md:px-6 md:pb-6'>
-          <div className='mb-6 flex flex-col gap-y-4'>
-            {pricingViewConfig.plans.map((option) => {
-              return (
-                <Button
-                  key={option.value}
-                  onClick={() => handlePlanOptionClick(option.value as PlanType)}
-                  className={cn('flex h-auto min-h-20 justify-between rounded-lg border px-2 py-4 md:px-4', {
-                    'border-indigo-600 bg-indigo-50': clickedPlan === option.value,
-                    'border-gray-200': clickedPlan === option.value,
-                    'opacity-60': clickedPlan !== option.value && isPremiumUser,
-                  })}
-                  shouldHaveHoverAndActiveStyles={!isPremiumUser}
-                >
-                  <LeftPartOfButton option={option} isChosen={clickedPlan === option.value} />
-                  <div className='text-right'>
-                    <div className='font-semibold'>{option.priceMessage}</div>
-                    {option.discountMessage && <div className='text-sm text-green-600'>{option.discountMessage}</div>}
-                    {option.billedYearly && <div className='text-sm text-gray-500'>{option.billedYearly}</div>}
+    <div className='mx-auto flex w-full max-w-md flex-col items-center gap-4 p-4'>
+      <Card className='w-full'>
+        <CardHeader>
+          <CardTitle className='text-center'>{t`Choose your plan`}</CardTitle>
+        </CardHeader>
+        <CardContent className='flex flex-col gap-6'>
+          <RadioGroup
+            value={clickedPlan ?? undefined}
+            onValueChange={(value) => handlePlanOptionClick(value as PlanType)}
+            disabled={isPremiumUser}
+          >
+            {pricingViewConfig.plans.map((option) => (
+              <div key={option.value ?? 'none'} className='flex items-start space-x-3 rounded-lg border p-4'>
+                <RadioGroupItem value={option.value ?? ''} id={option.value ?? undefined} />
+                <div className='flex flex-1 flex-col gap-1'>
+                  <div className='flex items-center gap-2'>
+                    <Label htmlFor={option.value ?? undefined} className='cursor-pointer font-medium'>
+                      {option.label}
+                    </Label>
+                    {option.additionalMessage && <Badge variant='secondary'>{option.additionalMessage}</Badge>}
                   </div>
-                </Button>
-              )
-            })}
-          </div>
+                  <div className='text-sm font-semibold'>{option.priceMessage}</div>
+                  {option.discountMessage && <div className='text-sm text-green-600'>{option.discountMessage}</div>}
+                  {option.billedYearly && <div className='text-sm text-muted-foreground'>{option.billedYearly}</div>}
+                </div>
+              </div>
+            ))}
+          </RadioGroup>
 
-          <div className='flex w-full flex-col gap-y-4'>
-            <Button
-              className='h-12 w-full bg-green-500 text-lg text-white'
-              onClick={handleCTAClick}
-              disabled={pricingViewConfig.subscribeButton.isDisabled}
-            >
+          <div className='flex flex-col gap-2'>
+            <Button onClick={handleCTAClick} disabled={pricingViewConfig.subscribeButton.isDisabled}>
               {pricingViewConfig.subscribeButton.text}
             </Button>
             {pricingViewConfig.startButton.shouldBeShown && (
-              <Button className='h-12 w-full bg-indigo-600 text-lg text-white' onClick={handleGoPracticeNowClick}>
+              <Button variant='secondary' onClick={handleGoPracticeNowClick}>
                 {pricingViewConfig.startButton.text}
               </Button>
             )}
           </div>
-        </div>
+        </CardContent>
       </Card>
-      <ShadcnButton variant='ghost' onClick={handleSignOut}>
-        <LogOut size={20} />
-        <span>{t`Sign out`}</span>
-      </ShadcnButton>
+
+      <Button variant='ghost' onClick={handleSignOut}>
+        <LogOut size={16} />
+        {t`Sign out`}
+      </Button>
     </div>
   )
 }

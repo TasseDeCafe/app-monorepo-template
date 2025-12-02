@@ -1,5 +1,5 @@
-import { Button } from '../../design-system/button'
 import { useLingui } from '@lingui/react/macro'
+import { Button } from '@/components/shadcn/button'
 
 interface RefreshButtonProps {
   disabled?: boolean
@@ -13,11 +13,7 @@ export const RefreshButton = ({ disabled }: RefreshButtonProps) => {
   }
 
   return (
-    <Button
-      onClick={handleRefresh}
-      disabled={disabled}
-      className='h-10 border bg-indigo-600 px-4 text-white disabled:bg-gray-400'
-    >
+    <Button variant='default' onClick={handleRefresh} disabled={disabled}>
       {t`Refresh`}
     </Button>
   )

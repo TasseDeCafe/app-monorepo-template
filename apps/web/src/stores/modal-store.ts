@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
-import { ACCOUNT_MODAL_ID, DANGER_ZONE_MODAL_ID, SOMETHING_WENT_WRONG_MODAL_ID } from '@/components/modal/modal-ids'
+import { SOMETHING_WENT_WRONG_MODAL_ID } from '@/components/modal/modal-ids'
 import { isHashEnabledModalId } from '@/components/modal/modal-utils'
 
 type ModalStore = {
@@ -14,7 +14,7 @@ type ModalStore = {
   setIsHashLoaded: (loaded: boolean) => void
 }
 
-export const useModalStore = create<ModalStore>((set, get) => ({
+export const useModalStore = create<ModalStore>((set) => ({
   modalId: '',
   isOpen: false,
   isHashLoaded: false,
@@ -33,12 +33,7 @@ export const useModalStore = create<ModalStore>((set, get) => ({
   },
 
   closeModal: () => {
-    const currentModalId = get().modalId
-    if ([DANGER_ZONE_MODAL_ID].includes(currentModalId)) {
-      set({ modalId: ACCOUNT_MODAL_ID })
-    } else {
-      set({ isOpen: false })
-    }
+    set({ isOpen: false })
   },
 
   setIsHashLoaded: (loaded) => {

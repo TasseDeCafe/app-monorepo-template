@@ -1,9 +1,9 @@
-import { Button } from '../design-system/button.tsx'
 import { CONTACT_US_MODAL_ID } from '../modal/modal-ids'
 import { useLingui } from '@lingui/react/macro'
 import { useModalStore } from '@/stores/modal-store'
+import { Button } from '@/components/shadcn/button'
 
-export const NavbarContactButton = () => {
+export const ContactUsButton = () => {
   const openModal = useModalStore((state) => state.openModal)
   const { t } = useLingui()
 
@@ -12,10 +12,7 @@ export const NavbarContactButton = () => {
   }
 
   return (
-    <Button
-      onClick={handleContactUsClick}
-      className='flex h-10 items-center border border-gray-200 bg-white px-2 text-gray-700 hover:bg-gray-50 md:px-4'
-    >
+    <Button variant='default' onClick={handleContactUsClick}>
       {t`Contact Us`}
     </Button>
   )

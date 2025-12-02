@@ -1,13 +1,12 @@
 import { RefreshButton } from '../refresh-button.tsx'
 import { DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '../../../shadcn/dialog.tsx'
-import { selectUserFacingErrorCode } from '../../../../state/slices/modal-slice.ts'
-import { useSelector } from 'react-redux'
 import { useLingui } from '@lingui/react/macro'
+import { useModalStore } from '@/stores/modal-store'
 
 export const SomethingWentWrongModalContent = () => {
   const { t } = useLingui()
 
-  const userFacingErrorCode = useSelector(selectUserFacingErrorCode)
+  const userFacingErrorCode = useModalStore((state) => state.userFacingErrorCode)
 
   return (
     <>

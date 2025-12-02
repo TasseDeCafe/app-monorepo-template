@@ -1,15 +1,14 @@
-import { useDispatch } from 'react-redux'
 import { Button } from '../design-system/button.tsx'
-import { modalActions } from '@/state/slices/modal-slice'
 import { CONTACT_US_MODAL_ID } from '../modal/modal-ids'
 import { useLingui } from '@lingui/react/macro'
+import { useModalStore } from '@/stores/modal-store'
 
 export const NavbarContactButton = () => {
-  const dispatch = useDispatch()
+  const openModal = useModalStore((state) => state.openModal)
   const { t } = useLingui()
 
   const handleContactUsClick = () => {
-    dispatch(modalActions.openModal(CONTACT_US_MODAL_ID))
+    openModal(CONTACT_US_MODAL_ID)
   }
 
   return (

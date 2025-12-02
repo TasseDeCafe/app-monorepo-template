@@ -1,10 +1,10 @@
-import { selectIsBackendUserInfoLoaded, selectReferral } from '@/state/slices/account-slice'
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths'
 import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
+import { useTrackingStore } from '@/stores/tracking-store'
+import { useAuthStore } from '@/stores/auth-store'
 
 // This component is reached after the route /from-landing.
 // We want to redirect users who clicked on the premium button on the landing page to be directed to the checkout page
@@ -13,13 +13,13 @@ import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 export const RedirectToCheckOut = () => {
   const navigate = useNavigate()
   const params = useParams<{ planInterval: string }>()
-  const referral = useSelector(selectReferral)
-  const isBackendUserInfoLoaded = useSelector(selectIsBackendUserInfoLoaded)
+  const referral = useTrackingStore((state) => state.referral)
+  const isUserSetupComplete = useAuthStore((state) => state.isUserSetupComplete)
 
   const { mutate } = useCheckoutMutation()
 
   useEffect(() => {
-    if (isBackendUserInfoLoaded) {
+    if (isUserSetupComplete) {
       if (params.planInterval) {
         const calculatedPlanInterval: 'month' | 'year' = params.planInterval === 'month' ? 'month' : 'year'
         if (referral) {
@@ -35,7 +35,7 @@ export const RedirectToCheckOut = () => {
         navigate(ROUTE_PATHS.DASHBOARD)
       }
     }
-  }, [params.planInterval, mutate, isBackendUserInfoLoaded, referral, navigate])
+  }, [params.planInterval, mutate, isUserSetupComplete, referral, navigate])
 
   return <FullViewLoader />
 }

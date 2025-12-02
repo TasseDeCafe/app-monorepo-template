@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom/client'
 import { logWithSentry } from './analytics/sentry/log-with-sentry'
 import { App } from './app'
 import './index.css'
-import { loadPersistedStateFromAllSourcesExceptForTheBackend } from './state/persistence/load-persisted-state-from-all-sources-except-for-the-backend.ts'
+import { useTrackingStore } from './stores/tracking-store'
 
 window.addEventListener('vite:preloadError', (event: VitePreloadErrorEvent) => {
   // https://vite.dev/guide/build#load-error-handling
@@ -12,7 +12,8 @@ window.addEventListener('vite:preloadError', (event: VitePreloadErrorEvent) => {
   window.location.reload()
 })
 
-loadPersistedStateFromAllSourcesExceptForTheBackend()
+// Initialize tracking params from URL (localStorage values are automatically loaded by Zustand persist)
+useTrackingStore.getState().initializeFromUrl()
 
 const container = document.getElementById('root')
 

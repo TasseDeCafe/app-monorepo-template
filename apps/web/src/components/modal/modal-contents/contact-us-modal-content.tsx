@@ -1,11 +1,8 @@
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../shadcn/dialog'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectEmail, selectName } from '@/state/slices/account-slice'
 import { Button } from '../../design-system/button'
 import { Loader2, Send } from 'lucide-react'
 import { Textarea } from '../../shadcn/textarea'
 import { Input } from '../../shadcn/input'
-import { modalActions } from '@/state/slices/modal-slice'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../shadcn/form'
@@ -14,13 +11,15 @@ import { cn } from '@template-app/core/utils/tailwind-utils'
 import { formSchema } from '@template-app/api-client/orpc-contracts/contact-email-contract'
 import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
+import { useAuthStore, getUserEmail, getUserName } from '@/stores/auth-store'
+import { useModalStore } from '@/stores/modal-store'
 
 export const ContactUsModalContent = () => {
   const { t } = useLingui()
 
-  const dispatch = useDispatch()
-  const userEmail = useSelector(selectEmail)
-  const username = useSelector(selectName)
+  const userEmail = useAuthStore(getUserEmail)
+  const username = useAuthStore(getUserName)
+  const closeModal = useModalStore((state) => state.closeModal)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,7 +38,7 @@ export const ContactUsModalContent = () => {
   } = useSendContactEmail({
     onSuccess: () => {
       form.reset()
-      dispatch(modalActions.closeModal())
+      closeModal()
     },
   })
 
@@ -113,7 +112,7 @@ export const ContactUsModalContent = () => {
 
           <div className='flex justify-end gap-3'>
             <Button
-              onClick={() => dispatch(modalActions.closeModal())}
+              onClick={() => closeModal()}
               type='button'
               className='border border-gray-200 bg-white px-6 text-gray-700 hover:bg-gray-50'
             >

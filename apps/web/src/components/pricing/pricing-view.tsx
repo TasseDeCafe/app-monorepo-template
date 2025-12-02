@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Circle, LogOut } from 'lucide-react'
-import { useSelector } from 'react-redux'
 import posthog from 'posthog-js'
-import { selectHasAllowedReferral } from '@/state/slices/account-slice.ts'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
@@ -23,6 +21,7 @@ import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { queryClient } from '@/config/react-query-config'
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
+import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
 
 const LeftPartOfButton = ({ option, isChosen }: { option: PlanOption; isChosen: boolean }) => {
   const desktopVersion = (
@@ -77,7 +76,7 @@ export const PricingView = () => {
   const { t } = useLingui()
 
   const [clickedPlan, setClickedPlan] = useState<PlanType>('year')
-  const hasAllowedReferral = useSelector(selectHasAllowedReferral)
+  const hasAllowedReferral = useTrackingStore(getHasAllowedReferral)
   const navigate = useNavigate()
 
   const handlePlanOptionClick = (planType: PlanType) => {

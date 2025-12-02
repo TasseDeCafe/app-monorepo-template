@@ -14,8 +14,7 @@ import { toast } from 'sonner'
 import { QueryMeta } from '@/hooks/api/hook-types'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
-import { store } from '@/state/store'
-import { modalActions } from '@/state/slices/modal-slice'
+import { useModalStore } from '@/stores/modal-store'
 import { ROUTE_PATHS } from '@/routing/route-paths'
 import { USER_FACING_ERROR_CODE } from '@/components/modal/modal-contents/something-went-wrong/types'
 import { RATE_LIMITING_MODAL_ID } from '@/components/modal/modal-ids'
@@ -31,7 +30,7 @@ const handleGenericApiError = (meta?: QueryMeta) => {
   const errorMessage = meta?.errorMessage ?? i18n._(msg`Something went wrong.`)
 
   if (showErrorModal) {
-    store.dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.GENERIC_ERROR))
+    useModalStore.getState().openErrorModal(USER_FACING_ERROR_CODE.GENERIC_ERROR)
   } else if (showErrorToast) {
     toast.error(errorMessage, {
       description: i18n._(msg`Please try again or refresh the page.`),
@@ -73,7 +72,7 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
   if (error.code === 'TOO_MANY_REQUESTS') {
     POSTHOG_EVENTS.rateLimitUser()
     if (showErrorModal) {
-      store.dispatch(modalActions.openModal(RATE_LIMITING_MODAL_ID))
+      useModalStore.getState().openModal(RATE_LIMITING_MODAL_ID)
     }
     return
   }
@@ -82,7 +81,7 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
     if (backendErrorCode === ERROR_CODE_FOR_INVALID_TOKEN) {
       POSTHOG_EVENTS.invalidTokenError()
       if (showErrorModal) {
-        store.dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.INVALID_TOKEN_ERROR))
+        useModalStore.getState().openErrorModal(USER_FACING_ERROR_CODE.INVALID_TOKEN_ERROR)
       }
       return
     }

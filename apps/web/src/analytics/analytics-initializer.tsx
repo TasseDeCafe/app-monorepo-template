@@ -1,32 +1,27 @@
 import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import {
-  selectEmail,
-  selectIsBackendUserInfoLoaded,
-  selectReferral,
-  selectUserId,
-} from '../state/slices/account-slice.ts'
-import { getConfig } from '../config/environment-config.ts'
+import { getConfig } from '@/config/environment-config'
 import { identifyUserForPosthog } from './posthog/posthog-initializer.ts'
 import { identifyUserWithSentry, initializeSentry } from './sentry/sentry-initializer.ts'
 import * as Sentry from '@sentry/react'
-import { checkIsTestUser } from '../utils/test-users-utils.ts'
+import { checkIsTestUser } from '@/utils/test-users-utils'
+import { useAuthStore, getUserId, getUserEmail } from '@/stores/auth-store'
+import { useTrackingStore } from '@/stores/tracking-store'
 
 export const AnalyticsInitializer = () => {
-  const userId = useSelector(selectUserId)
-  const isBackendUserInfoLoaded = useSelector(selectIsBackendUserInfoLoaded)
-  const referral = useSelector(selectReferral)
-  const email = useSelector(selectEmail)
+  const userId = useAuthStore(getUserId)
+  const isUserSetupComplete = useAuthStore((state) => state.isUserSetupComplete)
+  const referral = useTrackingStore((state) => state.referral)
+  const email = useAuthStore(getUserEmail)
   const isTestUser = checkIsTestUser(email)
 
   useEffect(() => {
-    if (userId && !isTestUser && isBackendUserInfoLoaded) {
+    if (userId && !isTestUser && isUserSetupComplete) {
       if (getConfig().posthogToken) {
         identifyUserForPosthog(userId, referral)
       }
     }
-    // we need isBackendUserInfoLoaded so that we know the real referral of the user
-  }, [isBackendUserInfoLoaded, userId, referral, isTestUser])
+    // we need isUserSetupComplete so that we know the real referral of the user
+  }, [isUserSetupComplete, userId, referral, isTestUser])
 
   useEffect(() => {
     if (userId) {

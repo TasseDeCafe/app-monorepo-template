@@ -1,13 +1,12 @@
 import { useCallback, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { selectIsHashLoaded, selectModalId, selectShouldUrlHaveModalHash } from '@/state/slices/modal-slice.ts'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { HASH_ENABLED_MODAL_IDS } from '../../modal/modal-ids.ts'
+import { useModalStore, getShouldUrlHaveModalHash } from '@/stores/modal-store'
 
 export const StateToHashSynchronizer = () => {
-  const modalId = useSelector(selectModalId)
-  const isHashLoaded = useSelector(selectIsHashLoaded)
-  const shouldUrlHaveModalHash = useSelector(selectShouldUrlHaveModalHash)
+  const modalId = useModalStore((state) => state.modalId)
+  const isHashLoaded = useModalStore((state) => state.isHashLoaded)
+  const shouldUrlHaveModalHash = useModalStore(getShouldUrlHaveModalHash)
   const navigate = useNavigate()
   const location = useLocation()
 

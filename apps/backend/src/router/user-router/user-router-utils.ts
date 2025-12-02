@@ -1,5 +1,7 @@
 import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants'
 export const processReferral = (referral: string | null | undefined): string | null => {
+  console.log('referral', referral)
+
   if (!referral) {
     return null
   }

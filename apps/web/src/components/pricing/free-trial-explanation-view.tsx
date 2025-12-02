@@ -1,5 +1,3 @@
-import { Button } from '../design-system/button.tsx'
-import { Card } from '../design-system/card.tsx'
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
@@ -11,14 +9,16 @@ import {
 } from '@template-app/core/constants/pricing-constants.ts'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
+import { Button } from '../shadcn/button.tsx'
+import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
 
 const TimelineItem = ({ day, description }: { day: string; description: string }) => {
   return (
-    <div className='relative flex h-16 items-start gap-3 pl-8'>
-      <div className='absolute left-0 top-[6px] flex h-3 w-3 items-center justify-center rounded-full bg-indigo-600'></div>
+    <div className='relative flex items-start gap-3 pl-6'>
+      <div className='absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-primary'></div>
       <div className='flex-1'>
-        <p className='text-lg font-semibold text-indigo-700'>{day}</p>
-        <p className='mt-1 text-sm text-gray-600'>{description}</p>
+        <p className='font-semibold'>{day}</p>
+        <p className='text-sm text-muted-foreground'>{description}</p>
       </div>
     </div>
   )
@@ -48,18 +48,15 @@ export const FreeTrialExplanationView = () => {
   const REFUND_PERIOD_PLUS_FREE_TRIAL_DAYS = REFUND_PERIOD_IN_DAYS + NUMBER_OF_DAYS_IN_FREE_TRIAL
 
   return (
-    <div className='mx-auto flex w-full max-w-6xl flex-col items-center gap-y-4 px-1 py-2 md:gap-y-8 md:px-4 md:py-8'>
-      <Card className='max-w-2xl p-4 shadow'>
-        <div className='py-4 md:py-8'>
-          <h2 className='w-full text-center text-xl font-bold text-stone-800 md:text-3xl'>
-            {t`How your free trial works`}
-          </h2>
-        </div>
-
-        <div className='flex flex-col gap-y-12 px-0 pb-6 md:px-6'>
-          <div className='relative space-y-2'>
-            <div className='absolute left-[5px] top-4 h-48 w-0.5 bg-indigo-100'></div>
-            <div className='flex flex-col gap-8'>
+    <div className='mx-auto flex w-full max-w-md flex-col items-center gap-4 p-4'>
+      <Card className='w-full'>
+        <CardHeader>
+          <CardTitle className='text-center'>{t`How your free trial works`}</CardTitle>
+        </CardHeader>
+        <CardContent className='flex flex-col gap-6'>
+          <div className='relative'>
+            <div className='absolute bottom-3 left-[4px] top-3 w-0.5 bg-border'></div>
+            <div className='flex flex-col gap-6'>
               <TimelineItem day={t`Today`} description={t`Introduce your card details and get instant access`} />
               <TimelineItem
                 day={t`${NUMBER_OF_DAYS_IN_FREE_TRIAL} days`}
@@ -72,12 +69,10 @@ export const FreeTrialExplanationView = () => {
             </div>
           </div>
 
-          <div className='mt-6 space-y-4'>
-            <Button className='h-12 w-full bg-green-500 text-lg text-white' onClick={handleClick}>
-              {isPendingCheckoutMutation ? t`Loading...` : t`START ${NUMBER_OF_DAYS_IN_FREE_TRIAL}-DAY FREE TRIAL`}
-            </Button>
-          </div>
-        </div>
+          <Button onClick={handleClick} disabled={isPendingCheckoutMutation}>
+            {isPendingCheckoutMutation ? t`Loading...` : t`START ${NUMBER_OF_DAYS_IN_FREE_TRIAL}-DAY FREE TRIAL`}
+          </Button>
+        </CardContent>
       </Card>
     </div>
   )

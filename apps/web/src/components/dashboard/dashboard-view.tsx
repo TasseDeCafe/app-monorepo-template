@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 
 import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
 import { queryClient } from '@/config/react-query-config'
-import { NavbarContactButton } from '@/components/navbar/navbar-contact-button'
+import { ContactUsButton } from '@/components/navbar/contact-us-button'
 import { Button } from '@/components/shadcn/button'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
@@ -27,7 +27,7 @@ export const DashboardView = () => {
     <div className='w-full flex-col items-center p-2 py-4 text-center'>
       {t`Dashboard.`}
       <div className='mt-4 flex justify-center gap-4'>
-        <Button variant='ghost' onClick={handleSignOut}>
+        <Button variant='outline' onClick={handleSignOut}>
           <LogOut size={20} />
           <span>{t`Sign out`}</span>
         </Button>
@@ -35,7 +35,7 @@ export const DashboardView = () => {
           <Trash2 size={20} />
           <span>{t`Delete account`}</span>
         </Button>
-        <NavbarContactButton />
+        <ContactUsButton />
       </div>
     </div>
   )

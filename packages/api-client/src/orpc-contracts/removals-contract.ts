@@ -12,10 +12,6 @@ const errorResponseSchema = z.object({
   ),
 })
 
-const removalInputSchema = z.object({
-  type: z.enum(['account', 'voice']),
-})
-
 export const removalsContract = {
   postRemoval: oc
     .route({
@@ -33,7 +29,6 @@ export const removalsContract = {
         data: errorResponseSchema,
       },
     })
-    .input(removalInputSchema)
     .output(
       z.object({
         data: z.object({
@@ -43,5 +38,3 @@ export const removalsContract = {
       })
     ),
 } as const
-
-export type RemovalInput = z.infer<typeof removalInputSchema>

@@ -1,7 +1,5 @@
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { selectIsSignedIn } from '@/state/slices/account-slice.ts'
 import { useEffect } from 'react'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { AuthError } from '@supabase/supabase-js'
@@ -13,6 +11,7 @@ import { Button } from '../../shadcn/button.tsx'
 import { Mail } from 'lucide-react'
 import { shouldShowSignInWithGoogle } from './auth-utils.ts'
 import { useLingui } from '@lingui/react/macro'
+import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 
 export const AuthView = () => {
   const { t } = useLingui()
@@ -20,7 +19,7 @@ export const AuthView = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const redirectTo: string = location.state?.from?.pathname || ROUTE_PATHS.DASHBOARD
-  const isSignedIn: boolean = useSelector(selectIsSignedIn)
+  const isSignedIn = useAuthStore(getIsSignedIn)
 
   useEffect(() => {
     if (isSignedIn) {

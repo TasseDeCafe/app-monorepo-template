@@ -41,11 +41,10 @@ export const removalsRouter = (
   const implementer = implement(removalsContract).$context<OrpcContext>()
 
   const router = implementer.router({
-    postRemoval: implementer.postRemoval.handler(async ({ context, input, errors }) => {
+    postRemoval: implementer.postRemoval.handler(async ({ context, errors }) => {
       const { res } = context
       const userId = res.locals.userId
       const userEmail = res.locals.email
-      const { type } = input
 
       const dbUser = await usersRepository.findUserByUserId(userId)
       if (!dbUser) {
@@ -59,12 +58,12 @@ export const removalsRouter = (
 
       removalId = await insertRemoval(userId, userEmail, false)
       if (!removalId) {
-        logWithSentry({ message: 'could not insert removal', params: { userId, type } })
+        logWithSentry({ message: 'could not insert removal', params: { userId } })
         throw errors.INTERNAL_SERVER_ERROR({
           data: {
             errors: [
               {
-                message: `${type} removal was not initiated`,
+                message: `Account removal was not initiated`,
                 code: CrypticCodeConstants.REMOVAL_ACCOUNT_NOT_INITIATED,
               },
             ],
@@ -80,7 +79,7 @@ export const removalsRouter = (
         if (!isSuccessfullyCancelled) {
           logWithSentry({
             message: 'account removal: failed to cancel stripe subscription',
-            params: { userId, type },
+            params: { userId },
           })
           throw errors.INTERNAL_SERVER_ERROR({
             data: {
@@ -99,7 +98,7 @@ export const removalsRouter = (
       if (!isSuccessfullyRemovedFromAuthUsers) {
         logWithSentry({
           message: 'account removal: failed to remove user from authUsers',
-          params: { userId, type },
+          params: { userId },
         })
         throw errors.INTERNAL_SERVER_ERROR({
           data: {
@@ -116,13 +115,13 @@ export const removalsRouter = (
       if (!removalId) {
         logWithSentry({
           message: 'removalId missing after processing removal request',
-          params: { userId, type, removalId },
+          params: { userId, removalId },
         })
         throw errors.INTERNAL_SERVER_ERROR({
           data: {
             errors: [
               {
-                message: `${type} removal did not fully succeed`,
+                message: `Account removal did not fully succeed`,
                 code: CrypticCodeConstants.REMOVAL_UPDATE_SUCCESS_FAILED,
               },
             ],
@@ -134,13 +133,13 @@ export const removalsRouter = (
       if (!wasInsertToRemovalsSuccessful) {
         logWithSentry({
           message: 'account removal: failed to insert removal success',
-          params: { userId, type, removalId },
+          params: { userId, removalId },
         })
         throw errors.INTERNAL_SERVER_ERROR({
           data: {
             errors: [
               {
-                message: `${type} removal did not fully succeed`,
+                message: `Account removal did not fully succeed`,
                 code: CrypticCodeConstants.REMOVAL_UPDATE_SUCCESS_FAILED,
               },
             ],

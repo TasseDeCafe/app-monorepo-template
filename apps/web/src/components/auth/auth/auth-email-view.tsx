@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { Button } from '../../shadcn/button.tsx'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { selectParamsThatHadOriginallyCameFromLanding } from '@/state/slices/account-slice.ts'
-import { useSelector } from 'react-redux'
 import { useSendVerificationEmail } from '@/hooks/api/authentication/authentication-hooks'
 import { useLingui } from '@lingui/react/macro'
+import { useTrackingStore } from '@/stores/tracking-store'
+import { useShallow } from 'zustand/react/shallow'
 
 export const AuthEmailView = () => {
   const { t } = useLingui()
@@ -14,7 +14,16 @@ export const AuthEmailView = () => {
   const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState('')
-  const paramsThatHadOriginallyCameFromLanding = useSelector(selectParamsThatHadOriginallyCameFromLanding)
+  const trackingParams = useTrackingStore(
+    useShallow((state) => ({
+      referral: state.referral,
+      utmSource: state.utmSource,
+      utmMedium: state.utmMedium,
+      utmCampaign: state.utmCampaign,
+      utmTerm: state.utmTerm,
+      utmContent: state.utmContent,
+    }))
+  )
 
   const validateEmail = (email: string) => {
     const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
@@ -32,10 +41,6 @@ export const AuthEmailView = () => {
   })
 
   const handleContinue = async () => {
-    if (!paramsThatHadOriginallyCameFromLanding) {
-      return
-    }
-
     if (!validateEmail(email)) {
       setEmailError(t`Please enter a valid email address`)
       return
@@ -44,13 +49,13 @@ export const AuthEmailView = () => {
     POSTHOG_EVENTS.click('continue_with_email_button')
     sendVerificationEmail({
       email,
-      referral: paramsThatHadOriginallyCameFromLanding.referral,
+      referral: trackingParams.referral,
       platform: 'web',
-      utmSource: paramsThatHadOriginallyCameFromLanding.utmSource,
-      utmMedium: paramsThatHadOriginallyCameFromLanding.utmMedium,
-      utmCampaign: paramsThatHadOriginallyCameFromLanding.utmCampaign,
-      utmTerm: paramsThatHadOriginallyCameFromLanding.utmTerm,
-      utmContent: paramsThatHadOriginallyCameFromLanding.utmContent,
+      utmSource: trackingParams.utmSource,
+      utmMedium: trackingParams.utmMedium,
+      utmCampaign: trackingParams.utmCampaign,
+      utmTerm: trackingParams.utmTerm,
+      utmContent: trackingParams.utmContent,
     })
   }
 

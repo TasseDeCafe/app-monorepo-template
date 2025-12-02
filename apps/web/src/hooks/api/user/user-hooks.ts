@@ -1,12 +1,11 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useMutationState } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { useDispatch } from 'react-redux'
-import { accountActions } from '@/state/slices/account-slice'
 import { useLingui } from '@lingui/react/macro'
+import { useTrackingStore } from '@/stores/tracking-store'
 
 export const useCreateOrUpdateUser = () => {
   const { t } = useLingui()
-  const dispatch = useDispatch()
+  const setFromBackend = useTrackingStore((state) => state.setFromBackend)
 
   return useMutation(
     orpcQuery.user.putUser.mutationOptions({
@@ -14,16 +13,14 @@ export const useCreateOrUpdateUser = () => {
         const data = response.data
         const { referral, utmSource, utmMedium, utmCampaign, utmTerm, utmContent } = data
 
-        dispatch(
-          accountActions.setBackendUserInfo({
-            referral,
-            utmSource: utmSource,
-            utmMedium: utmMedium,
-            utmCampaign: utmCampaign,
-            utmTerm: utmTerm,
-            utmContent: utmContent,
-          })
-        )
+        setFromBackend({
+          referral,
+          utmSource,
+          utmMedium,
+          utmCampaign,
+          utmTerm,
+          utmContent,
+        })
       },
       meta: {
         successMessage: t`User setup complete`,
@@ -32,4 +29,14 @@ export const useCreateOrUpdateUser = () => {
       },
     })
   )
+}
+
+// Hook to check if user setup has completed (for use in components that need to wait)
+export const useIsUserSetupComplete = () => {
+  const mutations = useMutationState({
+    filters: { mutationKey: orpcQuery.user.putUser.key(), status: 'success' },
+    select: (mutation) => mutation.state.status,
+  })
+
+  return mutations.length > 0
 }

@@ -1,13 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { useEffect } from 'react'
-import { selectIsSignedIn } from '@/state/slices/account-slice.ts'
-import { useSelector } from 'react-redux'
 import { useLingui } from '@lingui/react/macro'
+import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 
 export const AccountRemovedSuccessView = () => {
   const navigate = useNavigate()
-  const isSignedIn: boolean = useSelector(selectIsSignedIn)
+  const isSignedIn = useAuthStore(getIsSignedIn)
   const { t } = useLingui()
 
   useEffect(() => {

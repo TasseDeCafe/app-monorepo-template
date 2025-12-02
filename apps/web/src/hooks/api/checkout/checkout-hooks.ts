@@ -1,14 +1,12 @@
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '@/state/store'
-import { modalActions } from '@/state/slices/modal-slice'
-import { USER_FACING_ERROR_CODE } from '@/components/modal/modal-contents/something-went-wrong/types'
+import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
 import { useMutation } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { useLingui } from '@lingui/react/macro'
+import { useModalStore } from '@/stores/modal-store'
 
 export const useCheckoutMutation = () => {
   const { t } = useLingui()
-  const dispatch = useDispatch<AppDispatch>()
+  const openErrorModal = useModalStore((state) => state.openErrorModal)
 
   return useMutation(
     orpcQuery.checkout.createCheckoutSession.mutationOptions({
@@ -16,7 +14,7 @@ export const useCheckoutMutation = () => {
         window.location.href = response.data.url ?? ''
       },
       onError: () => {
-        dispatch(modalActions.openErrorModal(USER_FACING_ERROR_CODE.CHECKOUT_ERROR))
+        openErrorModal(USER_FACING_ERROR_CODE.CHECKOUT_ERROR)
       },
       meta: {
         errorMessage: t`Failed to create checkout session`,

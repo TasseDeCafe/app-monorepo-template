@@ -1,18 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux'
 import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../../shadcn/dialog.tsx'
-import { modalActions } from '@/state/slices/modal-slice.ts'
 import { DANGER_ZONE_MODAL_ID } from '../../modal-ids.ts'
 import { Button } from '../../../design-system/button.tsx'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { selectEmail, selectFullName } from '@/state/slices/account-slice.ts'
 import { useLingui } from '@lingui/react/macro'
+import { useAuthStore, getFullName, getUserEmail } from '@/stores/auth-store'
+import { useModalStore } from '@/stores/modal-store'
 
 export const AccountModalContent = () => {
   const { t } = useLingui()
 
-  const dispatch = useDispatch()
-  const fullName = useSelector(selectFullName)
-  const email = useSelector(selectEmail)
+  const fullName = useAuthStore(getFullName)
+  const email = useAuthStore(getUserEmail)
+  const closeModal = useModalStore((state) => state.closeModal)
+  const openModal = useModalStore((state) => state.openModal)
 
   return (
     <DialogContent className='flex max-h-[90vh] w-11/12 flex-col overflow-y-auto rounded-xl bg-white shadow-xl sm:max-w-md'>
@@ -36,7 +36,7 @@ export const AccountModalContent = () => {
       <div className='flex flex-col gap-y-4'>
         <div className='flex w-full flex-row items-center'>
           <Button
-            onClick={() => dispatch(modalActions.closeModal())}
+            onClick={() => closeModal()}
             href={ROUTE_PATHS.PRICING}
             className='h-12 w-full border bg-indigo-600 text-white'
           >
@@ -46,7 +46,7 @@ export const AccountModalContent = () => {
 
         <div className='flex w-full flex-row items-center'>
           <Button
-            onClick={() => dispatch(modalActions.openModal(DANGER_ZONE_MODAL_ID))}
+            onClick={() => openModal(DANGER_ZONE_MODAL_ID)}
             className='h-12 w-full border bg-white text-red-600'
           >
             <span>{t`Danger Zone`}</span>

@@ -1,7 +1,6 @@
 import { z } from 'zod'
 import { getModeName, isDevelopment, isDevelopmentTunnel, isProduction, isTest } from './environment-utils.ts'
 import { environmentConfigSchema } from './environment-config-schema.ts'
-import { featureFlagsLocalStorageWrapper } from '@/local-storage/feature-flags-local-storage-wrapper'
 import { parseHashedEmails } from './environment-config-utils.ts'
 
 type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
@@ -27,16 +26,9 @@ const getProductionConfig = (): EnvironmentConfig => ({
     },
   },
   posthogToken: import.meta.env.VITE_POSTHOG_TOKEN,
-  areReduxDevToolsEnabled: true,
   shouldLogLocally: false,
-  paginationLimit: 500,
   hashedEmailsOfTestUsers: parseHashedEmails(import.meta.env.VITE_HASHED_EMAILS_OF_TEST_USERS || ''),
-  hashedEmailsOfUsersWithEarlyAccessToFeatures: parseHashedEmails(
-    import.meta.env.VITE_HASHED_EMAILS_OF_USERS_WITH_EARLY_ACCESS_TO_FEATURES || ''
-  ),
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
-    isPosthogDebugEnabled: () => featureFlagsLocalStorageWrapper.getIsPosthogDebugEnabledFeatureFlag(),
     isCreditCardRequiredForAll: () => true,
     shouldAppBeFreeForEveryone: () => false,
   },
@@ -65,16 +57,9 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
     },
   },
   posthogToken: import.meta.env.VITE_POSTHOG_TOKEN || '',
-  areReduxDevToolsEnabled: true,
   shouldLogLocally: true,
-  paginationLimit: 30,
   hashedEmailsOfTestUsers: parseHashedEmails(import.meta.env.VITE_HASHED_EMAILS_OF_TEST_USERS || ''),
-  hashedEmailsOfUsersWithEarlyAccessToFeatures: parseHashedEmails(
-    import.meta.env.VITE_HASHED_EMAILS_OF_USERS_WITH_EARLY_ACCESS_TO_FEATURES || ''
-  ),
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
-    isPosthogDebugEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldAppBeFreeForEveryone: () => false,
   },
@@ -111,14 +96,9 @@ const getTestConfig = (): EnvironmentConfig => ({
     },
   },
   posthogToken: '',
-  areReduxDevToolsEnabled: true,
   shouldLogLocally: true,
-  paginationLimit: 30,
   hashedEmailsOfTestUsers: [],
-  hashedEmailsOfUsersWithEarlyAccessToFeatures: [],
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
-    isPosthogDebugEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldAppBeFreeForEveryone: () => false,
   },

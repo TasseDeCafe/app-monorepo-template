@@ -4,8 +4,6 @@ import { z } from 'zod'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../../shadcn/form.tsx'
 import { Input } from '../../../shadcn/input.tsx'
 import { Textarea } from '../../../shadcn/textarea.tsx'
-import { useSelector } from 'react-redux'
-import { selectEmail, selectName } from '../../../../state/slices/account-slice.ts'
 import { toast } from 'sonner'
 import { Copy, Loader2, Mail, Send } from 'lucide-react'
 import { cn } from '@template-app/core/utils/tailwind-utils'
@@ -13,12 +11,13 @@ import { Button } from '../../../design-system/button.tsx'
 import { formSchema } from '@template-app/api-client/orpc-contracts/contact-email-contract'
 import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
+import { useAuthStore, getUserEmail, getUserName } from '@/stores/auth-store'
 
 export const ContactForm = ({ onSuccess }: { onSuccess: () => void }) => {
   const { t } = useLingui()
 
-  const userEmail = useSelector(selectEmail)
-  const username = useSelector(selectName)
+  const userEmail = useAuthStore(getUserEmail)
+  const username = useAuthStore(getUserName)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

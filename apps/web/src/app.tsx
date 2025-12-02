@@ -1,10 +1,8 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from './routing/router.tsx'
-import { Provider } from 'react-redux'
-import { store } from './state/store'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { SilentSignInOut } from './components/auth/silent-sign-in-out.tsx'
-import { UserRetrieving } from './components/auth/user-retrieving.tsx'
+import { UserSetup } from './components/auth/user-setup.tsx'
 import { Modal } from './components/modal/modal.tsx'
 import { Toaster } from 'sonner'
 import { AnalyticsInitializer } from './analytics/analytics-initializer.tsx'
@@ -17,21 +15,19 @@ import { queryClient } from '@/config/react-query-config'
 
 export const App = () => {
   return (
-    <Provider store={store}>
-      <I18nProvider i18n={i18n}>
-        <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <Modal />
-            <AnalyticsInitializer />
-            <Toaster />
-            <SilentSignInOut />
-            <StateAndHashSynchronizer />
-            <UserRetrieving />
-            <Router />
-          </BrowserRouter>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </I18nProvider>
-    </Provider>
+    <I18nProvider i18n={i18n}>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Modal />
+          <AnalyticsInitializer />
+          <Toaster />
+          <SilentSignInOut />
+          <StateAndHashSynchronizer />
+          <UserSetup />
+          <Router />
+        </BrowserRouter>
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </I18nProvider>
   )
 }

@@ -3,11 +3,10 @@ import { BackButton } from '@/components/ui/back-button'
 
 const AuthLayout = () => {
   return (
-    <Stack initialRouteName='sign-in/index' screenOptions={{ headerShown: false }}>
-      <Stack.Screen name='sign-in/index' options={{ animation: 'none' }} />
-      <Stack.Screen name='sign-up/index' options={{ animation: 'none' }} />
+    <Stack initialRouteName='login/index' screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='login/index' options={{ animation: 'none' }} />
       <Stack.Screen
-        name='sign-in/email/index'
+        name='login/email/index'
         options={{
           title: '',
           headerLeft: () => <BackButton />,
@@ -16,25 +15,7 @@ const AuthLayout = () => {
         }}
       />
       <Stack.Screen
-        name='sign-up/email/index'
-        options={{
-          title: '',
-          headerLeft: () => <BackButton />,
-          headerShown: true,
-          headerTransparent: true,
-        }}
-      />
-      <Stack.Screen
-        name='sign-in/email/verification-sent'
-        options={{
-          title: '',
-          headerLeft: () => <BackButton />,
-          headerShown: true,
-          headerTransparent: true,
-        }}
-      />
-      <Stack.Screen
-        name='sign-up/email/verification-sent'
+        name='login/email/sent'
         options={{
           title: '',
           headerLeft: () => <BackButton />,

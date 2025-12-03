@@ -24,7 +24,7 @@ The template is built so that it's easy to deploy this stack, and also have usef
 
 # Conventions:
 
-TS across all the apps: frontend, backend, native. It's important for you to follow those conventions:
+TS across all the apps: web, landing-page, backend, native. It's important for you to follow those conventions:
 
 - use const for functions, don't use the "function" keyword
 - use ESM when possible.

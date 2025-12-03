@@ -52,8 +52,8 @@ export default function VerifyMagicLink() {
     verifyToken().then()
   }, [token_hash, verifyMagicLinkOtp])
 
-  const handleReturnToSignIn = () => {
-    router.replace(ROUTE_PATHS.SIGN_IN)
+  const handleReturnToLogin = () => {
+    router.replace(ROUTE_PATHS.LOGIN)
   }
 
   return (
@@ -82,9 +82,9 @@ export default function VerifyMagicLink() {
               </View>
             ) : isError ? (
               <View className='w-full items-center'>
-                <Button onPress={handleReturnToSignIn} className='mt-4 h-16 w-full'>
+                <Button onPress={handleReturnToLogin} className='mt-4 h-16 w-full'>
                   <View className='w-full flex-row items-center justify-center'>
-                    <Text className='text-center text-2xl font-medium text-white'>{t`Return to Sign In`}</Text>
+                    <Text className='text-center text-2xl font-medium text-white'>{t`Return to Login`}</Text>
                   </View>
                 </Button>
               </View>

@@ -8,21 +8,21 @@ import * as AppleAuthentication from 'expo-apple-authentication'
 import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { Mail } from 'lucide-react-native'
-import { Platform, Text, View } from 'react-native'
+import { Platform, View } from 'react-native'
 import colors from 'tailwindcss/colors'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import * as Haptics from 'expo-haptics'
 import { useLingui } from '@lingui/react/macro'
 
-export default function SignInUp({ isSignIn }: { isSignIn: boolean }) {
+export default function SignInUp() {
   const { t } = useLingui()
 
   const router = useRouter()
   const { signInWithGoogle, signInWithApple } = useAuthStore()
 
-  const handleEmailSignIn = () => {
+  const handleEmailLogin = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).then(() => {})
-    router.push(ROUTE_PATHS.SIGN_IN_EMAIL)
+    router.push(ROUTE_PATHS.LOGIN_EMAIL)
   }
 
   return (
@@ -47,12 +47,12 @@ export default function SignInUp({ isSignIn }: { isSignIn: boolean }) {
             <Button
               variant='white'
               size='lg'
-              onPress={handleEmailSignIn}
+              onPress={handleEmailLogin}
               className='h-16 w-full items-center justify-center bg-white'
               textClassName='text-2xl font-medium h-full'
               startIcon={<Mail size={20} color='#374151' />}
             >
-              {isSignIn ? t`Sign in with Email` : t`Sign up with Email`}
+              {t`Continue with Email`}
             </Button>
 
             <Button
@@ -63,17 +63,13 @@ export default function SignInUp({ isSignIn }: { isSignIn: boolean }) {
               textClassName='text-2xl font-medium h-full'
               startIcon={<GoogleIcon size={20} color='#ffffff' />}
             >
-              {isSignIn ? t`Sign in with Google` : t`Sign up with Google`}
+              {t`Continue with Google`}
             </Button>
 
             {Platform.OS === 'ios' && (
               <View className={cn('overflow-hidden rounded-xl')}>
                 <AppleAuthentication.AppleAuthenticationButton
-                  buttonType={
-                    isSignIn
-                      ? AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
-                      : AppleAuthentication.AppleAuthenticationButtonType.SIGN_UP
-                  }
+                  buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}
                   buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
                   cornerRadius={12}
                   style={{ width: '100%', height: 56 }}
@@ -81,20 +77,6 @@ export default function SignInUp({ isSignIn }: { isSignIn: boolean }) {
                 />
               </View>
             )}
-          </View>
-
-          <View className='mt-6 items-center'>
-            <View className='flex-row items-center'>
-              <Text className='text-lg text-gray-500'>
-                {isSignIn ? t`Don't have an account?` : t`Have an account?`}
-              </Text>
-              <Text
-                className='ml-2 text-lg font-medium text-indigo-600'
-                onPress={() => router.push(isSignIn ? ROUTE_PATHS.SIGN_UP : ROUTE_PATHS.SIGN_IN)}
-              >
-                {isSignIn ? t`Sign up` : t`Sign in`}
-              </Text>
-            </View>
           </View>
         </Card>
       </View>

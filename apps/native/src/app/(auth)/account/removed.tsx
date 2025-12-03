@@ -25,8 +25,8 @@ export default function AccountRemovedScreen() {
             {t`If you'd like to create a new account, you can sign up again.`}
           </Text>
 
-          <Button onPress={() => router.replace('/(auth)/sign-up')} className='mt-4 py-4'>
-            {t`Back to Sign Up`}
+          <Button onPress={() => router.replace('/(auth)/login')} className='mt-4 py-4'>
+            {t`Back to Login`}
           </Button>
         </View>
       </View>

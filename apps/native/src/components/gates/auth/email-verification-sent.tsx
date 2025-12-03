@@ -8,7 +8,7 @@ import { useLocalSearchParams } from 'expo-router'
 import colors from 'tailwindcss/colors'
 import { useLingui } from '@lingui/react/macro'
 
-export default function EmailVerificationSent({ isSignIn = true }: { isSignIn: boolean }) {
+export default function EmailVerificationSent() {
   const { t } = useLingui()
 
   const { email } = useLocalSearchParams<{ email: string }>()
@@ -40,8 +40,7 @@ export default function EmailVerificationSent({ isSignIn = true }: { isSignIn: b
               <Text className='text-center text-xl text-gray-600'>{t`We've sent a verification email to:`}</Text>
               <Text className='text-center text-xl font-bold text-gray-600'>{email}</Text>
               <Text className='text-center text-xl text-gray-600'>
-                {t`Please check your inbox and click on the`}{' '}
-                {isSignIn ? t`link to sign in` : t`link to complete your sign up`}
+                {t`Please check your inbox and click on the link to continue`}
               </Text>
               <Button onPress={openMailApp} className='mt-4 h-16'>
                 <Text className='text-2xl font-medium text-white'>{t`Open Mail App`}</Text>

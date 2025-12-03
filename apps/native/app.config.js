@@ -43,8 +43,8 @@ const getAssociatedDomains = () => {
   if (IS_DEV) {
     return [
       ...productionDomains,
-      'applinks:frontend-kamil.app-monorepo-template.dev',
-      'applinks:frontend-sebastien.app-monorepo-template.dev',
+      'applinks:web-kamil.app-monorepo-template.dev',
+      'applinks:web-sebastien.app-monorepo-template.dev',
     ]
   }
   return productionDomains
@@ -77,12 +77,7 @@ const config = {
       bundleIdentifier: getUniqueIosIdentifier(),
       associatedDomains: getAssociatedDomains(),
       universalLinks: {
-        paths: [
-          '/sign-in-up/email/verify',
-          '(auth)/sign-in-up/email/verify',
-          '/sign-in-up/email/*',
-          '(auth)/sign-in-up/email/*',
-        ],
+        paths: ['/login/email/verify', '(auth)/login/email/verify', '/login/email/*', '(auth)/login/email/*'],
       },
       infoPlist: {
         CFBundleURLTypes: [
@@ -148,7 +143,7 @@ const config = {
             {
               scheme: 'https',
               host: getAppHost(),
-              pathPrefix: '/sign-in-up/email/verify',
+              pathPrefix: '/login/email/verify',
             },
           ],
           category: ['BROWSABLE', 'DEFAULT'],

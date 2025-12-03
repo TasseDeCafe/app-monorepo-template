@@ -320,7 +320,7 @@ msgid "About Us"
 msgstr "About Us"
 
 #: apps/native/src/app/(auth)/account/removed.tsx:16
-#: apps/web/src/components/auth/account-removed-success-view.tsx:25
+#: apps/web/src/components/auth/account-removed-success-view.tsx:28
 msgid "Account Removed"
 msgstr "Account Removed"
 
@@ -670,7 +670,7 @@ msgstr "If you have any questions about these Terms of Service, please contact u
 msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
 msgstr "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
 
-#: apps/web/src/components/auth/account-removed-success-view.tsx:29
+#: apps/web/src/components/auth/account-removed-success-view.tsx:32
 msgid "If you'd like to create a new account, sign up again below."
 msgstr "If you'd like to create a new account, sign up again below."
 
@@ -1164,7 +1164,7 @@ msgid "We will retain your Personal Data only for as long as is necessary for th
 msgstr "We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our legal agreements and policies."
 
 #: apps/native/src/app/(auth)/account/removed.tsx:19
-#: apps/web/src/components/auth/account-removed-success-view.tsx:27
+#: apps/web/src/components/auth/account-removed-success-view.tsx:31
 msgid "We're sorry to see you go. Your account has been successfully removed."
 msgstr "We're sorry to see you go. Your account has been successfully removed."
 

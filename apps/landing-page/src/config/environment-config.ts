@@ -6,21 +6,20 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  domain: 'template-app.com',
-  webUrl: 'https://app.template-app.com',
-  landingPageUrl: 'https://www.template-app.com',
+  domain: 'app-monorepo-template.dev',
+  webUrl: 'https://app.app-monorepo-template.dev',
+  landingPageUrl: 'https://www.app-monorepo-template.dev',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
   sentry: {
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
     options: {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 0.1,
+      replaysSessionSampleRate: 1.0,
       replaysOnErrorSampleRate: 1.0,
     },
   },
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
     shouldInformAboutAndroidNativeApp: () => true,
@@ -38,12 +37,12 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
     options: {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: 0,
+      // todo: you might want to set this lower.
+      replaysSessionSampleRate: 1.0,
+      replaysOnErrorSampleRate: 1.0,
     },
   },
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
     shouldInformAboutAndroidNativeApp: () => true,
@@ -74,7 +73,6 @@ const getTestConfig = (): EnvironmentConfig => ({
     },
   },
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
     shouldInformAboutAndroidNativeApp: () => true,

@@ -1,6 +1,6 @@
 set -e
 
-PROCESS_NAME="template-app.com"
+PROCESS_NAME="app-monorepo-template.dev"
 CONFIG_PATH="ecosystem.config.cjs"
 
 export NODE_ENV=production

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     'Master your accent and pronunciation in any language with AI-powered voice cloning technology. Practice with your own voice and achieve native-like pronunciation.',
   alternates: {
-    canonical: 'https://www.template-app.com',
+    canonical: 'https://www.app-monorepo-template.dev',
   },
 }
 

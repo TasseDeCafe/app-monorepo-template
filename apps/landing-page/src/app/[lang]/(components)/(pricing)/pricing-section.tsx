@@ -21,7 +21,7 @@ import { useLingui } from '@lingui/react'
 import { Trans } from '@lingui/react/macro'
 import { msg } from '@lingui/core/macro'
 
-export type PlanType = 'free_trial' | 'month' | 'year' | 'lifetime'
+export type PlanType = 'free_trial' | 'month' | 'year'
 
 import { ReactNode } from 'react'
 
@@ -103,8 +103,6 @@ export const PricingSection = () => {
 
   const monthlyPrice = getMonthlyPrice(discounts)
   const yearlyPrice = getYearlyPrice(discounts)
-  const lifetimePrice = 499
-  const lifetimeDiscountPercentage = 60
 
   const planOptions: PlanOption[] = []
 
@@ -128,11 +126,7 @@ export const PricingSection = () => {
               : ''
           )
         : null,
-      additionalMessage: getConfig().featureFlags.isLifetimePricingEnabled() ? (
-        <Trans>Most Popular</Trans>
-      ) : (
-        <Trans>Best Value</Trans>
-      ),
+      additionalMessage: <Trans>Best Value</Trans>,
       billedYearly: i18n._(msg`Billed yearly: €${yearlyPriceFormatted}`),
     },
     {
@@ -160,18 +154,6 @@ export const PricingSection = () => {
       discountMessage: null,
       priceMessage: <Trans>7 days free</Trans>,
       additionalMessage: <Trans>No Card Required</Trans>,
-    })
-  }
-  if (getConfig().featureFlags.isLifetimePricingEnabled()) {
-    const lifetimePriceFormatted = lifetimePrice.toFixed(2)
-    planOptions.push({
-      label: <Trans>Lifetime</Trans>,
-      value: 'lifetime',
-      priceMessage: i18n._(msg`€${lifetimePriceFormatted} paid once`),
-      discountMessage: canSubscribeWithReferralDiscount
-        ? i18n._(msg`${lifetimeDiscountPercentage}% off with your referral!`)
-        : null,
-      additionalMessage: <Trans>Best Value</Trans>,
     })
   }
 

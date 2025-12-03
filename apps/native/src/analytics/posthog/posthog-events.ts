@@ -42,9 +42,6 @@ export const POSTHOG_EVENTS = {
   rateLimitUser: () => {
     captureWithDefaults('rate_limit_user')
   },
-  frontendAuthenticationError: () => {
-    captureWithDefaults('frontend_authentication_error')
-  },
   invalidTokenError: () => {
     captureWithDefaults('invalid_token_error')
   },

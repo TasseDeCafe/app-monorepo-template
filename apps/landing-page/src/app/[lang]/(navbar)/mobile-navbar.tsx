@@ -78,9 +78,6 @@ const MobileNavbar = ({ lang }: LangProps) => {
       {isMenuOpen && (
         <div className='absolute left-0 top-full z-50 h-screen w-full bg-gray-50 px-4 py-4 shadow-lg shadow-indigo-100/50'>
           <div className='flex w-full flex-col space-y-2'>
-            <MobileNavLink href={EXTERNAL_LINKS.DISCORD_SERVER} icon={<DiscordIcon />} isExternal onClick={toggleMenu}>
-              Discord
-            </MobileNavLink>
             <MobileNavLink href={`/${lang}/pricing`} icon={<Zap size={24} />} onClick={toggleMenu}>
               <Trans>Pricing</Trans>
             </MobileNavLink>

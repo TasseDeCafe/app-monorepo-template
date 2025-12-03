@@ -20,10 +20,6 @@ export const environmentConfigSchema = z.object({
     options: sentryOptionsSchema,
   }),
   featureFlags: z.object({
-    isLifetimePricingEnabled: z.function({
-      input: [],
-      output: z.boolean(),
-    }),
     isCreditCardRequiredForAll: z.function({
       input: [],
       output: z.boolean(),

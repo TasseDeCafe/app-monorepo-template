@@ -161,19 +161,15 @@ msgstr "{discount}% de descuento con tu referido para siempre."
 msgid "{discountPercentage}% off thanks to your past referral!"
 msgstr "{discountPercentage}% de descuento gracias a tu referido anterior."
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:172
-msgid "{lifetimeDiscountPercentage}% off with your referral!"
-msgstr "¡{lifetimeDiscountPercentage}% de descuento con tu referido!"
-
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:149
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:143
 msgid "{monthlyDiscountPercentage}% off for {monthlyDurationLimit} months with your referral!"
 msgstr "¡{monthlyDiscountPercentage}% de descuento por {monthlyDurationLimit} meses con tu referido!"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:147
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:141
 msgid "{monthlyDiscountPercentage}% off for 1 month with your referral!"
 msgstr "¡{monthlyDiscountPercentage}% de descuento por 1 mes con tu referido!"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:146
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:140
 msgid "{monthlyDiscountPercentage}% off with your referral!"
 msgstr "¡{monthlyDiscountPercentage}% de descuento con tu referido!"
 
@@ -185,15 +181,15 @@ msgstr "{NUMBER_OF_DAYS_IN_FREE_TRIAL} días"
 msgid "{REFUND_PERIOD_PLUS_FREE_TRIAL_DAYS} days"
 msgstr "{REFUND_PERIOD_PLUS_FREE_TRIAL_DAYS} días"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:127
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:125
 msgid "{yearlyDiscountPercentage}% off for {yearlyDurationLimit} years with your referral!"
 msgstr "¡{yearlyDiscountPercentage}% de descuento por {yearlyDurationLimit} años con tu referido!"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:125
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:123
 msgid "{yearlyDiscountPercentage}% off for 1 year with your referral!"
 msgstr "¡{yearlyDiscountPercentage}% de descuento por 1 año con tu referido!"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:124
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:122
 msgid "{yearlyDiscountPercentage}% off with your referral!"
 msgstr "¡{yearlyDiscountPercentage}% de descuento con tu referido!"
 
@@ -213,16 +209,12 @@ msgstr "• Cada grabación de voz y clon de voz asociado, sin excepción"
 msgid "• Full communication records and interaction history"
 msgstr "• Registros de comunicación completos e historial de interacciones"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:170
-msgid "€{lifetimePriceFormatted} paid once"
-msgstr "{lifetimePriceFormatted} € pago único"
-
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:141
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:135
 #: apps/web/src/components/pricing/pricing-view-utils.ts:73
 msgid "€{monthlyPriceFormatted}/month"
 msgstr "{monthlyPriceFormatted} €/mes"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:119
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:117
 #: apps/web/src/components/pricing/pricing-view-utils.ts:65
 msgid "€{yearlyPricePerMonth}/month"
 msgstr "{yearlyPricePerMonth} €/mes"
@@ -279,7 +271,7 @@ msgstr "6. Descargo de Responsabilidad de Garantías"
 msgid "6. Disclosure of Data"
 msgstr "6. Divulgación de Datos"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:161
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:155
 msgid "7 days free"
 msgstr "7 días gratis"
 
@@ -360,10 +352,6 @@ msgstr "App Store"
 msgid "Are you absolutely sure?"
 msgstr "¿Estás completamente seguro?"
 
-#: apps/native/src/config/react-query-config.ts:90
-msgid "Authentication error. Please try again."
-msgstr "Error de autenticación. Por favor, inténtalo de nuevo."
-
 #: apps/web/src/components/auth/auth/auth-view.tsx:45
 #: apps/web/src/components/auth/auth/auth-view.tsx:57
 msgid "Authentication failed"
@@ -381,8 +369,7 @@ msgstr "Volver al registro"
 msgid "best value"
 msgstr "mejor valor"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:134
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:174
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:129
 msgid "Best Value"
 msgstr "Mejor Valor"
 
@@ -390,7 +377,7 @@ msgstr "Mejor Valor"
 msgid "Billed yearly at €{yearlyPriceTotal}"
 msgstr "Facturado anualmente por {yearlyPriceTotal} €"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:136
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:130
 msgid "Billed yearly: €{yearlyPriceFormatted}"
 msgstr "Facturado anualmente: {yearlyPriceFormatted} €"
 
@@ -427,7 +414,7 @@ msgstr "Elige el plan perfecto para tu viaje de entrenamiento de acento. Opcione
 msgid "Choose your plan"
 msgstr "Elige tu plan"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:195
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:177
 msgid "Choose Your Plan"
 msgstr "Elige Tu Plan"
 
@@ -626,7 +613,7 @@ msgstr "Funciones"
 msgid "Free for {NUMBER_OF_DAYS_IN_FREE_TRIAL} days"
 msgstr "Gratis durante {NUMBER_OF_DAYS_IN_FREE_TRIAL} días"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:158
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:152
 #: apps/web/src/components/pricing/pricing-view-utils.ts:80
 msgid "Free Trial"
 msgstr "Prueba gratuita"
@@ -698,7 +685,7 @@ msgstr "Inicializando..."
 msgid "Introduce your card details and get instant access"
 msgstr "Introduce los datos de tu tarjeta y obtén acceso inmediato"
 
-#: apps/native/src/config/react-query-config.ts:97
+#: apps/native/src/config/react-query-config.ts:77
 msgid "Invalid token. Please sign in again."
 msgstr "Token inválido. Por favor, inicia sesión nuevamente."
 
@@ -709,10 +696,6 @@ msgstr "App iOS"
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:63
 msgid "Last day to cancel before first charge"
 msgstr "Último día para cancelar antes del primer cobro"
-
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
-msgid "Lifetime"
-msgstr "De por vida"
 
 #: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:74
 msgid "Link expired or invalid"
@@ -746,21 +729,17 @@ msgstr "Domina la pronunciación perfecta con clonación de voz impulsada por IA
 msgid "Message to the founders"
 msgstr "Mensaje para los fundadores"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:139
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:133
 #: apps/web/src/components/pricing/pricing-view-utils.ts:71
 msgid "Monthly"
 msgstr "Mensual"
-
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:132
-msgid "Most Popular"
-msgstr "Más Popular"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:117
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:94
 msgid "Name (optional)"
 msgstr "Nombre (opcional)"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:162
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:156
 msgid "No Card Required"
 msgstr "No Se Requiere Tarjeta"
 
@@ -828,7 +807,7 @@ msgid "Practice"
 msgstr "Practicar"
 
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:24
-#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:85
+#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:82
 #: apps/native/src/components/ui/drawer.tsx:204
 msgid "Pricing"
 msgstr "Precios"
@@ -886,7 +865,7 @@ msgid "Share your feedback or suggest improvements to the founders. We read and 
 msgstr "Comparte tus comentarios o sugiere mejoras a los fundadores. ¡Leemos y respondemos a todos los mensajes!"
 
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:37
-#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:123
+#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:120
 #: apps/native/src/components/gates/auth/email-auth.tsx:100
 #: apps/native/src/components/gates/auth/email-auth.tsx:118
 #: apps/native/src/components/gates/auth/sign-in-up.tsx:95
@@ -938,7 +917,7 @@ msgstr ""
 msgid "Some super cool title!"
 msgstr ""
 
-#: apps/native/src/config/react-query-config.ts:25
+#: apps/native/src/config/react-query-config.ts:24
 msgid "Something went wrong"
 msgstr "Algo salió mal"
 
@@ -961,7 +940,7 @@ msgstr ""
 msgid "START {NUMBER_OF_DAYS_IN_FREE_TRIAL}-DAY FREE TRIAL"
 msgstr "EMPEZAR PRUEBA GRATUITA DE {NUMBER_OF_DAYS_IN_FREE_TRIAL} DÍAS"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:184
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:166
 msgid "Start Free Trial"
 msgstr "Iniciar Prueba Gratuita"
 
@@ -969,7 +948,7 @@ msgstr "Iniciar Prueba Gratuita"
 msgid "Start mastering"
 msgstr "Empieza a dominar"
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:186
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
 msgid "Subscribe Now"
 msgstr "Suscribirse Ahora"
 
@@ -983,7 +962,7 @@ msgstr "Suscripción necesaria"
 msgid "Subscription Successful!"
 msgstr "¡Suscripción exitosa!"
 
-#: apps/native/src/config/react-query-config.ts:134
+#: apps/native/src/config/react-query-config.ts:114
 #: apps/web/src/config/react-query-config.ts:121
 msgid "Success!"
 msgstr "¡Éxito!"
@@ -1064,7 +1043,7 @@ msgstr "Hoy"
 msgid "Too Many Requests"
 msgstr "Demasiadas solicitudes"
 
-#: apps/native/src/config/react-query-config.ts:70
+#: apps/native/src/config/react-query-config.ts:69
 msgid "Too many requests. Please try again later."
 msgstr "Demasiadas solicitudes. Por favor, inténtalo de nuevo más tarde."
 
@@ -1180,7 +1159,7 @@ msgstr ""
 msgid "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
 msgstr "Bienvenido a TemplateApp.com. Estamos comprometidos a proteger tu privacidad. Esta Política de Privacidad describe cómo recopilamos, manejamos, almacenamos y protegemos tus datos personales mientras interactúas con nuestros servicios."
 
-#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:117
+#: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:115
 #: apps/web/src/components/pricing/pricing-view-utils.ts:63
 msgid "Yearly"
 msgstr "Anual"

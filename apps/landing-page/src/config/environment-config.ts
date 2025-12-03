@@ -20,7 +20,6 @@ const getProductionConfig = (): EnvironmentConfig => ({
     },
   },
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
     shouldInformAboutAndroidNativeApp: () => true,
@@ -43,7 +42,6 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
     },
   },
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
     shouldInformAboutAndroidNativeApp: () => true,
@@ -74,7 +72,6 @@ const getTestConfig = (): EnvironmentConfig => ({
     },
   },
   featureFlags: {
-    isLifetimePricingEnabled: () => false,
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
     shouldInformAboutAndroidNativeApp: () => true,

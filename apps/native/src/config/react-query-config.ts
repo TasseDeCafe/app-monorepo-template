@@ -2,7 +2,6 @@ import { MutationCache, Query, QueryCache, QueryClient } from '@tanstack/react-q
 import { toast } from 'sonner-native'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import {
-  ERROR_CODE_FOR_AUTHENTICATING_FRONTEND,
   ERROR_CODE_FOR_INVALID_TOKEN,
   ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED,
 } from '@template-app/api-client/key-generation/frontend-api-key-constants'
@@ -73,25 +72,6 @@ const handleApiError = (error: unknown, meta?: QueryMeta, queryKey?: readonly un
   }
 
   if (error.code === 'UNAUTHORIZED') {
-    if (backendErrorCode === ERROR_CODE_FOR_AUTHENTICATING_FRONTEND) {
-      POSTHOG_EVENTS.frontendAuthenticationError()
-      const date = new Date()
-      logWithSentry(
-        'Native authentication error',
-        error,
-        {
-          date: date.toString(),
-          timestamp: date.getTime(),
-          backendErrorCode,
-          orpc: buildOrpcErrorContext(error),
-        },
-        'info'
-      )
-      const errorMessage = meta?.errorMessage ?? i18n._(msg`Authentication error. Please try again.`)
-      toast.error(errorMessage)
-      return
-    }
-
     if (backendErrorCode === ERROR_CODE_FOR_INVALID_TOKEN) {
       POSTHOG_EVENTS.invalidTokenError()
       const errorMessage = meta?.errorMessage ?? i18n._(msg`Invalid token. Please sign in again.`)

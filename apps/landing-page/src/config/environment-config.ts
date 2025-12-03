@@ -6,9 +6,9 @@ type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  domain: 'template-app.com',
-  webUrl: 'https://app.template-app.com',
-  landingPageUrl: 'https://www.template-app.com',
+  domain: 'app-monorepo-template.dev',
+  webUrl: 'https://app.app-monorepo-template.dev',
+  landingPageUrl: 'https://www.app-monorepo-template.dev',
   posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
   sentry: {
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',

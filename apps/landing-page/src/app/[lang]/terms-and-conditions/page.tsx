@@ -148,7 +148,7 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
         <div>
           <Trans>
             If you have any questions about these Terms of Service, please contact us via email
-            contact@template-app.com
+            contact@app-monorepo-template.dev
           </Trans>
         </div>
       </div>

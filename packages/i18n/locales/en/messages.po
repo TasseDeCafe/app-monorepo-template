@@ -489,7 +489,7 @@ msgstr "Could not open the link. Please visit our website to manage your subscri
 msgid "Could not open upgrade screen."
 msgstr "Could not open upgrade screen."
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:78
+#: apps/native/src/components/gates/user-setup-gate.tsx:79
 msgid "Could not set up your account. Please try restarting the app."
 msgstr "Could not set up your account. Please try restarting the app."
 
@@ -578,11 +578,11 @@ msgstr "Error checking plan..."
 msgid "error code: {userFacingErrorCode}"
 msgstr "error code: {userFacingErrorCode}"
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:82
+#: apps/native/src/components/gates/user-setup-gate.tsx:83
 msgid "Error setting up account..."
 msgstr "Error setting up account..."
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:34
+#: apps/native/src/hooks/api/user/user-hooks.ts:22
 #: apps/web/src/hooks/api/user/user-hooks.ts:27
 msgid "Error setting up user data"
 msgstr "Error setting up user data"
@@ -663,12 +663,12 @@ msgid "How your free trial works"
 msgstr "How your free trial works"
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:149
-msgid "If you have any questions about these Terms of Service, please contact us via email contact@template-app.com"
-msgstr "If you have any questions about these Terms of Service, please contact us via email contact@template-app.com"
+msgid "If you have any questions about these Terms of Service, please contact us via email contact@app-monorepo-template.dev"
+msgstr "If you have any questions about these Terms of Service, please contact us via email contact@app-monorepo-template.dev"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:213
-msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
-msgstr "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
+msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@app-monorepo-template.dev"
+msgstr "If you have any questions about this Privacy Policy, please contact us via email: contact@app-monorepo-template.dev"
 
 #: apps/web/src/components/auth/account-removed-success-view.tsx:32
 msgid "If you'd like to create a new account, sign up again below."
@@ -876,7 +876,7 @@ msgstr "Sending an email"
 msgid "Sending..."
 msgstr "Sending..."
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:74
+#: apps/native/src/components/gates/user-setup-gate.tsx:75
 msgid "Setting up account..."
 msgstr "Setting up account..."
 
@@ -1020,8 +1020,8 @@ msgid "The content, features, and functionality of our services, including but n
 msgstr "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
 
 #: apps/landing-page/src/app/[lang]/about/page.tsx:19
-msgid "the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
-msgstr "the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgid "the creators of app-monorepo-template.dev here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgstr "the creators of app-monorepo-template.dev here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:71
 msgid "The data we collect serves several purposes:"
@@ -1045,8 +1045,8 @@ msgid "This action cannot be undone. This will permanently delete your account a
 msgstr "This action cannot be undone. This will permanently delete your account and related data from our servers."
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:203
-msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
-msgstr "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
+msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
+msgstr "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 
 #: apps/web/src/components/pricing/pricing-view.tsx:40
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
@@ -1109,7 +1109,7 @@ msgstr "Use on Web"
 msgid "User"
 msgstr "User"
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:33
+#: apps/native/src/hooks/api/user/user-hooks.ts:21
 #: apps/web/src/hooks/api/user/user-hooks.ts:26
 msgid "User setup complete"
 msgstr "User setup complete"

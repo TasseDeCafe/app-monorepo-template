@@ -8,7 +8,7 @@ export type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',
-  webUrl: 'https://app.template-app.com',
+  webUrl: 'https://app.app-monorepo-template.dev',
   apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
   supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
   supabasePublishableKey: env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,

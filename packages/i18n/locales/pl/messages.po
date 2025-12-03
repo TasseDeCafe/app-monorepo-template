@@ -489,7 +489,7 @@ msgstr "Nie udało się otworzyć linku. Odwiedź naszą stronę internetową, a
 msgid "Could not open upgrade screen."
 msgstr "Nie udało się otworzyć ekranu aktualizacji."
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:78
+#: apps/native/src/components/gates/user-setup-gate.tsx:79
 msgid "Could not set up your account. Please try restarting the app."
 msgstr "Nie udało się skonfigurować konta. Spróbuj zrestartować aplikację."
 
@@ -576,11 +576,11 @@ msgstr "Błąd podczas sprawdzania planu..."
 msgid "error code: {userFacingErrorCode}"
 msgstr "kod błędu: {userFacingErrorCode}"
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:82
+#: apps/native/src/components/gates/user-setup-gate.tsx:83
 msgid "Error setting up account..."
 msgstr "Błąd podczas konfigurowania konta..."
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:34
+#: apps/native/src/hooks/api/user/user-hooks.ts:22
 #: apps/web/src/hooks/api/user/user-hooks.ts:27
 msgid "Error setting up user data"
 msgstr "Błąd podczas konfigurowania danych użytkownika"
@@ -661,12 +661,12 @@ msgid "How your free trial works"
 msgstr "Jak działa Twój okres próbny"
 
 #: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:149
-msgid "If you have any questions about these Terms of Service, please contact us via email contact@template-app.com"
-msgstr "Jeśli masz pytania dotyczące niniejszych Warunków świadczenia usług, skontaktuj się z nami pod adresem contact@template-app.com"
+msgid "If you have any questions about these Terms of Service, please contact us via email contact@app-monorepo-template.dev"
+msgstr "Jeśli masz pytania dotyczące niniejszych Warunków świadczenia usług, skontaktuj się z nami pod adresem contact@app-monorepo-template.dev"
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:213
-msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
-msgstr "Jeśli masz pytania dotyczące niniejszej Polityki prywatności, napisz do nas na adres contact@template-app.com"
+msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@app-monorepo-template.dev"
+msgstr "Jeśli masz pytania dotyczące niniejszej Polityki prywatności, napisz do nas na adres contact@app-monorepo-template.dev"
 
 #: apps/web/src/components/auth/account-removed-success-view.tsx:32
 msgid "If you'd like to create a new account, sign up again below."
@@ -874,7 +874,7 @@ msgstr "Wysyłanie emaila"
 msgid "Sending..."
 msgstr "Wysyłanie..."
 
-#: apps/native/src/components/gates/user-setup-gate.tsx:74
+#: apps/native/src/components/gates/user-setup-gate.tsx:75
 msgid "Setting up account..."
 msgstr "Konfigurowanie konta..."
 
@@ -1018,8 +1018,8 @@ msgid "The content, features, and functionality of our services, including but n
 msgstr "Treści, funkcje i funkcjonalności naszych usług, w tym m.in. teksty, grafiki, logotypy, obrazy oraz ich projekt, dobór i układ, stanowią i pozostaną wyłączną własność TemplateApp.com i jego licencjodawców. Podlegają ochronie prawa autorskiego, znaków towarowych i innych przepisów o własności intelektualnej."
 
 #: apps/landing-page/src/app/[lang]/about/page.tsx:19
-msgid "the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
-msgstr "to twórcy template-app.com. Wkładamy całe serce w rozwój wersji beta aplikacji i Twoja opinia jest dla nas kluczowa. Już wkrótce wprowadzimy nowe funkcje i stale szukamy sposobów na udoskonalenia."
+msgid "the creators of app-monorepo-template.dev here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
+msgstr "to twórcy app-monorepo-template.dev. Wkładamy całe serce w rozwój wersji beta aplikacji i Twoja opinia jest dla nas kluczowa. Już wkrótce wprowadzimy nowe funkcje i stale szukamy sposobów na udoskonalenia."
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:71
 msgid "The data we collect serves several purposes:"
@@ -1043,8 +1043,8 @@ msgid "This action cannot be undone. This will permanently delete your account a
 msgstr "Tej akcji nie można cofnąć. Spowoduje to trwałe usunięcie Twojego konta i powiązanych danych z naszych serwerów."
 
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:203
-msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@template-app.com to process your requests with the same level of immediacy and thoroughness."
-msgstr "Ten zautomatyzowany system usuwania jest dostępny 24/7 z poziomu bezpiecznego panelu konta. Jeśli potrzebujesz dodatkowej pomocy, nasz dedykowany zespół ds. prywatności pod adresem contact@template-app.com zajmie się Twoją prośbą z taką samą szybkością i starannością."
+msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
+msgstr "Ten zautomatyzowany system usuwania jest dostępny 24/7 z poziomu bezpiecznego panelu konta. Jeśli potrzebujesz dodatkowej pomocy, nasz dedykowany zespół ds. prywatności pod adresem contact@app-monorepo-template.dev zajmie się Twoją prośbą z taką samą szybkością i starannością."
 
 #: apps/web/src/components/pricing/pricing-view.tsx:40
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
@@ -1107,7 +1107,7 @@ msgstr "Użyj w przeglądarce"
 msgid "User"
 msgstr "Użytkownik"
 
-#: apps/native/src/hooks/api/user/user-hooks.ts:33
+#: apps/native/src/hooks/api/user/user-hooks.ts:21
 #: apps/web/src/hooks/api/user/user-hooks.ts:26
 msgid "User setup complete"
 msgstr "Konfiguracja użytkownika zakończona"

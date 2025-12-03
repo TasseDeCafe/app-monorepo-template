@@ -16,10 +16,10 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
   return {
     title: i18n._(msg`About | TemplateApp`),
     description: i18n._(
-      msg`the creators of template-app.com here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app.`
+      msg`the creators of app-monorepo-template.dev here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app.`
     ),
     alternates: {
-      canonical: 'https://www.template-app.com/about',
+      canonical: 'https://www.app-monorepo-template.dev/about',
     },
   }
 }

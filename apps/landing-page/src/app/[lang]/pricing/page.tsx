@@ -18,7 +18,7 @@ export const generateMetadata = async (props: { params: Promise<LangProps> }): P
       msg`Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training.`
     ),
     alternates: {
-      canonical: 'https://www.template-app.com/pricing',
+      canonical: 'https://www.app-monorepo-template.dev/pricing',
     },
   }
 }

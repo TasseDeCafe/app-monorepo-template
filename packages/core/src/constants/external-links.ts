@@ -1,8 +1,8 @@
 export const EXTERNAL_LINKS = {
   BETA_VERSION_FEEDBACK_FORM_IN_ENGLISH: 'https://tally.so/r/3NAKkO',
   BETA_VERSION_FEEDBACK_FORM_IN_POLISH: 'https://tally.so/r/mJ0d74',
-  TERMS_OF_SERVICE_URL: 'https://www.template-app.com/terms-and-conditions',
-  PRIVACY_POLICY_URL: 'https://template-app.com/privacy-policy',
+  TERMS_OF_SERVICE_URL: 'https://www.app-monorepo-template.dev/terms-and-conditions',
+  PRIVACY_POLICY_URL: 'https://app-monorepo-template.dev/privacy-policy',
   DISCORD_SERVER: 'https://discord.gg/gvSxXvmKSA',
   REFUND_POLICY: 'https://www.notion.so/grammarians/Refund-Policy-30766e3ac30643198738bf14812c01a3',
   AFFILIATE_PROGRAM_PAGE:

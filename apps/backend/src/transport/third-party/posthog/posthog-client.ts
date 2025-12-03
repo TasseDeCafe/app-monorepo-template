@@ -1,7 +1,7 @@
 import { PostHog } from 'posthog-node'
 import { getConfig } from '../../../config/environment-config'
 
-const POSTHOG_HOST = 'https://us.i.posthog.com'
+const POSTHOG_HOST = 'https://eu.i.posthog.com'
 
 const createPosthogClient = (): PostHog => {
   const config = getConfig()

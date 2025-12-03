@@ -34,7 +34,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
   hashedEmailsOfTestUsers: parseHashedEmails(env.EXPO_PUBLIC_HASHED_EMAILS_OF_TEST_USERS),
   // https://us.posthog.com/project/69989/settings/project
   posthogToken: env.EXPO_PUBLIC_POSTHOG_TOKEN,
-  posthogHost: 'https://us.i.posthog.com',
+  posthogHost: 'https://eu.i.posthog.com',
 })
 
 const getDevelopmentConfig = (): EnvironmentConfig => ({
@@ -65,7 +65,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   hashedEmailsOfTestUsers: parseHashedEmails(env.EXPO_PUBLIC_HASHED_EMAILS_OF_TEST_USERS || ''),
   // https://us.posthog.com/project/88845/settings/project
   posthogToken: env.EXPO_PUBLIC_POSTHOG_TOKEN,
-  posthogHost: 'https://us.i.posthog.com',
+  posthogHost: 'https://eu.i.posthog.com',
 })
 
 const getTestConfig = (): EnvironmentConfig => ({

@@ -33,18 +33,18 @@ const getAppName = () => {
 
 const getAppHost = () => {
   if (IS_DEV) {
-    return '*.template-app.dev'
+    return '*.app-monorepo-template.dev'
   }
-  return 'app.template-app.com'
+  return 'app.app-monorepo-template.dev'
 }
 
 const getAssociatedDomains = () => {
-  const productionDomains = ['applinks:app.template-app.com']
+  const productionDomains = ['applinks:app.app-monorepo-template.dev']
   if (IS_DEV) {
     return [
       ...productionDomains,
-      'applinks:frontend-kamil.template-app.dev',
-      'applinks:frontend-sebastien.template-app.dev',
+      'applinks:frontend-kamil.app-monorepo-template.dev',
+      'applinks:frontend-sebastien.app-monorepo-template.dev',
     ]
   }
   return productionDomains

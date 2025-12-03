@@ -9,9 +9,9 @@ import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { queryClient } from '@/config/react-query-config'
 import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
 import { getConfig } from '@/config/environment-config'
-import { posthog } from '@/analytics/posthog/posthog'
 import Purchases from 'react-native-purchases'
 import * as Haptics from 'expo-haptics'
+import { posthog } from '@/analytics/posthog/posthog'
 
 type AuthStore = {
   session: Session | null

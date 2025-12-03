@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useCreateOrUpdateUser, useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
-import { useAuthStore, getAccessToken, getUserId, getUserEmail } from '@/stores/auth-store'
-import { getTrackingParams, useTrackingStore } from '@/stores/tracking-store'
+import { getAccessToken, getUserEmail, getUserId, useAuthStore } from '@/stores/auth-store'
+import { useTrackingStore } from '@/stores/tracking-store'
 import { useShallow } from 'zustand/react/shallow'
 import posthog from 'posthog-js'
 import { checkIsTestUser } from '@/utils/test-users-utils'
@@ -10,7 +10,6 @@ export const UserSetup = () => {
   const accessToken = useAuthStore(getAccessToken)
   const isUserSetupComplete = useIsUserSetupComplete()
   const userId = useAuthStore(getUserId)
-  const urlParams = useTrackingStore(getTrackingParams)
   const email = useAuthStore(getUserEmail)
   const isTestUser = checkIsTestUser(email)
 
@@ -29,7 +28,7 @@ export const UserSetup = () => {
   const { mutate: getOrCreateUserData } = useCreateOrUpdateUser()
 
   useEffect(() => {
-    if (accessToken && !isUserSetupComplete) {
+    if (accessToken && !isUserSetupComplete && trackingParams) {
       // TODO: this mutation fires multiple times when multiple windows are open. This might because of the local storage
       // being shared between windows, or some other reason. See this PR: GRAM-1561/fix/insertuser-duplicate-key-value-violates-unique-constraint-users_pkey
       getOrCreateUserData({
@@ -45,19 +44,19 @@ export const UserSetup = () => {
 
   useEffect(() => {
     // we need isUserSetupComplete so that we know the real referral of the user
-    if (userId && urlParams && !isTestUser && isUserSetupComplete) {
+    if (userId && trackingParams && !isTestUser && isUserSetupComplete) {
       posthog.identify(userId, {
         $set_once: {
-          referral: urlParams.referral,
-          utm_source: urlParams.utmSource,
-          utm_medium: urlParams.utmMedium,
-          utm_campaign: urlParams.utmCampaign,
-          utm_term: urlParams.utmTerm,
-          utm_content: urlParams.utmContent,
+          referral: trackingParams.referral,
+          utm_source: trackingParams.utmSource,
+          utm_medium: trackingParams.utmMedium,
+          utm_campaign: trackingParams.utmCampaign,
+          utm_term: trackingParams.utmTerm,
+          utm_content: trackingParams.utmContent,
         },
       })
     }
-  }, [userId, urlParams, isTestUser, isUserSetupComplete])
+  }, [userId, trackingParams, isTestUser, isUserSetupComplete])
 
   return <></>
 }

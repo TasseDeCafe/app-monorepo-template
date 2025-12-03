@@ -52,7 +52,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
 
 const getDevelopmentTunnelConfig = (): EnvironmentConfig => ({
   ...getDevelopmentConfig(),
-  domain: 'template-app.dev',
+  domain: 'app-monorepo-template.dev',
   environmentName: 'development-tunnel',
   webUrl: process.env.NEXT_PUBLIC_WEB_URL_TUNNEL || '',
   landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL_TUNNEL || '',

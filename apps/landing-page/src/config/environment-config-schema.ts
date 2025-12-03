@@ -14,7 +14,7 @@ export const environmentConfigSchema = z.object({
   domain: z.string(),
   webUrl: z.url(),
   landingPageUrl: z.url(),
-  posthogToken: z.string(),
+  posthogToken: z.string().min(1),
   sentry: z.object({
     dsn: z.string().min(1),
     options: sentryOptionsSchema,

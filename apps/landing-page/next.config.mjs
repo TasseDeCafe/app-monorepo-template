@@ -9,12 +9,12 @@ const require = createRequire(import.meta.url)
 const linguiLoaderPath = require.resolve('@lingui/loader')
 
 const nextConfig = {
-  allowedDevOrigins: ['http://localhost:3000', '*.template-app.dev'],
+  allowedDevOrigins: ['http://localhost:3000', '*.app-monorepo-template.dev'],
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.template-app.com',
+        hostname: 'www.app-monorepo-template.com',
       },
     ],
   },

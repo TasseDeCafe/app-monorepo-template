@@ -336,7 +336,7 @@ msgstr "Wystąpił błąd podczas próby zarządzania subskrypcją."
 msgid "An error occurred. Please try again."
 msgstr "Wystąpił błąd. Spróbuj ponownie."
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:53
+#: apps/native/src/components/gates/auth/email-auth.tsx:51
 msgid "An unexpected error occurred"
 msgstr "Wystąpił nieoczekiwany błąd"
 
@@ -362,8 +362,8 @@ msgid "Back to login"
 msgstr ""
 
 #: apps/native/src/app/(auth)/account/removed.tsx:29
-msgid "Back to Sign Up"
-msgstr "Wróć do rejestracji"
+msgid "Back to Login"
+msgstr ""
 
 #: apps/web/src/components/pricing/pricing-view-utils.ts:67
 msgid "best value"
@@ -432,6 +432,7 @@ msgid "Contact Us"
 msgstr "Skontaktuj się z nami"
 
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:36
+#: apps/native/src/components/gates/auth/email-auth.tsx:98
 #: apps/web/src/components/auth/auth/auth-email-view.tsx:84
 msgid "Continue"
 msgstr "Kontynuuj"
@@ -440,10 +441,13 @@ msgstr "Kontynuuj"
 msgid "Continue with Apple"
 msgstr ""
 
+#: apps/native/src/components/gates/auth/email-auth.tsx:71
+#: apps/native/src/components/gates/auth/sign-in-up.tsx:55
 #: apps/web/src/components/auth/auth/auth-view.tsx:82
 msgid "Continue with Email"
 msgstr ""
 
+#: apps/native/src/components/gates/auth/sign-in-up.tsx:66
 #: apps/web/src/components/auth/auth/auth-view.tsx:87
 msgid "Continue with Google"
 msgstr ""
@@ -511,11 +515,6 @@ msgstr ""
 msgid "Delete my account"
 msgstr "Usuń moje konto"
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:112
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:89
-msgid "Don't have an account?"
-msgstr "Nie masz konta?"
-
 #: apps/landing-page/src/app/[lang]/qr-code-link/page.tsx:17
 msgid "Download our mobile app to start perfecting your accent with AI voice training"
 msgstr "Pobierz naszą aplikację mobilną, aby zacząć doskonalić swój akcent z treningiem głosu AI"
@@ -533,12 +532,12 @@ msgstr "Pobierz Aplikację"
 msgid "Email"
 msgstr "Email"
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:79
+#: apps/native/src/components/gates/auth/email-auth.tsx:77
 #: apps/web/src/components/auth/auth/auth-email-view.tsx:76
 msgid "Email address"
 msgstr "Adres email"
 
-#: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
+#: apps/native/src/app/(auth)/login/email/verify.tsx:74
 msgid "Email link is invalid or has expired"
 msgstr "Link jest nieprawidłowy lub wygasł"
 
@@ -628,11 +627,6 @@ msgstr "Pobierz Aplikację"
 msgid "Go to Dashboard"
 msgstr ""
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:112
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:89
-msgid "Have an account?"
-msgstr "Masz już konto?"
-
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:79
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:52
 msgid "Help us improve TemplateApp"
@@ -699,14 +693,6 @@ msgstr "Ostatni dzień na anulowanie przed pierwszym pobraniem opłaty"
 msgid "Link expired or invalid"
 msgstr ""
 
-#: apps/native/src/components/gates/auth/email-verification-sent.tsx:44
-msgid "link to complete your sign up"
-msgstr "link aby dokończyć rejestrację"
-
-#: apps/native/src/components/gates/auth/email-verification-sent.tsx:44
-msgid "link to sign in"
-msgstr "link aby się zalogowa"
-
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:73
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
@@ -746,13 +732,9 @@ msgstr "Bez karty płatniczej"
 msgid "OK"
 msgstr "OK"
 
-#: apps/native/src/components/gates/auth/email-verification-sent.tsx:47
+#: apps/native/src/components/gates/auth/email-verification-sent.tsx:46
 msgid "Open Mail App"
 msgstr "Otwórz Aplikację Pocztową"
-
-#: apps/native/src/components/gates/auth/email-auth.tsx:106
-msgid "Or"
-msgstr "Lub"
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:26
 msgid "or copy links to"
@@ -771,10 +753,10 @@ msgid "Play Store"
 msgstr "Play Store"
 
 #: apps/native/src/components/gates/auth/email-verification-sent.tsx:43
-msgid "Please check your inbox and click on the"
-msgstr "Sprawdź swoją skrzynkę i kliknij w"
+msgid "Please check your inbox and click on the link to continue"
+msgstr ""
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:94
+#: apps/native/src/components/gates/auth/email-auth.tsx:92
 #: apps/web/src/components/auth/auth/auth-email-view.tsx:45
 #: apps/web/src/components/auth/auth/auth-email-view.tsx:81
 msgid "Please enter a valid email address"
@@ -829,9 +811,9 @@ msgstr "Profil"
 msgid "Refresh"
 msgstr "Odśwież"
 
-#: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:87
-msgid "Return to Sign In"
-msgstr "Wróć do logowania"
+#: apps/native/src/app/(auth)/login/email/verify.tsx:87
+msgid "Return to Login"
+msgstr ""
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:25
 msgid "Scan the QR code to download the app"
@@ -842,7 +824,7 @@ msgstr "Zeskanuj kod QR, aby pobrać aplikację"
 msgid "Send Message"
 msgstr "Wyślij wiadomość"
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:100
+#: apps/native/src/components/gates/auth/email-auth.tsx:98
 msgid "Sending an email"
 msgstr "Wysyłanie emaila"
 
@@ -864,20 +846,8 @@ msgstr "Podziel się swoją opinią lub zasugeruj ulepszenia założycielom. Czy
 
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:37
 #: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:120
-#: apps/native/src/components/gates/auth/email-auth.tsx:100
-#: apps/native/src/components/gates/auth/email-auth.tsx:118
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:95
 msgid "Sign in"
 msgstr "Zaloguj"
-
-#: apps/native/src/components/gates/auth/email-auth.tsx:73
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:55
-msgid "Sign in with Email"
-msgstr "Zaloguj się przez Email"
-
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:66
-msgid "Sign in with Google"
-msgstr "Zaloguj się przez Google"
 
 #: apps/native/src/app/(requires-auth)/choose-plan/index.tsx:55
 #: apps/native/src/components/ui/drawer.tsx:227
@@ -891,21 +861,9 @@ msgstr "Wyloguj się"
 msgid "Sign out success"
 msgstr ""
 
-#: apps/native/src/components/gates/auth/email-auth.tsx:100
-#: apps/native/src/components/gates/auth/email-auth.tsx:118
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:95
 #: apps/web/src/components/auth/account-removed-success-view.tsx:34
 msgid "Sign up"
 msgstr "Zarejestruj się"
-
-#: apps/native/src/components/gates/auth/email-auth.tsx:73
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:55
-msgid "Sign up with Email"
-msgstr "Zarejestruj się przez Email"
-
-#: apps/native/src/components/gates/auth/sign-in-up.tsx:66
-msgid "Sign up with Google"
-msgstr "Zarejestruj się przez Google"
 
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:16
 msgid "Some super cool text!"
@@ -1095,7 +1053,7 @@ msgstr "Konfiguracja użytkownika zakończona"
 msgid "Users retain all rights to any content they upload, submit, post, or display on or through the service. By uploading this content, users grant us a permission to use, reproduce, modify, publish, and display this content in connection with the service. In particular, this content will neither be sold or traded with any external service provider nor made public without user\"s explicit consent"
 msgstr "Użytkownicy zachowują pełne prawa do wszelkich treści, które przesyłają, zamieszczają lub wyświetlają w usłudze. Przesyłając takie treści, udzielają nam zgody na ich używanie, reprodukowanie, modyfikowanie, publikowanie i wyświetlanie w związku z usługą. W szczególności treści te nie będą sprzedawane ani przekazywane zewnętrznym usługodawcom ani upubliczniane bez wyraźnej zgody użytkownika."
 
-#: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:93
+#: apps/native/src/app/(auth)/login/email/verify.tsx:93
 msgid "Verification successful! Redirecting..."
 msgstr "Weryfikacja zakończona pomyślnie! Przekierowywanie..."
 
@@ -1107,11 +1065,11 @@ msgstr "Zweryfikuj"
 msgid "Verify your email"
 msgstr ""
 
-#: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:74
+#: apps/native/src/app/(auth)/login/email/verify.tsx:74
 msgid "Verify Your Email"
 msgstr "Zweryfikuj swój Email"
 
-#: apps/native/src/app/(auth)/sign-in-up/email/verify.tsx:81
+#: apps/native/src/app/(auth)/login/email/verify.tsx:81
 #: apps/web/src/components/auth/auth/auth-email-verify-view.tsx:82
 msgid "Verifying..."
 msgstr "Weryfikacja..."

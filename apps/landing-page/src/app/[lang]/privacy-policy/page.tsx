@@ -24,8 +24,8 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
         </h1>
         <p className='text-xl font-light'>
           <Trans>
-            Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how
-            we collect, handle, store, and safeguard your personal data as you interact with our services.
+            Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we
+            collect, handle, store, and safeguard your personal data as you interact with our services.
           </Trans>
         </p>
         <h2 className='w-full text-4xl'>

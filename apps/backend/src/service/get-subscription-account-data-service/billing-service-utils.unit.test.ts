@@ -4,8 +4,8 @@ import { referralToDiscount } from '@template-app/core/constants/referral-consta
 import { Discounts } from '@template-app/core/constants/discount-types'
 
 describe('calculatePricingDetails', () => {
-  const soundLikeARussianActiveDiscountsAsMap: Record<string, Discounts> = {
-    sound_like_a_russian: {
+  const tiengosActiveDiscountsAsMap: Record<string, Discounts> = {
+    tiengos: {
       areActive: true,
       monthly: {
         discountAsPercentage: 20,
@@ -15,24 +15,24 @@ describe('calculatePricingDetails', () => {
       },
       yearly: {
         discountAsPercentage: 40,
-        stripeCouponId: 'sound_like_a_russian_yearly',
+        stripeCouponId: 'tiengos_yearly',
         commissionLimit: null,
         durationLimit: null,
       },
     },
   }
-  const soundLikeARussianInactiveDiscountsAsMap: Record<string, Discounts> = {
-    sound_like_a_russian: {
+  const tiengosInactiveDiscountsAsMap: Record<string, Discounts> = {
+    tiengos: {
       areActive: false,
       monthly: {
         discountAsPercentage: 20,
-        stripeCouponId: 'sound_like_a_russian_monthly',
+        stripeCouponId: 'tiengos_monthly',
         commissionLimit: null,
         durationLimit: null,
       },
       yearly: {
         discountAsPercentage: 40,
-        stripeCouponId: 'sound_like_a_russian_yearly',
+        stripeCouponId: 'tiengos_yearly',
         commissionLimit: null,
         durationLimit: null,
       },
@@ -40,8 +40,8 @@ describe('calculatePricingDetails', () => {
   }
 
   describe('discounts connected to real campaigns', () => {
-    test('finnishwithheidi', () => {
-      const pricingDetails = calculateStripePricingDetails('finnishwithheidi', referralToDiscount, null, null)
+    test('languageboost', () => {
+      const pricingDetails = calculateStripePricingDetails('languageboost', referralToDiscount, null, null)
       expect(pricingDetails).toEqual({
         amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
         currentDiscountInPercentage: 0,
@@ -49,13 +49,22 @@ describe('calculatePricingDetails', () => {
         currentlyAvailableDiscounts: null,
       })
     })
-    test('plapla', () => {
-      const pricingDetails = calculateStripePricingDetails('plapla', referralToDiscount, null, null)
+    test('tiengos', () => {
+      const pricingDetails = calculateStripePricingDetails('tiengos', referralToDiscount, null, null)
       expect(pricingDetails).toEqual({
         amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
         currentDiscountInPercentage: 0,
         hasSubscribedWithADiscount: false,
-        currentlyAvailableDiscounts: null,
+        currentlyAvailableDiscounts: {
+          monthly: {
+            discountAsPercentage: 20,
+            durationLimit: 3,
+          },
+          yearly: {
+            discountAsPercentage: 40,
+            durationLimit: 1,
+          },
+        },
       })
     })
   })
@@ -63,7 +72,7 @@ describe('calculatePricingDetails', () => {
   describe('when discounts are still active', () => {
     describe('when user has no referral', () => {
       test('a user who is not subscribed', () => {
-        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianActiveDiscountsAsMap, null, null)
+        const pricingDetails = calculateStripePricingDetails(null, tiengosActiveDiscountsAsMap, null, null)
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -72,12 +81,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed to free_trial', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianActiveDiscountsAsMap,
-          null,
-          'free_trial'
-        )
+        const pricingDetails = calculateStripePricingDetails(null, tiengosActiveDiscountsAsMap, null, 'free_trial')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -86,7 +90,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed monthly', () => {
-        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianActiveDiscountsAsMap, 19, 'month')
+        const pricingDetails = calculateStripePricingDetails(null, tiengosActiveDiscountsAsMap, 19, 'month')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
           currentDiscountInPercentage: 0,
@@ -95,7 +99,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed yearly', () => {
-        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianActiveDiscountsAsMap, 189, 'year')
+        const pricingDetails = calculateStripePricingDetails(null, tiengosActiveDiscountsAsMap, 189, 'year')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
           currentDiscountInPercentage: 0,
@@ -107,12 +111,7 @@ describe('calculatePricingDetails', () => {
 
     describe('when user has a referral', () => {
       test('a user who is not subscribed', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          'sound_like_a_russian',
-          soundLikeARussianActiveDiscountsAsMap,
-          null,
-          null
-        )
+        const pricingDetails = calculateStripePricingDetails('tiengos', tiengosActiveDiscountsAsMap, null, null)
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -131,12 +130,7 @@ describe('calculatePricingDetails', () => {
       })
 
       test('a user who is subscribed to free_trial', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          'sound_like_a_russian',
-          soundLikeARussianActiveDiscountsAsMap,
-          null,
-          'free_trial'
-        )
+        const pricingDetails = calculateStripePricingDetails('tiengos', tiengosActiveDiscountsAsMap, null, 'free_trial')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -156,12 +150,7 @@ describe('calculatePricingDetails', () => {
 
       describe('a user who subscribed without a discount', () => {
         test('a user who is subscribed monthly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianActiveDiscountsAsMap,
-            19,
-            'month'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosActiveDiscountsAsMap, 19, 'month')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
             currentDiscountInPercentage: 0,
@@ -179,12 +168,7 @@ describe('calculatePricingDetails', () => {
           })
         })
         test('a user who is subscribed yearly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianActiveDiscountsAsMap,
-            189,
-            'year'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosActiveDiscountsAsMap, 189, 'year')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
             currentDiscountInPercentage: 0,
@@ -205,12 +189,7 @@ describe('calculatePricingDetails', () => {
 
       describe('a user who subscribed with a discount', () => {
         test('a user who is subscribed monthly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianActiveDiscountsAsMap,
-            15.2,
-            'month'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosActiveDiscountsAsMap, 15.2, 'month')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 15.2,
             currentDiscountInPercentage: 20,
@@ -228,12 +207,7 @@ describe('calculatePricingDetails', () => {
           })
         })
         test('a user who is subscribed yearly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianActiveDiscountsAsMap,
-            113.4,
-            'year'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosActiveDiscountsAsMap, 113.4, 'year')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 113.4,
             currentDiscountInPercentage: 40,
@@ -258,7 +232,7 @@ describe('calculatePricingDetails', () => {
   describe('when discounts are not active', () => {
     describe('when user has no referral', () => {
       test('a user who is not subscribed', () => {
-        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, null, null)
+        const pricingDetails = calculateStripePricingDetails(null, tiengosInactiveDiscountsAsMap, null, null)
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -267,12 +241,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed to free_trial', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          null,
-          soundLikeARussianInactiveDiscountsAsMap,
-          null,
-          'free_trial'
-        )
+        const pricingDetails = calculateStripePricingDetails(null, tiengosInactiveDiscountsAsMap, null, 'free_trial')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -281,7 +250,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed monthly', () => {
-        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 19, 'month')
+        const pricingDetails = calculateStripePricingDetails(null, tiengosInactiveDiscountsAsMap, 19, 'month')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
           currentDiscountInPercentage: 0,
@@ -290,7 +259,7 @@ describe('calculatePricingDetails', () => {
         })
       })
       test('a user who is subscribed yearly', () => {
-        const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 189, 'year')
+        const pricingDetails = calculateStripePricingDetails(null, tiengosInactiveDiscountsAsMap, 189, 'year')
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
           currentDiscountInPercentage: 0,
@@ -302,12 +271,7 @@ describe('calculatePricingDetails', () => {
 
     describe('when user has a referral', () => {
       test('a user who is not subscribed', () => {
-        const pricingDetails = calculateStripePricingDetails(
-          'sound_like_a_russian',
-          soundLikeARussianInactiveDiscountsAsMap,
-          null,
-          null
-        )
+        const pricingDetails = calculateStripePricingDetails('tiengos', tiengosInactiveDiscountsAsMap, null, null)
         expect(pricingDetails).toEqual({
           amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
           currentDiscountInPercentage: 0,
@@ -318,8 +282,8 @@ describe('calculatePricingDetails', () => {
 
       test('a user who is subscribed to free_trial', () => {
         const pricingDetails = calculateStripePricingDetails(
-          'sound_like_a_russian',
-          soundLikeARussianInactiveDiscountsAsMap,
+          'tiengos',
+          tiengosInactiveDiscountsAsMap,
           null,
           'free_trial'
         )
@@ -333,12 +297,7 @@ describe('calculatePricingDetails', () => {
 
       describe('a user who subscribed without a discount', () => {
         test('a user who is subscribed monthly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianInactiveDiscountsAsMap,
-            19,
-            'month'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosInactiveDiscountsAsMap, 19, 'month')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 19,
             currentDiscountInPercentage: 0,
@@ -347,12 +306,7 @@ describe('calculatePricingDetails', () => {
           })
         })
         test('a user who is subscribed yearly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianInactiveDiscountsAsMap,
-            189,
-            'year'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosInactiveDiscountsAsMap, 189, 'year')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 189,
             currentDiscountInPercentage: 0,
@@ -364,12 +318,7 @@ describe('calculatePricingDetails', () => {
 
       describe('a user who subscribed with a discount', () => {
         test('a user who is subscribed monthly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianInactiveDiscountsAsMap,
-            15.2,
-            'month'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosInactiveDiscountsAsMap, 15.2, 'month')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 15.2,
             currentDiscountInPercentage: 20,
@@ -378,12 +327,7 @@ describe('calculatePricingDetails', () => {
           })
         })
         test('a user who is subscribed yearly', () => {
-          const pricingDetails = calculateStripePricingDetails(
-            'sound_like_a_russian',
-            soundLikeARussianInactiveDiscountsAsMap,
-            113.4,
-            'year'
-          )
+          const pricingDetails = calculateStripePricingDetails('tiengos', tiengosInactiveDiscountsAsMap, 113.4, 'year')
           expect(pricingDetails).toEqual({
             amountInEurosThatUserIsCurrentlyPayingPerInterval: 113.4,
             currentDiscountInPercentage: 40,
@@ -391,27 +335,6 @@ describe('calculatePricingDetails', () => {
             currentlyAvailableDiscounts: null,
           })
         })
-      })
-    })
-  })
-
-  describe('PLN currency support', () => {
-    test('a user who is subscribed monthly in PLN', () => {
-      const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 79, 'month')
-      expect(pricingDetails).toEqual({
-        amountInEurosThatUserIsCurrentlyPayingPerInterval: 79,
-        currentDiscountInPercentage: 0,
-        hasSubscribedWithADiscount: false,
-        currentlyAvailableDiscounts: null,
-      })
-    })
-    test('a user who is subscribed yearly in PLN', () => {
-      const pricingDetails = calculateStripePricingDetails(null, soundLikeARussianInactiveDiscountsAsMap, 789, 'year')
-      expect(pricingDetails).toEqual({
-        amountInEurosThatUserIsCurrentlyPayingPerInterval: 789,
-        currentDiscountInPercentage: 0,
-        hasSubscribedWithADiscount: false,
-        currentlyAvailableDiscounts: null,
       })
     })
   })

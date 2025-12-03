@@ -13,7 +13,7 @@ pnpm turbo run build --filter=@template-app/web
 """
 
 [deploy]
-startCommand = "cd apps/web/dist && npx serve -l $PORT"
+startCommand = "npx serve apps/web/dist -s -l $PORT"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 restartPolicyType = "on_failure"

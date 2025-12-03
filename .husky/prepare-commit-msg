@@ -28,8 +28,8 @@ has_package_changes() {
 commit_msg=$(cat "$COMMIT_MSG_FILE")
 
 areas=""
-if dir_has_changes "frontend"; then
-    areas="${areas}frontend,"
+if dir_has_changes "web"; then
+    areas="${areas}web,"
 fi
 if dir_has_changes "landing-page"; then
     areas="${areas}landing-page,"

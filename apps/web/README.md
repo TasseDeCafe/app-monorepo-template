@@ -1,4 +1,4 @@
-## Frontend
+## Web
 
 Vite + React + Typescript + TailwindCSS + React Router + Redux + Redux Toolkit + Eslint + Prettier + Vitest
 

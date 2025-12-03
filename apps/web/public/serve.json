@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": ".well-known/apple-app-site-association",
-      "destination": ".well-known/apple-app-site-association.json"
+      "source": "/.well-known/apple-app-site-association",
+      "destination": "/.well-known/apple-app-site-association.json"
     },
     {
       "source": "**",
@@ -11,7 +11,7 @@
   ],
   "headers": [
     {
-      "source": ".well-known/apple-app-site-association",
+      "source": "/.well-known/apple-app-site-association",
       "headers": [
         {
           "key": "Content-Type",

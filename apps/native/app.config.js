@@ -79,7 +79,7 @@ const config = {
           {
             CFBundleURLSchemes: [
               // See https://docs.expo.dev/guides/google-authentication/
-              'com.googleusercontent.apps.1027541565281-6929mrqjia9tbq6mqeoce4v8eofpe7k2',
+              'com.googleusercontent.apps.448646365340-dltp0msngf9n2sh6jcqaehm5ni6f9jlf',
             ],
           },
         ],
@@ -166,7 +166,7 @@ const config = {
         '@react-native-google-signin/google-signin',
         {
           // See https://react-native-google-signin.github.io/docs/setting-up/expo
-          iosUrlScheme: 'com.googleusercontent.apps.1027541565281-6929mrqjia9tbq6mqeoce4v8eofpe7k2',
+          iosUrlScheme: 'com.googleusercontent.apps.448646365340-dltp0msngf9n2sh6jcqaehm5ni6f9jlf',
         },
       ],
       ['expo-apple-authentication'],

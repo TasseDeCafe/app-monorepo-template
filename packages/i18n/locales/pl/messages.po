@@ -320,7 +320,7 @@ msgid "About Us"
 msgstr "O nas"
 
 #: apps/native/src/app/(auth)/account/removed.tsx:16
-#: apps/web/src/components/auth/account-removed-success-view.tsx:25
+#: apps/web/src/components/auth/account-removed-success-view.tsx:28
 msgid "Account Removed"
 msgstr "Konto usunięte"
 
@@ -668,7 +668,7 @@ msgstr "Jeśli masz pytania dotyczące niniejszych Warunków świadczenia usług
 msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@template-app.com"
 msgstr "Jeśli masz pytania dotyczące niniejszej Polityki prywatności, napisz do nas na adres contact@template-app.com"
 
-#: apps/web/src/components/auth/account-removed-success-view.tsx:29
+#: apps/web/src/components/auth/account-removed-success-view.tsx:32
 msgid "If you'd like to create a new account, sign up again below."
 msgstr "Jeśli chcesz utworzyć nowe konto, zarejestruj się ponownie poniżej."
 
@@ -1162,7 +1162,7 @@ msgid "We will retain your Personal Data only for as long as is necessary for th
 msgstr "Będziemy przechowywać Twoje dane osobowe tylko tak długo, jak to konieczne dla celów określonych w niniejszej Polityce prywatności. Zachowamy i wykorzystamy je w zakresie niezbędnym do spełnienia obowiązków prawnych, rozstrzygania sporów oraz egzekwowania naszych umów i polityk."
 
 #: apps/native/src/app/(auth)/account/removed.tsx:19
-#: apps/web/src/components/auth/account-removed-success-view.tsx:27
+#: apps/web/src/components/auth/account-removed-success-view.tsx:31
 msgid "We're sorry to see you go. Your account has been successfully removed."
 msgstr "Przykro nam, że odchodzisz. Twoje konto zostało pomyślnie usunięte."
 

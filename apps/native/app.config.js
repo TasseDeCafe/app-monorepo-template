@@ -50,11 +50,21 @@ const getAssociatedDomains = () => {
   return productionDomains
 }
 
+const getGoogleIosUrlScheme = () => {
+  if (IS_DEV) {
+    return 'com.googleusercontent.apps.448646365340-dltp0msngf9n2sh6jcqaehm5ni6f9jlf'
+  }
+  if (IS_PREVIEW) {
+    return `ADD_PREVIEW_CLIENT_ID_IF_NEEDED`
+  }
+  return 'com.googleusercontent.apps.448646365340-8noc510qrjbu8nu7pt648ru4bu4a4nr4'
+}
+
 const config = {
   expo: {
     name: getAppName(),
-    owner: 'template-app',
-    slug: 'native',
+    owner: 'template-organization',
+    slug: 'template-app',
     version: '0.0.1',
     orientation: 'portrait',
     icon: './src/assets/images/icon.png',
@@ -79,7 +89,7 @@ const config = {
           {
             CFBundleURLSchemes: [
               // See https://docs.expo.dev/guides/google-authentication/
-              'com.googleusercontent.apps.1027541565281-6929mrqjia9tbq6mqeoce4v8eofpe7k2',
+              getGoogleIosUrlScheme(),
             ],
           },
         ],
@@ -166,7 +176,7 @@ const config = {
         '@react-native-google-signin/google-signin',
         {
           // See https://react-native-google-signin.github.io/docs/setting-up/expo
-          iosUrlScheme: 'com.googleusercontent.apps.1027541565281-6929mrqjia9tbq6mqeoce4v8eofpe7k2',
+          iosUrlScheme: getGoogleIosUrlScheme(),
         },
       ],
       ['expo-apple-authentication'],
@@ -197,7 +207,7 @@ const config = {
         origin: false,
       },
       eas: {
-        projectId: 'b2469e69-6cd5-4732-b731-3e9374812b41',
+        projectId: '20a5774f-5cfd-48ad-b277-50d9d02a2e58',
       },
     },
   },

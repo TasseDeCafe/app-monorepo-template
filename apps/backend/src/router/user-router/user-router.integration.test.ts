@@ -47,14 +47,14 @@ describe('users-router', async () => {
 
   test('create and find user with referral', async () => {
     const { token } = await __createUserInSupabaseAndGetHisIdAndToken()
-    const createResponse = await __createOrGetUserWithOurApi({ testApp, token, referral: 'plapla' })
+    const createResponse = await __createOrGetUserWithOurApi({ testApp, token, referral: 'tiengos' })
     expect(createResponse.status).toBe(200)
 
     const { status, body } = await __createOrGetUserWithOurApi({ testApp, token, referral: null })
 
     expect(status).toBe(200)
     expect(body.data).toEqual({
-      referral: 'plapla',
+      referral: 'tiengos',
       utmSource: null,
       utmMedium: null,
       utmCampaign: null,

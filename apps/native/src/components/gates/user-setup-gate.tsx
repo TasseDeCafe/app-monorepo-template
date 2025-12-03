@@ -2,7 +2,7 @@ import { ReactNode, useEffect } from 'react'
 import { Alert } from 'react-native'
 import { router } from 'expo-router'
 import { useAuthStore } from '@/stores/auth-store'
-import { useCreateOrUpdateUser } from '@/hooks/api/user/user-hooks'
+import { useCreateOrUpdateUser, useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 import { posthog } from '@/analytics/posthog/posthog'
 import { useInstallReferrerParams } from '@/hooks/use-install-referrer-params'
 import { identifyUserWithSentry } from '@/analytics/sentry/sentry-initializer'
@@ -19,7 +19,8 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
 
   const signOut = useAuthStore((state) => state.signOut)
   const session = useAuthStore((state) => state.session)
-  const urlParams = useInstallReferrerParams()
+  const trackingParams = useInstallReferrerParams()
+  const isUserSetupComplete = useIsUserSetupComplete()
 
   const {
     mutate: getOrCreateUserData,
@@ -35,34 +36,34 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
   const userId = session?.user.id
 
   useEffect(() => {
-    if (userId && urlParams) {
+    if (accessToken && !isUserSetupComplete && trackingParams) {
+      getOrCreateUserData({
+        referral: trackingParams.referral,
+        utmSource: trackingParams.utmSource,
+        utmMedium: trackingParams.utmMedium,
+        utmCampaign: trackingParams.utmCampaign,
+        utmTerm: trackingParams.utmTerm,
+        utmContent: trackingParams.utmContent,
+      })
+    }
+  }, [accessToken, getOrCreateUserData, isUserSetupComplete, trackingParams])
+
+  useEffect(() => {
+    if (userId && trackingParams && isUserSetupComplete) {
       // Wait for utmParams
       // https://posthog.com/docs/product-analytics/identify
       posthog.identify(userId, {
         $set_once: {
-          referral: urlParams.referral,
-          utm_source: urlParams.utmSource,
-          utm_medium: urlParams.utmMedium,
-          utm_campaign: urlParams.utmCampaign,
-          utm_term: urlParams.utmTerm,
-          utm_content: urlParams.utmContent,
+          referral: trackingParams.referral,
+          utm_source: trackingParams.utmSource,
+          utm_medium: trackingParams.utmMedium,
+          utm_campaign: trackingParams.utmCampaign,
+          utm_term: trackingParams.utmTerm,
+          utm_content: trackingParams.utmContent,
         },
       })
     }
-  }, [userId, urlParams])
-
-  useEffect(() => {
-    if (accessToken && urlParams) {
-      getOrCreateUserData({
-        referral: urlParams.referral,
-        utmSource: urlParams.utmSource,
-        utmMedium: urlParams.utmMedium,
-        utmCampaign: urlParams.utmCampaign,
-        utmTerm: urlParams.utmTerm,
-        utmContent: urlParams.utmContent,
-      })
-    }
-  }, [accessToken, getOrCreateUserData, urlParams])
+  }, [userId, trackingParams, isUserSetupComplete])
 
   useEffect(() => {
     if (userId) {

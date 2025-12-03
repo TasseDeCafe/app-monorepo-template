@@ -4,8 +4,8 @@ export const initializePosthog = async () => {
   if (getConfig().posthogToken) {
     const posthog = (await import('posthog-js')).default
     posthog.init(getConfig().posthogToken, {
-      api_host: 'https://us.i.posthog.com',
-      persistence: 'localStorage',
+      api_host: 'https://eu.i.posthog.com',
+      persistence: 'localStorage+cookie',
     })
 
     const url = new URL(window.location.href)

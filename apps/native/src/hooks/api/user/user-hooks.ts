@@ -1,28 +1,16 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useMutationState, useQuery } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { QUERY_KEYS } from '@/transport/our-backend/query-keys'
 import { OrpcMutationOverrides } from '../hook-types'
 import { useLingui } from '@lingui/react/macro'
 
 export function useGetUser() {
   const query = useQuery(
     orpcQuery.user.getUser.queryOptions({
-      queryKey: [QUERY_KEYS.USER_DATA],
       select: (response) => response.data,
     })
   )
 
-  const userData = query.data
-
-  const defaultedUserData = {
-    referral: userData?.referral || null,
-  }
-
-  return {
-    defaultedUserData,
-    query,
-    userData,
-  }
+  return query.data
 }
 
 export function useCreateOrUpdateUser(options?: OrpcMutationOverrides<typeof orpcQuery.user.putUser>) {
@@ -37,4 +25,14 @@ export function useCreateOrUpdateUser(options?: OrpcMutationOverrides<typeof orp
       ...options,
     })
   )
+}
+
+// Hook to check if user setup has completed (for use in components that need to wait)
+export const useIsUserSetupComplete = () => {
+  const mutations = useMutationState({
+    filters: { mutationKey: orpcQuery.user.putUser.key(), status: 'success' },
+    select: (mutation) => mutation.state.status,
+  })
+
+  return mutations.length > 0
 }

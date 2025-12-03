@@ -6,3 +6,5 @@ export const posthog = new PostHog(getConfig().posthogToken, {
   host: getConfig().posthogHost,
   enableSessionReplay: true,
 })
+
+posthog.debug(true)

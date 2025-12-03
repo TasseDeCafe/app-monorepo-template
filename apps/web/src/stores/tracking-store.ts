@@ -85,19 +85,6 @@ export const useTrackingStore = create<TrackingStore>()(
   )
 )
 
-// Selector for checking if user has an allowed referral
 export const getHasAllowedReferral = (state: TrackingStore) => {
   return state.referral !== null && ALLOWED_REFERRALS.includes(state.referral)
 }
-
-// Selector to get all tracking params
-// NOTE: When using in a component, use with useShallow to prevent infinite re-renders:
-// const trackingParams = useTrackingStore(useShallow(getTrackingParams))
-export const getTrackingParams = (state: TrackingStore): TrackingParams => ({
-  referral: state.referral,
-  utmSource: state.utmSource,
-  utmMedium: state.utmMedium,
-  utmCampaign: state.utmCampaign,
-  utmTerm: state.utmTerm,
-  utmContent: state.utmContent,
-})

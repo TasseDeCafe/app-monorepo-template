@@ -20,6 +20,8 @@ import { SessionInitializer } from '@/components/gates/auth/session-initializer'
 import { EasUpdateGate } from '@/components/gates/eas-update-gate'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { UserSetupGate } from '@/components/gates/user-setup-gate'
+import { PostHogProvider } from 'posthog-react-native'
+import { posthog } from '@/analytics/posthog/posthog'
 
 validateConfig(getConfig())
 initializeSentry()
@@ -41,45 +43,42 @@ const RootLayout = () => {
   }, [ref])
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <QueryClientProvider client={queryClient}>
-        <LocaleInitializer>
-          <BottomSheetModalProvider>
-            <KeyboardProvider>
-              <SessionInitializer>
-                <EasUpdateGate>
-                  <UserSetupGate>
-                    {/*
-                      //todo: we might not use this anymore after updating to sdk 54.
-                      // test if needs to be removed by building the app
-                      */}
-                    {/*<SystemBars style={{ statusBar: 'dark', navigationBar: 'dark' }} />*/}
-                    <Stack screenOptions={{ headerShown: false }}>
-                      <Stack.Protected guard={!isSignedIn}>
-                        <Stack.Screen name='(auth)' />
-                      </Stack.Protected>
-                      <Stack.Protected guard={isSignedIn}>
-                        <Stack.Screen name='(requires-auth)' />
-                      </Stack.Protected>
-                      <Stack.Screen
-                        name='+not-found'
-                        options={{
-                          headerShown: true,
-                          title: 'Oops!',
-                        }}
-                      />
-                    </Stack>
-                    <BottomSheetController />
-                    <Toaster position={isBottomSheetOpen ? 'top-center' : 'bottom-center'} duration={600} />
-                    <PortalHost />
-                  </UserSetupGate>
-                </EasUpdateGate>
-              </SessionInitializer>
-            </KeyboardProvider>
-          </BottomSheetModalProvider>
-        </LocaleInitializer>
-      </QueryClientProvider>
-    </GestureHandlerRootView>
+    <PostHogProvider client={posthog}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <QueryClientProvider client={queryClient}>
+          <LocaleInitializer>
+            <BottomSheetModalProvider>
+              <KeyboardProvider>
+                <SessionInitializer>
+                  <EasUpdateGate>
+                    <UserSetupGate>
+                      <Stack screenOptions={{ headerShown: false }}>
+                        <Stack.Protected guard={!isSignedIn}>
+                          <Stack.Screen name='(auth)' />
+                        </Stack.Protected>
+                        <Stack.Protected guard={isSignedIn}>
+                          <Stack.Screen name='(requires-auth)' />
+                        </Stack.Protected>
+                        <Stack.Screen
+                          name='+not-found'
+                          options={{
+                            headerShown: true,
+                            title: 'Oops!',
+                          }}
+                        />
+                      </Stack>
+                      <BottomSheetController />
+                      <Toaster position={isBottomSheetOpen ? 'top-center' : 'bottom-center'} duration={600} />
+                      <PortalHost />
+                    </UserSetupGate>
+                  </EasUpdateGate>
+                </SessionInitializer>
+              </KeyboardProvider>
+            </BottomSheetModalProvider>
+          </LocaleInitializer>
+        </QueryClientProvider>
+      </GestureHandlerRootView>
+    </PostHogProvider>
   )
 }
 

@@ -93,6 +93,7 @@
     "lucide-react-native": "catalog:",
     "nativewind": "catalog:",
     "posthog-react-native": "catalog:",
+    "posthog-react-native-session-replay": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-hook-form": "catalog:",

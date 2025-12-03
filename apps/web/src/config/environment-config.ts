@@ -3,7 +3,7 @@ import { getModeName, isDevelopment, isDevelopmentTunnel, isProduction, isTest }
 import { environmentConfigSchema } from './environment-config-schema.ts'
 import { parseHashedEmails } from './environment-config-utils.ts'
 
-type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
+export type EnvironmentConfig = z.infer<typeof environmentConfigSchema>
 
 const getProductionConfig = (): EnvironmentConfig => ({
   environmentName: 'production',

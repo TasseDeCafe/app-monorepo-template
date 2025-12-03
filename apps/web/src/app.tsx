@@ -12,22 +12,35 @@ import { i18n } from './i18n/i18n'
 import { StateAndHashSynchronizer } from './components/synchronizers/hash-synchronizer/state-and-hash-synchronizer.tsx'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { queryClient } from '@/config/react-query-config'
+import { validateConfig } from '@/config/environment-config-validator'
+import { getConfig } from '@/config/environment-config'
+import { PostHogProvider } from 'posthog-js/react'
+import posthog from 'posthog-js'
+
+validateConfig(getConfig())
+
+posthog.init(getConfig().posthogToken, {
+  api_host: 'https://eu.i.posthog.com',
+  persistence: 'localStorage+cookie',
+})
 
 export const App = () => {
   return (
-    <I18nProvider i18n={i18n}>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Modal />
-          <AnalyticsInitializer />
-          <Toaster />
-          <SilentSignInOut />
-          <StateAndHashSynchronizer />
-          <UserSetup />
-          <Router />
-        </BrowserRouter>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </QueryClientProvider>
-    </I18nProvider>
+    <PostHogProvider client={posthog}>
+      <I18nProvider i18n={i18n}>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <Modal />
+            <AnalyticsInitializer />
+            <Toaster />
+            <SilentSignInOut />
+            <StateAndHashSynchronizer />
+            <UserSetup />
+            <Router />
+          </BrowserRouter>
+          <ReactQueryDevtools initialIsOpen={false} />
+        </QueryClientProvider>
+      </I18nProvider>
+    </PostHogProvider>
   )
 }

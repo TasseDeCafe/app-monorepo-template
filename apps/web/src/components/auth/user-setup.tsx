@@ -1,12 +1,18 @@
 import { useEffect } from 'react'
 import { useCreateOrUpdateUser, useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
-import { useAuthStore, getAccessToken } from '@/stores/auth-store'
-import { useTrackingStore } from '@/stores/tracking-store'
+import { useAuthStore, getAccessToken, getUserId, getUserEmail } from '@/stores/auth-store'
+import { getTrackingParams, useTrackingStore } from '@/stores/tracking-store'
 import { useShallow } from 'zustand/react/shallow'
+import posthog from 'posthog-js'
+import { checkIsTestUser } from '@/utils/test-users-utils'
 
 export const UserSetup = () => {
   const accessToken = useAuthStore(getAccessToken)
   const isUserSetupComplete = useIsUserSetupComplete()
+  const userId = useAuthStore(getUserId)
+  const urlParams = useTrackingStore(getTrackingParams)
+  const email = useAuthStore(getUserEmail)
+  const isTestUser = checkIsTestUser(email)
 
   // Use useShallow to prevent object reference changes from causing re-renders
   const trackingParams = useTrackingStore(
@@ -36,6 +42,22 @@ export const UserSetup = () => {
       })
     }
   }, [accessToken, getOrCreateUserData, isUserSetupComplete, trackingParams])
+
+  useEffect(() => {
+    // we need isUserSetupComplete so that we know the real referral of the user
+    if (userId && urlParams && !isTestUser && isUserSetupComplete) {
+      posthog.identify(userId, {
+        $set_once: {
+          referral: urlParams.referral,
+          utm_source: urlParams.utmSource,
+          utm_medium: urlParams.utmMedium,
+          utm_campaign: urlParams.utmCampaign,
+          utm_term: urlParams.utmTerm,
+          utm_content: urlParams.utmContent,
+        },
+      })
+    }
+  }, [userId, urlParams, isTestUser, isUserSetupComplete])
 
   return <></>
 }

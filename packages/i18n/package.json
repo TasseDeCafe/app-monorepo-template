@@ -10,7 +10,6 @@
   "scripts": {
     "build": "tsc && tsc-alias --project tsconfig.json",
     "check:types": "tsc --noEmit",
-    "test": "vitest run",
     "test:watch": "vitest watch",
     "lingui:extract": "bash -lc 'cd ../.. && lingui extract'",
     "lingui:watch": "bash -lc 'cd ../.. && lingui extract --watch'",

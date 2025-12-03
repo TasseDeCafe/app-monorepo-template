@@ -50,7 +50,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: false,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -92,7 +92,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -134,7 +134,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -177,7 +177,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: true,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -219,7 +219,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: true,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -277,7 +277,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: false,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -331,7 +331,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: false,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -385,7 +385,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: false,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -439,7 +439,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: false,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -488,7 +488,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -537,7 +537,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -585,7 +585,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: false,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -627,7 +627,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -669,7 +669,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -712,7 +712,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: true,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -754,7 +754,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: true,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -812,7 +812,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: false,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -866,7 +866,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: false,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -920,7 +920,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: false,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -967,7 +967,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: false,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -1009,7 +1009,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -1051,7 +1051,7 @@ describe('pricing-view-utils', () => {
             },
             startButton: {
               shouldBeShown: true,
-              text: 'START',
+              text: 'Start',
             },
           })
         })
@@ -1094,7 +1094,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: true,
-                text: 'START',
+                text: 'Start',
               },
             })
           })
@@ -1136,7 +1136,7 @@ describe('pricing-view-utils', () => {
               },
               startButton: {
                 shouldBeShown: true,
-                text: 'START',
+                text: 'Start',
               },
             })
           })

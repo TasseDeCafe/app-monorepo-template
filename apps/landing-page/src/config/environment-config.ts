@@ -15,7 +15,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
     options: {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 0.1,
+      replaysSessionSampleRate: 1.0,
       replaysOnErrorSampleRate: 1.0,
     },
   },
@@ -37,8 +37,9 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
     options: {
       maxValueLength: 8192,
       tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: 0,
+      // todo: you might want to set this lower.
+      replaysSessionSampleRate: 1.0,
+      replaysOnErrorSampleRate: 1.0,
     },
   },
   featureFlags: {

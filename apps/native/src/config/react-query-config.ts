@@ -170,13 +170,7 @@ export const queryClient = new QueryClient({
   }),
   defaultOptions: {
     queries: {
-      staleTime: Infinity,
-      refetchOnWindowFocus: false,
       retry: queryRetryHandler,
-      gcTime: Infinity,
-    },
-    mutations: {
-      gcTime: Infinity,
     },
   },
 })

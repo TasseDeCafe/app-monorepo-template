@@ -17,7 +17,7 @@ const environment = process.env.VERCEL_ENV || railwayEnv || 'development'
 console.log(`Generating .well-known files for ${environment} environment`)
 
 const appleSourceFile = path.join(__dirname, '../public/.well-known/apple-app-site-association.' + environment)
-const appleDestinationFile = path.join(__dirname, '../public/.well-known/apple-app-site-association.json')
+const appleDestinationFile = path.join(__dirname, '../public/.well-known/apple-app-site-association')
 
 if (!fs.existsSync(appleSourceFile)) {
   console.error(`Apple source file ${appleSourceFile} does not exist!`)

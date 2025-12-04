@@ -57,6 +57,7 @@
     "concurrently": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-prettier": "catalog:",
+    "express": "catalog:",
     "file-type": "catalog:",
     "js-sha256": "catalog:",
     "lodash.merge": "catalog:",

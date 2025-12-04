@@ -54,6 +54,8 @@ export type AppDependencies = {
   revenuecatApi?: RevenuecatApi
 }
 
+// test comment for sentry
+
 export const buildApp = ({
   stripeSubscriptionsRepository = StripeSubscriptionsRepository(),
   revenuecatSubscriptionsRepository = RevenuecatSubscriptionsRepository(),

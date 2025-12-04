@@ -3,13 +3,12 @@ builder = "railpack"
 buildCommand = """
 pnpm install --frozen-lockfile && \
 if [ "$RAILWAY_ENVIRONMENT_NAME" = "production" ]; then \
-  export BUILD_ENV="production"; \
+  BUILD_ENV=production pnpm turbo run build --filter=@template-app/web; \
 else \
-  export BUILD_ENV="preview"; \
-  export VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app"; \
-  echo "Preview build: VITE_API_HOST=$VITE_API_HOST"; \
-fi && \
-pnpm turbo run build --filter=@template-app/web
+  VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app" \
+  BUILD_ENV=preview \
+  pnpm turbo run build --filter=@template-app/web; \
+fi
 """
 
 [deploy]

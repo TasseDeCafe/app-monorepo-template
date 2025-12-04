@@ -15,7 +15,7 @@ export default defineConfig({
     tsconfigPaths(),
     sentryVitePlugin({
       org: 'template-organization',
-      project: 'template-app-web',
+      project: 'web',
       authToken: process.env.SENTRY_AUTH_TOKEN,
       sourcemaps: {
         filesToDeleteAfterUpload: ['**/*.js.map'],

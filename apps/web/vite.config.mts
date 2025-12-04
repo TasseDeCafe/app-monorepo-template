@@ -17,6 +17,9 @@ export default defineConfig({
       org: 'template-organization',
       project: 'web',
       authToken: process.env.SENTRY_AUTH_TOKEN,
+      release: {
+        name: process.env.RAILWAY_GIT_COMMIT_SHA,
+      },
       sourcemaps: {
         filesToDeleteAfterUpload: ['**/*.js.map'],
       },

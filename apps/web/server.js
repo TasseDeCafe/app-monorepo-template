@@ -10,10 +10,32 @@ const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, 'dist')
 
-// Serve AASA with correct content-type
+// Serve AASA with correct content-type (all bundle IDs for all environments)
 app.get('/.well-known/apple-app-site-association', (req, res) => {
-  res.setHeader('Content-Type', 'application/json')
-  res.sendFile(join(dist, '.well-known/apple-app-site-association'))
+  res.json({
+    applinks: {
+      apps: [],
+      details: [
+        { appID: 'NPWJ2C5977.com.template-app.ios', paths: ['*'] },
+        { appID: 'NPWJ2C5977.com.template-app.ios.preview', paths: ['*'] },
+        { appID: 'NPWJ2C5977.com.template-app.ios.dev', paths: ['*'] },
+      ],
+    },
+    activitycontinuation: {
+      apps: [
+        'NPWJ2C5977.com.template-app.ios',
+        'NPWJ2C5977.com.template-app.ios.preview',
+        'NPWJ2C5977.com.template-app.ios.dev',
+      ],
+    },
+    webcredentials: {
+      apps: [
+        'NPWJ2C5977.com.template-app.ios',
+        'NPWJ2C5977.com.template-app.ios.preview',
+        'NPWJ2C5977.com.template-app.ios.dev',
+      ],
+    },
+  })
 })
 
 // Serve static assets with long cache (Vite adds hashes to filenames)

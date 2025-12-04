@@ -35,4 +35,4 @@ jobs:
         run: pnpm prod:backend:build
 
       - name: Upload source maps to Sentry
-        run: pnpm prod:backend:sentry
+        run: SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }} pnpm prod:backend:sentry

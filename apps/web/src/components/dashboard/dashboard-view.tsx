@@ -10,6 +10,8 @@ import { Button } from '@/components/shadcn/button'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
 
+// test comment for sentry
+
 export const DashboardView = () => {
   const { t } = useLingui()
   const { mutate: deleteAccount, isPending: isDeletingAccount } = useDeleteAccount()

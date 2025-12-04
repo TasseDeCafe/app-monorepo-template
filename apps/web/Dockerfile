@@ -1,0 +1,39 @@
+# Build stage
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
+COPY apps/web/package.json ./apps/web/
+COPY packages/ ./packages/
+
+# Install pnpm and dependencies
+RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN pnpm install --frozen-lockfile
+
+# Copy source files
+COPY apps/web/ ./apps/web/
+
+# Build args for environment-specific builds
+ARG RAILWAY_ENVIRONMENT_NAME
+ARG VITE_API_HOST
+
+# Set VITE_API_HOST for preview builds if not explicitly set
+RUN if [ "$RAILWAY_ENVIRONMENT_NAME" != "production" ] && [ -n "$RAILWAY_ENVIRONMENT_NAME" ] && [ -z "$VITE_API_HOST" ]; then \
+      export VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app"; \
+    fi && \
+    pnpm turbo run build --filter=@template-app/web
+
+# Production stage
+FROM nginx:alpine
+
+# Copy built files
+COPY --from=builder /app/apps/web/dist/ /usr/share/nginx/html/
+
+# Copy nginx config
+COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

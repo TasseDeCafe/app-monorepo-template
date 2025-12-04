@@ -2,7 +2,10 @@
 builder = "railpack"
 buildCommand = """
 pnpm install --frozen-lockfile && \
-if [ "$RAILWAY_ENVIRONMENT_NAME" != "production" ] && [ -n "$RAILWAY_ENVIRONMENT_NAME" ]; then \
+if [ "$RAILWAY_ENVIRONMENT_NAME" = "production" ]; then \
+  export BUILD_ENV="production"; \
+else \
+  export BUILD_ENV="preview"; \
   export VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app"; \
   echo "Preview build: VITE_API_HOST=$VITE_API_HOST"; \
 fi && \

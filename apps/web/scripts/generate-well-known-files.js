@@ -6,14 +6,15 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-// VERCEL_ENV for Vercel, RAILWAY_ENVIRONMENT_NAME for Railway
+// CLI arg takes priority, then BUILD_ENV, then VERCEL_ENV, then RAILWAY_ENVIRONMENT_NAME
+const cliArg = process.argv[2] // e.g., node script.js production
 const railwayEnv =
   process.env.RAILWAY_ENVIRONMENT_NAME === 'production'
     ? 'production'
     : process.env.RAILWAY_ENVIRONMENT_NAME
       ? 'preview'
       : undefined
-const environment = process.env.VERCEL_ENV || railwayEnv || 'development'
+const environment = cliArg || process.env.BUILD_ENV || process.env.VERCEL_ENV || railwayEnv || 'development'
 console.log(`Generating .well-known files for ${environment} environment`)
 
 const appleSourceFile = path.join(__dirname, '../public/.well-known/apple-app-site-association.' + environment)

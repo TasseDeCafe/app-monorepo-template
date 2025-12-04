@@ -29,8 +29,8 @@ app.use(
   })
 )
 
-// SPA fallback - no cache for index.html
-app.get('*', (req, res) => {
+// SPA fallback - no cache for index.html (Express 5 syntax)
+app.get('/{*path}', (req, res) => {
   res.setHeader('Cache-Control', 'no-cache')
   res.sendFile(join(dist, 'index.html'))
 })

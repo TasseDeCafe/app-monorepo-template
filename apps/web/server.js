@@ -26,6 +26,7 @@ app.use(
   express.static(dist, {
     maxAge: '1h',
     index: false,
+    dotfiles: 'allow',
   })
 )
 

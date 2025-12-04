@@ -13,12 +13,12 @@ export const getUniqueIosIdentifier = () => {
 
 export const getUniqueAndroidIdentifier = () => {
   if (IS_DEV) {
-    return 'com.app-monorepo-template.android.dev'
+    return 'com.app.monorepo.template.android.dev'
   }
   if (IS_PREVIEW) {
-    return 'com.app-monorepo-template.android.preview'
+    return 'com.app.monorepo.template.android.preview'
   }
-  return 'com.app-monorepo-template.android'
+  return 'com.app.monorepo.template.android'
 }
 
 const getAppName = () => {

@@ -179,7 +179,7 @@ const config = {
         '@sentry/react-native/expo',
         {
           url: 'https://sentry.io/',
-          project: 'template-app-native',
+          project: 'native',
           organization: 'template-organization',
         },
       ],

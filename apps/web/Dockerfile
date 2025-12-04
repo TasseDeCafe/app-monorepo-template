@@ -35,9 +35,8 @@ FROM nginx:alpine
 # Copy built files
 COPY --from=builder /app/apps/web/dist/ /usr/share/nginx/html/
 
-# Copy nginx config
-COPY apps/web/nginx.conf /etc/nginx/conf.d/default.conf
+# Copy nginx config template
+COPY apps/web/nginx.conf.template /etc/nginx/nginx.conf.template
 
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Substitute PORT variable at runtime, then start nginx
+CMD ["/bin/sh", "-c", "envsubst '${PORT}' < /etc/nginx/nginx.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]

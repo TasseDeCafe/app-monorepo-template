@@ -3,8 +3,8 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
+# Copy package files and configs
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json lingui.config.js babel.config.js ./
 COPY apps/web/package.json ./apps/web/
 COPY packages/ ./packages/
 
@@ -18,6 +18,10 @@ COPY apps/web/ ./apps/web/
 # Build args for environment-specific builds
 ARG RAILWAY_ENVIRONMENT_NAME
 ARG VITE_API_HOST
+
+# Convert ARGs to ENVs so they're available during build
+ENV RAILWAY_ENVIRONMENT_NAME=${RAILWAY_ENVIRONMENT_NAME}
+ENV VITE_API_HOST=${VITE_API_HOST}
 
 # Set VITE_API_HOST for preview builds if not explicitly set
 RUN if [ "$RAILWAY_ENVIRONMENT_NAME" != "production" ] && [ -n "$RAILWAY_ENVIRONMENT_NAME" ] && [ -z "$VITE_API_HOST" ]; then \

@@ -1,0 +1,24 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      { "appID": "NPWJ2C5977.com.template-app.ios", "paths": ["*"] },
+      { "appID": "NPWJ2C5977.com.template-app.ios.preview", "paths": ["*"] },
+      { "appID": "NPWJ2C5977.com.template-app.ios.dev", "paths": ["*"] }
+    ]
+  },
+  "activitycontinuation": {
+    "apps": [
+      "NPWJ2C5977.com.template-app.ios",
+      "NPWJ2C5977.com.template-app.ios.preview",
+      "NPWJ2C5977.com.template-app.ios.dev"
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "NPWJ2C5977.com.template-app.ios",
+      "NPWJ2C5977.com.template-app.ios.preview",
+      "NPWJ2C5977.com.template-app.ios.dev"
+    ]
+  }
+}

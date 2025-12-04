@@ -1,3 +1,7 @@
+// We use Express instead of simpler static servers (like `npx serve`) because Apple requires
+// the AASA file at /.well-known/apple-app-site-association with NO extension and Content-Type: application/json.
+// Static servers like `serve` can't handle extensionless files properly with SPA fallback enabled.
+
 import express from 'express'
 import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -6,18 +10,10 @@ const app = express()
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const dist = join(__dirname, 'dist')
 
-// Serve AASA with correct content-type (all bundle IDs for all environments)
+// Serve AASA with correct content-type
 app.get('/.well-known/apple-app-site-association', (req, res) => {
-  res.json({
-    applinks: {
-      apps: [],
-      details: [
-        { appID: 'NPWJ2C5977.com.template-app.ios', paths: ['*'] },
-        { appID: 'NPWJ2C5977.com.template-app.ios.preview', paths: ['*'] },
-        { appID: 'NPWJ2C5977.com.template-app.ios.dev', paths: ['*'] },
-      ],
-    },
-  })
+  res.setHeader('Content-Type', 'application/json')
+  res.sendFile(join(dist, '.well-known/apple-app-site-association'))
 })
 
 // Serve static assets with long cache (Vite adds hashes to filenames)

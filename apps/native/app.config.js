@@ -3,22 +3,22 @@ const IS_PREVIEW = process.env.APP_VARIANT === 'preview'
 
 export const getUniqueIosIdentifier = () => {
   if (IS_DEV) {
-    return 'com.template-app.ios.dev'
+    return 'com.app-monorepo-template.ios.dev'
   }
   if (IS_PREVIEW) {
-    return 'com.template-app.ios.preview'
+    return 'com.app-monorepo-template.ios.preview'
   }
-  return 'com.template-app.ios'
+  return 'com.app-monorepo-template.ios'
 }
 
 export const getUniqueAndroidIdentifier = () => {
   if (IS_DEV) {
-    return 'com.template-app.android.dev'
+    return 'com.app-monorepo-template.android.dev'
   }
   if (IS_PREVIEW) {
-    return 'com.template-app.android.preview'
+    return 'com.app-monorepo-template.android.preview'
   }
-  return 'com.template-app.android'
+  return 'com.app-monorepo-template.android'
 }
 
 const getAppName = () => {

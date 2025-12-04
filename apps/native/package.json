@@ -8,7 +8,6 @@
     "start:ngrok": "APP_VARIANT=development doppler run -- expo start --tunnel",
     "start:production-mode": "APP_VARIANT=development doppler run -- expo start --no-dev --minify -c",
     "ios": "./scripts/expo-run-on-device.sh ios",
-    "ios:kamil-iphone12": "APP_VARIANT=development doppler run -- npx expo run:ios --device 00008101-000561D40AB9003A",
     "ios:emulator": "APP_VARIANT=development doppler run -- npx expo run:ios",
     "android": "./scripts/expo-run-on-device.sh android",
     "android:emulator": "APP_VARIANT=development doppler run -- npx expo run:android",

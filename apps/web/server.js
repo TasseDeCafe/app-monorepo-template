@@ -16,23 +16,23 @@ app.get('/.well-known/apple-app-site-association', (req, res) => {
     applinks: {
       apps: [],
       details: [
-        { appID: 'NPWJ2C5977.com.template-app.ios', paths: ['*'] },
-        { appID: 'NPWJ2C5977.com.template-app.ios.preview', paths: ['*'] },
-        { appID: 'NPWJ2C5977.com.template-app.ios.dev', paths: ['*'] },
+        { appID: 'NPWJ2C5977.com.app-monorepo-template.ios', paths: ['*'] },
+        { appID: 'NPWJ2C5977.com.app-monorepo-template.ios.preview', paths: ['*'] },
+        { appID: 'NPWJ2C5977.com.app-monorepo-template.ios.dev', paths: ['*'] },
       ],
     },
     activitycontinuation: {
       apps: [
-        'NPWJ2C5977.com.template-app.ios',
-        'NPWJ2C5977.com.template-app.ios.preview',
-        'NPWJ2C5977.com.template-app.ios.dev',
+        'NPWJ2C5977.com.app-monorepo-template.ios',
+        'NPWJ2C5977.com.app-monorepo-template.ios.preview',
+        'NPWJ2C5977.com.app-monorepo-template.ios.dev',
       ],
     },
     webcredentials: {
       apps: [
-        'NPWJ2C5977.com.template-app.ios',
-        'NPWJ2C5977.com.template-app.ios.preview',
-        'NPWJ2C5977.com.template-app.ios.dev',
+        'NPWJ2C5977.com.app-monorepo-template.ios',
+        'NPWJ2C5977.com.app-monorepo-template.ios.preview',
+        'NPWJ2C5977.com.app-monorepo-template.ios.dev',
       ],
     },
   })

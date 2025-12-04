@@ -1,0 +1,32 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.template-app.android",
+      "sha256_cert_fingerprints": [
+        "82:89:6A:E0:82:FA:7D:9C:8F:34:63:E5:4A:D9:8E:31:F7:90:41:66:22:09:8C:44:4E:0A:8F:25:7D:FF:3A:6E"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.template-app.android.preview",
+      "sha256_cert_fingerprints": [
+        "82:89:6A:E0:82:FA:7D:9C:8F:34:63:E5:4A:D9:8E:31:F7:90:41:66:22:09:8C:44:4E:0A:8F:25:7D:FF:3A:6E"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.template-app.android.dev",
+      "sha256_cert_fingerprints": [
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
+      ]
+    }
+  }
+]

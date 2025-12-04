@@ -2,16 +2,11 @@
 builder = "railpack"
 buildCommand = """
 pnpm install --frozen-lockfile && \
-if [ "$RAILWAY_ENVIRONMENT_NAME" = "production" ]; then \
-  pnpm turbo run build --filter=@template-app/web && \
-  node apps/web/scripts/generate-well-known-files.js production && \
-  cp apps/web/public/.well-known/apple-app-site-association apps/web/dist/.well-known/; \
-else \
-  VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app" \
-  pnpm turbo run build --filter=@template-app/web && \
-  node apps/web/scripts/generate-well-known-files.js preview && \
-  cp apps/web/public/.well-known/apple-app-site-association apps/web/dist/.well-known/; \
-fi
+if [ "$RAILWAY_ENVIRONMENT_NAME" != "production" ] && [ -n "$RAILWAY_ENVIRONMENT_NAME" ]; then \
+  export VITE_API_HOST="https://template-appbackend-${RAILWAY_ENVIRONMENT_NAME}.up.railway.app"; \
+  echo "Preview build: VITE_API_HOST=$VITE_API_HOST"; \
+fi && \
+pnpm turbo run build --filter=@template-app/web
 """
 
 [deploy]

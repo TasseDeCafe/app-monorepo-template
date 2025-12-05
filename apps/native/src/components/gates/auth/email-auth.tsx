@@ -2,13 +2,10 @@ import { Text, TextInput, View } from 'react-native'
 import { useRouter } from 'expo-router'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { TitleWithGradient } from '@/components/ui/title-with-gradient'
 import { useAuthStore } from '@/stores/auth-store'
 import { toast } from 'sonner-native'
 import { useState } from 'react'
-import { LinearGradient } from 'expo-linear-gradient'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import colors from 'tailwindcss/colors'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import { useLingui } from '@lingui/react/macro'
 
@@ -56,51 +53,39 @@ export default function EmailAuth() {
   }
 
   return (
-    <LinearGradient
-      colors={[colors.indigo[600], colors.purple[700]]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={{
-        flex: 1,
-        paddingHorizontal: 16,
-      }}
-    >
-      <View className='flex-1 items-center justify-center'>
-        <Card className='w-full max-w-md p-6'>
-          <View className='mb-8 text-center'>
-            <TitleWithGradient>{t`Continue with Email`}</TitleWithGradient>
+    <View className='flex-1 items-center justify-center'>
+      <Card className='w-full max-w-md p-6'>
+        <View className='mb-8 text-center'>
+          <Text className='text-center text-4xl font-bold leading-tight'>{t`Continue with Email`}</Text>
+        </View>
+
+        <View className='gap-4'>
+          <View className='w-full'>
+            <TextInput
+              placeholder={t`Email address`}
+              placeholderTextColor='gray'
+              value={emailInput}
+              onChangeText={(text) => {
+                setEmailInput(text)
+                setHasEmailError(false)
+              }}
+              keyboardType='email-address'
+              autoCapitalize='none'
+              autoComplete='email'
+              autoCorrect={false}
+              textAlignVertical='center'
+              className='h-16 w-full rounded-xl border border-gray-300 px-3 text-xl'
+            />
+            {hasEmailError ? (
+              <Text className='mt-1 text-base text-red-500'>{t`Please enter a valid email address`}</Text>
+            ) : null}
           </View>
 
-          <View className='gap-4'>
-            <View className='w-full'>
-              <TextInput
-                placeholder={t`Email address`}
-                placeholderTextColor='gray'
-                value={emailInput}
-                onChangeText={(text) => {
-                  setEmailInput(text)
-                  setHasEmailError(false)
-                }}
-                keyboardType='email-address'
-                autoCapitalize='none'
-                autoComplete='email'
-                autoCorrect={false}
-                textAlignVertical='center'
-                className='h-16 w-full rounded-xl border border-gray-300 px-3 text-xl'
-              />
-              {hasEmailError ? (
-                <Text className='mt-1 text-base text-red-500'>{t`Please enter a valid email address`}</Text>
-              ) : null}
-            </View>
-
-            <Button onPress={handleLogin} disabled={loading} className='h-16'>
-              <Text className='text-2xl font-medium text-white'>
-                {loading ? t`Sending an email` : t`Continue`}
-              </Text>
-            </Button>
-          </View>
-        </Card>
-      </View>
-    </LinearGradient>
+          <Button onPress={handleLogin} disabled={loading} className='h-16'>
+            <Text className='text-2xl font-medium text-white'>{loading ? t`Sending an email` : t`Continue`}</Text>
+          </Button>
+        </View>
+      </Card>
+    </View>
   )
 }

@@ -192,7 +192,7 @@ const config = {
       reactCompiler: true,
     },
     updates: {
-      url: 'https://u.expo.dev/b2469e69-6cd5-4732-b731-3e9374812b41',
+      url: 'https://u.expo.dev/20a5774f-5cfd-48ad-b277-50d9d02a2e58',
     },
     runtimeVersion: {
       policy: 'appVersion',

@@ -1,15 +1,12 @@
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { GoogleIcon } from '@/components/ui/icons/google-icon'
-import { TitleWithGradient } from '@/components/ui/title-with-gradient'
 import { useAuthStore } from '@/stores/auth-store'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import * as AppleAuthentication from 'expo-apple-authentication'
-import { LinearGradient } from 'expo-linear-gradient'
 import { useRouter } from 'expo-router'
 import { Mail } from 'lucide-react-native'
 import { Platform, View } from 'react-native'
-import colors from 'tailwindcss/colors'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import * as Haptics from 'expo-haptics'
 import { useLingui } from '@lingui/react/macro'
@@ -26,23 +23,8 @@ export default function SignInUp() {
   }
 
   return (
-    <LinearGradient
-      colors={[colors.indigo[600], colors.purple[700]]}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={{
-        flex: 1,
-        paddingHorizontal: 16,
-      }}
-    >
       <View className='flex-1 items-center justify-center'>
         <Card className='w-full max-w-md p-6'>
-          <View className='mb-8'>
-            <TitleWithGradient>
-              {t`Start mastering`}
-              {t`your pronunciation`}
-            </TitleWithGradient>
-          </View>
           <View className='gap-4'>
             <Button
               variant='white'
@@ -80,6 +62,5 @@ export default function SignInUp() {
           </View>
         </Card>
       </View>
-    </LinearGradient>
   )
 }

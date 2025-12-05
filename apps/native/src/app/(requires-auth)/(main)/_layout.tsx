@@ -40,6 +40,13 @@ export default function MainLayout() {
           title: 'Admin Settings',
         }}
       />
+      <Stack.Screen
+        name='premium-demo'
+        options={{
+          headerShown: true,
+          title: 'Premium Demo',
+        }}
+      />
     </Stack>
   )
 }

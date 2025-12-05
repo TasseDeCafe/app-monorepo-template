@@ -118,8 +118,7 @@ export const Drawer = React.memo(() => {
 
   const handleProfilePress = useCallback(() => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).then()
-    // todo expo routing: try to use the below navigateTo method instead
-    router.push('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile')
+    router.push('/(requires-auth)/(main)/(drawer)/(tabs)/profile')
     closeDrawer()
   }, [router, closeDrawer])
 
@@ -132,15 +131,15 @@ export const Drawer = React.memo(() => {
   )
 
   const handleHomePress = useCallback(() => {
-    navigateTo('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)')
+    navigateTo('/(requires-auth)/(main)/(drawer)/(tabs)')
   }, [navigateTo])
 
   const handleAccountPress = useCallback(() => {
-    navigateTo('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/profile')
+    navigateTo('/(requires-auth)/(main)/(drawer)/(tabs)/profile')
   }, [navigateTo])
 
   const handleExercisesPress = useCallback(() => {
-    navigateTo('/(requires-auth)/(requires-choose-plan)/(requires-onboarding)/(drawer)/(tabs)/dashboard')
+    navigateTo('/(requires-auth)/(main)/(drawer)/(tabs)/dashboard')
   }, [navigateTo])
 
   const handleContactPress = useCallback(() => {

@@ -15,7 +15,7 @@ module.exports = [
   // reactPlugin.configs.flat['jsx-runtime'],
   // reactYouMightNotNeedAnEffectPlugin.configs.recommended,
   {
-    ignores: ['**/dist/**', '**/node_modules/**', '**/playground/**'],
+    ignores: ['**/dist/**', '**/node_modules/**', '**/playground/**', '**/src/routeTree.gen.ts'],
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],

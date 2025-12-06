@@ -1,5 +1,5 @@
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
-import { useNavigate, useRouterState } from '@tanstack/react-router'
+import { useNavigate, useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { AuthError } from '@supabase/supabase-js'
@@ -16,10 +16,9 @@ import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 export const AuthView = () => {
   const { t } = useLingui()
 
-  const routerState = useRouterState()
+  const { redirect } = useSearch({ from: '/login/' })
   const navigate = useNavigate()
-  const redirectTo: string =
-    (routerState.location.state as { from?: { pathname: string } })?.from?.pathname || ROUTE_PATHS.DASHBOARD
+  const redirectTo = redirect || ROUTE_PATHS.DASHBOARD
   const isSignedIn = useAuthStore(getIsSignedIn)
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { isHashEnabledModalId } from '../../modal/modal-utils.ts'
-import { useLocation } from 'react-router-dom'
+import { useLocation } from '@tanstack/react-router'
 import { useModalStore } from '@/stores/modal-store'
 
 export const HashToStateSynchronizer = () => {

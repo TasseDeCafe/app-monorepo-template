@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-router'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { useEffect } from 'react'
 import { useLingui } from '@lingui/react/macro'
@@ -13,12 +13,12 @@ export const AccountRemovedSuccessView = () => {
 
   useEffect(() => {
     if (isSignedIn) {
-      navigate(ROUTE_PATHS.DASHBOARD)
+      navigate({ to: ROUTE_PATHS.DASHBOARD })
     }
   }, [isSignedIn, navigate])
 
   const handleTakeToSignIn = () => {
-    navigate(ROUTE_PATHS.LOGIN, { replace: true })
+    navigate({ to: ROUTE_PATHS.LOGIN, replace: true })
   }
 
   return (

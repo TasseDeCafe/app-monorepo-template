@@ -13,7 +13,7 @@ import { getPricingViewConfig, PricingViewConfig } from './pricing-view-utils.ts
 import { toast } from 'sonner'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
 import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-router'
 import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
@@ -89,7 +89,7 @@ export const PricingView = () => {
         }
       }
     } else if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
-      navigate(buildPricingFreeTrialPath(clickedPlan as 'month' | 'year'))
+      navigate({ to: buildPricingFreeTrialPath(clickedPlan as 'month' | 'year') })
     } else {
       mutate({
         successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
@@ -101,7 +101,7 @@ export const PricingView = () => {
 
   const handleGoPracticeNowClick = () => {
     POSTHOG_EVENTS.click('go_practice_now_button')
-    navigate(ROUTE_PATHS.DASHBOARD)
+    navigate({ to: ROUTE_PATHS.DASHBOARD })
   }
 
   const handleSignOut = async () => {

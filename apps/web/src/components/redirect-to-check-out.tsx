@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from '@tanstack/react-router'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths'
 import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
@@ -12,7 +12,7 @@ import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 // so we have to send the user to a new route that uses a query param in order to preserve the priceId.
 export const RedirectToCheckOut = () => {
   const navigate = useNavigate()
-  const params = useParams<{ planInterval: string }>()
+  const { planInterval } = useParams({ from: '/_protected/redirect-to-check-out/$planInterval' })
   const referral = useTrackingStore((state) => state.referral)
   const isUserSetupComplete = useIsUserSetupComplete()
 
@@ -20,10 +20,10 @@ export const RedirectToCheckOut = () => {
 
   useEffect(() => {
     if (isUserSetupComplete) {
-      if (params.planInterval) {
-        const calculatedPlanInterval: 'month' | 'year' = params.planInterval === 'month' ? 'month' : 'year'
+      if (planInterval) {
+        const calculatedPlanInterval: 'month' | 'year' = planInterval === 'month' ? 'month' : 'year'
         if (referral) {
-          navigate(buildPricingFreeTrialPath(calculatedPlanInterval))
+          navigate({ to: buildPricingFreeTrialPath(calculatedPlanInterval) })
         } else {
           mutate({
             successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
@@ -32,10 +32,10 @@ export const RedirectToCheckOut = () => {
           })
         }
       } else {
-        navigate(ROUTE_PATHS.DASHBOARD)
+        navigate({ to: ROUTE_PATHS.DASHBOARD })
       }
     }
-  }, [params.planInterval, mutate, isUserSetupComplete, referral, navigate])
+  }, [planInterval, mutate, isUserSetupComplete, referral, navigate])
 
   return <FullViewLoader />
 }

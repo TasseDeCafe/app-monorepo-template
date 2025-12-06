@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
-import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
+import { Navigate, useNavigate, useSearch } from '@tanstack/react-router'
 import { buildCheckOutRightAfterSignUpPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { FullViewLoader } from '../loader/full-view-loader.tsx'
 
 // all external links going from the landing page to the app are handled in this component
 export const FromLanding = () => {
-  const [searchParams] = useSearchParams()
-  const planInterval = searchParams.get('planInterval')
+  const { planInterval } = useSearch({ from: '/from-landing' })
   const navigate = useNavigate()
 
   // If there is a planInterval in the URL, we want the user to be redirected to the checkout page
@@ -15,7 +14,7 @@ export const FromLanding = () => {
   // The call to the backend is then handled in the component of this route.
   useEffect(() => {
     if (planInterval) {
-      navigate(buildCheckOutRightAfterSignUpPath(planInterval))
+      navigate({ to: buildCheckOutRightAfterSignUpPath(planInterval) })
     }
   }, [planInterval, navigate])
 

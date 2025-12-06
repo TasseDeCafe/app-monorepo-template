@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
 import { ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-router'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { Button } from '../../shadcn/button.tsx'
 import { useMutation } from '@tanstack/react-query'
@@ -49,7 +49,7 @@ export const AuthEmailVerifyView = () => {
       }
     },
     onSuccess: () => {
-      navigate(ROUTE_PATHS.DASHBOARD, { replace: true })
+      navigate({ to: ROUTE_PATHS.DASHBOARD, replace: true })
     },
     onError: () => {
       setIsError(true)
@@ -63,7 +63,7 @@ export const AuthEmailVerifyView = () => {
 
   const handleReturnToAuth = () => {
     POSTHOG_EVENTS.click('return_to_auth_button')
-    navigate(ROUTE_PATHS.LOGIN, { replace: true })
+    navigate({ to: ROUTE_PATHS.LOGIN, replace: true })
   }
 
   return (

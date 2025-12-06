@@ -1,5 +1,5 @@
 import { CheckCircle } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useLingui } from '@lingui/react/macro'
 import { ROUTE_PATHS } from '@/routing/route-paths'
@@ -29,7 +29,7 @@ export const CheckoutSuccessView = () => {
           <p className='text-muted-foreground'>{t`Enjoy unlimited access to all our premium features and content.`}</p>
         </CardContent>
         <CardFooter>
-          <Button className='w-full' onClick={() => navigate(ROUTE_PATHS.DASHBOARD)}>
+          <Button className='w-full' onClick={() => navigate({ to: ROUTE_PATHS.DASHBOARD })}>
             {t`Go to Dashboard`}
           </Button>
         </CardFooter>

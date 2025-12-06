@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { LogOut } from 'lucide-react'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
+import { Route as checkoutSuccessRoute } from '@/routes/checkout-success'
+import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
 import { Button } from '../shadcn/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
 import { RadioGroup, RadioGroupItem } from '../shadcn/radio-group.tsx'
@@ -86,11 +89,11 @@ export const PricingView = () => {
         }
       }
     } else if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
-      navigate({ to: buildPricingFreeTrialPath(clickedPlan as 'month' | 'year') })
+      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
     } else {
       mutate({
-        successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
-        cancelPathAndHash: ROUTE_PATHS.PRICING,
+        successPathAndHash: checkoutSuccessRoute.to,
+        cancelPathAndHash: pricingRoute.to,
         planInterval: clickedPlan as PlanInterval,
       })
     }
@@ -98,7 +101,7 @@ export const PricingView = () => {
 
   const handleGoPracticeNowClick = () => {
     POSTHOG_EVENTS.click('go_practice_now_button')
-    navigate({ to: ROUTE_PATHS.DASHBOARD })
+    navigate({ to: dashboardRoute.to })
   }
 
   const signOut = useAuthStore((state) => state.signOut)

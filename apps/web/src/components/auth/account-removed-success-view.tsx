@@ -1,7 +1,8 @@
 import { useNavigate } from '@tanstack/react-router'
-import { ROUTE_PATHS } from '@/routing/route-paths.ts'
 import { useEffect } from 'react'
 import { useLingui } from '@lingui/react/macro'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as loginRoute } from '@/routes/login/index'
 import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 import { Button } from '../shadcn/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
@@ -13,12 +14,12 @@ export const AccountRemovedSuccessView = () => {
 
   useEffect(() => {
     if (isSignedIn) {
-      navigate({ to: ROUTE_PATHS.DASHBOARD })
+      navigate({ to: dashboardRoute.to })
     }
   }, [isSignedIn, navigate])
 
   const handleTakeToSignIn = () => {
-    navigate({ to: ROUTE_PATHS.LOGIN, replace: true })
+    navigate({ to: loginRoute.to, replace: true })
   }
 
   return (

@@ -1,7 +1,8 @@
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
 import { useNavigate, useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
-import { ROUTE_PATHS } from '@/routing/route-paths.ts'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as loginEmailRoute } from '@/routes/login/email/index'
 import { AuthError } from '@supabase/supabase-js'
 import { toast } from 'sonner'
 import googleSvg from '../../../images/svg/google.svg'
@@ -18,7 +19,7 @@ export const AuthView = () => {
 
   const { redirect } = useSearch({ from: '/login/' })
   const navigate = useNavigate()
-  const redirectTo = redirect || ROUTE_PATHS.DASHBOARD
+  const redirectTo = redirect || dashboardRoute.to
   const isSignedIn = useAuthStore(getIsSignedIn)
 
   useEffect(() => {
@@ -70,7 +71,7 @@ export const AuthView = () => {
 
   const handleContinueWithEmailClick = () => {
     POSTHOG_EVENTS.click('continue_with_email_button')
-    navigate({ to: ROUTE_PATHS.LOGIN_EMAIL })
+    navigate({ to: loginEmailRoute.to })
   }
 
   if (!isSignedIn) {

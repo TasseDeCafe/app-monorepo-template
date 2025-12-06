@@ -15,7 +15,7 @@ import { QueryMeta } from '@/hooks/api/hook-types'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import { useModalStore } from '@/stores/modal-store'
-import { ROUTE_PATHS } from '@/routing/route-paths'
+import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
 import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
 import { RATE_LIMITING_MODAL_ID } from '@/components/modal/modal-ids'
 import { ORPCError } from '@orpc/contract'
@@ -60,7 +60,7 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
     if (backendErrorCode === ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED) {
       POSTHOG_EVENTS.showPaywallToUser()
       if (typeof window !== 'undefined') {
-        window.location.assign(ROUTE_PATHS.PRICING)
+        window.location.assign(pricingRoute.to)
       }
       return
     }

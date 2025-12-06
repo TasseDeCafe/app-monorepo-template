@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { useNavigate, useParams } from '@tanstack/react-router'
-import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as checkoutSuccessRoute } from '@/routes/checkout-success'
+import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
+import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
 import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useTrackingStore } from '@/stores/tracking-store'
@@ -23,16 +26,16 @@ export const RedirectToCheckOut = () => {
       if (planInterval) {
         const calculatedPlanInterval: 'month' | 'year' = planInterval === 'month' ? 'month' : 'year'
         if (referral) {
-          navigate({ to: buildPricingFreeTrialPath(calculatedPlanInterval) })
+          navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: calculatedPlanInterval } })
         } else {
           mutate({
-            successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
-            cancelPathAndHash: ROUTE_PATHS.PRICING,
+            successPathAndHash: checkoutSuccessRoute.to,
+            cancelPathAndHash: pricingRoute.to,
             planInterval: calculatedPlanInterval,
           })
         }
       } else {
-        navigate({ to: ROUTE_PATHS.DASHBOARD })
+        navigate({ to: dashboardRoute.to })
       }
     }
   }, [planInterval, mutate, isUserSetupComplete, referral, navigate])

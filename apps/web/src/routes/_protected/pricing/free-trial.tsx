@@ -1,15 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { FreeTrialExplanationView } from '@/components/pricing/free-trial-explanation-view.tsx'
+import { z } from 'zod'
 
-type FreeTrialSearch = {
-  planInterval?: string
-}
+const freeTrialSearchSchema = z.object({
+  planInterval: z.string().optional(),
+})
 
 export const Route = createFileRoute('/_protected/pricing/free-trial')({
-  validateSearch: (search: Record<string, unknown>): FreeTrialSearch => {
-    return {
-      planInterval: search.planInterval as string | undefined,
-    }
-  },
+  validateSearch: freeTrialSearchSchema,
   component: FreeTrialExplanationView,
 })

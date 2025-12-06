@@ -1,15 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { AuthEmailSentView } from '@/components/auth/auth/auth-email-sent-view.tsx'
+import { z } from 'zod'
 
-type EmailSentSearch = {
-  email?: string
-}
+const emailSentSearchSchema = z.object({
+  email: z.string().optional(),
+})
 
 export const Route = createFileRoute('/login/email/sent')({
-  validateSearch: (search: Record<string, unknown>): EmailSentSearch => {
-    return {
-      email: search.email as string | undefined,
-    }
-  },
+  validateSearch: emailSentSearchSchema,
   component: AuthEmailSentView,
 })

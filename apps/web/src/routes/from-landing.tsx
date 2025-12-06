@@ -1,15 +1,12 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { FromLanding } from '@/components/auth/from-landing.tsx'
+import { z } from 'zod'
 
-type FromLandingSearch = {
-  planInterval?: string
-}
+const fromLandingSearchSchema = z.object({
+  planInterval: z.string().optional(),
+})
 
 export const Route = createFileRoute('/from-landing')({
-  validateSearch: (search: Record<string, unknown>): FromLandingSearch => {
-    return {
-      planInterval: search.planInterval as string | undefined,
-    }
-  },
+  validateSearch: fromLandingSearchSchema,
   component: FromLanding,
 })

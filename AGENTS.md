@@ -13,6 +13,7 @@ Shared API library: oRPC.
 State management: Zustand.
 i18n: Lingui JS.
 Testing: Vitest.
+Routing: TanStack Router.
 
 The template is built so that it's easy to deploy this stack, and also have useful features like:
 - Authentication (Supabase): Magic link, Google, Apple.

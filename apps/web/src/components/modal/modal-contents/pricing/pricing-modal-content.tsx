@@ -1,0 +1,135 @@
+import { useEffect, useState } from 'react'
+import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../../shadcn/dialog'
+import { Button } from '../../../shadcn/button'
+import { RadioGroup, RadioGroupItem } from '../../../shadcn/radio-group'
+import { Label } from '../../../shadcn/label'
+import { Badge } from '../../../shadcn/badge'
+import { getConfig } from '@/config/environment-config'
+import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
+import { Route as checkoutSuccessRoute } from '@/routes/_protected/pricing/checkout-success'
+import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
+import { getPricingViewConfig, PricingViewConfig } from '@/components/pricing/pricing-view-utils'
+import { toast } from 'sonner'
+import { useNavigate } from '@tanstack/react-router'
+import { PlanInterval } from '@template-app/core/constants/pricing-constants'
+import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
+import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
+import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
+import { useLingui } from '@lingui/react/macro'
+import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
+import { useModalStore } from '@/stores/modal-store'
+
+export const PricingModalContent = () => {
+  const { t } = useLingui()
+  const [clickedPlan, setClickedPlan] = useState<PlanType>('year')
+  const hasAllowedReferral = useTrackingStore(getHasAllowedReferral)
+  const navigate = useNavigate()
+  const closeModal = useModalStore((state) => state.closeModal)
+
+  const handlePlanOptionClick = (planType: PlanType) => {
+    POSTHOG_EVENTS.clickPlan('plan_radio_button', planType)
+    if (isPremiumUser) {
+      if (planType === 'free_trial') {
+        toast.info(t`You have already used your free trial.`)
+      } else {
+        toast.info(t`To change your current plan type, please click on "Manage Subscription".`)
+      }
+    } else {
+      setClickedPlan(planType)
+    }
+  }
+
+  const { mutate, isPending: isPendingCheckoutMutation } = useCheckoutMutation()
+
+  const { data: subscriptionData } = useGetSubscriptionDetails()
+
+  const stripeDetails = subscriptionData?.stripeDetails
+  const currentActivePlan = stripeDetails?.currentActivePlan || null
+  const pricing = stripeDetails?.userPricingDetails || null
+
+  useEffect(() => {
+    if (currentActivePlan) {
+      if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
+        if (currentActivePlan !== 'free_trial') {
+          setClickedPlan(currentActivePlan)
+        }
+      } else {
+        setClickedPlan(currentActivePlan)
+      }
+    }
+  }, [currentActivePlan, hasAllowedReferral])
+
+  const isPremiumUser = !!subscriptionData?.isPremiumUser
+
+  const handleCTAClick = () => {
+    POSTHOG_EVENTS.click('subscribe_button')
+    if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
+      closeModal()
+      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
+    } else {
+      mutate({
+        successPathAndHash: checkoutSuccessRoute.to,
+        cancelPathAndHash: pricingRoute.to,
+        planInterval: clickedPlan as PlanInterval,
+      })
+    }
+  }
+
+  const pricingViewConfig: PricingViewConfig = getPricingViewConfig({
+    isPendingMutation: isPendingCheckoutMutation,
+    clickedPlan: clickedPlan,
+    pricingDetails: pricing || {
+      amountInEurosThatUserIsCurrentlyPayingPerInterval: null,
+      hasSubscribedWithADiscount: false,
+      currentlyAvailableDiscounts: null,
+      currentDiscountInPercentage: 0,
+    },
+    isCreditCardRequiredForAll: getConfig().featureFlags.isCreditCardRequiredForAll(),
+    isPremiumUser: isPremiumUser,
+    hasAllowedReferral,
+    currentActivePlan,
+  })
+
+  return (
+    <DialogContent className='sm:max-w-md'>
+      <DialogHeader>
+        <DialogTitle>{t`Subscribe to access premium features`}</DialogTitle>
+        <DialogDescription>{t`Choose a plan to unlock all features`}</DialogDescription>
+      </DialogHeader>
+      <div className='flex flex-col gap-4'>
+        <RadioGroup
+          value={clickedPlan ?? undefined}
+          onValueChange={(value) => handlePlanOptionClick(value as PlanType)}
+          disabled={isPremiumUser}
+        >
+          {pricingViewConfig.plans.map((option) => (
+            <div key={option.value ?? 'none'} className='flex items-start space-x-3 rounded-lg border p-4'>
+              <RadioGroupItem value={option.value ?? ''} id={`modal-${option.value}`} />
+              <div className='flex flex-1 flex-col gap-1'>
+                <div className='flex items-center gap-2'>
+                  <Label htmlFor={`modal-${option.value}`} className='cursor-pointer font-medium'>
+                    {option.label}
+                  </Label>
+                  {option.additionalMessage && <Badge variant='secondary'>{option.additionalMessage}</Badge>}
+                </div>
+                <div className='text-sm font-semibold'>{option.priceMessage}</div>
+                {option.discountMessage && <div className='text-sm text-green-600'>{option.discountMessage}</div>}
+                {option.billedYearly && <div className='text-sm text-muted-foreground'>{option.billedYearly}</div>}
+              </div>
+            </div>
+          ))}
+        </RadioGroup>
+
+        <div className='flex flex-col gap-2'>
+          <Button onClick={handleCTAClick} disabled={pricingViewConfig.subscribeButton.isDisabled}>
+            {pricingViewConfig.subscribeButton.text}
+          </Button>
+          <Button variant='ghost' onClick={() => closeModal()}>
+            {t`Maybe later`}
+          </Button>
+        </div>
+      </div>
+    </DialogContent>
+  )
+}

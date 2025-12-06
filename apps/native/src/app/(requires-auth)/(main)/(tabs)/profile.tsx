@@ -11,12 +11,15 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { getConfig } from '@/config/environment-config'
 import { User } from '@supabase/supabase-js'
 import { useLingui } from '@lingui/react/macro'
+import { checkIsTestUser } from '@/utils/test-users-utils'
+import { ROUTE_PATHS } from '@/constants/route-paths'
 
 export default function ProfileScreen() {
   const { t } = useLingui()
 
   const router = useRouter()
   const session = useAuthStore((state) => state.session)
+  const signOut = useAuthStore((state) => state.signOut)
 
   const { data: subscriptionDetailsData, isLoading: isSubscriptionLoading } = useGetSubscriptionDetails()
 
@@ -26,6 +29,15 @@ export default function ProfileScreen() {
   const email = user?.email || ''
   const name: string = user?.user_metadata?.name || ''
   const avatarUrl = user?.user_metadata?.avatar_url || ''
+  const isTestUser = checkIsTestUser(email)
+
+  const handleSignOut = () => {
+    signOut().then(() => {})
+  }
+
+  const handleAdminSettingsPress = () => {
+    router.push(ROUTE_PATHS.ADMIN_SETTINGS)
+  }
 
   const getInitials = () => {
     if (name) {
@@ -121,8 +133,12 @@ export default function ProfileScreen() {
         </View>
       </View>
       {/* Account settings */}
-      <BigCard className='mb-1'>
+      <BigCard className='mb-4'>
         {renderBillingItem()}
+
+        {isTestUser && (
+          <SettingsItem title={t`Admin Settings`} value='' onPress={handleAdminSettingsPress} />
+        )}
 
         <SettingsItem
           title={t`Danger Zone`}
@@ -130,6 +146,11 @@ export default function ProfileScreen() {
           onPress={() => router.push('/profile/danger-zone')}
           variant='destructive'
         />
+      </BigCard>
+
+      {/* Sign out */}
+      <BigCard>
+        <SettingsItem title={t`Sign out`} value='' onPress={handleSignOut} />
       </BigCard>
     </View>
   )

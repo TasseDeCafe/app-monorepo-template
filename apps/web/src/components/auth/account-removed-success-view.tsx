@@ -1,7 +1,7 @@
 import { useNavigate } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useLingui } from '@lingui/react/macro'
-import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 import { Route as loginRoute } from '@/routes/login/index'
 import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 import { Button } from '../shadcn/button.tsx'

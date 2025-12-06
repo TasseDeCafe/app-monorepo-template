@@ -15,7 +15,7 @@ export default function MainLayout() {
       }}
     >
       <Stack.Screen
-        name='(drawer)'
+        name='(tabs)'
         options={{
           headerShown: false,
         }}

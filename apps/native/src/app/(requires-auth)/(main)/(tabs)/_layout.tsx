@@ -1,7 +1,6 @@
 import { Tabs } from 'expo-router'
 import { CircleUserRound, Dumbbell, Home } from 'lucide-react-native'
 import colors from 'tailwindcss/colors'
-import { DrawerToggleButton } from '@/components/ui/drawer-toggle-button'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -75,7 +74,6 @@ export default function TabLayout() {
           fontSize: 12,
           fontWeight: '500',
         },
-        headerLeft: () => <DrawerToggleButton />,
         headerTitleAlign: 'center',
         tabBarShowLabel: true,
         tabBarButton: (props) => <CustomTabBarButton {...props} />,

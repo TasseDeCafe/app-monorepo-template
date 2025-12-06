@@ -1,7 +1,7 @@
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
 import { useNavigate, useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
-import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 import { Route as loginEmailRoute } from '@/routes/login/email/index'
 import { AuthError } from '@supabase/supabase-js'
 import { toast } from 'sonner'

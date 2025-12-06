@@ -1,0 +1,137 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { useLingui } from '@lingui/react/macro'
+import { toast } from 'sonner'
+import { Button } from '@/components/shadcn/button'
+import { Card, CardContent } from '@/components/shadcn/card'
+import { useAuthStore, getUserEmail, getUserName, getUserAvatarUrl } from '@/stores/auth-store'
+import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
+import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
+import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
+import { useModalStore } from '@/stores/modal-store'
+import { PRICING_MODAL_ID } from '@/components/modal/modal-ids'
+import { LogOut, Trash2, CreditCard, ChevronRight } from 'lucide-react'
+import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+
+const ProfileView = () => {
+  const { t } = useLingui()
+
+  const userEmail = useAuthStore(getUserEmail)
+  const userName = useAuthStore(getUserName)
+  const avatarUrl = useAuthStore(getUserAvatarUrl)
+  const signOut = useAuthStore((state) => state.signOut)
+  const openModal = useModalStore((state) => state.openModal)
+
+  const { data: subscriptionData, isLoading: isSubscriptionLoading } = useGetSubscriptionDetails()
+  const { mutate: mutateCustomerPortalSession, isPending: isCustomerPortalPending } = useCreateCustomerPortalSession()
+  const { mutate: deleteAccount, isPending: isDeletingAccount } = useDeleteAccount()
+
+  const getInitials = () => {
+    if (userName) {
+      return userName
+        .split(' ')
+        .map((part: string) => part[0])
+        .join('')
+        .toUpperCase()
+        .substring(0, 2)
+    }
+    return (userEmail || '').substring(0, 2).toUpperCase()
+  }
+
+  const handleSignOut = async () => {
+    await signOut()
+    toast.success(t`Sign out success`)
+  }
+
+  const handleBillingClick = () => {
+    if (isSubscriptionLoading) return
+
+    if (subscriptionData?.isPremiumUser && !subscriptionData.billingPlatform) {
+      toast.info(t`You are a special user with free access. You have no active subscription.`)
+      return
+    }
+
+    if (!subscriptionData?.isPremiumUser) {
+      openModal(PRICING_MODAL_ID)
+      return
+    }
+
+    switch (subscriptionData.billingPlatform) {
+      case 'stripe': {
+        const currentPath = location.pathname + location.search
+        mutateCustomerPortalSession({ returnPath: currentPath })
+        break
+      }
+      case 'app_store':
+      case 'play_store':
+        toast.info(t`Please manage your subscription through the App Store or Google Play.`)
+        break
+      default:
+        logWithSentry('Unexpected billing state in ProfileView', { subscriptionData })
+        toast.error(t`Could not open billing settings.`)
+    }
+  }
+
+  const getBillingLabel = () => {
+    if (isSubscriptionLoading) return t`Loading...`
+    if (!subscriptionData?.isPremiumUser) return t`Upgrade to Premium`
+    return t`Manage Subscription`
+  }
+
+  return (
+    <div className='flex flex-col gap-6 px-4 py-4'>
+      {/* User profile section */}
+      <div className='flex items-center gap-4 px-2'>
+        <div className='flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-indigo-100'>
+          {avatarUrl ? (
+            <img src={avatarUrl} alt='Avatar' className='h-full w-full object-cover' />
+          ) : (
+            <span className='text-xl font-semibold text-indigo-600'>{getInitials()}</span>
+          )}
+        </div>
+        <div>
+          <h2 className='text-xl font-bold'>{userName || 'User'}</h2>
+          <p className='text-gray-500'>{userEmail}</p>
+        </div>
+      </div>
+
+      {/* Account settings */}
+      <Card>
+        <CardContent className='p-0'>
+          <button
+            onClick={handleBillingClick}
+            disabled={isSubscriptionLoading || isCustomerPortalPending}
+            className='flex w-full items-center justify-between border-b px-4 py-4 text-left hover:bg-gray-50 disabled:opacity-50'
+          >
+            <div className='flex items-center gap-3'>
+              <CreditCard className='h-5 w-5 text-gray-500' />
+              <span>{getBillingLabel()}</span>
+            </div>
+            <ChevronRight className='h-5 w-5 text-gray-400' />
+          </button>
+
+          <button
+            onClick={() => deleteAccount({})}
+            disabled={isDeletingAccount}
+            className='flex w-full items-center justify-between px-4 py-4 text-left text-red-600 hover:bg-red-50 disabled:opacity-50'
+          >
+            <div className='flex items-center gap-3'>
+              <Trash2 className='h-5 w-5' />
+              <span>{t`Delete Account`}</span>
+            </div>
+            <ChevronRight className='h-5 w-5 text-red-400' />
+          </button>
+        </CardContent>
+      </Card>
+
+      {/* Sign out button */}
+      <Button variant='outline' onClick={handleSignOut} className='w-full'>
+        <LogOut className='h-5 w-5' />
+        {t`Sign out`}
+      </Button>
+    </div>
+  )
+}
+
+export const Route = createFileRoute('/_protected/_tabs/profile')({
+  component: ProfileView,
+})

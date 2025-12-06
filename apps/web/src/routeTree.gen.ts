@@ -9,35 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as TopSecretAdminSettingsRouteImport } from './routes/top-secret-admin-settings'
 import { Route as FromLandingRouteImport } from './routes/from-landing'
-import { Route as CheckoutSuccessRouteImport } from './routes/checkout-success'
 import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
 import { Route as AccountRemovedRouteImport } from './routes/account/removed'
-import { Route as ProtectedPremiumRouteImport } from './routes/_protected/_premium'
+import { Route as ProtectedTopSecretAdminSettingsRouteImport } from './routes/_protected/top-secret-admin-settings'
+import { Route as ProtectedPremiumDemoRouteImport } from './routes/_protected/premium-demo'
+import { Route as ProtectedTabsRouteImport } from './routes/_protected/_tabs'
 import { Route as LoginEmailIndexRouteImport } from './routes/login/email/index'
 import { Route as ProtectedPricingIndexRouteImport } from './routes/_protected/pricing/index'
 import { Route as LoginEmailVerifyRouteImport } from './routes/login/email/verify'
 import { Route as LoginEmailSentRouteImport } from './routes/login/email/sent'
 import { Route as ProtectedRedirectToCheckOutPlanIntervalRouteImport } from './routes/_protected/redirect-to-check-out/$planInterval'
 import { Route as ProtectedPricingFreeTrialRouteImport } from './routes/_protected/pricing/free-trial'
-import { Route as ProtectedPremiumDashboardRouteImport } from './routes/_protected/_premium/dashboard'
+import { Route as ProtectedPricingCheckoutSuccessRouteImport } from './routes/_protected/pricing/checkout-success'
+import { Route as ProtectedTabsProfileRouteImport } from './routes/_protected/_tabs/profile'
+import { Route as ProtectedTabsHomeRouteImport } from './routes/_protected/_tabs/home'
+import { Route as ProtectedTabsDashboardRouteImport } from './routes/_protected/_tabs/dashboard'
 
-const TopSecretAdminSettingsRoute = TopSecretAdminSettingsRouteImport.update({
-  id: '/top-secret-admin-settings',
-  path: '/top-secret-admin-settings',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const FromLandingRoute = FromLandingRouteImport.update({
   id: '/from-landing',
   path: '/from-landing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CheckoutSuccessRoute = CheckoutSuccessRouteImport.update({
-  id: '/checkout-success',
-  path: '/checkout-success',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProtectedRoute = ProtectedRouteImport.update({
@@ -59,8 +52,19 @@ const AccountRemovedRoute = AccountRemovedRouteImport.update({
   path: '/account/removed',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProtectedPremiumRoute = ProtectedPremiumRouteImport.update({
-  id: '/_premium',
+const ProtectedTopSecretAdminSettingsRoute =
+  ProtectedTopSecretAdminSettingsRouteImport.update({
+    id: '/top-secret-admin-settings',
+    path: '/top-secret-admin-settings',
+    getParentRoute: () => ProtectedRoute,
+  } as any)
+const ProtectedPremiumDemoRoute = ProtectedPremiumDemoRouteImport.update({
+  id: '/premium-demo',
+  path: '/premium-demo',
+  getParentRoute: () => ProtectedRoute,
+} as any)
+const ProtectedTabsRoute = ProtectedTabsRouteImport.update({
+  id: '/_tabs',
   getParentRoute: () => ProtectedRoute,
 } as any)
 const LoginEmailIndexRoute = LoginEmailIndexRouteImport.update({
@@ -95,21 +99,39 @@ const ProtectedPricingFreeTrialRoute =
     path: '/pricing/free-trial',
     getParentRoute: () => ProtectedRoute,
   } as any)
-const ProtectedPremiumDashboardRoute =
-  ProtectedPremiumDashboardRouteImport.update({
-    id: '/dashboard',
-    path: '/dashboard',
-    getParentRoute: () => ProtectedPremiumRoute,
+const ProtectedPricingCheckoutSuccessRoute =
+  ProtectedPricingCheckoutSuccessRouteImport.update({
+    id: '/pricing/checkout-success',
+    path: '/pricing/checkout-success',
+    getParentRoute: () => ProtectedRoute,
   } as any)
+const ProtectedTabsProfileRoute = ProtectedTabsProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => ProtectedTabsRoute,
+} as any)
+const ProtectedTabsHomeRoute = ProtectedTabsHomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => ProtectedTabsRoute,
+} as any)
+const ProtectedTabsDashboardRoute = ProtectedTabsDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => ProtectedTabsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/checkout-success': typeof CheckoutSuccessRoute
   '/from-landing': typeof FromLandingRoute
-  '/top-secret-admin-settings': typeof TopSecretAdminSettingsRoute
+  '/premium-demo': typeof ProtectedPremiumDemoRoute
+  '/top-secret-admin-settings': typeof ProtectedTopSecretAdminSettingsRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
-  '/dashboard': typeof ProtectedPremiumDashboardRoute
+  '/dashboard': typeof ProtectedTabsDashboardRoute
+  '/home': typeof ProtectedTabsHomeRoute
+  '/profile': typeof ProtectedTabsProfileRoute
+  '/pricing/checkout-success': typeof ProtectedPricingCheckoutSuccessRoute
   '/pricing/free-trial': typeof ProtectedPricingFreeTrialRoute
   '/redirect-to-check-out/$planInterval': typeof ProtectedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
@@ -119,12 +141,15 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/checkout-success': typeof CheckoutSuccessRoute
   '/from-landing': typeof FromLandingRoute
-  '/top-secret-admin-settings': typeof TopSecretAdminSettingsRoute
+  '/premium-demo': typeof ProtectedPremiumDemoRoute
+  '/top-secret-admin-settings': typeof ProtectedTopSecretAdminSettingsRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
-  '/dashboard': typeof ProtectedPremiumDashboardRoute
+  '/dashboard': typeof ProtectedTabsDashboardRoute
+  '/home': typeof ProtectedTabsHomeRoute
+  '/profile': typeof ProtectedTabsProfileRoute
+  '/pricing/checkout-success': typeof ProtectedPricingCheckoutSuccessRoute
   '/pricing/free-trial': typeof ProtectedPricingFreeTrialRoute
   '/redirect-to-check-out/$planInterval': typeof ProtectedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
@@ -136,13 +161,16 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_protected': typeof ProtectedRouteWithChildren
-  '/checkout-success': typeof CheckoutSuccessRoute
   '/from-landing': typeof FromLandingRoute
-  '/top-secret-admin-settings': typeof TopSecretAdminSettingsRoute
-  '/_protected/_premium': typeof ProtectedPremiumRouteWithChildren
+  '/_protected/_tabs': typeof ProtectedTabsRouteWithChildren
+  '/_protected/premium-demo': typeof ProtectedPremiumDemoRoute
+  '/_protected/top-secret-admin-settings': typeof ProtectedTopSecretAdminSettingsRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login/': typeof LoginIndexRoute
-  '/_protected/_premium/dashboard': typeof ProtectedPremiumDashboardRoute
+  '/_protected/_tabs/dashboard': typeof ProtectedTabsDashboardRoute
+  '/_protected/_tabs/home': typeof ProtectedTabsHomeRoute
+  '/_protected/_tabs/profile': typeof ProtectedTabsProfileRoute
+  '/_protected/pricing/checkout-success': typeof ProtectedPricingCheckoutSuccessRoute
   '/_protected/pricing/free-trial': typeof ProtectedPricingFreeTrialRoute
   '/_protected/redirect-to-check-out/$planInterval': typeof ProtectedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
@@ -154,12 +182,15 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/checkout-success'
     | '/from-landing'
+    | '/premium-demo'
     | '/top-secret-admin-settings'
     | '/account/removed'
     | '/login'
     | '/dashboard'
+    | '/home'
+    | '/profile'
+    | '/pricing/checkout-success'
     | '/pricing/free-trial'
     | '/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
@@ -169,12 +200,15 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/checkout-success'
     | '/from-landing'
+    | '/premium-demo'
     | '/top-secret-admin-settings'
     | '/account/removed'
     | '/login'
     | '/dashboard'
+    | '/home'
+    | '/profile'
+    | '/pricing/checkout-success'
     | '/pricing/free-trial'
     | '/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
@@ -185,13 +219,16 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_protected'
-    | '/checkout-success'
     | '/from-landing'
-    | '/top-secret-admin-settings'
-    | '/_protected/_premium'
+    | '/_protected/_tabs'
+    | '/_protected/premium-demo'
+    | '/_protected/top-secret-admin-settings'
     | '/account/removed'
     | '/login/'
-    | '/_protected/_premium/dashboard'
+    | '/_protected/_tabs/dashboard'
+    | '/_protected/_tabs/home'
+    | '/_protected/_tabs/profile'
+    | '/_protected/pricing/checkout-success'
     | '/_protected/pricing/free-trial'
     | '/_protected/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
@@ -203,9 +240,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProtectedRoute: typeof ProtectedRouteWithChildren
-  CheckoutSuccessRoute: typeof CheckoutSuccessRoute
   FromLandingRoute: typeof FromLandingRoute
-  TopSecretAdminSettingsRoute: typeof TopSecretAdminSettingsRoute
   AccountRemovedRoute: typeof AccountRemovedRoute
   LoginIndexRoute: typeof LoginIndexRoute
   LoginEmailSentRoute: typeof LoginEmailSentRoute
@@ -215,25 +250,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/top-secret-admin-settings': {
-      id: '/top-secret-admin-settings'
-      path: '/top-secret-admin-settings'
-      fullPath: '/top-secret-admin-settings'
-      preLoaderRoute: typeof TopSecretAdminSettingsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/from-landing': {
       id: '/from-landing'
       path: '/from-landing'
       fullPath: '/from-landing'
       preLoaderRoute: typeof FromLandingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/checkout-success': {
-      id: '/checkout-success'
-      path: '/checkout-success'
-      fullPath: '/checkout-success'
-      preLoaderRoute: typeof CheckoutSuccessRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_protected': {
@@ -264,11 +285,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRemovedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_protected/_premium': {
-      id: '/_protected/_premium'
+    '/_protected/top-secret-admin-settings': {
+      id: '/_protected/top-secret-admin-settings'
+      path: '/top-secret-admin-settings'
+      fullPath: '/top-secret-admin-settings'
+      preLoaderRoute: typeof ProtectedTopSecretAdminSettingsRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/premium-demo': {
+      id: '/_protected/premium-demo'
+      path: '/premium-demo'
+      fullPath: '/premium-demo'
+      preLoaderRoute: typeof ProtectedPremiumDemoRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/_tabs': {
+      id: '/_protected/_tabs'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof ProtectedPremiumRouteImport
+      preLoaderRoute: typeof ProtectedTabsRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/login/email/': {
@@ -313,36 +348,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedPricingFreeTrialRouteImport
       parentRoute: typeof ProtectedRoute
     }
-    '/_protected/_premium/dashboard': {
-      id: '/_protected/_premium/dashboard'
+    '/_protected/pricing/checkout-success': {
+      id: '/_protected/pricing/checkout-success'
+      path: '/pricing/checkout-success'
+      fullPath: '/pricing/checkout-success'
+      preLoaderRoute: typeof ProtectedPricingCheckoutSuccessRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/_tabs/profile': {
+      id: '/_protected/_tabs/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProtectedTabsProfileRouteImport
+      parentRoute: typeof ProtectedTabsRoute
+    }
+    '/_protected/_tabs/home': {
+      id: '/_protected/_tabs/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof ProtectedTabsHomeRouteImport
+      parentRoute: typeof ProtectedTabsRoute
+    }
+    '/_protected/_tabs/dashboard': {
+      id: '/_protected/_tabs/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
-      preLoaderRoute: typeof ProtectedPremiumDashboardRouteImport
-      parentRoute: typeof ProtectedPremiumRoute
+      preLoaderRoute: typeof ProtectedTabsDashboardRouteImport
+      parentRoute: typeof ProtectedTabsRoute
     }
   }
 }
 
-interface ProtectedPremiumRouteChildren {
-  ProtectedPremiumDashboardRoute: typeof ProtectedPremiumDashboardRoute
+interface ProtectedTabsRouteChildren {
+  ProtectedTabsDashboardRoute: typeof ProtectedTabsDashboardRoute
+  ProtectedTabsHomeRoute: typeof ProtectedTabsHomeRoute
+  ProtectedTabsProfileRoute: typeof ProtectedTabsProfileRoute
 }
 
-const ProtectedPremiumRouteChildren: ProtectedPremiumRouteChildren = {
-  ProtectedPremiumDashboardRoute: ProtectedPremiumDashboardRoute,
+const ProtectedTabsRouteChildren: ProtectedTabsRouteChildren = {
+  ProtectedTabsDashboardRoute: ProtectedTabsDashboardRoute,
+  ProtectedTabsHomeRoute: ProtectedTabsHomeRoute,
+  ProtectedTabsProfileRoute: ProtectedTabsProfileRoute,
 }
 
-const ProtectedPremiumRouteWithChildren =
-  ProtectedPremiumRoute._addFileChildren(ProtectedPremiumRouteChildren)
+const ProtectedTabsRouteWithChildren = ProtectedTabsRoute._addFileChildren(
+  ProtectedTabsRouteChildren,
+)
 
 interface ProtectedRouteChildren {
-  ProtectedPremiumRoute: typeof ProtectedPremiumRouteWithChildren
+  ProtectedTabsRoute: typeof ProtectedTabsRouteWithChildren
+  ProtectedPremiumDemoRoute: typeof ProtectedPremiumDemoRoute
+  ProtectedTopSecretAdminSettingsRoute: typeof ProtectedTopSecretAdminSettingsRoute
+  ProtectedPricingCheckoutSuccessRoute: typeof ProtectedPricingCheckoutSuccessRoute
   ProtectedPricingFreeTrialRoute: typeof ProtectedPricingFreeTrialRoute
   ProtectedRedirectToCheckOutPlanIntervalRoute: typeof ProtectedRedirectToCheckOutPlanIntervalRoute
   ProtectedPricingIndexRoute: typeof ProtectedPricingIndexRoute
 }
 
 const ProtectedRouteChildren: ProtectedRouteChildren = {
-  ProtectedPremiumRoute: ProtectedPremiumRouteWithChildren,
+  ProtectedTabsRoute: ProtectedTabsRouteWithChildren,
+  ProtectedPremiumDemoRoute: ProtectedPremiumDemoRoute,
+  ProtectedTopSecretAdminSettingsRoute: ProtectedTopSecretAdminSettingsRoute,
+  ProtectedPricingCheckoutSuccessRoute: ProtectedPricingCheckoutSuccessRoute,
   ProtectedPricingFreeTrialRoute: ProtectedPricingFreeTrialRoute,
   ProtectedRedirectToCheckOutPlanIntervalRoute:
     ProtectedRedirectToCheckOutPlanIntervalRoute,
@@ -356,9 +423,7 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedRoute: ProtectedRouteWithChildren,
-  CheckoutSuccessRoute: CheckoutSuccessRoute,
   FromLandingRoute: FromLandingRoute,
-  TopSecretAdminSettingsRoute: TopSecretAdminSettingsRoute,
   AccountRemovedRoute: AccountRemovedRoute,
   LoginIndexRoute: LoginIndexRoute,
   LoginEmailSentRoute: LoginEmailSentRoute,

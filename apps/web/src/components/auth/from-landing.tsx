@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Navigate, useNavigate, useSearch } from '@tanstack/react-router'
-import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 import { Route as redirectToCheckOutRoute } from '@/routes/_protected/redirect-to-check-out/$planInterval'
 import { FullViewLoader } from '../loader/full-view-loader.tsx'
 

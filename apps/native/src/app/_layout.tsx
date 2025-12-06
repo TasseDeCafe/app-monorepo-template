@@ -22,6 +22,7 @@ import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 import { UserSetupGate } from '@/components/gates/user-setup-gate'
 import { PostHogProvider } from 'posthog-react-native'
 import { posthog } from '@/analytics/posthog/posthog'
+import { BackButton } from '@/components/ui/back-button'
 
 validateConfig(getConfig())
 initializeSentry()
@@ -54,10 +55,29 @@ const RootLayout = () => {
                     <UserSetupGate>
                       <Stack screenOptions={{ headerShown: false }}>
                         <Stack.Protected guard={!isSignedIn}>
-                          <Stack.Screen name='(auth)' />
+                          <Stack.Screen name='login/index' options={{ animation: 'none' }} />
+                          <Stack.Screen
+                            name='login/email/index'
+                            options={{
+                              title: '',
+                              headerLeft: () => <BackButton />,
+                              headerShown: true,
+                              headerTransparent: true,
+                            }}
+                          />
+                          <Stack.Screen
+                            name='login/email/sent'
+                            options={{
+                              title: '',
+                              headerLeft: () => <BackButton />,
+                              headerShown: true,
+                              headerTransparent: true,
+                            }}
+                          />
+                          <Stack.Screen name='account/removed' />
                         </Stack.Protected>
                         <Stack.Protected guard={isSignedIn}>
-                          <Stack.Screen name='(requires-auth)' />
+                          <Stack.Screen name='(protected)' />
                         </Stack.Protected>
                         <Stack.Screen
                           name='+not-found'

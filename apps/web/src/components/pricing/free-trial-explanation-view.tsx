@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { Route as checkoutSuccessRoute } from '@/routes/checkout-success'
+import { Route as checkoutSuccessRoute } from '@/routes/_protected/pricing/checkout-success'
 import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
 import { useSearch } from '@tanstack/react-router'
 import {

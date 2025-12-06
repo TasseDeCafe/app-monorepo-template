@@ -50,3 +50,4 @@ export const getUserName = (state: AuthStore) => state.session?.user?.user_metad
 export const getFullName = (state: AuthStore) => state.session?.user?.user_metadata?.full_name ?? ''
 export const getUserId = (state: AuthStore) => state.session?.user?.id ?? ''
 export const getAccessToken = (state: AuthStore) => state.session?.access_token ?? ''
+export const getUserAvatarUrl = (state: AuthStore) => state.session?.user?.user_metadata?.avatar_url ?? ''

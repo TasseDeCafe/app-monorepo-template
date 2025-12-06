@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { LogOut } from 'lucide-react'
-import posthog from 'posthog-js'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
@@ -12,7 +11,6 @@ import { Badge } from '../shadcn/badge.tsx'
 import { getPricingViewConfig, PricingViewConfig } from './pricing-view-utils.ts'
 import { toast } from 'sonner'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
-import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
 import { useNavigate } from '@tanstack/react-router'
 import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
@@ -20,9 +18,8 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
-import { queryClient } from '@/config/react-query-config'
-import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
 import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
+import { useAuthStore } from '@/stores/auth-store'
 
 export const PricingView = () => {
   const { t } = useLingui()
@@ -104,12 +101,10 @@ export const PricingView = () => {
     navigate({ to: ROUTE_PATHS.DASHBOARD })
   }
 
+  const signOut = useAuthStore((state) => state.signOut)
+
   const handleSignOut = async () => {
-    window.localStorage.clear()
-    await getSupabaseClient().auth.signOut({ scope: 'local' })
-    posthog.reset()
-    queryClient.clear()
-    clearSentryUser()
+    await signOut()
     toast.success(t`Sign out success`)
   }
 

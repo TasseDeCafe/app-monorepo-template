@@ -7,6 +7,7 @@ import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 const ProtectedLayout = () => {
   const isSignedIn = useAuthStore(getIsSignedIn)
   const isLoading = useAuthStore((state) => state.isLoading)
+  const isSigningOut = useAuthStore((state) => state.isSigningOut)
   const isUserSetupComplete = useIsUserSetupComplete()
   const location = useLocation()
 
@@ -18,6 +19,10 @@ const ProtectedLayout = () => {
   }
 
   if (!isSignedIn) {
+    // Don't add redirect param if user is intentionally signing out
+    if (isSigningOut) {
+      return <Navigate to='/login' />
+    }
     return <Navigate to='/login' search={{ redirect: originalPathRef.current }} />
   }
 

@@ -1,25 +1,19 @@
 import { useLingui } from '@lingui/react/macro'
 import { LogOut, Trash2 } from 'lucide-react'
-import posthog from 'posthog-js'
 import { toast } from 'sonner'
 
-import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
-import { queryClient } from '@/config/react-query-config'
 import { ContactUsButton } from '@/components/navbar/contact-us-button'
 import { Button } from '@/components/shadcn/button'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
-import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
+import { useAuthStore } from '@/stores/auth-store'
 
 export const DashboardView = () => {
   const { t } = useLingui()
   const { mutate: deleteAccount, isPending: isDeletingAccount } = useDeleteAccount()
+  const signOut = useAuthStore((state) => state.signOut)
 
   const handleSignOut = async () => {
-    window.localStorage.clear()
-    await getSupabaseClient().auth.signOut({ scope: 'local' })
-    posthog.reset()
-    queryClient.clear()
-    clearSentryUser()
+    await signOut()
     toast.success(t`Sign out success`)
   }
 

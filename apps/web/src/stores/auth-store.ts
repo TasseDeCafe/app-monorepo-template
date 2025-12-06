@@ -8,6 +8,7 @@ import posthog from 'posthog-js'
 type AuthStore = {
   session: Session | null
   isLoading: boolean
+  isSigningOut: boolean
   setSession: (session: Session | null) => void
   setLoading: (loading: boolean) => void
   signOut: () => Promise<void>
@@ -16,6 +17,7 @@ type AuthStore = {
 export const useAuthStore = create<AuthStore>((set) => ({
   session: null,
   isLoading: true,
+  isSigningOut: false,
 
   setSession: (session) => {
     set({ session, isLoading: false })
@@ -24,7 +26,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
   setLoading: (isLoading) => set({ isLoading }),
 
   signOut: async () => {
-    set({ isLoading: true })
+    set({ isLoading: true, isSigningOut: true })
     clearSentryUser()
 
     try {
@@ -35,7 +37,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
       // Continue with local cleanup even if Supabase fails
     }
 
-    set({ session: null, isLoading: false })
+    set({ session: null, isLoading: false, isSigningOut: false })
     queryClient.clear()
     posthog.reset()
     window.localStorage.clear()

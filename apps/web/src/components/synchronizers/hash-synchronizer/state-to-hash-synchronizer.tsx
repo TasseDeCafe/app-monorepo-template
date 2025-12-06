@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from '@tanstack/react-router'
 import { HASH_ENABLED_MODAL_IDS } from '../../modal/modal-ids.ts'
 import { useModalStore, getShouldUrlHaveModalHash } from '@/stores/modal-store'
 
@@ -11,14 +11,14 @@ export const StateToHashSynchronizer = () => {
   const location = useLocation()
 
   const stripHashFromCurrentUrl = useCallback(() => {
-    navigate(location.pathname, { replace: true })
+    navigate({ to: location.pathname, replace: true, hash: undefined })
   }, [location.pathname, navigate])
 
   const addHashToCurrentUrl = useCallback(
     (hash: string) => {
-      navigate({ hash: hash }, { replace: true })
+      navigate({ to: location.pathname, hash, replace: true })
     },
-    [navigate]
+    [navigate, location.pathname]
   )
 
   useEffect(() => {

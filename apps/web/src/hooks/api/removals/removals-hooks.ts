@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
-import { ROUTE_PATHS } from '@/routing/route-paths'
+import { Route as accountRemovedRoute } from '@/routes/account/removed'
 import { useLingui } from '@lingui/react/macro'
 
 export const useDeleteAccount = () => {
@@ -10,7 +10,7 @@ export const useDeleteAccount = () => {
     orpcQuery.removals.postRemoval.mutationOptions({
       onSuccess: () => {
         window.localStorage.clear()
-        window.location.replace(window.location.origin + ROUTE_PATHS.ACCOUNT_REMOVED)
+        window.location.replace(window.location.origin + accountRemovedRoute.to)
       },
       meta: {
         successMessage: t`Your account has been deleted successfully.`,

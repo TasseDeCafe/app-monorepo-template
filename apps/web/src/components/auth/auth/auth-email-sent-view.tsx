@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import { useLingui } from '@lingui/react/macro'
@@ -6,8 +6,8 @@ import { useLingui } from '@lingui/react/macro'
 export const AuthEmailSentView = () => {
   const { t } = useLingui()
 
-  const location = useLocation()
-  const email = location.state?.email || t`your email address`
+  const { email: emailParam } = useSearch({ from: '/login/email/sent' })
+  const email = emailParam || t`your email address`
 
   useEffect(() => {
     POSTHOG_EVENTS.viewPage()

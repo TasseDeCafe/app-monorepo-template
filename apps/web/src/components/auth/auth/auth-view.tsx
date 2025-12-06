@@ -1,7 +1,8 @@
 import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate, useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
-import { ROUTE_PATHS } from '@/routing/route-paths.ts'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as loginEmailRoute } from '@/routes/login/email/index'
 import { AuthError } from '@supabase/supabase-js'
 import { toast } from 'sonner'
 import googleSvg from '../../../images/svg/google.svg'
@@ -16,14 +17,14 @@ import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 export const AuthView = () => {
   const { t } = useLingui()
 
-  const location = useLocation()
+  const { redirect } = useSearch({ from: '/login/' })
   const navigate = useNavigate()
-  const redirectTo: string = location.state?.from?.pathname || ROUTE_PATHS.DASHBOARD
+  const redirectTo = redirect || dashboardRoute.to
   const isSignedIn = useAuthStore(getIsSignedIn)
 
   useEffect(() => {
     if (isSignedIn) {
-      navigate(redirectTo)
+      navigate({ to: redirectTo })
     }
   }, [navigate, isSignedIn, redirectTo])
 
@@ -60,17 +61,17 @@ export const AuthView = () => {
 
   const handleContinueWithGoogleClick = () => {
     POSTHOG_EVENTS.click('continue_with_google_button')
-    continueWithGoogle().then(() => {})
+    continueWithGoogle().then()
   }
 
   const handleContinueWithAppleClick = () => {
     POSTHOG_EVENTS.click('continue_with_apple_button')
-    continueWithApple().then(() => {})
+    continueWithApple().then()
   }
 
   const handleContinueWithEmailClick = () => {
     POSTHOG_EVENTS.click('continue_with_email_button')
-    navigate(ROUTE_PATHS.LOGIN_EMAIL)
+    navigate({ to: loginEmailRoute.to })
   }
 
   if (!isSignedIn) {

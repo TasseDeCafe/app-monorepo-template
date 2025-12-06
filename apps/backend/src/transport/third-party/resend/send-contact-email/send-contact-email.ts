@@ -12,7 +12,7 @@ export const sendContactEmail = async (
   try {
     const nameDisplay = username ? `<p><strong>Name:</strong> ${username}</p>` : ''
     await resend.emails.send({
-      from: 'Your Best Accent <support@app-monorepo-template.dev>',
+      from: 'TemplateApp <support@app-monorepo-template.dev>',
       to: ['support@app-monorepo-template.dev'],
       replyTo: [email],
       subject: 'New message from your contact form',

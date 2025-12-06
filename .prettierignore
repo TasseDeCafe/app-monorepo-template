@@ -2,3 +2,4 @@ node_modules
 playground
 dist
 copied-dist
+routeTree.gen.ts

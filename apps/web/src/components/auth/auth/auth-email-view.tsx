@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-router'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { Button } from '../../shadcn/button.tsx'
-import { ROUTE_PATHS } from '@/routing/route-paths.ts'
+import { Route as loginEmailSentRoute } from '@/routes/login/email/sent'
 import { useSendVerificationEmail } from '@/hooks/api/authentication/authentication-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { useTrackingStore } from '@/stores/tracking-store'
@@ -36,7 +36,7 @@ export const AuthEmailView = () => {
 
   const { mutate: sendVerificationEmail, isPending } = useSendVerificationEmail({
     onSuccess: () => {
-      navigate(ROUTE_PATHS.LOGIN_EMAIL_SENT, { state: { email } })
+      navigate({ to: loginEmailSentRoute.to, search: { email } })
     },
   })
 

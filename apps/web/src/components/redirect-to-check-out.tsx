@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths'
+import { useNavigate, useParams } from '@tanstack/react-router'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as checkoutSuccessRoute } from '@/routes/checkout-success'
+import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
+import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
 import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useTrackingStore } from '@/stores/tracking-store'
@@ -12,7 +15,7 @@ import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 // so we have to send the user to a new route that uses a query param in order to preserve the priceId.
 export const RedirectToCheckOut = () => {
   const navigate = useNavigate()
-  const params = useParams<{ planInterval: string }>()
+  const { planInterval } = useParams({ from: '/_protected/redirect-to-check-out/$planInterval' })
   const referral = useTrackingStore((state) => state.referral)
   const isUserSetupComplete = useIsUserSetupComplete()
 
@@ -20,22 +23,22 @@ export const RedirectToCheckOut = () => {
 
   useEffect(() => {
     if (isUserSetupComplete) {
-      if (params.planInterval) {
-        const calculatedPlanInterval: 'month' | 'year' = params.planInterval === 'month' ? 'month' : 'year'
+      if (planInterval) {
+        const calculatedPlanInterval: 'month' | 'year' = planInterval === 'month' ? 'month' : 'year'
         if (referral) {
-          navigate(buildPricingFreeTrialPath(calculatedPlanInterval))
+          navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: calculatedPlanInterval } })
         } else {
           mutate({
-            successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
-            cancelPathAndHash: ROUTE_PATHS.PRICING,
+            successPathAndHash: checkoutSuccessRoute.to,
+            cancelPathAndHash: pricingRoute.to,
             planInterval: calculatedPlanInterval,
           })
         }
       } else {
-        navigate(ROUTE_PATHS.DASHBOARD)
+        navigate({ to: dashboardRoute.to })
       }
     }
-  }, [params.planInterval, mutate, isUserSetupComplete, referral, navigate])
+  }, [planInterval, mutate, isUserSetupComplete, referral, navigate])
 
   return <FullViewLoader />
 }

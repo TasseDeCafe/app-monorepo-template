@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
-import { useSearchParams } from 'react-router-dom'
+import { Route as checkoutSuccessRoute } from '@/routes/checkout-success'
+import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
+import { useSearch } from '@tanstack/react-router'
 import {
   NUMBER_OF_DAYS_IN_FREE_TRIAL,
   PlanInterval,
@@ -28,8 +29,7 @@ export const FreeTrialExplanationView = () => {
   const { t } = useLingui()
 
   const { mutate, isPending: isPendingCheckoutMutation } = useCheckoutMutation()
-  const [searchParams] = useSearchParams()
-  const planInterval: string | null = searchParams.get('planInterval')
+  const { planInterval } = useSearch({ from: '/_protected/pricing/free-trial' })
 
   useEffect(() => {
     POSTHOG_EVENTS.viewPage()
@@ -39,8 +39,8 @@ export const FreeTrialExplanationView = () => {
 
     const interval: PlanInterval = planInterval === 'month' ? 'month' : 'year'
     mutate({
-      successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
-      cancelPathAndHash: buildPricingFreeTrialPath(interval),
+      successPathAndHash: checkoutSuccessRoute.to,
+      cancelPathAndHash: `${pricingFreeTrialRoute.to}?planInterval=${interval}`,
       planInterval: interval,
     })
   }

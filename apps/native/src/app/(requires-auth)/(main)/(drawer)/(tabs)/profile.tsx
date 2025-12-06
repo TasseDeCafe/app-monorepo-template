@@ -1,4 +1,4 @@
-import { ActivityIndicator, Alert, Linking, Switch, Text, View } from 'react-native'
+import { ActivityIndicator, Alert, Linking, Text, View } from 'react-native'
 import { useRouter } from 'expo-router'
 import { toast } from 'sonner-native'
 import { BigCard } from '@/components/ui/big-card'
@@ -11,25 +11,6 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { getConfig } from '@/config/environment-config'
 import { User } from '@supabase/supabase-js'
 import { useLingui } from '@lingui/react/macro'
-
-export const ToggleSettingsItem = ({
-  title,
-  value,
-  onValueChange,
-  disabled,
-}: {
-  title: string
-  value: boolean
-  onValueChange: (newValue: boolean) => void
-  disabled?: boolean
-}) => {
-  return (
-    <View className={`flex-row items-center justify-between px-2 py-4`}>
-      <Text className='text-lg font-medium'>{title}</Text>
-      <Switch value={value} onValueChange={onValueChange} disabled={disabled} />
-    </View>
-  )
-}
 
 export default function ProfileScreen() {
   const { t } = useLingui()

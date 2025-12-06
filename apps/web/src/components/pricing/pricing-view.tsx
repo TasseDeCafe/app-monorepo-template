@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { LogOut } from 'lucide-react'
-import posthog from 'posthog-js'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { buildPricingFreeTrialPath, ROUTE_PATHS } from '@/routing/route-paths.ts'
+import { Route as dashboardRoute } from '@/routes/_protected/_premium/dashboard'
+import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
+import { Route as checkoutSuccessRoute } from '@/routes/checkout-success'
+import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
 import { Button } from '../shadcn/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
 import { RadioGroup, RadioGroupItem } from '../shadcn/radio-group.tsx'
@@ -12,17 +14,15 @@ import { Badge } from '../shadcn/badge.tsx'
 import { getPricingViewConfig, PricingViewConfig } from './pricing-view-utils.ts'
 import { toast } from 'sonner'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry.ts'
-import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from '@tanstack/react-router'
 import { PlanInterval } from '@template-app/core/constants/pricing-constants.ts'
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
-import { queryClient } from '@/config/react-query-config'
-import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
 import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
+import { useAuthStore } from '@/stores/auth-store'
 
 export const PricingView = () => {
   const { t } = useLingui()
@@ -89,11 +89,11 @@ export const PricingView = () => {
         }
       }
     } else if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
-      navigate(buildPricingFreeTrialPath(clickedPlan as 'month' | 'year'))
+      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
     } else {
       mutate({
-        successPathAndHash: ROUTE_PATHS.CHECKOUT_SUCCESS,
-        cancelPathAndHash: ROUTE_PATHS.PRICING,
+        successPathAndHash: checkoutSuccessRoute.to,
+        cancelPathAndHash: pricingRoute.to,
         planInterval: clickedPlan as PlanInterval,
       })
     }
@@ -101,15 +101,13 @@ export const PricingView = () => {
 
   const handleGoPracticeNowClick = () => {
     POSTHOG_EVENTS.click('go_practice_now_button')
-    navigate(ROUTE_PATHS.DASHBOARD)
+    navigate({ to: dashboardRoute.to })
   }
 
+  const signOut = useAuthStore((state) => state.signOut)
+
   const handleSignOut = async () => {
-    window.localStorage.clear()
-    await getSupabaseClient().auth.signOut({ scope: 'local' })
-    posthog.reset()
-    queryClient.clear()
-    clearSentryUser()
+    await signOut()
     toast.success(t`Sign out success`)
   }
 

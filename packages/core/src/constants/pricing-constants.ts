@@ -5,4 +5,5 @@ export const STRIPE_YEARLY_PRICE_IN_EUR: number = 189
 export const NUMBER_OF_DAYS_IN_FREE_TRIAL: number = 7
 export const REFUND_PERIOD_IN_DAYS: number = 14
 
-export type PlanInterval = 'month' | 'year'
+export const PLAN_INTERVALS = ['month', 'year'] as const
+export type PlanInterval = (typeof PLAN_INTERVALS)[number]

@@ -3,11 +3,7 @@ import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { Route as checkoutSuccessRoute } from '@/routes/_protected/pricing/checkout-success'
 import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
 import { useSearch } from '@tanstack/react-router'
-import {
-  NUMBER_OF_DAYS_IN_FREE_TRIAL,
-  PlanInterval,
-  REFUND_PERIOD_IN_DAYS,
-} from '@template-app/core/constants/pricing-constants.ts'
+import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@template-app/core/constants/pricing-constants.ts'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { Button } from '../shadcn/button.tsx'
@@ -37,11 +33,10 @@ export const FreeTrialExplanationView = () => {
   const handleClick = () => {
     POSTHOG_EVENTS.click('subscribe_button')
 
-    const interval: PlanInterval = planInterval === 'month' ? 'month' : 'year'
     mutate({
       successPathAndHash: checkoutSuccessRoute.to,
-      cancelPathAndHash: `${pricingFreeTrialRoute.to}?planInterval=${interval}`,
-      planInterval: interval,
+      cancelPathAndHash: `${pricingFreeTrialRoute.to}?planInterval=${planInterval}`,
+      planInterval: planInterval,
     })
   }
 

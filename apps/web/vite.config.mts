@@ -26,7 +26,7 @@ export default defineConfig({
         name: process.env.RAILWAY_GIT_COMMIT_SHA,
       },
       sourcemaps: {
-        filesToDeleteAfterUpload: ['**/*.js.map'],
+        filesToDeleteAfterUpload: ['./**/*.map', '.*/**/public/**/*.map', './dist/**/client/**/*.map'],
       },
     }),
   ],
@@ -37,7 +37,7 @@ export default defineConfig({
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
   server: {
-    // Necessary to make sure that template-app.dev is allowed
+    // Necessary to make sure that app-monorepo-template.dev is allowed
     // when false, only localhost is allowed
     allowedHosts: true,
   },

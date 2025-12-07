@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useNavigate, useParams } from '@tanstack/react-router'
-import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 import { Route as checkoutSuccessRoute } from '@/routes/_protected/pricing/checkout-success'
 import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
 import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
@@ -23,19 +22,14 @@ export const RedirectToCheckOut = () => {
 
   useEffect(() => {
     if (isUserSetupComplete) {
-      if (planInterval) {
-        const calculatedPlanInterval: 'month' | 'year' = planInterval === 'month' ? 'month' : 'year'
-        if (referral) {
-          navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: calculatedPlanInterval } })
-        } else {
-          mutate({
-            successPathAndHash: checkoutSuccessRoute.to,
-            cancelPathAndHash: pricingRoute.to,
-            planInterval: calculatedPlanInterval,
-          })
-        }
+      if (referral) {
+        navigate({ to: pricingFreeTrialRoute.to, search: { planInterval } })
       } else {
-        navigate({ to: dashboardRoute.to })
+        mutate({
+          successPathAndHash: checkoutSuccessRoute.to,
+          cancelPathAndHash: pricingRoute.to,
+          planInterval: planInterval,
+        })
       }
     }
   }, [planInterval, mutate, isUserSetupComplete, referral, navigate])

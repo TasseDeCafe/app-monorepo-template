@@ -1,16 +1,15 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useLingui } from '@lingui/react/macro'
 import { toast } from 'sonner'
-import { Button } from '@/components/shadcn/button'
-import { Card, CardContent } from '@/components/shadcn/card'
-import { useAuthStore, getUserEmail, getUserName, getUserAvatarUrl } from '@/stores/auth-store'
+import { getUserAvatarUrl, getUserEmail, getUserName, useAuthStore } from '@/stores/auth-store'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
 import { useModalStore } from '@/stores/modal-store'
 import { PRICING_MODAL_ID } from '@/components/modal/modal-ids'
-import { LogOut, Trash2, CreditCard, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+import { Route as AdminSettingsRoute } from '@/routes/_protected/admin-settings'
 
 const ProfileView = () => {
   const { t } = useLingui()
@@ -24,6 +23,8 @@ const ProfileView = () => {
   const { data: subscriptionData, isLoading: isSubscriptionLoading } = useGetSubscriptionDetails()
   const { mutate: mutateCustomerPortalSession, isPending: isCustomerPortalPending } = useCreateCustomerPortalSession()
   const { mutate: deleteAccount, isPending: isDeletingAccount } = useDeleteAccount()
+
+  const navigate = useNavigate()
 
   const getInitials = () => {
     if (userName) {
@@ -40,6 +41,10 @@ const ProfileView = () => {
   const handleSignOut = async () => {
     await signOut()
     toast.success(t`Sign out success`)
+  }
+
+  const handleAdminSettingsPress = () => {
+    navigate({ to: AdminSettingsRoute.to })
   }
 
   const handleBillingClick = () => {
@@ -94,40 +99,46 @@ const ProfileView = () => {
         </div>
       </div>
 
-      {/* Account settings */}
-      <Card>
-        <CardContent className='p-0'>
-          <button
-            onClick={handleBillingClick}
-            disabled={isSubscriptionLoading || isCustomerPortalPending}
-            className='flex w-full items-center justify-between border-b px-4 py-4 text-left hover:bg-gray-50 disabled:opacity-50'
-          >
-            <div className='flex items-center gap-3'>
-              <CreditCard className='h-5 w-5 text-gray-500' />
-              <span>{getBillingLabel()}</span>
-            </div>
-            <ChevronRight className='h-5 w-5 text-gray-400' />
-          </button>
+      <button
+        onClick={handleBillingClick}
+        disabled={isSubscriptionLoading || isCustomerPortalPending}
+        className='flex w-full items-center justify-between px-4 py-4 text-left hover:bg-gray-50 disabled:opacity-50'
+      >
+        <div className='flex items-center gap-3'>
+          <span>{getBillingLabel()}</span>
+        </div>
+        <ChevronRight className='h-5 w-5 text-gray-400' />
+      </button>
 
-          <button
-            onClick={() => deleteAccount({})}
-            disabled={isDeletingAccount}
-            className='flex w-full items-center justify-between px-4 py-4 text-left text-red-600 hover:bg-red-50 disabled:opacity-50'
-          >
-            <div className='flex items-center gap-3'>
-              <Trash2 className='h-5 w-5' />
-              <span>{t`Delete Account`}</span>
-            </div>
-            <ChevronRight className='h-5 w-5 text-red-400' />
-          </button>
-        </CardContent>
-      </Card>
-
-      {/* Sign out button */}
-      <Button variant='outline' onClick={handleSignOut} className='w-full'>
-        <LogOut className='h-5 w-5' />
-        {t`Sign out`}
-      </Button>
+      <button
+        onClick={() => deleteAccount({})}
+        disabled={isDeletingAccount}
+        className='flex w-full items-center justify-between px-4 py-4 text-left text-red-600 hover:bg-red-50 disabled:opacity-50'
+      >
+        <div className='flex items-center gap-3'>
+          <span>{t`Delete Account`}</span>
+        </div>
+        <ChevronRight className='h-5 w-5 text-red-400' />
+      </button>
+      <button
+        onClick={handleAdminSettingsPress}
+        disabled={isDeletingAccount}
+        className='flex w-full items-center justify-between px-4 py-4 hover:bg-gray-50 disabled:opacity-50'
+      >
+        <div className='flex items-center gap-3'>
+          <span>{t`Admin Settings`}</span>
+        </div>
+        <ChevronRight className='h-5 w-5' />
+      </button>
+      <button
+        onClick={handleSignOut}
+        className='flex w-full items-center justify-between px-4 py-4 hover:bg-gray-50 disabled:opacity-50'
+      >
+        <div className='flex items-center gap-3'>
+          <span>{t`Sign out`}</span>
+        </div>
+        <ChevronRight className='h-5 w-5' />
+      </button>
     </div>
   )
 }

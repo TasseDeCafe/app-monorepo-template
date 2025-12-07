@@ -24,7 +24,6 @@ export const Avatar = ({ initials, url, size = 40 }: AvatarProps) => {
         width: size,
         height: size,
         borderWidth: borderWidth,
-        borderColor: colors.indigo[500],
       }}
     >
       {hasValidUrl && !hadError && (
@@ -42,7 +41,7 @@ export const Avatar = ({ initials, url, size = 40 }: AvatarProps) => {
           style={{
             width: size,
             height: size,
-            backgroundColor: '#4F46E5',
+            backgroundColor: 'black',
           }}
         >
           <Text

@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { useTabBarHeight } from '@/hooks/use-tab-bar-height'
 import { useLingui } from '@lingui/react/macro'
 
-export default function Index() {
+export default function Home() {
   const { t } = useLingui()
 
   const tabBarHeight = useTabBarHeight()
@@ -18,10 +18,7 @@ export default function Index() {
       >
         <View className='flex-col gap-2'>
           <View className='items-left mb-0 mt-3 w-full'>
-            <Text className='text-lg font-semibold text-gray-800'>{t`Your Learning Streak`}</Text>
-          </View>
-          <View className='items-left mb-1 mt-4 w-full'>
-            <Text className='text-lg font-semibold text-gray-800'>{t`Our Exercises`}</Text>
+            <Text className='text-lg font-semibold text-gray-800'>{t`Some text for the Home tab`}</Text>
           </View>
         </View>
       </ScrollView>

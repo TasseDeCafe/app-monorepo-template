@@ -14,8 +14,8 @@ import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
 import { Route as AccountRemovedRouteImport } from './routes/account/removed'
-import { Route as ProtectedTopSecretAdminSettingsRouteImport } from './routes/_protected/top-secret-admin-settings'
 import { Route as ProtectedPremiumDemoRouteImport } from './routes/_protected/premium-demo'
+import { Route as ProtectedAdminSettingsRouteImport } from './routes/_protected/admin-settings'
 import { Route as ProtectedTabsRouteImport } from './routes/_protected/_tabs'
 import { Route as LoginEmailIndexRouteImport } from './routes/login/email/index'
 import { Route as ProtectedPricingIndexRouteImport } from './routes/_protected/pricing/index'
@@ -52,15 +52,14 @@ const AccountRemovedRoute = AccountRemovedRouteImport.update({
   path: '/account/removed',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProtectedTopSecretAdminSettingsRoute =
-  ProtectedTopSecretAdminSettingsRouteImport.update({
-    id: '/top-secret-admin-settings',
-    path: '/top-secret-admin-settings',
-    getParentRoute: () => ProtectedRoute,
-  } as any)
 const ProtectedPremiumDemoRoute = ProtectedPremiumDemoRouteImport.update({
   id: '/premium-demo',
   path: '/premium-demo',
+  getParentRoute: () => ProtectedRoute,
+} as any)
+const ProtectedAdminSettingsRoute = ProtectedAdminSettingsRouteImport.update({
+  id: '/admin-settings',
+  path: '/admin-settings',
   getParentRoute: () => ProtectedRoute,
 } as any)
 const ProtectedTabsRoute = ProtectedTabsRouteImport.update({
@@ -124,8 +123,8 @@ const ProtectedTabsDashboardRoute = ProtectedTabsDashboardRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/from-landing': typeof FromLandingRoute
+  '/admin-settings': typeof ProtectedAdminSettingsRoute
   '/premium-demo': typeof ProtectedPremiumDemoRoute
-  '/top-secret-admin-settings': typeof ProtectedTopSecretAdminSettingsRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
   '/dashboard': typeof ProtectedTabsDashboardRoute
@@ -142,8 +141,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/from-landing': typeof FromLandingRoute
+  '/admin-settings': typeof ProtectedAdminSettingsRoute
   '/premium-demo': typeof ProtectedPremiumDemoRoute
-  '/top-secret-admin-settings': typeof ProtectedTopSecretAdminSettingsRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
   '/dashboard': typeof ProtectedTabsDashboardRoute
@@ -163,8 +162,8 @@ export interface FileRoutesById {
   '/_protected': typeof ProtectedRouteWithChildren
   '/from-landing': typeof FromLandingRoute
   '/_protected/_tabs': typeof ProtectedTabsRouteWithChildren
+  '/_protected/admin-settings': typeof ProtectedAdminSettingsRoute
   '/_protected/premium-demo': typeof ProtectedPremiumDemoRoute
-  '/_protected/top-secret-admin-settings': typeof ProtectedTopSecretAdminSettingsRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login/': typeof LoginIndexRoute
   '/_protected/_tabs/dashboard': typeof ProtectedTabsDashboardRoute
@@ -183,8 +182,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/from-landing'
+    | '/admin-settings'
     | '/premium-demo'
-    | '/top-secret-admin-settings'
     | '/account/removed'
     | '/login'
     | '/dashboard'
@@ -201,8 +200,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/from-landing'
+    | '/admin-settings'
     | '/premium-demo'
-    | '/top-secret-admin-settings'
     | '/account/removed'
     | '/login'
     | '/dashboard'
@@ -221,8 +220,8 @@ export interface FileRouteTypes {
     | '/_protected'
     | '/from-landing'
     | '/_protected/_tabs'
+    | '/_protected/admin-settings'
     | '/_protected/premium-demo'
-    | '/_protected/top-secret-admin-settings'
     | '/account/removed'
     | '/login/'
     | '/_protected/_tabs/dashboard'
@@ -285,18 +284,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRemovedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_protected/top-secret-admin-settings': {
-      id: '/_protected/top-secret-admin-settings'
-      path: '/top-secret-admin-settings'
-      fullPath: '/top-secret-admin-settings'
-      preLoaderRoute: typeof ProtectedTopSecretAdminSettingsRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
     '/_protected/premium-demo': {
       id: '/_protected/premium-demo'
       path: '/premium-demo'
       fullPath: '/premium-demo'
       preLoaderRoute: typeof ProtectedPremiumDemoRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/admin-settings': {
+      id: '/_protected/admin-settings'
+      path: '/admin-settings'
+      fullPath: '/admin-settings'
+      preLoaderRoute: typeof ProtectedAdminSettingsRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/_tabs': {
@@ -397,8 +396,8 @@ const ProtectedTabsRouteWithChildren = ProtectedTabsRoute._addFileChildren(
 
 interface ProtectedRouteChildren {
   ProtectedTabsRoute: typeof ProtectedTabsRouteWithChildren
+  ProtectedAdminSettingsRoute: typeof ProtectedAdminSettingsRoute
   ProtectedPremiumDemoRoute: typeof ProtectedPremiumDemoRoute
-  ProtectedTopSecretAdminSettingsRoute: typeof ProtectedTopSecretAdminSettingsRoute
   ProtectedPricingCheckoutSuccessRoute: typeof ProtectedPricingCheckoutSuccessRoute
   ProtectedPricingFreeTrialRoute: typeof ProtectedPricingFreeTrialRoute
   ProtectedRedirectToCheckOutPlanIntervalRoute: typeof ProtectedRedirectToCheckOutPlanIntervalRoute
@@ -407,8 +406,8 @@ interface ProtectedRouteChildren {
 
 const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedTabsRoute: ProtectedTabsRouteWithChildren,
+  ProtectedAdminSettingsRoute: ProtectedAdminSettingsRoute,
   ProtectedPremiumDemoRoute: ProtectedPremiumDemoRoute,
-  ProtectedTopSecretAdminSettingsRoute: ProtectedTopSecretAdminSettingsRoute,
   ProtectedPricingCheckoutSuccessRoute: ProtectedPricingCheckoutSuccessRoute,
   ProtectedPricingFreeTrialRoute: ProtectedPricingFreeTrialRoute,
   ProtectedRedirectToCheckOutPlanIntervalRoute:

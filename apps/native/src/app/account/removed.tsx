@@ -8,7 +8,7 @@ export default function AccountRemovedScreen() {
   const router = useRouter()
 
   return (
-    <View className='flex-1 bg-indigo-50 p-4 pt-16'>
+    <View className='flex-1 p-4 pt-16'>
       <Stack.Screen options={{ headerShown: false }} />
 
       <View className='flex-1 justify-between pb-12'>

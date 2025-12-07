@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native'
 import { useTabBarHeight } from '@/hooks/use-tab-bar-height'
 import { ScrollView } from 'react-native-gesture-handler'
-import { Button } from '@/components/ui/button'
 import { router } from 'expo-router'
 import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
 import { useLingui } from '@lingui/react/macro'
 import { usePaywall } from '@/components/billing/hooks/use-paywall'
+import { Button } from '@/components/ui/button'
 
 export default function DashboardScreen() {
   const { t } = useLingui()
@@ -28,10 +28,8 @@ export default function DashboardScreen() {
       <ScrollView className='flex-1 px-4 py-2' style={{ paddingBottom: tabBarHeight + 20 }}>
         <Text className='mb-4 text-xl font-bold'>{t`Dashboard`}</Text>
 
-        <View className='rounded-lg bg-indigo-50 p-4'>
-          <Text className='mb-2 text-lg font-semibold text-indigo-700'>
-            {isSubscribed ? t`Premium Features` : t`Unlock Premium`}
-          </Text>
+        <View className='rounded-lg p-4'>
+          <Text className='mb-2 text-lg font-semibold'>{isSubscribed ? t`Premium Features` : t`Unlock Premium`}</Text>
           <Text className='mb-4 text-gray-600'>
             {isSubscribed
               ? t`Access exclusive premium features available to subscribers.`

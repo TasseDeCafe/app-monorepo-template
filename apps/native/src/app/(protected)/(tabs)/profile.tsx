@@ -136,9 +136,7 @@ export default function ProfileScreen() {
       <BigCard className='mb-4'>
         {renderBillingItem()}
 
-        {isTestUser && (
-          <SettingsItem title={t`Admin Settings`} value='' onPress={handleAdminSettingsPress} />
-        )}
+        {isTestUser && <SettingsItem title={t`Admin Settings`} value='' onPress={handleAdminSettingsPress} />}
 
         <SettingsItem
           title={t`Danger Zone`}

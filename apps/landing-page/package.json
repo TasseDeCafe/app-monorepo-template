@@ -22,7 +22,6 @@
     "@template-app/i18n": "workspace:*",
     "import-in-the-middle": "catalog:",
     "lucide-react": "catalog:",
-    "motion": "catalog:",
     "negotiator": "catalog:",
     "next": "catalog:",
     "posthog-js": "catalog:",

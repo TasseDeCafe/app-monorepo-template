@@ -16,12 +16,10 @@
     "@orpc/contract": "catalog:",
     "@template-app/core": "workspace:*",
     "vitest": "catalog:",
-    "zod": "catalog:",
-    "naughty-words": "catalog:"
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@template-app/typescript-config": "workspace:*",
-    "@types/naughty-words": "catalog:",
     "typescript": "catalog:",
     "tsc-alias": "catalog:"
   }

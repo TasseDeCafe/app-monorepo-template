@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useNavigate, useParams } from '@tanstack/react-router'
-import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 import { Route as checkoutSuccessRoute } from '@/routes/_protected/pricing/checkout-success'
 import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
 import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
@@ -19,26 +18,23 @@ export const RedirectToCheckOut = () => {
   const referral = useTrackingStore((state) => state.referral)
   const isUserSetupComplete = useIsUserSetupComplete()
 
-  const { mutate } = useCheckoutMutation()
+  const { mutate, isPending } = useCheckoutMutation()
 
   useEffect(() => {
-    if (isUserSetupComplete) {
-      if (planInterval) {
-        const calculatedPlanInterval: 'month' | 'year' = planInterval === 'month' ? 'month' : 'year'
-        if (referral) {
-          navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: calculatedPlanInterval } })
-        } else {
-          mutate({
-            successPathAndHash: checkoutSuccessRoute.to,
-            cancelPathAndHash: pricingRoute.to,
-            planInterval: calculatedPlanInterval,
-          })
-        }
-      } else {
-        navigate({ to: dashboardRoute.to })
-      }
+    if (!isUserSetupComplete || isPending) {
+      return
     }
-  }, [planInterval, mutate, isUserSetupComplete, referral, navigate])
+
+    if (referral) {
+      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval } })
+    } else {
+      mutate({
+        successPathAndHash: checkoutSuccessRoute.to,
+        cancelPathAndHash: pricingRoute.to,
+        planInterval: planInterval,
+      })
+    }
+  }, [planInterval, mutate, isPending, isUserSetupComplete, referral, navigate])
 
   return <FullViewLoader />
 }

@@ -89,7 +89,7 @@ export const PricingView = () => {
         }
       }
     } else if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
-      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
+      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as PlanInterval } })
     } else {
       mutate({
         successPathAndHash: checkoutSuccessRoute.to,

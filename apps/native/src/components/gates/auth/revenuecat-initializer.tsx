@@ -30,7 +30,7 @@ export const RevenuecatInitializer = ({ children }: { children: ReactNode }) => 
       } catch (error) {
         logWithSentry('Failed to configure RevenueCat', error)
         Alert.alert('Error', t`Failed to initialize payment system. Please restart the app.`, [
-          { text: 'OK', onPress: () => signOut().then(() => router.replace('/')) },
+          { text: 'OK', onPress: () => signOut().then(() => router.replace('/login')) },
         ])
       }
     } else if (getConfig().shouldSkipRevenueCatPaywall) {

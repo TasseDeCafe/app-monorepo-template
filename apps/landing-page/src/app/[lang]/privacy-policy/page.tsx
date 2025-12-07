@@ -202,8 +202,8 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
         <p className='mt-4 text-xl font-light'>
           <Trans>
             This automated deletion system is accessible 24/7 through your secure account dashboard. For additional
-            assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests
-            with the same level of immediacy and thoroughness.
+            assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your
+            requests with the same level of immediacy and thoroughness.
           </Trans>
         </p>
         <h2 className='w-full text-4xl'>
@@ -211,7 +211,8 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
         </h2>
         <p className='text-xl font-light'>
           <Trans>
-            If you have any questions about this Privacy Policy, please contact us via email: contact@app-monorepo-template.dev
+            If you have any questions about this Privacy Policy, please contact us via email:
+            contact@app-monorepo-template.dev
           </Trans>
         </p>
       </div>

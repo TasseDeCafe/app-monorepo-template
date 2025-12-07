@@ -24,8 +24,8 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
         </h1>
         <p>
           <Trans>
-            By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound
-            by these Terms of Service (&quot;Terms&quot;).
+            By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by
+            these Terms of Service (&quot;Terms&quot;).
           </Trans>
         </p>
         <h1 className='w-full text-4xl'>
@@ -121,9 +121,9 @@ const TermsAndConditions = async ({ params }: { params: Promise<LangProps> }) =>
         </h1>
         <div className='text-xl font-light'>
           <Trans>
-            In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or
-            affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including
-            without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
+            In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or affiliates,
+            be liable for any indirect, incidental, special, consequential, or punitive damages, including without
+            limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:
           </Trans>
           <p>
             <Trans>(i) your access to or use of or inability to access or use the service;</Trans>

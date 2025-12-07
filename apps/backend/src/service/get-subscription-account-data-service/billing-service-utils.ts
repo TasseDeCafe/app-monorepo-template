@@ -1,7 +1,4 @@
-import {
-  STRIPE_MONTHLY_PRICE_IN_EUR,
-  STRIPE_YEARLY_PRICE_IN_EUR,
-} from '@template-app/core/constants/pricing-constants'
+import { STRIPE_MONTHLY_PRICE_IN_EUR, STRIPE_YEARLY_PRICE_IN_EUR } from '@template-app/core/constants/pricing-constants'
 import { Discounts } from '@template-app/core/constants/discount-types'
 import { PlanType, UserStripePricingDetails } from '@template-app/api-client/orpc-contracts/billing-contract'
 

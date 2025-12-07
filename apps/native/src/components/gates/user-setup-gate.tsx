@@ -77,7 +77,7 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
 
   if (isUserSetupError) {
     Alert.alert('Error', t`Could not set up your account. Please try restarting the app.`, [
-      { text: 'OK', onPress: () => signOut().then(() => router.replace('/')) },
+      { text: 'OK', onPress: () => signOut().then(() => router.replace('/login')) },
     ])
     logWithSentry('Error setting up account')
     return <LoadingScreen message={t`Error setting up account...`} />

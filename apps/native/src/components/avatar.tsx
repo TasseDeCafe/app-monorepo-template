@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { View, Image, Text } from 'react-native'
-import colors from 'tailwindcss/colors'
+import { Image, Text, View } from 'react-native'
 
 type AvatarProps = {
   initials: string

@@ -15,6 +15,7 @@ export const useNeedsSubscription = () => {
 
   return {
     needsSubscription,
+    isPending: isSubscriptionDetailsPending,
     isFetching,
     isError: isSubscriptionDetailsError,
     subscriptionData: subscriptionDetailsData,

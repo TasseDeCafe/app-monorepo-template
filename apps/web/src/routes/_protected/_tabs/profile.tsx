@@ -81,11 +81,11 @@ const ProfileView = () => {
     <div className='flex flex-col gap-6 px-4 py-4'>
       {/* User profile section */}
       <div className='flex items-center gap-4 px-2'>
-        <div className='flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-indigo-100'>
+        <div className='flex h-16 w-16 items-center justify-center overflow-hidden rounded-full'>
           {avatarUrl ? (
             <img src={avatarUrl} alt='Avatar' className='h-full w-full object-cover' />
           ) : (
-            <span className='text-xl font-semibold text-indigo-600'>{getInitials()}</span>
+            <span className='text-xl font-semibold'>{getInitials()}</span>
           )}
         </div>
         <div>

@@ -32,12 +32,12 @@ const PremiumDemoView = () => {
   }
 
   return (
-    <div className='flex min-h-screen flex-col bg-indigo-50'>
+    <div className='flex min-h-screen flex-col'>
       {/* Header */}
-      <header className='sticky top-0 z-10 flex h-14 items-center border-b border-indigo-100 bg-indigo-50 px-4'>
+      <header className='sticky top-0 z-10 flex h-14 items-center border-b px-4'>
         <button
           onClick={() => navigate({ to: dashboardRoute.to })}
-          className='flex h-10 w-10 items-center justify-center rounded-lg hover:bg-indigo-100'
+          className='flex h-10 w-10 items-center justify-center rounded-lg hover:bg-gray-100'
         >
           <ArrowLeft className='h-6 w-6' />
         </button>
@@ -48,7 +48,7 @@ const PremiumDemoView = () => {
       <main className='flex flex-1 items-center justify-center p-4'>
         <Card className='w-full max-w-md text-center'>
           <CardHeader>
-            <CardTitle className='text-2xl text-indigo-600'>{t`Premium Features`}</CardTitle>
+            <CardTitle className='text-2xl'>{t`Premium Features`}</CardTitle>
             <CardDescription>
               {t`This screen is only accessible to subscribed users. You can showcase premium features here.`}
             </CardDescription>

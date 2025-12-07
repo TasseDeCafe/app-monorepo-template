@@ -312,7 +312,7 @@ msgid "About Us"
 msgstr "About Us"
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:37
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:35
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:33
 msgid "Access exclusive premium features available to subscribers."
 msgstr "Access exclusive premium features available to subscribers."
 
@@ -508,9 +508,8 @@ msgstr "Danger Zone"
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:100
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:29
-#: apps/web/src/routes/_protected/_tabs.tsx:43
-#: apps/web/src/routes/_protected/_tabs.tsx:68
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
+#: apps/web/src/routes/_protected/_tabs.tsx:57
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:44
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -637,9 +636,7 @@ msgid "Help us improve TemplateApp"
 msgstr "Help us improve TemplateApp"
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:93
-#: apps/web/src/routes/_protected/_tabs.tsx:42
-#: apps/web/src/routes/_protected/_tabs.tsx:45
-#: apps/web/src/routes/_protected/_tabs.tsx:67
+#: apps/web/src/routes/_protected/_tabs.tsx:56
 msgid "Home"
 msgstr "Home"
 
@@ -699,10 +696,15 @@ msgstr "Last day to cancel before first charge"
 msgid "Link expired or invalid"
 msgstr "Link expired or invalid"
 
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+msgid "Loading subscription status..."
+msgstr "Loading subscription status..."
+
 #: apps/native/src/app/(protected)/premium-demo.tsx:22
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:68
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
 #: apps/web/src/routes/_protected/_tabs/profile.tsx:75
 msgid "Loading..."
 msgstr "Loading..."
@@ -754,7 +756,6 @@ msgid "or copy links to"
 msgstr "or copy links to"
 
 #: apps/native/src/app/(protected)/(tabs)/index.tsx:24
-#: apps/web/src/routes/_protected/_tabs/home.tsx:13
 msgid "Our Exercises"
 msgstr "Our Exercises"
 
@@ -800,13 +801,17 @@ msgstr "Please try again or refresh the page."
 msgid "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 msgstr "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:26
+msgid "Premium"
+msgstr "Premium"
+
 #: apps/web/src/routes/_protected/premium-demo.tsx:44
 msgid "Premium Demo"
 msgstr "Premium Demo"
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:33
 #: apps/native/src/app/(protected)/premium-demo.tsx:37
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
 #: apps/web/src/routes/_protected/premium-demo.tsx:51
 msgid "Premium Features"
 msgstr "Premium Features"
@@ -825,8 +830,7 @@ msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:107
-#: apps/web/src/routes/_protected/_tabs.tsx:44
-#: apps/web/src/routes/_protected/_tabs.tsx:69
+#: apps/web/src/routes/_protected/_tabs.tsx:58
 msgid "Profile"
 msgstr "Profile"
 
@@ -900,6 +904,10 @@ msgstr "Some super cool text!"
 msgid "Some super cool title!"
 msgstr "Some super cool title!"
 
+#: apps/web/src/routes/_protected/_tabs/home.tsx:10
+msgid "Some text for the Home tab"
+msgstr "Some text for the Home tab"
+
 #: apps/native/src/config/react-query-config.ts:24
 msgid "Something went wrong"
 msgstr "Something went wrong"
@@ -929,7 +937,7 @@ msgstr "Start Free Trial"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:41
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
 msgid "Subscribe Now"
 msgstr "Subscribe Now"
 
@@ -938,7 +946,7 @@ msgid "Subscribe to access premium features"
 msgstr "Subscribe to access premium features"
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:38
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:36
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:34
 msgid "Subscribe to unlock premium features and get the most out of the app."
 msgstr "Subscribe to unlock premium features and get the most out of the app."
 
@@ -1052,7 +1060,7 @@ msgid "Unable to open app store. Please manually update the app."
 msgstr "Unable to open app store. Please manually update the app."
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:33
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
 msgid "Unlock Premium"
 msgstr "Unlock Premium"
 
@@ -1105,7 +1113,7 @@ msgid "Verifying..."
 msgstr "Verifying..."
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:41
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
 msgid "View Premium Demo"
 msgstr "View Premium Demo"
 
@@ -1199,7 +1207,6 @@ msgid "Your information, including Personal Data, may be transferred to and main
 msgstr "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
 
 #: apps/native/src/app/(protected)/(tabs)/index.tsx:21
-#: apps/web/src/routes/_protected/_tabs/home.tsx:10
 msgid "Your Learning Streak"
 msgstr "Your Learning Streak"
 

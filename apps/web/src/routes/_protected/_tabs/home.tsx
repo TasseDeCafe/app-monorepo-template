@@ -7,10 +7,7 @@ const HomeView = () => {
   return (
     <div className='flex flex-col gap-4 px-4 py-2'>
       <div className='mt-3'>
-        <h2 className='text-lg font-semibold text-gray-800'>{t`Your Learning Streak`}</h2>
-      </div>
-      <div className='mt-4'>
-        <h2 className='text-lg font-semibold text-gray-800'>{t`Our Exercises`}</h2>
+        <h2 className='text-lg font-semibold text-gray-800'>{t`Some text for the Home tab`}</h2>
       </div>
     </div>
   )

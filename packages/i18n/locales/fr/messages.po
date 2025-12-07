@@ -312,7 +312,7 @@ msgid "About Us"
 msgstr "À propos de nous"
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:37
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:35
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:33
 msgid "Access exclusive premium features available to subscribers."
 msgstr ""
 
@@ -506,9 +506,8 @@ msgstr "Zone Dangereuse"
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:100
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:29
-#: apps/web/src/routes/_protected/_tabs.tsx:43
-#: apps/web/src/routes/_protected/_tabs.tsx:68
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
+#: apps/web/src/routes/_protected/_tabs.tsx:57
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:44
 msgid "Dashboard"
 msgstr ""
 
@@ -635,9 +634,7 @@ msgid "Help us improve TemplateApp"
 msgstr "Aidez-nous à améliorer TemplateApp"
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:93
-#: apps/web/src/routes/_protected/_tabs.tsx:42
-#: apps/web/src/routes/_protected/_tabs.tsx:45
-#: apps/web/src/routes/_protected/_tabs.tsx:67
+#: apps/web/src/routes/_protected/_tabs.tsx:56
 msgid "Home"
 msgstr "Accueil"
 
@@ -697,10 +694,15 @@ msgstr "Dernier jour pour annuler avant le premier prélèvement"
 msgid "Link expired or invalid"
 msgstr ""
 
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+msgid "Loading subscription status..."
+msgstr ""
+
 #: apps/native/src/app/(protected)/premium-demo.tsx:22
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:68
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
 #: apps/web/src/routes/_protected/_tabs/profile.tsx:75
 msgid "Loading..."
 msgstr "Chargement..."
@@ -752,7 +754,6 @@ msgid "or copy links to"
 msgstr "ou copier les liens vers"
 
 #: apps/native/src/app/(protected)/(tabs)/index.tsx:24
-#: apps/web/src/routes/_protected/_tabs/home.tsx:13
 msgid "Our Exercises"
 msgstr "Nos exercices"
 
@@ -798,13 +799,17 @@ msgstr "Veuillez réessayer ou actualiser la page."
 msgid "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 msgstr "Veuillez saisir \"{EXPECTED_CONFIRMATION_TEXT}\""
 
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:26
+msgid "Premium"
+msgstr ""
+
 #: apps/web/src/routes/_protected/premium-demo.tsx:44
 msgid "Premium Demo"
 msgstr ""
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:33
 #: apps/native/src/app/(protected)/premium-demo.tsx:37
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
 #: apps/web/src/routes/_protected/premium-demo.tsx:51
 msgid "Premium Features"
 msgstr ""
@@ -823,8 +828,7 @@ msgid "Privacy Policy"
 msgstr "Politique de Confidentialité"
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:107
-#: apps/web/src/routes/_protected/_tabs.tsx:44
-#: apps/web/src/routes/_protected/_tabs.tsx:69
+#: apps/web/src/routes/_protected/_tabs.tsx:58
 msgid "Profile"
 msgstr "Profil"
 
@@ -898,6 +902,10 @@ msgstr ""
 msgid "Some super cool title!"
 msgstr ""
 
+#: apps/web/src/routes/_protected/_tabs/home.tsx:10
+msgid "Some text for the Home tab"
+msgstr ""
+
 #: apps/native/src/config/react-query-config.ts:24
 msgid "Something went wrong"
 msgstr "Une erreur s'est produite"
@@ -927,7 +935,7 @@ msgstr "Commencer l'essai gratuit"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:41
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
 msgid "Subscribe Now"
 msgstr "S'abonner maintenant"
 
@@ -936,7 +944,7 @@ msgid "Subscribe to access premium features"
 msgstr ""
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:38
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:36
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:34
 msgid "Subscribe to unlock premium features and get the most out of the app."
 msgstr ""
 
@@ -1050,7 +1058,7 @@ msgid "Unable to open app store. Please manually update the app."
 msgstr "Impossible d'ouvrir le magasin d'applications. Veuillez mettre à jour manuellement l'application."
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:33
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
 msgid "Unlock Premium"
 msgstr ""
 
@@ -1103,7 +1111,7 @@ msgid "Verifying..."
 msgstr "Vérification..."
 
 #: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:41
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
+#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
 msgid "View Premium Demo"
 msgstr ""
 
@@ -1197,7 +1205,6 @@ msgid "Your information, including Personal Data, may be transferred to and main
 msgstr "Vos informations, y compris les Données personnelles, peuvent être transférées et conservées sur des ordinateurs situés en dehors de votre juridiction où les lois sur la protection des données peuvent différer de celles de votre juridiction."
 
 #: apps/native/src/app/(protected)/(tabs)/index.tsx:21
-#: apps/web/src/routes/_protected/_tabs/home.tsx:10
 msgid "Your Learning Streak"
 msgstr "Votre Série d'Apprentissage"
 

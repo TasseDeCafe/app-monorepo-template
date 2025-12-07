@@ -1,7 +1,6 @@
 import { Stack } from 'expo-router'
 import { RevenuecatInitializer } from '@/components/gates/auth/revenuecat-initializer'
 import { ForceUpdateGate } from '@/components/gates/force-update-gate'
-import colors from 'tailwindcss/colors'
 
 const ProtectedLayout = () => {
   return (
@@ -11,9 +10,6 @@ const ProtectedLayout = () => {
           screenOptions={{
             headerShown: false,
             headerShadowVisible: false,
-            headerStyle: {
-              backgroundColor: colors.indigo[50],
-            },
             animation: 'slide_from_right',
             headerTitleAlign: 'center',
           }}
@@ -38,7 +34,7 @@ const ProtectedLayout = () => {
             }}
           />
           <Stack.Screen
-            name='top-secret-admin-settings'
+            name='admin-settings'
             options={{
               headerShown: true,
               title: 'Admin Settings',

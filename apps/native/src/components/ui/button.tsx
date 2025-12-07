@@ -29,7 +29,7 @@ export const Button = ({
   const baseStyles = 'flex-row items-center justify-center rounded-xl'
 
   const variants = {
-    default: 'bg-indigo-600',
+    default: 'bg-black',
     white: 'bg-white border border-gray-300',
     outline: 'border border-gray-300 bg-transparent',
     destructive: 'bg-red-500',
@@ -56,7 +56,7 @@ export const Button = ({
       ? 'white'
       : variant === 'inactive'
         ? colors.gray[400]
-        : colors.indigo[500]
+        : colors.black
 
   const isDisabled = disabled || loading
   const opacityStyle = isDisabled && variant !== 'inactive' ? 'opacity-70' : 'opacity-100'

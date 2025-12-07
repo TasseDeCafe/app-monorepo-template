@@ -34,7 +34,7 @@ export default function PremiumDemoScreen() {
         }}
       />
       <View className='flex-1 items-center justify-center px-4'>
-        <Text className='mb-4 text-2xl font-bold text-indigo-600'>{t`Premium Features`}</Text>
+        <Text className='mb-4 text-2xl font-bold'>{t`Premium Features`}</Text>
         <Text className='mb-8 text-center text-lg text-gray-600'>
           {t`This screen is only accessible to subscribed users. You can showcase premium features here.`}
         </Text>

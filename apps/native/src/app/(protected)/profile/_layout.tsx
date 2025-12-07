@@ -8,10 +8,6 @@ export default function AccountLayout() {
     <Stack
       screenOptions={{
         headerShadowVisible: false,
-        contentStyle: { backgroundColor: colors.indigo[50] },
-        headerStyle: {
-          backgroundColor: colors.indigo[50],
-        },
         headerLeft: () => <BackButton />,
         animation: Platform.OS === 'ios' ? 'slide_from_right' : 'fade',
         headerTitleAlign: 'center',

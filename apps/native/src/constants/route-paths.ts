@@ -8,7 +8,7 @@ export const ROUTE_PATHS = {
   LOGIN_EMAIL_VERIFY: '/login/email/verify',
 
   ACCOUNT_REMOVED: '/account/removed',
-  ADMIN_SETTINGS: '/top-secret-admin-settings',
+  ADMIN_SETTINGS: '/admin-settings',
   // the ones below do not exist in the web app
   SEE_PLANS: '/choose-plan',
 } as const

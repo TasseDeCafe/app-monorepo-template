@@ -18,7 +18,7 @@ export const setTokenGetter = (fn: () => string) => {
 const link = new OpenAPILink(rootOrpcContract, {
   url: hostWithPrefix,
   headers: () => {
-  const authHeader = getAuthHeaderValue()
+    const authHeader = getAuthHeaderValue()
     if (authHeader) {
       return { Authorization: authHeader }
     }

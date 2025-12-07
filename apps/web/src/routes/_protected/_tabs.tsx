@@ -1,5 +1,5 @@
 import { createFileRoute, Link, Outlet, useLocation } from '@tanstack/react-router'
-import { Home, Dumbbell, CircleUserRound, Menu } from 'lucide-react'
+import { Home, Dumbbell, CircleUserRound } from 'lucide-react'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { ContactUsButton } from '@/components/navbar/contact-us-button'
 import { useLingui } from '@lingui/react/macro'
@@ -22,7 +22,7 @@ const TabLink = ({
     to={to}
     className={cn(
       'flex flex-1 flex-col items-center justify-center gap-1 py-2 transition-colors',
-      isActive ? 'text-indigo-600' : 'text-gray-500 hover:text-gray-700'
+      isActive ? 'text-yellow-500' : 'text-gray-500 hover:text-gray-700'
     )}
   >
     <Icon className='h-6 w-6' strokeWidth={2} />
@@ -38,21 +38,10 @@ const TabsLayout = () => {
   const isDashboardActive = location.pathname.includes(dashboardRoute.to)
   const isProfileActive = location.pathname.includes(profileRoute.to)
 
-  const getTitle = () => {
-    if (isHomeActive) return t`Home`
-    if (isDashboardActive) return t`Dashboard`
-    if (isProfileActive) return t`Profile`
-    return t`Home`
-  }
-
   return (
-    <div className='flex min-h-screen flex-col bg-indigo-50'>
+    <div className='flex min-h-screen flex-col'>
       {/* Header */}
-      <header className='sticky top-0 z-10 flex h-14 items-center justify-between border-b border-indigo-100 bg-indigo-50 px-4'>
-        <button className='flex h-10 w-10 items-center justify-center rounded-lg hover:bg-indigo-100'>
-          <Menu className='h-6 w-6' />
-        </button>
-        <h1 className='text-lg font-semibold'>{getTitle()}</h1>
+      <header className='sticky top-0 z-10 flex h-14 items-center justify-end border-b px-4'>
         <ContactUsButton />
       </header>
 

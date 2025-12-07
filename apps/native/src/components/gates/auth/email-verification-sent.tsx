@@ -18,8 +18,8 @@ export default function EmailVerificationSent() {
     <View className='flex-1 items-center justify-center'>
       <Card className='w-full max-w-md p-6'>
         <View className='items-center'>
-          <View className='rounded-full bg-indigo-100 p-3'>
-            <Mail size={24} color='#4f46e5' />
+          <View className='rounded-full p-3'>
+            <Mail size={24} />
           </View>
           <View className='m-8'>
             <Text className='text-center text-4xl font-bold leading-tight'>{t`Email Verification Sent`}</Text>

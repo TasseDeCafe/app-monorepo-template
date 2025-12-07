@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { View, Image, Text } from 'react-native'
-import colors from 'tailwindcss/colors'
+import { Image, Text, View } from 'react-native'
 
 type AvatarProps = {
   initials: string
@@ -24,7 +23,6 @@ export const Avatar = ({ initials, url, size = 40 }: AvatarProps) => {
         width: size,
         height: size,
         borderWidth: borderWidth,
-        borderColor: colors.indigo[500],
       }}
     >
       {hasValidUrl && !hadError && (
@@ -42,7 +40,7 @@ export const Avatar = ({ initials, url, size = 40 }: AvatarProps) => {
           style={{
             width: size,
             height: size,
-            backgroundColor: '#4F46E5',
+            backgroundColor: 'black',
           }}
         >
           <Text

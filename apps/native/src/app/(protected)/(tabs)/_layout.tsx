@@ -11,7 +11,7 @@ import { useLingui } from '@lingui/react/macro'
 
 const CustomTabBarButton = (props: BottomTabBarButtonProps) => {
   const { children, onPress } = props
-  const rippleColor = colors.indigo[100]
+  const rippleColor = colors.yellow[100]
 
   return (
     <Pressable
@@ -41,12 +41,12 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         // this undocumented prop is used to set the style of the individual screens
-        sceneStyle: { backgroundColor: colors.indigo[50] },
+        sceneStyle: { backgroundColor: colors.white },
         headerShown: true,
-        tabBarActiveTintColor: colors.indigo[600],
+        tabBarActiveTintColor: colors.yellow[500],
         tabBarInactiveTintColor: colors.gray[500],
         headerStyle: {
-          backgroundColor: colors.indigo[50],
+          backgroundColor: colors.white,
           height: 105,
         },
         headerShadowVisible: false,
@@ -80,15 +80,15 @@ export default function TabLayout() {
         headerRight: () => (
           <TouchableOpacity
             onPress={handleContactUsPress}
-            className='mr-4 flex h-10 flex-row items-center justify-center rounded-xl border border-slate-200 bg-white px-4'
+            className='mr-4 flex h-10 flex-row items-center justify-center rounded-xl bg-black px-4'
           >
-            <Text className='text-sm font-medium text-black'>{t`Contact Us`}</Text>
+            <Text className='text-sm font-medium text-white'>{t`Contact Us`}</Text>
           </TouchableOpacity>
         ),
       }}
     >
       <Tabs.Screen
-        name='index'
+        name='home'
         options={{
           title: t`Home`,
           tabBarIcon: ({ color }) => <Home size={24} color={color} strokeWidth={2} />,

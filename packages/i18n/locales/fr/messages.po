@@ -311,7 +311,7 @@ msgstr "À propos | TemplateApp"
 msgid "About Us"
 msgstr "À propos de nous"
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:37
+#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:35
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:33
 msgid "Access exclusive premium features available to subscribers."
 msgstr ""
@@ -325,8 +325,9 @@ msgstr "Compte supprimé"
 msgid "Actions in this section can lead to permanent data loss."
 msgstr "Les actions dans cette section peuvent entraîner une perte définitive de données."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:140
-#: apps/native/src/app/(protected)/top-secret-admin-settings.tsx:17
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:139
+#: apps/native/src/app/(protected)/admin-settings.tsx:17
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:129
 msgid "Admin Settings"
 msgstr "Paramètres Administrateur"
 
@@ -469,7 +470,7 @@ msgstr "Impossible de charger les options de paiement en ce moment (aucune offre
 msgid "Could not load payment options. Please try again later."
 msgstr "Impossible de charger les options de paiement. Veuillez réessayer plus tard."
 
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:70
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:75
 msgid "Could not open billing settings."
 msgstr ""
 
@@ -500,7 +501,7 @@ msgstr "Version actuelle : {currentVersion}\\nVersion requise : {requiredVersion
 msgid "Customer Center"
 msgstr "Centre Client"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:144
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:142
 msgid "Danger Zone"
 msgstr "Zone Dangereuse"
 
@@ -703,13 +704,13 @@ msgstr ""
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:75
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:80
 msgid "Loading..."
 msgstr "Chargement..."
 
 #: apps/native/src/app/(protected)/(tabs)/profile.tsx:118
 #: apps/web/src/components/pricing/pricing-view-utils.ts:104
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:77
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:82
 msgid "Manage Subscription"
 msgstr "Gérer l'Abonnement"
 
@@ -753,10 +754,6 @@ msgstr "Ouvrir l'Application Mail"
 msgid "or copy links to"
 msgstr "ou copier les liens vers"
 
-#: apps/native/src/app/(protected)/(tabs)/index.tsx:24
-msgid "Our Exercises"
-msgstr "Nos exercices"
-
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:160
 msgid "Our security infrastructure is continuously monitored, evaluated, and enhanced to meet evolving cybersecurity challenges. We maintain rigorous standards in data protection and follow security best practices recommended by leading technology security organizations. For complete transparency, we acknowledge that all digital systems require ongoing vigilance, which is why we've implemented comprehensive monitoring and rapid response protocols."
 msgstr "Notre infrastructure de sécurité est continuellement surveillée, évaluée et améliorée pour répondre aux défis évolutifs de la cybersécurité. Nous maintenons des normes rigoureuses en matière de protection des données et suivons les meilleures pratiques de sécurité recommandées par les principales organisations de sécurité technologique. Pour une transparence totale, nous reconnaissons que tous les systèmes numériques nécessitent une vigilance constante, c'est pourquoi nous avons mis en place des protocoles de surveillance complets et de réponse rapide."
@@ -779,7 +776,7 @@ msgstr "Veuillez entrer une adresse email valide"
 msgid "Please manage your subscription on our website: {webAccountUrl}"
 msgstr "Veuillez gérer votre abonnement sur notre site web : {webAccountUrl}"
 
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:66
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:71
 msgid "Please manage your subscription through the App Store or Google Play."
 msgstr ""
 
@@ -807,7 +804,7 @@ msgstr ""
 msgid "Premium Demo"
 msgstr ""
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:33
+#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:32
 #: apps/native/src/app/(protected)/premium-demo.tsx:37
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
 #: apps/web/src/routes/_protected/premium-demo.tsx:51
@@ -879,14 +876,14 @@ msgstr "Partagez votre avis ou suggérez des améliorations aux fondateurs. Nous
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:153
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:151
 #: apps/web/src/components/pricing/pricing-view.tsx:178
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:129
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:138
 msgid "Sign out"
 msgstr "Déconnexion"
 
 #: apps/web/src/components/pricing/pricing-view.tsx:111
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:42
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:43
 msgid "Sign out success"
 msgstr ""
 
@@ -902,6 +899,7 @@ msgstr ""
 msgid "Some super cool title!"
 msgstr ""
 
+#: apps/native/src/app/(protected)/(tabs)/home.tsx:21
 #: apps/web/src/routes/_protected/_tabs/home.tsx:10
 msgid "Some text for the Home tab"
 msgstr ""
@@ -934,7 +932,7 @@ msgid "Start Free Trial"
 msgstr "Commencer l'essai gratuit"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:41
+#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:39
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
 msgid "Subscribe Now"
 msgstr "S'abonner maintenant"
@@ -943,7 +941,7 @@ msgstr "S'abonner maintenant"
 msgid "Subscribe to access premium features"
 msgstr ""
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:38
+#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:36
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:34
 msgid "Subscribe to unlock premium features and get the most out of the app."
 msgstr ""
@@ -1057,7 +1055,7 @@ msgstr "Impossible d'ouvrir le magasin d'applications"
 msgid "Unable to open app store. Please manually update the app."
 msgstr "Impossible d'ouvrir le magasin d'applications. Veuillez mettre à jour manuellement l'application."
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:33
+#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:32
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
 msgid "Unlock Premium"
 msgstr ""
@@ -1071,7 +1069,7 @@ msgid "Update Required"
 msgstr "Mise à jour requise"
 
 #: apps/native/src/app/(protected)/(tabs)/profile.tsx:110
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:76
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:81
 msgid "Upgrade to Premium"
 msgstr "Passer à Premium"
 
@@ -1110,7 +1108,7 @@ msgstr "Vérifiez Votre Email"
 msgid "Verifying..."
 msgstr "Vérification..."
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:41
+#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:39
 #: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
 msgid "View Premium Demo"
 msgstr ""
@@ -1162,7 +1160,7 @@ msgid "Yearly"
 msgstr "Annuel"
 
 #: apps/native/src/app/(protected)/(tabs)/profile.tsx:102
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:49
+#: apps/web/src/routes/_protected/_tabs/profile.tsx:54
 msgid "You are a special user with free access. You have no active subscription."
 msgstr "Vous êtes un utilisateur spécial avec un accès gratuit. Vous n'avez pas d'abonnement actif."
 
@@ -1203,10 +1201,6 @@ msgstr "votre adresse e-mail"
 #: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:100
 msgid "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
 msgstr "Vos informations, y compris les Données personnelles, peuvent être transférées et conservées sur des ordinateurs situés en dehors de votre juridiction où les lois sur la protection des données peuvent différer de celles de votre juridiction."
-
-#: apps/native/src/app/(protected)/(tabs)/index.tsx:21
-msgid "Your Learning Streak"
-msgstr "Votre Série d'Apprentissage"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:126
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:96

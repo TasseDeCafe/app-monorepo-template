@@ -1,7 +1,8 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { FromLanding } from '@/components/auth/from-landing.tsx'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 import { z } from 'zod'
 import { PLAN_INTERVALS } from '@template-app/core/constants/pricing-constants'
+import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
+import { Route as redirectToCheckoutRoute } from '@/routes/_protected/redirect-to-check-out/$planInterval'
 
 const fromLandingSearchSchema = z.object({
   planInterval: z.enum(PLAN_INTERVALS).optional(),
@@ -9,5 +10,13 @@ const fromLandingSearchSchema = z.object({
 
 export const Route = createFileRoute('/from-landing')({
   validateSearch: fromLandingSearchSchema,
-  component: FromLanding,
+  beforeLoad: ({ search }) => {
+    if (search.planInterval) {
+      throw redirect({
+        to: redirectToCheckoutRoute.to,
+        params: { planInterval: search.planInterval },
+      })
+    }
+    throw redirect({ to: dashboardRoute.to })
+  },
 })

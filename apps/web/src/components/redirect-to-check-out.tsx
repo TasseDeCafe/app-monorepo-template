@@ -18,21 +18,23 @@ export const RedirectToCheckOut = () => {
   const referral = useTrackingStore((state) => state.referral)
   const isUserSetupComplete = useIsUserSetupComplete()
 
-  const { mutate } = useCheckoutMutation()
+  const { mutate, isPending } = useCheckoutMutation()
 
   useEffect(() => {
-    if (isUserSetupComplete) {
-      if (referral) {
-        navigate({ to: pricingFreeTrialRoute.to, search: { planInterval } })
-      } else {
-        mutate({
-          successPathAndHash: checkoutSuccessRoute.to,
-          cancelPathAndHash: pricingRoute.to,
-          planInterval: planInterval,
-        })
-      }
+    if (!isUserSetupComplete || isPending) {
+      return
     }
-  }, [planInterval, mutate, isUserSetupComplete, referral, navigate])
+
+    if (referral) {
+      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval } })
+    } else {
+      mutate({
+        successPathAndHash: checkoutSuccessRoute.to,
+        cancelPathAndHash: pricingRoute.to,
+        planInterval: planInterval,
+      })
+    }
+  }, [planInterval, mutate, isPending, isUserSetupComplete, referral, navigate])
 
   return <FullViewLoader />
 }

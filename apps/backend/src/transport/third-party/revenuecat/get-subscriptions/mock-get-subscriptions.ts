@@ -7,6 +7,7 @@ export const mockGetSubscriptions = async (customerId: string): Promise<ListSubs
   const now = new Date()
   const futureDate = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000) // 30 days in the future
   const timestamp = now.getTime()
+  const futureTimestamp = futureDate.getTime()
 
   return {
     object: 'list',
@@ -18,6 +19,7 @@ export const mockGetSubscriptions = async (customerId: string): Promise<ListSubs
         original_customer_id: customerId,
         product_id: 'prod_mock_123',
         starts_at: timestamp,
+        ends_at: futureTimestamp,
         current_period_starts_at: timestamp,
         current_period_ends_at: futureDate.getTime(),
         gives_access: true,

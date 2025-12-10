@@ -26,6 +26,8 @@ export const revenuecatWebhookRouter = (
 
       const { event } = req.body
 
+      console.log('event', event)
+
       // todo revenuecat: remove this once we're sure we will never handle transfer events,
       // currently we do not support transfer events
       const isTransferEvent: boolean = event.type === 'TRANSFER'

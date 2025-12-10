@@ -43,7 +43,8 @@ CREATE TYPE revenuecat_store AS ENUM (
     'play_store',
     'promotional',
     'stripe',
-    'rc_billing'
+    'rc_billing',
+    'test_store'
 );
 
 -- Create users table

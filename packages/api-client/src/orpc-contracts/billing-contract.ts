@@ -16,7 +16,7 @@ const stripeSubscriptionStatusSchema = z
   .nullable()
 const planTypeSchema = z.enum(['month', 'year', 'free_trial']).nullable()
 // these translate to web, ios, android apps respectively
-const billingPlatformSchema = z.enum(['stripe', 'app_store', 'play_store']).nullable()
+const billingPlatformSchema = z.enum(['stripe', 'app_store', 'play_store', 'test_store']).nullable()
 
 const userPricingDetailsSchema = z.object({
   amountInEurosThatUserIsCurrentlyPayingPerInterval: z.number().nullable(),

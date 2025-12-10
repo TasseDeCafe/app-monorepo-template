@@ -10,6 +10,7 @@ export const RevenuecatService = (
   revenuecatApi: RevenuecatApi
 ): RevenuecatServiceInterface => ({
   syncRevenuecatSubscriptionWithOurDbAndCache: async (relevantUserId: string) => {
+    console.log('syncing revenuecat subscription for user', relevantUserId)
     const customer = await revenuecatApi.getCustomer(relevantUserId)
     if (!customer) {
       await accessCacheService.updateForUser(relevantUserId)
@@ -17,6 +18,7 @@ export const RevenuecatService = (
     }
 
     const subscriptions = await revenuecatApi.getSubscriptions(relevantUserId)
+    console.log('subscriptions', subscriptions)
     if (!subscriptions?.items) {
       logMessage(`No subscriptions found for user ${relevantUserId}`)
       await accessCacheService.updateForUser(relevantUserId)

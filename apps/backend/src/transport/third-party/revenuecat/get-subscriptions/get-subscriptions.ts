@@ -5,7 +5,6 @@ import { logWithSentry } from '../../sentry/error-monitoring'
 export const getSubscriptions = async (customerId: string): Promise<ListSubscriptionsResponse | null> => {
   try {
     const response = await client.get(`/customers/${customerId}/subscriptions`)
-    console.log('response', response)
     return response.data
   } catch (error) {
     logWithSentry({

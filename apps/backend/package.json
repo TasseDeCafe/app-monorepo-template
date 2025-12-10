@@ -82,7 +82,6 @@
     "@types/jsonwebtoken": "catalog:",
     "@types/morgan": "catalog:",
     "@types/node": "catalog:",
-    "@types/pg": "catalog:",
     "@types/react": "catalog:",
     "@types/supertest": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",

@@ -121,6 +121,8 @@ export const BillingService = (
         billingPlatform = 'app_store'
       } else if (activeRevenueCatSubscription.store === 'play_store') {
         billingPlatform = 'play_store'
+      } else if (activeRevenueCatSubscription.store == 'test_store') {
+        billingPlatform = 'test_store'
       } else {
         logWithSentry({
           message: 'Billing platform not supported for RevenueCat store',

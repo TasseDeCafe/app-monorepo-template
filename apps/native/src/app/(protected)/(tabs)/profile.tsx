@@ -111,6 +111,7 @@ export default function ProfileScreen() {
     }
 
     switch (subscriptionInfo.billingPlatform) {
+      case 'test_store':
       case 'app_store':
       case 'play_store':
         return <SettingsItem title={t`Customer Center`} value='' onPress={handlePressCustomerCenter} />

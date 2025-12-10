@@ -4,6 +4,47 @@
  */
 
 export interface paths {
+  '/projects/{project_id}/paywalls': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Create a paywall
+     * @description Create a paywall for an offering of the project.
+     *      This endpoint requires the following permission(s): <code>project_configuration:offerings:read_write</code>.
+     */
+    post: operations['create-paywall']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/apps/{app_id}/public_api_keys': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Get a list of the public API keys of an app
+     * @description This endpoint requires the following permission(s): <code>project_configuration:apps:read</code>.
+     */
+    get: operations['list-app-public-api-keys']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
   '/projects': {
     parameters: {
       query?: never
@@ -17,7 +58,11 @@ export interface paths {
      */
     get: operations['list-projects']
     put?: never
-    post?: never
+    /**
+     * Creates a new project
+     * @description This endpoint requires the following permission(s): <code>project_configuration:projects:read_write</code>.
+     */
+    post: operations['create-project']
     delete?: never
     options?: never
     head?: never
@@ -76,6 +121,26 @@ export interface paths {
     patch?: never
     trace?: never
   }
+  '/projects/{project_id}/apps/{app_id}/store_kit_config': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Get the StoreKit configuration for an app
+     * @description This endpoint requires the following permission(s): <code>project_configuration:apps:read</code>.
+     */
+    get: operations['get-app-storekit-config']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
   '/projects/{project_id}/customers': {
     parameters: {
       query?: never
@@ -124,6 +189,86 @@ export interface paths {
     patch?: never
     trace?: never
   }
+  '/projects/{project_id}/customers/{customer_id}/actions/transfer': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Transfer customer's subscriptions and one-time purchases to another customer
+     * @description This endpoint requires the following permission(s): <code>customer_information:customers:read_write</code>, <code>customer_information:subscriptions:read_write</code>, <code>customer_information:purchases:read_write</code>.
+     */
+    post: operations['transfer-customer-data']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/customers/{customer_id}/actions/grant_entitlement': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Grant an entitlement to a customer unless one already exists. As a side effect, a promotional subscription is created.
+     * @description This endpoint requires the following permission(s): <code>customer_information:customers:read_write</code>.
+     */
+    post: operations['grant-customer-entitlement']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/customers/{customer_id}/actions/revoke_granted_entitlement': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Revoke a granted entitlement from a customer. As a side effect, the promotional subscription associated with the granted entitlement is expired.
+     * @description This endpoint requires the following permission(s): <code>customer_information:customers:read_write</code>.
+     */
+    post: operations['revoke-customer-granted-entitlement']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/customers/{customer_id}/actions/assign_offering': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Assign or clear an offering override for a customer
+     * @description This endpoint requires the following permission(s): <code>project_configuration:offerings:read</code>, <code>customer_information:customers:read_write</code>.
+     */
+    post: operations['assign-customer-offering']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
   '/projects/{project_id}/products/{product_id}': {
     parameters: {
       query?: never
@@ -143,6 +288,31 @@ export interface paths {
      * @description This endpoint requires the following permission(s): <code>project_configuration:products:read_write</code>.
      */
     delete: operations['delete-product']
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/products/{product_id}/create_in_store': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Push a product to the store
+     * @description Push a product to the App Store.
+     *
+     *     **For subscription products**: You must provide store information including duration and subscription group details.
+     *
+     *     **For in-app purchase products** (consumable, non-consumable, non-renewing subscription): No request body is required.
+     *      This endpoint requires the following permission(s): <code>project_configuration:products:read_write</code>.
+     */
+    post: operations['create-product-in-store']
+    delete?: never
     options?: never
     head?: never
     patch?: never
@@ -471,6 +641,47 @@ export interface paths {
     patch?: never
     trace?: never
   }
+  '/projects/{project_id}/subscriptions/{subscription_id}/transactions': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Get a Play Store subscription's transactions
+     * @description This endpoint requires the following permission(s): <code>customer_information:subscriptions:read</code>.
+     */
+    get: operations['get-play-store-subscription-transactions']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/subscriptions/{subscription_id}/transactions/{transaction_id}/actions/refund': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Refund a Play Store subscription's transaction
+     * @description Refund a Play Store subscription's transaction. This endpoint does not cancel the subscription or revoke access to it.
+     *      This endpoint requires the following permission(s): <code>customer_information:subscriptions:read_write</code>.
+     */
+    post: operations['refund-play-store-subscription-transaction']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
   '/projects/{project_id}/subscriptions/{subscription_id}/entitlements': {
     parameters: {
       query?: never
@@ -528,6 +739,27 @@ export interface paths {
      *      This endpoint requires the following permission(s): <code>customer_information:subscriptions:read_write</code>.
      */
     post: operations['refund-subscription']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/subscriptions/{subscription_id}/authenticated_management_url': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Get an authenticated Web Billing customer portal URL
+     * @description Get a secure, single-use URL that allows customers to access their Web Billing customer portal.
+     *      This endpoint requires the following permission(s): <code>customer_information:subscriptions:read</code>.
+     */
+    get: operations['get-authorized-subscription-management-url']
+    put?: never
+    post?: never
     delete?: never
     options?: never
     head?: never
@@ -676,6 +908,66 @@ export interface paths {
     patch?: never
     trace?: never
   }
+  '/projects/{project_id}/customers/{customer_id}/virtual_currencies': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Get a list of customer's virtual currencies balances
+     * @description This endpoint requires the following permission(s): <code>customer_information:purchases:read</code>.
+     */
+    get: operations['list-virtual-currencies-balances']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/customers/{customer_id}/virtual_currencies/transactions': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Create a virtual currencies transaction
+     * @description This endpoint requires the following permission(s): <code>customer_information:purchases:read_write</code>.
+     */
+    post: operations['create-virtual-currencies-transaction']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/customers/{customer_id}/virtual_currencies/update_balance': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    get?: never
+    put?: never
+    /**
+     * Update a virtual currencies balance without creating a transaction
+     * @description This endpoint requires the following permission(s): <code>customer_information:purchases:read_write</code>.
+     */
+    post: operations['update-virtual-currencies-balance']
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
   '/projects/{project_id}/customers/{customer_id}/attributes': {
     parameters: {
       query?: never
@@ -760,6 +1052,52 @@ export interface paths {
     patch?: never
     trace?: never
   }
+  '/projects/{project_id}/subscriptions': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Search subscriptions by store subscription identifier
+     * @description Search for a subscription by any of its associated `store_subscription_identifier` values, whether from a past or current subscription period.
+     *
+     *     For example, this may include the `transactionId` of any transaction in an Apple App Store subscription, or any order ID from a Google Play Store subscription.
+     *      This endpoint requires the following permission(s): <code>customer_information:subscriptions:read</code>.
+     */
+    get: operations['search-subscriptions']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
+  '/projects/{project_id}/purchases': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    /**
+     * Search one-time purchases by store purchase identifier
+     * @description Search for a one-time purchases by any of its associated `store_purchase_identifier` values.
+     *
+     *     For example, this may include the `transactionId` of any transaction in an Apple App Store purchase, or any order ID from a Google Play Store purchase.
+     *      This endpoint requires the following permission(s): <code>customer_information:purchases:read</code>.
+     */
+    get: operations['search-purchases']
+    put?: never
+    post?: never
+    delete?: never
+    options?: never
+    head?: never
+    patch?: never
+    trace?: never
+  }
 }
 export type webhooks = Record<string, never>
 export interface components {
@@ -781,6 +1119,8 @@ export interface components {
       }
     }
     App: {
+      [key: string]: unknown
+    } & ({
       /**
        * @description String representing the object's type. Objects of the same type share the same value.
        * @enum {string}
@@ -794,6 +1134,7 @@ export interface components {
       /** @description The name of the app */
       name: string
       /**
+       * Format: int64
        * @description The date when the app was created in ms since epoch
        * @example 1658399423658
        */
@@ -803,7 +1144,16 @@ export interface components {
        * @example app_store
        * @enum {string}
        */
-      type: 'amazon' | 'app_store' | 'mac_app_store' | 'play_store' | 'stripe' | 'rc_billing' | 'roku'
+      type:
+        | 'amazon'
+        | 'app_store'
+        | 'mac_app_store'
+        | 'play_store'
+        | 'stripe'
+        | 'rc_billing'
+        | 'roku'
+        | 'paddle'
+        | 'test_store'
       /**
        * @description The id of the project
        * @example proj1a2b3c4
@@ -815,7 +1165,8 @@ export interface components {
       components['schemas']['PlayStoreApp'] &
       components['schemas']['StripeApp'] &
       components['schemas']['RCBillingApp'] &
-      components['schemas']['RokuApp']
+      components['schemas']['RokuApp'] &
+      components['schemas']['PaddleApp'])
     AppCreate: {
       /** @description The name of the app */
       name: string
@@ -825,14 +1176,15 @@ export interface components {
        *
        * @enum {string}
        */
-      type: 'amazon' | 'app_store' | 'mac_app_store' | 'play_store' | 'stripe' | 'rc_billing' | 'roku'
+      type: 'amazon' | 'app_store' | 'mac_app_store' | 'play_store' | 'stripe' | 'rc_billing' | 'roku' | 'paddle'
     } & components['schemas']['AmazonAppCreate'] &
       components['schemas']['AppStoreAppCreate'] &
       components['schemas']['MacAppStoreAppCreate'] &
       components['schemas']['PlayStoreAppCreate'] &
       components['schemas']['StripeAppCreate'] &
       components['schemas']['RCBillingAppCreate'] &
-      components['schemas']['RokuAppCreate']
+      components['schemas']['RokuAppCreate'] &
+      components['schemas']['PaddleAppCreate']
     AppStoreApp: {
       /** @description App Store type details */
       app_store?: {
@@ -851,445 +1203,60 @@ export interface components {
          *     of the file in this field. See instructions on how to get it in:
          *     https://www.revenuecat.com/docs/in-app-purchase-key-configuration
          *      */
-        subscription_private_key: string
+        subscription_private_key?: string
         /** @description In App Key id. The ID of the downloaded in app key. You can get it from App Store Connect */
-        subscription_key_id: string
+        subscription_key_id?: string
         /** @description The key Issuer id. See instructions on how to obtain this in: https://www.revenuecat.com/docs/in-app-purchase-key-configuration#3-providing-the-issuer-id-to-revenuecat  */
-        subscription_key_issuer: string
+        subscription_key_issuer?: string
+        /** @description App Store Connect API Key downloaded from App Store Connect in PEM format. Copy the contents
+         *     of the file in this field. This is optional and used for advanced features like product imports.
+         *      */
+        app_store_connect_api_key?: string
+        /** @description App Store Connect API Key ID. The ID of the downloaded API key. You can get it from App Store Connect. */
+        app_store_connect_api_key_id?: string
+        /** @description App Store Connect API Key Issuer ID. */
+        app_store_connect_api_key_issuer?: string
+        /** @description Your vendor number from App Store Connect. Required for some features like financial reports. */
+        app_store_connect_vendor_number?: string
       }
+    }
+    AuthenticatedManagementUrl: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'authenticated_management_url'
+      /**
+       * @description A secure, single-use URL that provides temporary access to the customer portal for a specific customer. This URL can only be used once and expires after use.
+       * @example https://billing.revenuecat.com/app1a2b3c4/sub1ab2c3d4e5?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+       */
+      management_url: string
     }
     /**
      * @description The country that the object is associated with, in ISO alpha 2 code
      * @example US
      * @enum {string|null}
      */
-    Country:
-      | null
-      | 'AF'
-      | 'AL'
-      | 'DZ'
-      | 'AS'
-      | 'AD'
-      | 'AO'
-      | 'AI'
-      | 'AQ'
-      | 'AG'
-      | 'AR'
-      | 'AM'
-      | 'AW'
-      | 'AU'
-      | 'AT'
-      | 'AZ'
-      | 'BS'
-      | 'BH'
-      | 'BD'
-      | 'BB'
-      | 'BY'
-      | 'BE'
-      | 'BZ'
-      | 'BJ'
-      | 'BM'
-      | 'BT'
-      | 'BO'
-      | 'BQ'
-      | 'BA'
-      | 'BW'
-      | 'BV'
-      | 'BR'
-      | 'IO'
-      | 'BN'
-      | 'BG'
-      | 'BF'
-      | 'BI'
-      | 'CV'
-      | 'KH'
-      | 'CM'
-      | 'CA'
-      | 'KY'
-      | 'CF'
-      | 'TD'
-      | 'CL'
-      | 'CN'
-      | 'CX'
-      | 'CC'
-      | 'CO'
-      | 'KM'
-      | 'CD'
-      | 'CG'
-      | 'CK'
-      | 'CR'
-      | 'HR'
-      | 'CU'
-      | 'CW'
-      | 'CY'
-      | 'CZ'
-      | 'CI'
-      | 'DK'
-      | 'DJ'
-      | 'DM'
-      | 'DO'
-      | 'EC'
-      | 'EG'
-      | 'SV'
-      | 'GQ'
-      | 'ER'
-      | 'EE'
-      | 'SZ'
-      | 'ET'
-      | 'FK'
-      | 'FO'
-      | 'FJ'
-      | 'FI'
-      | 'FR'
-      | 'GF'
-      | 'PF'
-      | 'TF'
-      | 'GA'
-      | 'GM'
-      | 'GE'
-      | 'DE'
-      | 'GH'
-      | 'GI'
-      | 'GR'
-      | 'GL'
-      | 'GD'
-      | 'GP'
-      | 'GU'
-      | 'GT'
-      | 'GG'
-      | 'GN'
-      | 'GW'
-      | 'GY'
-      | 'HT'
-      | 'HM'
-      | 'VA'
-      | 'HN'
-      | 'HK'
-      | 'HU'
-      | 'IS'
-      | 'IN'
-      | 'ID'
-      | 'IR'
-      | 'IQ'
-      | 'IE'
-      | 'IM'
-      | 'IL'
-      | 'IT'
-      | 'JM'
-      | 'JP'
-      | 'JE'
-      | 'JO'
-      | 'KZ'
-      | 'KE'
-      | 'KI'
-      | 'KP'
-      | 'KR'
-      | 'KW'
-      | 'KG'
-      | 'LA'
-      | 'LV'
-      | 'LB'
-      | 'LS'
-      | 'LR'
-      | 'LY'
-      | 'LI'
-      | 'LT'
-      | 'LU'
-      | 'MO'
-      | 'MG'
-      | 'MW'
-      | 'MY'
-      | 'MV'
-      | 'ML'
-      | 'MT'
-      | 'MH'
-      | 'MQ'
-      | 'MR'
-      | 'MU'
-      | 'YT'
-      | 'MX'
-      | 'FM'
-      | 'MD'
-      | 'MC'
-      | 'MN'
-      | 'ME'
-      | 'MS'
-      | 'MA'
-      | 'MZ'
-      | 'MM'
-      | 'NA'
-      | 'NR'
-      | 'NP'
-      | 'NL'
-      | 'NC'
-      | 'NZ'
-      | 'NI'
-      | 'NE'
-      | 'NG'
-      | 'NU'
-      | 'NF'
-      | 'MP'
-      | 'NO'
-      | 'OM'
-      | 'PK'
-      | 'PW'
-      | 'PS'
-      | 'PA'
-      | 'PG'
-      | 'PY'
-      | 'PE'
-      | 'PH'
-      | 'PN'
-      | 'PL'
-      | 'PT'
-      | 'PR'
-      | 'QA'
-      | 'MK'
-      | 'RO'
-      | 'RU'
-      | 'RW'
-      | 'RE'
-      | 'BL'
-      | 'SH'
-      | 'KN'
-      | 'LC'
-      | 'MF'
-      | 'PM'
-      | 'VC'
-      | 'WS'
-      | 'SM'
-      | 'ST'
-      | 'SA'
-      | 'SN'
-      | 'RS'
-      | 'SC'
-      | 'SL'
-      | 'SG'
-      | 'SX'
-      | 'SK'
-      | 'SI'
-      | 'SB'
-      | 'SO'
-      | 'ZA'
-      | 'GS'
-      | 'SS'
-      | 'ES'
-      | 'LK'
-      | 'SD'
-      | 'SR'
-      | 'SJ'
-      | 'SE'
-      | 'CH'
-      | 'SY'
-      | 'TW'
-      | 'TJ'
-      | 'TZ'
-      | 'TH'
-      | 'TL'
-      | 'TG'
-      | 'TK'
-      | 'TO'
-      | 'TT'
-      | 'TN'
-      | 'TR'
-      | 'TM'
-      | 'TC'
-      | 'TV'
-      | 'UG'
-      | 'UA'
-      | 'AE'
-      | 'GB'
-      | 'UM'
-      | 'US'
-      | 'UY'
-      | 'UZ'
-      | 'VU'
-      | 'VE'
-      | 'VN'
-      | 'VG'
-      | 'VI'
-      | 'WF'
-      | 'EH'
-      | 'YE'
-      | 'ZM'
-      | 'ZW'
-      | 'AX'
+    Country: string | null
+    /** @description In-app purchase products do not require any additional information */
+    CreateAppStoreConnectInAppPurchaseInput: Record<string, never>
+    CreateAppStoreConnectSubscriptionInput: {
+      /**
+       * @description The subscription duration period
+       * @enum {string}
+       */
+      duration: 'ONE_WEEK' | 'ONE_MONTH' | 'TWO_MONTHS' | 'THREE_MONTHS' | 'SIX_MONTHS' | 'ONE_YEAR'
+      /** @description The name of the subscription group */
+      subscription_group_name: string
+      /** @description The ID of the subscription group (optional) */
+      subscription_group_id?: string | null
+    }
     /**
      * @description ISO 4217 currency code
      * @example USD
      * @enum {string}
      */
-    Currency:
-      | 'AED'
-      | 'AFN'
-      | 'ALL'
-      | 'AMD'
-      | 'ANG'
-      | 'AOA'
-      | 'ARS'
-      | 'AUD'
-      | 'AWG'
-      | 'AZN'
-      | 'BAM'
-      | 'BBD'
-      | 'BDT'
-      | 'BGN'
-      | 'BHD'
-      | 'BIF'
-      | 'BMD'
-      | 'BND'
-      | 'BOB'
-      | 'BRL'
-      | 'BSD'
-      | 'BTC'
-      | 'BTN'
-      | 'BWP'
-      | 'BYN'
-      | 'BZD'
-      | 'CAD'
-      | 'CDF'
-      | 'CHF'
-      | 'CLF'
-      | 'CLP'
-      | 'CNH'
-      | 'CNY'
-      | 'COP'
-      | 'CRC'
-      | 'CUC'
-      | 'CUP'
-      | 'CVE'
-      | 'CZK'
-      | 'DJF'
-      | 'DKK'
-      | 'DOP'
-      | 'DZD'
-      | 'EGP'
-      | 'ERN'
-      | 'ETB'
-      | 'EUR'
-      | 'FJD'
-      | 'FKP'
-      | 'GBP'
-      | 'GEL'
-      | 'GGP'
-      | 'GHS'
-      | 'GIP'
-      | 'GMD'
-      | 'GNF'
-      | 'GTQ'
-      | 'GYD'
-      | 'HKD'
-      | 'HNL'
-      | 'HRK'
-      | 'HTG'
-      | 'HUF'
-      | 'IDR'
-      | 'ILS'
-      | 'IMP'
-      | 'INR'
-      | 'IQD'
-      | 'IRR'
-      | 'ISK'
-      | 'JEP'
-      | 'JMD'
-      | 'JOD'
-      | 'JPY'
-      | 'KES'
-      | 'KGS'
-      | 'KHR'
-      | 'KMF'
-      | 'KPW'
-      | 'KRW'
-      | 'KWD'
-      | 'KYD'
-      | 'KZT'
-      | 'LAK'
-      | 'LBP'
-      | 'LKR'
-      | 'LRD'
-      | 'LSL'
-      | 'LYD'
-      | 'MAD'
-      | 'MDL'
-      | 'MGA'
-      | 'MKD'
-      | 'MMK'
-      | 'MNT'
-      | 'MOP'
-      | 'MRU'
-      | 'MUR'
-      | 'MVR'
-      | 'MWK'
-      | 'MXN'
-      | 'MYR'
-      | 'MZN'
-      | 'NAD'
-      | 'NGN'
-      | 'NIO'
-      | 'NOK'
-      | 'NPR'
-      | 'NZD'
-      | 'OMR'
-      | 'PAB'
-      | 'PEN'
-      | 'PGK'
-      | 'PHP'
-      | 'PKR'
-      | 'PLN'
-      | 'PYG'
-      | 'QAR'
-      | 'RON'
-      | 'RSD'
-      | 'RUB'
-      | 'RWF'
-      | 'SAR'
-      | 'SBD'
-      | 'SCR'
-      | 'SDG'
-      | 'SEK'
-      | 'SGD'
-      | 'SHP'
-      | 'SLL'
-      | 'SOS'
-      | 'SRD'
-      | 'SSP'
-      | 'STD'
-      | 'STN'
-      | 'SVC'
-      | 'SYP'
-      | 'SZL'
-      | 'THB'
-      | 'TJS'
-      | 'TMT'
-      | 'TND'
-      | 'TOP'
-      | 'TRY'
-      | 'TTD'
-      | 'TWD'
-      | 'TZS'
-      | 'UAH'
-      | 'UGX'
-      | 'USD'
-      | 'UYU'
-      | 'UZS'
-      | 'VEF'
-      | 'VES'
-      | 'VND'
-      | 'VUV'
-      | 'WST'
-      | 'XAF'
-      | 'XAG'
-      | 'XAU'
-      | 'XCD'
-      | 'XDR'
-      | 'XOF'
-      | 'XPD'
-      | 'XPF'
-      | 'XPT'
-      | 'YER'
-      | 'ZAR'
-      | 'ZMW'
-      | 'ZWL'
+    Currency: string
     Customer: {
       /**
        * @description String representing the object's type. Objects of the same type share the same value.
@@ -1304,21 +1271,41 @@ export interface components {
        */
       project_id: string
       /**
+       * Format: int64
        * @description The first time the customer was seen
        * @example 1658399423658
        */
       first_seen_at: number
       /**
+       * Format: int64
        * @description The last time the customer was seen
        * @example 1658399423658
        */
       last_seen_at: number | null
-      /** @description List of the entitlements currently active for the customer. This property is only available in the "Get a customer" endpoint. */
-      active_entitlements?: components['schemas']['ListCustomerActiveEntitlements']
+      /**
+       * @description The last app version the customer was seen on
+       * @example 1.0.0
+       */
+      last_seen_app_version: string | null
+      /**
+       * @description The last country the customer was seen in
+       * @example US
+       */
+      last_seen_country: string | null
+      /**
+       * @description The last platform the customer was seen on
+       * @example android
+       */
+      last_seen_platform: string | null
+      /**
+       * @description The last platform version the customer was seen on
+       * @example 35
+       */
+      last_seen_platform_version: string | null
+      active_entitlements?: (Record<string, never> | null) & components['schemas']['ListCustomerActiveEntitlements']
       /** @description The experiment enrollment object */
       experiment?: components['schemas']['ExperimentEnrollment']
-      /** @description List of the attributes of the customer. This is an expandable property, only available in the "Get a customer" endpoint. */
-      attributes?: components['schemas']['ListCustomerAttributes']
+      attributes?: (Record<string, never> | null) & components['schemas']['ListCustomerAttributes']
     }
     CustomerAlias: {
       /**
@@ -1329,6 +1316,7 @@ export interface components {
       /** @example 19b8de26-77c1-49f1-aa18-019a391603e2 */
       id: string
       /**
+       * Format: int64
        * @description The time when the alias was created
        * @example 1658399423658
        */
@@ -1351,6 +1339,7 @@ export interface components {
        */
       value: string | null
       /**
+       * Format: int64
        * @description The time when the attribute was last updated.
        * @example 1658399423658
        */
@@ -1362,53 +1351,7 @@ export interface components {
      * @example $email
      * @enum {string}
      */
-    CustomerAttributeReservedName:
-      | '$ad'
-      | '$adGroup'
-      | '$adjustId'
-      | '$airshipChannelId'
-      | '$amazonAdId'
-      | '$amplitudeDeviceId'
-      | '$amplitudeUserId'
-      | '$appleRefundHandlingPreference'
-      | '$apnsTokens'
-      | '$appsflyerId'
-      | '$appsflyerSharingFilter'
-      | '$attConsentStatus'
-      | '$branchId'
-      | '$brazeAliasLabel'
-      | '$brazeAliasName'
-      | '$campaign'
-      | '$clevertapId'
-      | '$creative'
-      | '$displayName'
-      | '$email'
-      | '$fbAnonId'
-      | '$fcmTokens'
-      | '$firebaseAppInstanceId'
-      | '$gpsAdId'
-      | '$idfa'
-      | '$idfv'
-      | '$ip'
-      | '$iterableCampaignId'
-      | '$iterableTemplateId'
-      | '$iterableUserId'
-      | '$keyword'
-      | '$kochavaDeviceId'
-      | '$mediaSource'
-      | '$mixpanelDistinctId'
-      | '$mparticleId'
-      | '$onesignalId'
-      | '$onesignalUserId'
-      | '$phoneNumber'
-      | '$posthogUserId'
-      | '$telemetryDeckUserId'
-      | '$telemetryDeckAppId'
-      | 'telemetry_deck_user_id'
-      | 'telemetry_deck_app_id'
-      | '$segmentId'
-      | '$tenjinId'
-      | '$deviceVersion'
+    CustomerAttributeReservedName: string
     CustomerEntitlement: {
       /**
        * @description String representing the object's type. Objects of the same type share the same value.
@@ -1421,6 +1364,7 @@ export interface components {
        */
       entitlement_id: string
       /**
+       * Format: int64
        * @description The date after which the access to the entitlement expires in ms since epoch
        * @example 1658399423658
        */
@@ -1435,11 +1379,18 @@ export interface components {
       /** @description The ID of the deleted object */
       id: string
       /**
+       * Format: int64
        * @description The date when the object was deleted in ms since epoch
        * @example 1658399423658
        */
       deleted_at: number
     }
+    /**
+     * @description The duration of the product subscription. This field is only supported for the test store and it is ignored for other stores.
+     * @example P1W
+     * @enum {string}
+     */
+    Duration: string
     /** @enum {string} */
     EligibilityCriteria: 'all' | 'google_sdk_lt_6' | 'google_sdk_ge_6'
     Entitlement: {
@@ -1469,6 +1420,7 @@ export interface components {
        */
       display_name: string
       /**
+       * Format: int64
        * @description The date when the entitlement was created in ms since epoch
        * @example 1658399423658
        */
@@ -1502,7 +1454,7 @@ export interface components {
      * @example production
      * @enum {string}
      */
-    Environment: 'production' | 'sandbox'
+    Environment: string
     Error: {
       /**
        * @description String representing the object's type. Objects of the same type share the same value.
@@ -1586,11 +1538,13 @@ export interface components {
        */
       line_items: components['schemas']['InvoiceLineItem'][]
       /**
+       * Format: int64
        * @description The date when the invoiced was issued in ms since epoch
        * @example 1658399423658
        */
       issued_at: number
       /**
+       * Format: int64
        * @description The date when the invoiced was paid in ms since epoch
        * @example 1658399423658
        */
@@ -1649,7 +1603,10 @@ export interface components {
        */
       url: string
     }
-    /** CustomerActiveEntitlementList */
+    /**
+     * CustomerActiveEntitlementList
+     * @description List of the entitlements currently active for the customer. This property is only available in the "Get a customer" endpoint.
+     */
     ListCustomerActiveEntitlements: {
       /**
        * @description String representing the object's type. Objects of the same type share the same value. Always has the value `list`.
@@ -1849,6 +1806,26 @@ export interface components {
        */
       url: string
     }
+    /** PublicApiKeyList */
+    ListPublicApiKeys: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value. Always has the value `list`.
+       * @enum {string}
+       */
+      object: 'list'
+      /** @description Details about each object. */
+      items: components['schemas']['PublicApiKey'][]
+      /**
+       * @description URL to access the next page of the app's public API keys. If not present / null, there is no next page
+       * @example /v2/projects/projec1a2b3c4d/apps/app1a2b3c4d/public_api_keys?starting_after=pub1a2b3c4d
+       */
+      next_page: string | null
+      /**
+       * @description The URL where this list can be accessed.
+       * @example /v2/projects/projec1a2b3c4d/apps/app1a2b3c4d/public_api_keys
+       */
+      url: string
+    }
     /** PurchaseList */
     ListPurchases: {
       /**
@@ -1869,6 +1846,26 @@ export interface components {
        */
       url: string
     }
+    /** SubscriptionTransactionList */
+    ListSubscriptionTransaction: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value. Always has the value `list`.
+       * @enum {string}
+       */
+      object: 'list'
+      /** @description Details about each object. */
+      items: components['schemas']['SubscriptionTransaction'][]
+      /**
+       * @description URL to access the next page of the projects. If not present / null, there is no next page
+       * @example /v2/projects/proj123/subscriptions/sub123/transactions?starting_after=GPA.0000-0000-0000-00000
+       */
+      next_page: string | null
+      /**
+       * @description The URL where this list can be accessed.
+       * @example /v2/projects/proj123/subscriptions/sub123/transactions
+       */
+      url: string
+    }
     /** SubscriptionList */
     ListSubscriptions: {
       /**
@@ -1886,6 +1883,26 @@ export interface components {
       /**
        * @description The URL where this list can be accessed.
        * @example /v2/projects/proj1ab2c3d4/customers/19b8de26-77c1-49f1-aa18-019a391603e2/subscriptions
+       */
+      url: string
+    }
+    /** VirtualCurrenciesBalancesList */
+    ListVirtualCurrenciesBalances: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'list'
+      /** @description Details about each object. */
+      items: components['schemas']['VirtualCurrencyBalance'][]
+      /**
+       * @description URL to access the next page of the customer's balances. If not present / null, there is no next page
+       * @example /v2/projects/proj1ab2c3d4/customers/19b8de26-77c1-49f1-aa18-019a391603e2/virtual_currencies?starting_after=9fjeja8fjed
+       */
+      next_page: string | null
+      /**
+       * @description The URL where this list can be accessed.
+       * @example /v2/projects/proj1ab2c3d4/customers/19b8de26-77c1-49f1-aa18-019a391603e2/virtual_currencies
        */
       url: string
     }
@@ -1955,6 +1972,7 @@ export interface components {
        */
       is_current: boolean
       /**
+       * Format: int64
        * @description The date the offering was created at in ms since epoch
        * @example 1658399423658
        */
@@ -2039,6 +2057,7 @@ export interface components {
        */
       value: number
       /**
+       * Format: int64
        * @description Last time the overview metric was updated in ms since epoch
        * @example 1658399423658
        */
@@ -2063,7 +2082,7 @@ export interface components {
      * @example purchased
      * @enum {string}
      */
-    Ownership: 'purchased' | 'family_shared'
+    Ownership: string
     Package: {
       /**
        * @description String representing the object's type. Objects of the same type share the same value.
@@ -2091,6 +2110,7 @@ export interface components {
        */
       position: number | null
       /**
+       * Format: int64
        * @description The date the package was created at in ms since epoch
        * @example 1658399423658
        */
@@ -2123,6 +2143,67 @@ export interface components {
     PackageProductIDAssociation: {
       product_id: string
       eligibility_criteria: components['schemas']['EligibilityCriteria']
+    }
+    PaddleApp: {
+      /** @description Paddle Billing type details */
+      paddle?: {
+        /**
+         * @description Whether the app is tied to the sandbox environment.
+         * @example true
+         */
+        paddle_is_sandbox?: boolean
+        /** @description Paddle Server-side API key provided on the Paddle dashboard. */
+        paddle_api_key?: string | null
+      }
+    }
+    PaddleAppCreate: {
+      /** @description Paddle Billing details. Should only be used when type is paddle. */
+      paddle?: {
+        /** @description Paddle Server-side API key provided on the Paddle dashboard. */
+        paddle_api_key?: string | null
+        /**
+         * @description [Deprecated] Whether the app is tied to the sandbox environment.
+         *     This field is deprecated and will be removed in the future.
+         *     The environment is determined by the `paddle_api_key` format.
+         *
+         * @example true
+         */
+        paddle_is_sandbox?: boolean | null
+      } | null
+    }
+    Paywall: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'paywall'
+      /**
+       * @description The id of the paywall
+       * @example pw123456789abcdef
+       */
+      id: string
+      /**
+       * @description The name of the paywall
+       * @example My Awesome Paywall
+       */
+      name: string | null
+      /**
+       * @description The ID of the offering the paywall is for.
+       * @example ofrng123456789a
+       */
+      offering_id: string
+      /**
+       * Format: int64
+       * @description The date the paywall was created at in ms since epoch
+       * @example 1658399423658
+       */
+      created_at: number
+      /**
+       * Format: int64
+       * @description The date the paywall was published at in ms since epoch
+       * @example 1658399423958
+       */
+      published_at: number | null
     }
     PlayStoreApp: {
       /** @description Play Store type details */
@@ -2161,6 +2242,7 @@ export interface components {
       /** @description The one time product object */
       one_time?: components['schemas']['OneTimeProduct']
       /**
+       * Format: int64
        * @description The date when the product was created in ms since epoch
        * @example 1658399423658
        */
@@ -2178,8 +2260,13 @@ export interface components {
        */
       display_name: string | null
     }
+    /** @description Subscription parameters for product creation. Only supported for simulated store products. */
+    ProductSubscriptionInput: {
+      /** @description The duration of the subscription. Only supported for test store products. */
+      duration: components['schemas']['Duration']
+    } | null
     /** @enum {string} */
-    ProductType: 'subscription' | 'one_time'
+    ProductType: string
     /** ProductsFromEntitlementList */
     ProductsFromEntitlement: {
       /**
@@ -2237,7 +2324,55 @@ export interface components {
        */
       name: string
       /**
+       * Format: int64
        * @description The date when the project was created in ms since epoch
+       * @example 1658399423658
+       */
+      created_at: number
+      /**
+       * @description The URL of the project's icon (small size)
+       * @example https://www.appatar.io/abc123/small
+       */
+      icon_url?: string | null
+      /**
+       * @description The URL of the project's icon (large size)
+       * @example https://www.appatar.io/abc123/large
+       */
+      icon_url_large?: string | null
+    }
+    ProjectCreate: {
+      /** @description The name of the project */
+      name: string
+    }
+    PublicApiKey: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'public_api_key'
+      /**
+       * @description The ID of the public API key
+       * @example apikey12345
+       */
+      id: string
+      /**
+       * @description The value of the public API key
+       * @example goog_1ab2c3d4
+       */
+      key: string
+      /**
+       * @description The environment the public API key is for
+       * @enum {string}
+       */
+      environment: 'production' | 'sandbox'
+      /**
+       * @description The ID of the app the public API key is for
+       * @example app1a2b3c4
+       */
+      app_id: string
+      /**
+       * Format: int64
+       * @description The date when the public API key was created in ms since epoch
        * @example 1658399423658
        */
       created_at: number
@@ -2269,6 +2404,7 @@ export interface components {
        */
       product_id: string
       /**
+       * Format: int64
        * @description The date when the purchase was made in ms since epoch
        * @example 1658399423658
        */
@@ -2368,7 +2504,7 @@ export interface components {
      * @example USD
      * @enum {string}
      */
-    RCBillingCurrency: 'AUD' | 'CAD' | 'EUR' | 'GBP' | 'JPY' | 'USD'
+    RCBillingCurrency: string
     RokuApp: {
       /** @description Roku Channel Store type details */
       roku?: {
@@ -2388,6 +2524,40 @@ export interface components {
         /** @description Channel name that is displayed on the Roku Channel page. */
         roku_channel_name?: string | null
       } | null
+    }
+    /** @description Contents of a generated StoreKit config file for an app */
+    StoreKitConfigFile: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'store_kit_config_file'
+      /** @description Contents of the StoreKit config file */
+      contents: {
+        [key: string]: unknown
+      }
+    }
+    StoreProduct: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'store_product'
+      /**
+       * @description The unique identifier of the product in the store (e.g., App Store Connect product ID)
+       * @example 1234567890
+       */
+      id: string
+      /**
+       * @description The name of the store product
+       * @example Premium Monthly Subscription
+       */
+      name?: string | null
+      /**
+       * @description The product identifier used in the store
+       * @example com.example.premium_monthly
+       */
+      product_identifier: string
     }
     StripeApp: {
       /** @description Stripe type details */
@@ -2430,20 +2600,29 @@ export interface components {
        */
       product_id: string | null
       /**
+       * Format: int64
        * @description The date when the subscription originally started in ms since epoch
        * @example 1658399423658
        */
       starts_at: number
       /**
+       * Format: int64
        * @description The date when the subscription billing period started in ms since epoch
        * @example 1658399423658
        */
       current_period_starts_at: number
       /**
+       * Format: int64
        * @description The date when the subscription billing period is expected to end in ms since epoch. Can be null if the subscription is paused until an indefinite date.
        * @example 1658399423658
        */
       current_period_ends_at: number | null
+      /**
+       * Format: int64
+       * @description The date when the latest subscription billing period is expected to end in ms since epoch. It will only be different from `current_period_ends_at` if `auto_renewal_status` is `has_already_renewed`, in which case it indicates the end of the next billing period. Can be null if the subscription is paused until an indefinite date.
+       * @example 1658399423658
+       */
+      ends_at: number | null
       /**
        * @description Determines whether the customer should currently be provided access to the entitlements associated with the subscription
        * @example true
@@ -2554,6 +2733,47 @@ export interface components {
        */
       trial_duration: string | null
     } | null
+    SubscriptionTransaction: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'subscription_transaction'
+      /**
+       * @description The ID of the subscription transaction in the store
+       * @example GPA.0000-0000-0000-00000
+       */
+      id: string
+      /**
+       * Format: int64
+       * @description The date of the transaction in ms since epoch
+       * @example 1658399423658
+       */
+      purchased_at: number
+    }
+    /** TransferResult */
+    Transfer: {
+      /** @description The original customer before the transfer */
+      source_customer: components['schemas']['Customer']
+      /** @description The target customer after the transfer */
+      target_customer: components['schemas']['Customer']
+    }
+    /** VirtualCurrencyBalance */
+    VirtualCurrencyBalance: {
+      /**
+       * @description String representing the object's type. Objects of the same type share the same value.
+       * @enum {string}
+       */
+      object: 'virtual_currency_balance'
+      /** @description The code of the virtual currency. */
+      currency_code: string
+      /** @description The balance of the virtual currency. */
+      balance: number
+      /** @description The description of the virtual currency. */
+      description?: string
+      /** @description The name of the virtual currency. */
+      name?: string
+    }
   }
   responses: {
     /** @description Bad request */
@@ -2691,6 +2911,87 @@ export interface components {
 }
 export type $defs = Record<string, never>
 export interface operations {
+  'create-paywall': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /**
+           * @description The ID of the offering the paywall will be created for.
+           *
+           * @example ofrng123456789a
+           */
+          offering_id: string
+        }
+      }
+    }
+    responses: {
+      /** @description Success. The paywall was created */
+      201: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Paywall']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'list-app-public-api-keys': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the app */
+        app_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListPublicApiKeys']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
   'list-projects': {
     parameters: {
       query?: {
@@ -2718,6 +3019,43 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'create-project': {
+    parameters: {
+      query?: never
+      header?: never
+      path?: never
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': components['schemas']['ProjectCreate']
+      }
+    }
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Project']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -2753,6 +3091,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -2826,6 +3165,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -2901,6 +3241,16 @@ export interface operations {
             /** @description Channel name that is displayed on the Roku Channel page. */
             roku_channel_name?: string | null
           }
+          /** @description Paddle Billing type details. Should only be used when type is paddle. */
+          paddle?: {
+            /** @description Paddle Server-side API key provided on the Paddle dashboard. */
+            paddle_api_key?: string | null
+            /**
+             * @description Whether the app is tied to the sandbox environment.
+             * @example true
+             */
+            paddle_is_sandbox?: boolean
+          }
         }
       }
     }
@@ -2965,11 +3315,48 @@ export interface operations {
       503: components['responses']['InternalError']
     }
   }
+  'get-app-storekit-config': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the app */
+        app_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['StoreKitConfigFile']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
   'list-customers': {
     parameters: {
       query?: {
         starting_after?: string
         limit?: number
+        /** @description Search term. Currently, only searching by email is supported (searching for exact matches in the $email attribute). */
+        search?: string
       }
       header?: never
       path: {
@@ -2995,6 +3382,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3092,6 +3480,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3119,8 +3508,204 @@ export interface operations {
           [name: string]: unknown
         }
         content: {
+          /** @example {
+           *       "object": "customer",
+           *       "id": "b5b7bfd2-66fb-4091-af50-7c3cdccfdf24",
+           *       "deleted_at": 1658399423658
+           *     } */
           'application/json': components['schemas']['DeletedObject']
         }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'transfer-customer-data': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /** @description The ID of the customer to whom the subscriptions and one-time purchases will be transferred. */
+          target_customer_id: string
+          /** @description Optional. The IDs of the apps to filter the transfer by. When specified, only purchases and subscriptions associated with these apps will be transferred. */
+          app_ids?: string[] | null
+        }
+      }
+    }
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Transfer']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'grant-customer-entitlement': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /**
+           * @description The ID of the entitlement to grant to the customer.
+           * @example entla1b2c3d4e5
+           */
+          entitlement_id: string
+          /**
+           * Format: int64
+           * @description The date after which the access to the entitlement expires in ms since epoch.
+           * @example 1658399423658
+           */
+          expires_at: number
+        }
+      }
+    }
+    responses: {
+      /** @description Entitlement granted successfully */
+      201: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Customer']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'revoke-customer-granted-entitlement': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /**
+           * @description The ID of the granted entitlement to revoke from the customer.
+           * @example entla1b2c3d4e5
+           */
+          entitlement_id: string
+        }
+      }
+    }
+    responses: {
+      /** @description Entitlement revoked successfully */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['Customer']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'assign-customer-offering': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /**
+           * @description The ID of the offering to assign to the customer. Set to null to clear any existing override.
+           * @example offrng1b2c3d4e5
+           */
+          offering_id: string | null
+        }
+      }
+    }
+    responses: {
+      /** @description Offering assigned successfully */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content?: never
       }
       400: components['responses']['BadRequest']
       401: components['responses']['Unauthorized']
@@ -3167,6 +3752,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3195,6 +3781,57 @@ export interface operations {
         }
         content: {
           'application/json': components['schemas']['DeletedObject']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'create-product-in-store': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the product */
+        product_id: string
+      }
+      cookie?: never
+    }
+    /** @description Store-specific information. Only required for subscription products.
+     *     For in-app purchase products, send an empty body or omit the request body entirely.
+     *      */
+    requestBody?: {
+      content: {
+        'application/json': {
+          /** @description Store-specific information for creating the product in the store */
+          store_information?:
+            | components['schemas']['CreateAppStoreConnectSubscriptionInput']
+            | components['schemas']['CreateAppStoreConnectInAppPurchaseInput']
+        }
+      }
+    }
+    responses: {
+      /** @description Success. The product was pushed to the store */
+      201: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': {
+            created_product: components['schemas']['StoreProduct']
+          }
         }
       }
       400: components['responses']['BadRequest']
@@ -3244,6 +3881,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3285,6 +3923,13 @@ export interface operations {
            * @example Premium Monthly 2023
            */
           display_name?: string | null
+          /** @description Subscription parameters. Only supported for test store products. */
+          subscription?: components['schemas']['ProductSubscriptionInput']
+          /**
+           * @description The user-facing title of the product. This field is required for Test Store products.
+           * @example Premium Monthly 2023
+           */
+          title?: string | null
         }
       }
     }
@@ -3345,6 +3990,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3467,6 +4113,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3554,6 +4201,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3680,6 +4328,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3809,6 +4458,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -3899,6 +4549,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4028,6 +4679,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4122,6 +4774,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4244,6 +4897,81 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'get-play-store-subscription-transactions': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the subscription */
+        subscription_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListSubscriptionTransaction']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'refund-play-store-subscription-transaction': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the subscription */
+        subscription_id: string
+        /** @description Identifier of the transaction in the store */
+        transaction_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['SubscriptionTransaction']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4281,6 +5009,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4360,6 +5089,41 @@ export interface operations {
       503: components['responses']['InternalError']
     }
   }
+  'get-authorized-subscription-management-url': {
+    parameters: {
+      query?: never
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the subscription */
+        subscription_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['AuthenticatedManagementUrl']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
   'list-subscriptions': {
     parameters: {
       query?: {
@@ -4394,6 +5158,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4428,6 +5193,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4465,6 +5231,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4541,6 +5308,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4578,6 +5346,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4615,6 +5384,152 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'list-virtual-currencies-balances': {
+    parameters: {
+      query?: {
+        include_empty_balances?: boolean
+        starting_after?: string
+        limit?: number
+      }
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListVirtualCurrenciesBalances']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'create-virtual-currencies-transaction': {
+    parameters: {
+      query?: {
+        include_empty_balances?: boolean
+      }
+      header?: {
+        /** @description This is an optional idempotency key to ensure exactly once execution of the request. */
+        'Idempotency-Key'?: string
+      }
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /** @description The adjustments to the virtual currencies */
+          adjustments: {
+            [key: string]: number
+          }
+          /** @description The reference of the transaction */
+          reference?: string | null
+        }
+      }
+    }
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListVirtualCurrenciesBalances']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'update-virtual-currencies-balance': {
+    parameters: {
+      query?: {
+        include_empty_balances?: boolean
+      }
+      header?: {
+        /** @description This is an optional idempotency key to ensure exactly once execution of the request. */
+        'Idempotency-Key'?: string
+      }
+      path: {
+        /** @description ID of the project */
+        project_id: string
+        /** @description ID of the customer */
+        customer_id: string
+      }
+      cookie?: never
+    }
+    requestBody: {
+      content: {
+        'application/json': {
+          /** @description The adjustments to the virtual currencies */
+          adjustments: {
+            [key: string]: number
+          }
+          /** @description The reference of the transaction */
+          reference?: string | null
+        }
+      }
+    }
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListVirtualCurrenciesBalances']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      409: components['responses']['Conflict']
+      422: components['responses']['UnprocessableEntity']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4652,6 +5567,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4742,6 +5658,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4776,6 +5693,7 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']
@@ -4783,7 +5701,13 @@ export interface operations {
   }
   'get-overview-metrics': {
     parameters: {
-      query?: never
+      query?: {
+        /**
+         * @description ISO 4217 currency code
+         * @example EUR
+         */
+        currency?: 'USD' | 'EUR' | 'GBP' | 'AUD' | 'CAD' | 'JPY' | 'BRL' | 'KRW' | 'CNY' | 'MXN' | 'SEK' | 'PLN'
+      }
       header?: never
       path: {
         /** @description ID of the project */
@@ -4808,6 +5732,79 @@ export interface operations {
       401: components['responses']['Unauthorized']
       403: components['responses']['Forbidden']
       404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'search-subscriptions': {
+    parameters: {
+      query: {
+        /** @description Store ID associated with the subscription for the current or next period. */
+        store_subscription_identifier: string
+      }
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListSubscriptions']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
+      429: components['responses']['RateLimited']
+      500: components['responses']['InternalError']
+      503: components['responses']['InternalError']
+    }
+  }
+  'search-purchases': {
+    parameters: {
+      query: {
+        /** @description Store ID associated with the one-time purchase. */
+        store_purchase_identifier: string
+      }
+      header?: never
+      path: {
+        /** @description ID of the project */
+        project_id: string
+      }
+      cookie?: never
+    }
+    requestBody?: never
+    responses: {
+      /** @description Success */
+      200: {
+        headers: {
+          'RevenueCat-Rate-Limit-Current-Usage': components['headers']['RateLimitCurrentUsage']
+          'RevenueCat-Rate-Limit-Current-Limit': components['headers']['RateLimitCurrentLimit']
+          [name: string]: unknown
+        }
+        content: {
+          'application/json': components['schemas']['ListPurchases']
+        }
+      }
+      400: components['responses']['BadRequest']
+      401: components['responses']['Unauthorized']
+      403: components['responses']['Forbidden']
+      404: components['responses']['NotFound']
+      423: components['responses']['Locked']
       429: components['responses']['RateLimited']
       500: components['responses']['InternalError']
       503: components['responses']['InternalError']

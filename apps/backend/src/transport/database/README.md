@@ -43,3 +43,15 @@ import { Tables } from './database.auth.types'
 
 type AuthUser = Tables<{ schema: 'auth' }, 'users'>
 ```
+
+## Known Limitation: Date Types
+
+The Supabase type generator outputs `string` for timestamp columns because the Supabase JS client serializes dates as ISO strings. However, our postgres client (`postgres.js`) returns native `Date` objects at runtime.
+
+This means there's a mismatch between TypeScript types and runtime behavior:
+- TypeScript type: `created_at: string`
+- Actual runtime value: `Date` object
+
+For more context, see:
+- https://github.com/orgs/supabase/discussions/27556
+- https://github.com/supabase/postgrest-js/issues/201

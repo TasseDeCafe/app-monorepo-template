@@ -405,6 +405,9 @@ catalogs:
     helmet:
       specifier: 8.1.0
       version: 8.1.0
+    husky:
+      specifier: ^9.1.7
+      version: 9.1.7
     import-in-the-middle:
       specifier: 1.15.0
       version: 1.15.0
@@ -660,6 +663,9 @@ importers:
       eslint-plugin-prettier:
         specifier: 'catalog:'
         version: 5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.36.0(jiti@2.6.1)))(eslint@9.36.0(jiti@2.6.1))(prettier@3.6.2)
+      husky:
+        specifier: 'catalog:'
+        version: 9.1.7
       prettier:
         specifier: 'catalog:'
         version: 3.6.2
@@ -1555,9 +1561,6 @@ importers:
       '@template-app/core':
         specifier: workspace:*
         version: link:../core
-      vitest:
-        specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
       zod:
         specifier: 'catalog:'
         version: 4.1.12
@@ -7531,6 +7534,11 @@ packages:
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
+
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   iceberg-js@0.8.0:
     resolution: {integrity: sha512-kmgmea2nguZEvRqW79gDqNXyxA3OS5WIgMVffrHpqXV4F/J4UmNIw2vstixioLTNSkd5rFB8G0s3Lwzogm6OFw==}
@@ -18667,6 +18675,8 @@ snapshots:
       - supports-color
 
   human-signals@2.1.0: {}
+
+  husky@9.1.7: {}
 
   iceberg-js@0.8.0: {}
 

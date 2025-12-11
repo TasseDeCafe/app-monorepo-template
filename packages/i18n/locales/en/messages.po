@@ -325,7 +325,7 @@ msgstr "Account Removed"
 msgid "Actions in this section can lead to permanent data loss."
 msgstr "Actions in this section can lead to permanent data loss."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:139
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:140
 #: apps/native/src/app/(protected)/admin-settings.tsx:17
 #: apps/web/src/routes/_protected/_tabs/profile.tsx:129
 msgid "Admin Settings"
@@ -499,11 +499,11 @@ msgstr ""
 "Required version: {requiredVersion}"
 
 #: apps/native/src/app/(protected)/(tabs)/profile.tsx:99
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:116
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:117
 msgid "Customer Center"
 msgstr "Customer Center"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:142
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:143
 msgid "Danger Zone"
 msgstr "Danger Zone"
 
@@ -710,7 +710,7 @@ msgstr "Loading subscription status..."
 msgid "Loading..."
 msgstr "Loading..."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:118
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:119
 #: apps/web/src/components/pricing/pricing-view-utils.ts:104
 #: apps/web/src/routes/_protected/_tabs/profile.tsx:82
 msgid "Manage Subscription"
@@ -814,7 +814,7 @@ msgid "Premium Features"
 msgstr "Premium Features"
 
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:24
-#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:82
+#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:80
 msgid "Pricing"
 msgstr "Pricing"
 
@@ -874,11 +874,11 @@ msgid "Share your feedback or suggest improvements to the founders. We read and 
 msgstr "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 
 #: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:37
-#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:120
+#: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:118
 msgid "Sign in"
 msgstr "Sign in"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:151
+#: apps/native/src/app/(protected)/(tabs)/profile.tsx:152
 #: apps/web/src/components/pricing/pricing-view.tsx:178
 #: apps/web/src/routes/_protected/_tabs/profile.tsx:138
 msgid "Sign out"

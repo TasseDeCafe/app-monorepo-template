@@ -40,7 +40,8 @@
     "start": "pnpm --filter native start",
     "start:ngrok": "pnpm --filter native start:ngrok",
     "ios": "pnpm --filter native ios",
-    "android": "pnpm --filter native android"
+    "android": "pnpm --filter native android",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@lingui/cli": "catalog:",
@@ -53,6 +54,7 @@
     "eslint": "catalog:",
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-prettier": "catalog:",
+    "husky": "catalog:",
     "prettier": "catalog:",
     "prettier-plugin-tailwindcss": "catalog:",
     "react-email": "catalog:",

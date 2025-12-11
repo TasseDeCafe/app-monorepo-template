@@ -65,7 +65,7 @@ For our react code style:
 - Check typing with TS: pnpm check:types (executed from the root directory)
 - Check linting with ESLint: pnpm lint (executed from the root directory)
 
-# comments
+# Comments
 
 Rules:
 - It's ok to put comments above big chunks of JSX in react components, this way we do not need to extract too many components
@@ -77,3 +77,19 @@ Rules:
  // based on https://elevenlabs.io/docs/api-reference/twilio/outbound-call
  export const initiateCancelCallViaTwilio = async (
 ```
+
+# Database Types
+
+When the database schema changes (new tables, columns, enums, etc.), regenerate the TypeScript types to keep them in sync.
+
+From the `apps/backend/supabase/supabase-dev-tunnel` directory, with local Supabase running:
+
+```bash
+# Public schema (application tables)
+supabase gen types typescript --local > database.public.types.ts
+
+# Auth schema (Supabase auth tables)
+supabase gen types typescript --local --schema auth > database.auth.types.ts
+```
+
+See `apps/backend/src/transport/database/README.md` for usage examples.

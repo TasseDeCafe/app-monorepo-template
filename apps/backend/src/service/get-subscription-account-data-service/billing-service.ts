@@ -68,7 +68,7 @@ export const BillingService = (
     const hasActiveRevenueCatSubscription = revenueCatActiveSubscriptions.length > 0
 
     const latestStripeSubscription: DbStripeSubscription | null = hasStripeSubscriptions
-      ? stripeSubscriptions.sort((a, b) => b.created_at.getTime() - a.created_at.getTime())[0]
+      ? stripeSubscriptions.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())[0]
       : null
 
     const hasActiveStripeSubscription = latestStripeSubscription

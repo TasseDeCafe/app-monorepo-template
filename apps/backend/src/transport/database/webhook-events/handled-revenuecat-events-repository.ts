@@ -11,7 +11,7 @@ export const buildHandledRevenuecatEventsRepository = (): HandledRevenuecatEvent
     processingFunction: () => Promise<void>
   ): Promise<boolean> => {
     try {
-      const result = await sql.begin(async (sql) => {
+      return await sql.begin(async (sql) => {
         const insertResult = await sql`
           INSERT INTO handled_revenuecat_events (event_id)
           VALUES (${eventId})
@@ -26,8 +26,6 @@ export const buildHandledRevenuecatEventsRepository = (): HandledRevenuecatEvent
 
         return false
       })
-
-      return result
     } catch (error) {
       logWithSentry({ message: 'Error processing Revenuecat event', params: { eventId }, error })
       throw error

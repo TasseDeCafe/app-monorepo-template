@@ -6,11 +6,11 @@ export const isStripeSubscriptionActive = (subscription: DbStripeSubscription): 
   switch (subscription.status) {
     case 'active':
       if (subscription.cancel_at_period_end) {
-        return subscription.current_period_end !== null && now < subscription.current_period_end
+        return subscription.current_period_end !== null && now < new Date(subscription.current_period_end)
       }
       return true
     case 'trialing':
-      return subscription.trial_end === null || now < subscription.trial_end
+      return subscription.trial_end === null || now < new Date(subscription.trial_end)
     case 'past_due':
       if (subscription.current_period_end === null) return false
       const graceEndDate = new Date(subscription.current_period_end)
@@ -21,7 +21,7 @@ export const isStripeSubscriptionActive = (subscription: DbStripeSubscription): 
     case 'incomplete_expired':
       return false
     case 'incomplete':
-      const oneDayAfterCreation = new Date(subscription.created_at.getTime() + 24 * 60 * 60 * 1000)
+      const oneDayAfterCreation = new Date(new Date(subscription.created_at).getTime() + 24 * 60 * 60 * 1000)
       return now < oneDayAfterCreation
     default:
       return false

@@ -20,9 +20,9 @@ describe('RevenueCat Subscriptions Repository Integration Tests', () => {
     revenuecat_subscription_id: 'test-sub-id',
     revenuecat_original_customer_id: 'test-customer-id',
     revenuecat_product_id: 'test-product-id',
-    starts_at: new Date(),
-    current_period_starts_at: new Date(),
-    current_period_ends_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
+    starts_at: new Date().toISOString(),
+    current_period_starts_at: new Date().toISOString(),
+    current_period_ends_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
     gives_access: true,
     pending_payment: false,
     auto_renewal_status: 'will_renew',
@@ -35,7 +35,7 @@ describe('RevenueCat Subscriptions Repository Integration Tests', () => {
     ownership_type: 'purchased',
     billing_country_code: 'US',
     management_url: 'https://example.com/manage',
-    updated_at: new Date(),
+    updated_at: new Date().toISOString(),
     ...overrides,
   })
 
@@ -68,14 +68,14 @@ describe('RevenueCat Subscriptions Repository Integration Tests', () => {
 
       await repository.upsertSubscription(originalSubscription)
 
-      const updatedSubscription = {
+      const updatedSubscription: DbRevenuecatSubscriptionInput = {
         ...originalSubscription,
         status: 'expired',
         gives_access: false,
         auto_renewal_status: 'will_not_renew',
         total_revenue_in_usd: 39.98,
-        current_period_ends_at: new Date(Date.now() + 60 * 24 * 60 * 60 * 1000),
-        updated_at: new Date(),
+        current_period_ends_at: new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString(),
+        updated_at: new Date().toISOString(),
       }
       const updateResult = await repository.upsertSubscription(updatedSubscription)
       expect(updateResult).toBe(true)
@@ -89,7 +89,9 @@ describe('RevenueCat Subscriptions Repository Integration Tests', () => {
       expect(subscription.gives_access).toBe(false)
       expect(subscription.auto_renewal_status).toBe('will_not_renew')
       expect(subscription.total_revenue_in_usd).toBe('39.98')
-      expect(subscription.updated_at.getTime()).toBeGreaterThanOrEqual(subscription.created_at.getTime())
+      expect(new Date(subscription.updated_at).getTime()).toBeGreaterThanOrEqual(
+        new Date(subscription.created_at).getTime()
+      )
     })
 
     it('should handle null values correctly', async () => {

@@ -72,7 +72,9 @@ export const removalsRouter = (
       }
 
       const subscriptions = await stripeSubscriptionsRepository.getSubscriptionsByUserId(userId)
-      const latestSubscription = subscriptions.sort((a, b) => b.created_at.getTime() - a.created_at.getTime())[0]
+      const latestSubscription = subscriptions.sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+      )[0]
 
       if (latestSubscription?.stripe_subscription_id) {
         const isSuccessfullyCancelled = await stripeApi.cancelSubscription(latestSubscription.stripe_subscription_id)

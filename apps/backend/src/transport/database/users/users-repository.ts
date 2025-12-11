@@ -1,17 +1,8 @@
 import { sql } from '../postgres-client'
 import { logCustomErrorMessageAndError, logWithSentry } from '../../third-party/sentry/error-monitoring'
+import { Tables } from '../database.public.types'
 
-export interface DbUser {
-  id: string
-  referral: string | null
-  stripe_customer_id: string
-  created_at: Date
-  utm_source: string | null
-  utm_medium: string | null
-  utm_campaign: string | null
-  utm_term: string | null
-  utm_content: string | null
-}
+export type DbUser = Tables<'users'>
 
 const insertUser = async (
   id: string,
@@ -115,7 +106,7 @@ const updateStripeCustomerId = async (userId: string, stripeCustomerId: string |
 
 const retrieveAllUsersCreatedLessThanNDaysAgo = async (days: number): Promise<string[]> => {
   try {
-    const result = await sql<{ id: string }[]>`
+    const result = await sql`
       SELECT id
       FROM public.users
       WHERE created_at > NOW() - make_interval(days => ${days})

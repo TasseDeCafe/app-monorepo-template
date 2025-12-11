@@ -1,13 +1,8 @@
 import { sql } from '../postgres-client'
 import { logMessage, logCustomErrorMessageAndError } from '../../third-party/sentry/error-monitoring'
+import { Tables } from '../database.public.types'
 
-export interface __DbRemoval {
-  id: string
-  user_id: string
-  email: string
-  created_at: Date
-  was_successful: boolean
-}
+export type __DbRemoval = Tables<'removals'>
 
 export const insertRemoval = async (userId: string, email: string, wasSuccessful: boolean): Promise<string | null> => {
   try {

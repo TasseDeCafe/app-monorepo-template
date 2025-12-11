@@ -1,8 +1,11 @@
 import { afterAll, beforeEach, describe, expect, it } from 'vitest'
 import request from 'supertest'
-import { buildApp } from '../../../app'
 import { getConfig } from '../../../config/environment-config'
-import { __createUserInSupabaseAndGetHisIdAndToken, __removeAllAuthUsersFromSupabase } from '../../../test/test-utils'
+import {
+  __createUserInSupabaseAndGetHisIdAndToken,
+  __removeAllAuthUsersFromSupabase,
+  buildTestApp,
+} from '../../../test/test-utils'
 import { MockRevenuecatApi, RevenuecatApi } from '../../../transport/third-party/revenuecat/revenuecat-api'
 import { __getRevenuecatSubscriptionsByUserId } from '../../../transport/database/revenuecat-subscriptions/revenuecat-subscriptions-repository'
 import { __deleteAllHandledRevenuecatEvents } from '../../../transport/database/webhook-events/handled-revenuecat-events-repository'
@@ -39,7 +42,7 @@ describe('revenuecat-webhooks-router', () => {
 
   describe('Authentication', () => {
     it('should return 401 when auth header is missing', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const response = await request(testApp)
         .post('/api/v1/payment/revenuecat-webhook')
         .send(createTestEvent('some_user_id'))
@@ -48,7 +51,7 @@ describe('revenuecat-webhooks-router', () => {
     })
 
     it('should return 401 when auth header is invalid', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const response = await request(testApp)
         .post('/api/v1/payment/revenuecat-webhook')
         .set('Authorization', 'invalid_header')
@@ -59,7 +62,7 @@ describe('revenuecat-webhooks-router', () => {
 
     it('should accept request with valid auth header', async () => {
       const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const response = await request(testApp)
         .post('/api/v1/payment/revenuecat-webhook')
         .set('Authorization', getConfig().revenuecatWebhookAuthHeader)
@@ -73,7 +76,7 @@ describe('revenuecat-webhooks-router', () => {
     it('should sync subscription data when receiving a valid event', async () => {
       const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
       const revenuecatApi = createMockRevenuecatApiWithCallTracking(userId)
-      const testApp = buildApp({ revenuecatApi })
+      const testApp = buildTestApp({ revenuecatApi })
 
       const response = await request(testApp)
         .post('/api/v1/payment/revenuecat-webhook')
@@ -93,7 +96,7 @@ describe('revenuecat-webhooks-router', () => {
     it('should ignore TEST events', async () => {
       const { id: userId } = await __createUserInSupabaseAndGetHisIdAndToken()
       const revenuecatApi = createMockRevenuecatApiWithCallTracking(userId)
-      const testApp = buildApp({ revenuecatApi })
+      const testApp = buildTestApp({ revenuecatApi })
 
       const testEvent = createTestEvent(userId)
       testEvent.event.type = 'TEST'
@@ -116,7 +119,7 @@ describe('revenuecat-webhooks-router', () => {
           throw new Error('API Error')
         },
       }
-      const testApp = buildApp({ revenuecatApi })
+      const testApp = buildTestApp({ revenuecatApi })
 
       const response = await request(testApp)
         .post('/api/v1/payment/revenuecat-webhook')
@@ -142,7 +145,7 @@ describe('revenuecat-webhooks-router', () => {
           return response
         },
       }
-      const testApp = buildApp({ revenuecatApi })
+      const testApp = buildTestApp({ revenuecatApi })
       const event = createTestEvent(userId, 'duplicate_event_id')
 
       const response1 = await request(testApp)
@@ -177,7 +180,7 @@ describe('revenuecat-webhooks-router', () => {
           return response
         },
       }
-      const testApp = buildApp({ revenuecatApi })
+      const testApp = buildTestApp({ revenuecatApi })
       const event = createTestEvent(userId, 'parallel_event_id')
 
       const [response1, response2] = await Promise.all([

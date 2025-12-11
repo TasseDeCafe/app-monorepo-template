@@ -1,11 +1,11 @@
 import { afterAll, beforeEach, describe, expect, it } from 'vitest'
-import { buildApp } from '../../app'
 import {
   __createCheckoutSessionWithOurApi,
   __createOrGetUserWithOurApi,
   __createUserInSupabaseAndGetHisIdAndToken,
   __createUserRightAfterSignup,
   __removeAllAuthUsersFromSupabase,
+  buildTestApp,
 } from '../../test/test-utils'
 import { MockStripeApi, StripeApi } from '../../transport/third-party/stripe/stripe-api'
 import { __deleteAllHandledStripeEvents } from '../../transport/database/webhook-events/handled-stripe-events-repository'
@@ -30,7 +30,7 @@ describe('Checkout Router', () => {
         return null
       },
     }
-    const testApp = buildApp({ stripeApi })
+    const testApp = buildTestApp({ stripeApi })
     await __createOrGetUserWithOurApi({ testApp, token, referral: null })
 
     const checkoutSessionResponse = await __createCheckoutSessionWithOurApi(testApp, token)
@@ -42,7 +42,7 @@ describe('Checkout Router', () => {
   })
 
   it('should reject unauthenticated requests', async () => {
-    const testApp = buildApp({})
+    const testApp = buildTestApp()
     const checkoutSessionResponse = await __createCheckoutSessionWithOurApi(testApp, 'invalid_token')
     expect(checkoutSessionResponse.status).toBe(401)
   })

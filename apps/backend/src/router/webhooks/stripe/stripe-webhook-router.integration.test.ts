@@ -1,7 +1,6 @@
 import { afterAll, beforeEach, describe, expect, it } from 'vitest'
 import request from 'supertest'
-import { buildApp } from '../../../app'
-import { __removeAllAuthUsersFromSupabase } from '../../../test/test-utils'
+import { __removeAllAuthUsersFromSupabase, buildTestApp } from '../../../test/test-utils'
 import { __deleteAllHandledStripeEvents } from '../../../transport/database/webhook-events/handled-stripe-events-repository'
 import { __simulateStripeEvent } from '../../../test/stripe/stripe-test-utils'
 import { __createStripeChargeRefundedEvent } from '../../../test/stripe/test-stripe-events'
@@ -19,7 +18,7 @@ describe('webhooks-router', () => {
 
   describe('simple failures', () => {
     it('should return 400 for invalid signature', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const stripeCustomerId = 'some_stripe_customer_id'
       const event = __simulateStripeEvent(
         testApp,
@@ -39,7 +38,7 @@ describe('webhooks-router', () => {
     })
 
     it('should return 400 for unsupported event type', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const stripeCustomerId = 'some_stripe_customer_id'
       const event = __createStripeChargeRefundedEvent({ stripeCustomerId })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

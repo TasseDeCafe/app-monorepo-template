@@ -6,8 +6,8 @@ import {
   __createUserInSupabaseAndGetHisIdAndToken,
   __removeAllAuthUsersFromSupabase,
   buildAuthorizationHeaders,
+  buildTestApp,
 } from '../../test/test-utils'
-import { buildApp } from '../../app'
 import { __getAllAuthUsers } from '../../transport/database/auth-users/auth-users-repository'
 import {
   __DbRemoval,
@@ -20,7 +20,7 @@ import { __simulateStripeEvent } from '../../test/stripe/stripe-test-utils'
 import { __createStripeSubscriptionDeletedEvent } from '../../test/stripe/test-stripe-events'
 
 describe('removals-router', () => {
-  const testApp = buildApp({})
+  const testApp = buildTestApp()
 
   beforeEach(async () => {
     await __removeAllAuthUsersFromSupabase()
@@ -56,7 +56,7 @@ describe('removals-router', () => {
 
   describe('removing an account', () => {
     test('happy path', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const { token } = await __createUserInSupabaseAndGetHisIdAndToken('some@email.com')
       await __createOrGetUserWithOurApi({ testApp, token, referral: null })
       const removalResponse = await request(testApp)

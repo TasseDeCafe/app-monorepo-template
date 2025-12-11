@@ -1,14 +1,14 @@
 import { afterAll, beforeEach, describe, expect, test } from 'vitest'
-import { buildApp } from '../../app'
 import request from 'supertest'
 import {
   __createUserInSupabaseAndGetHisIdAndToken,
   __removeAllAuthUsersFromSupabase,
   buildAuthorizationHeaders,
+  buildTestApp,
 } from '../../test/test-utils'
 
 describe('contact-email-router', async () => {
-  const testApp = buildApp({})
+  const testApp = buildTestApp()
   const { token } = await __createUserInSupabaseAndGetHisIdAndToken()
 
   beforeEach(async () => {

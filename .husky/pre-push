@@ -111,14 +111,17 @@ fi
 # Check if translation generated any changes
 auto_commit_changes "chore(i18n): update translations" packages/i18n/locales
 
-# Check if native app version needs to be incremented
-echo "📱 Checking native app version..."
-if git diff --quiet main HEAD -- apps/native/; then
-  echo "✅ No changes in apps/native - version check skipped"
-else
-  echo "Changes detected in apps/native, checking version bump..."
+# Check if native app requires a new build using expo fingerprint
+echo "📱 Checking native app fingerprint..."
+fingerprint_result=0
+apps/native/scripts/check-native-fingerprint.sh check || fingerprint_result=$?
 
-  # Get current versions using grep to avoid ES6 module issues
+if [ "$fingerprint_result" -eq 0 ]; then
+  echo "✅ No native build required - skipping version check"
+elif [ "$fingerprint_result" -eq 1 ]; then
+  echo "🔨 Native build required, checking version bump..."
+
+  # Get current versions
   current_config_version=$(grep -o "version: '[^']*'" apps/native/app.config.js | cut -d"'" -f2)
   current_package_version=$(node -p "require('./apps/native/package.json').version")
 
@@ -132,47 +135,77 @@ else
     exit 1
   fi
 
-  # Get versions from main branch
+  # Get stored version from .fingerprint file's git history (version when fingerprint was last updated)
+  # We compare against main branch versions to detect if version was bumped
   main_config_version=$(git show main:apps/native/app.config.js | grep -o "version: '[^']*'" | cut -d"'" -f2)
   main_package_version=$(git show main:apps/native/package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin', 'utf8')).version")
 
   # Check if versions have been incremented
   if [ "$current_config_version" = "$main_config_version" ] || [ "$current_package_version" = "$main_package_version" ]; then
-    echo "⚠️  Native app has changes but version was not incremented!"
-    echo "Current app.config.js version: $current_config_version"
-    echo "Main app.config.js version: $main_config_version"
-    echo "Current package.json version: $current_package_version"
-    echo "Main package.json version: $main_package_version"
+    echo "⚠️  Native build required but version was not incremented!"
     echo ""
-    
-    # Interactive prompt - force interactive mode for git hooks
+    echo "Current version: $current_config_version"
+    echo ""
+
+    # Interactive prompt
     exec < /dev/tty
     while true; do
-      echo "Do you want to update the version now? (y/n)"
-      read -r yn
-      case $yn in
-        [Yy]* ) 
-          echo ""
-          echo "🔧 You chose to update the version. Please do it manually:"
-          echo "1. Update version in: apps/native/app.config.js (expo.version field)"
-          echo "2. Update version in: apps/native/package.json (version field)"
-          echo ""
-          echo "Both files should have the same version number."
-          echo "After updating, commit your changes and push again."
-          exit 1
-          ;;
-        [Nn]* ) 
-          echo "⚠️  Proceeding without version update..."
-          break
-          ;;
-        * ) 
-          echo "Please answer yes (y) or no (n)."
-          ;;
-      esac
+      echo "Enter new version (or 'skip' to proceed without updating):"
+      read -r new_version
+
+      if [ "$new_version" = "skip" ]; then
+        echo "⚠️  Proceeding without version update..."
+        break
+      fi
+
+      # Validate version format (basic semver check)
+      if [[ ! "$new_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+        echo "❌ Invalid version format. Please use semver (e.g., 1.2.3)"
+        continue
+      fi
+
+      # Check that new version is different
+      if [ "$new_version" = "$current_config_version" ]; then
+        echo "❌ New version must be different from current version"
+        continue
+      fi
+
+      echo ""
+      echo "🔧 Updating version to $new_version..."
+
+      # Update app.config.js
+      sed -i '' "s/version: '$current_config_version'/version: '$new_version'/" apps/native/app.config.js
+      echo "   ✓ Updated apps/native/app.config.js"
+
+      # Update package.json
+      cd apps/native && npm pkg set version="$new_version" && cd ../..
+      echo "   ✓ Updated apps/native/package.json"
+
+      # Update fingerprint
+      apps/native/scripts/check-native-fingerprint.sh update
+      echo "   ✓ Updated apps/native/.fingerprint"
+
+      # Commit the changes
+      git add apps/native/app.config.js apps/native/package.json apps/native/.fingerprint
+      git commit -m "chore(native): bump version to $new_version"
+      echo "   ✓ Committed version bump"
+
+      auto_commit_messages+=("chore(native): bump version to $new_version")
+
+      echo ""
+      echo "✅ Version updated to $new_version"
+      break
     done
   else
-    echo "✅ Native app version incremented (app.config.js: $main_config_version → $current_config_version, package.json: $main_package_version → $current_package_version)"
+    echo "✅ Native app version incremented ($main_config_version → $current_config_version)"
+    # Auto-update fingerprint since version was bumped
+    echo "🔄 Updating fingerprint for new version..."
+    apps/native/scripts/check-native-fingerprint.sh update
+    auto_commit_changes "chore(native): update fingerprint" apps/native/.fingerprint
   fi
+else
+  echo "⚠️  Fingerprint check failed (exit code: $fingerprint_result)"
+  exit 1
 fi
 
 # Run all checks through turborepo

@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { lingui } from '@lingui/vite-plugin'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
+import path from 'path'
 
 export default defineConfig({
   plugins: [
@@ -35,6 +36,11 @@ export default defineConfig({
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    dedupe: ['react', 'react-dom'],
+    alias: {
+      react: path.resolve('./node_modules/react'),
+      'react-dom': path.resolve('./node_modules/react-dom'),
+    },
   },
   server: {
     // Necessary to make sure that app-monorepo-template.dev is allowed

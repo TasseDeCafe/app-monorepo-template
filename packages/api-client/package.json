@@ -8,14 +8,11 @@
   },
   "scripts": {
     "build": "tsc && tsc-alias --project tsconfig.json",
-    "check:types": "tsc --noEmit",
-    "test": "vitest",
-    "test:run": "vitest run"
+    "check:types": "tsc --noEmit"
   },
   "dependencies": {
     "@orpc/contract": "catalog:",
     "@template-app/core": "workspace:*",
-    "vitest": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {

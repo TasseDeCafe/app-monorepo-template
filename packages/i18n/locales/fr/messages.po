@@ -494,9 +494,7 @@ msgstr "Impossible de configurer votre compte. Veuillez redémarrer l'applicatio
 msgid ""
 "Current version: {currentVersion}\n"
 "Required version: {requiredVersion}"
-msgstr ""
-"Version actuelle : {currentVersion}\\n"
-"Version requise : {requiredVersion}"
+msgstr "Version actuelle : {currentVersion}\\nVersion requise : {requiredVersion}"
 
 #: apps/native/src/app/(protected)/(tabs)/profile.tsx:99
 #: apps/native/src/app/(protected)/(tabs)/profile.tsx:117

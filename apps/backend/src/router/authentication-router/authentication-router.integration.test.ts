@@ -15,8 +15,6 @@ describe('email-verification-router', () => {
       utmContent: null,
     })
 
-    console.log('response', response.body)
-
     expect(response.status).toBe(200)
     expect(response.body.data).toHaveProperty('message', 'Verification email sent successfully')
   })

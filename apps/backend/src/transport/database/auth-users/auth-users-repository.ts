@@ -1,14 +1,12 @@
 import { sql } from '../postgres-client'
 import { logCustomErrorMessageAndError } from '../../third-party/sentry/error-monitoring'
+import { Tables } from '../database.auth.types'
 
-export type DbAuthUser = {
-  id: string
-  email: string
-}
+type AuthUser = Tables<{ schema: 'auth' }, 'users'>
 
-export const __getAllAuthUsers = async (): Promise<DbAuthUser[]> => {
+export const __getAllAuthUsers = async (): Promise<AuthUser[]> => {
   try {
-    const result = await sql<DbAuthUser[]>`
+    const result = await sql<AuthUser[]>`
       SELECT id, email
       FROM auth.users
       ORDER BY email
@@ -22,7 +20,7 @@ export const __getAllAuthUsers = async (): Promise<DbAuthUser[]> => {
 
 export interface AuthUsersRepository {
   removeUserFromAuthUsers: (userId: string) => Promise<boolean>
-  findUserById: (id: string) => Promise<DbAuthUser | null>
+  findUserById: (id: string) => Promise<AuthUser | null>
 }
 
 export const buildAuthUsersRepository = (): AuthUsersRepository => {
@@ -39,8 +37,8 @@ export const buildAuthUsersRepository = (): AuthUsersRepository => {
     }
   }
 
-  const findUserById = async (id: string): Promise<DbAuthUser | null> => {
-    const result = await sql<DbAuthUser[]>`
+  const findUserById = async (id: string): Promise<AuthUser | null> => {
+    const result = await sql<AuthUser[]>`
       SELECT id, email
       FROM auth.users
       WHERE id = ${id}

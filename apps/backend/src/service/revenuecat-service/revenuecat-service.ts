@@ -29,10 +29,10 @@ export const RevenuecatService = (
         revenuecat_subscription_id: subscription.id,
         revenuecat_original_customer_id: subscription.original_customer_id,
         revenuecat_product_id: subscription.product_id,
-        starts_at: new Date(subscription.starts_at),
-        current_period_starts_at: new Date(subscription.current_period_starts_at),
+        starts_at: new Date(subscription.starts_at).toISOString(),
+        current_period_starts_at: new Date(subscription.current_period_starts_at).toISOString(),
         current_period_ends_at: subscription.current_period_ends_at
-          ? new Date(subscription.current_period_ends_at)
+          ? new Date(subscription.current_period_ends_at).toISOString()
           : null,
         gives_access: subscription.gives_access,
         pending_payment: subscription.pending_payment,
@@ -46,7 +46,7 @@ export const RevenuecatService = (
         ownership_type: subscription.ownership,
         billing_country_code: subscription.country ?? null,
         management_url: subscription.management_url,
-        updated_at: new Date(),
+        updated_at: new Date().toISOString(),
       })
     }
 

@@ -6,7 +6,7 @@ import {
   logWithSentry,
   logMessage,
 } from '../../../transport/third-party/sentry/error-monitoring'
-import { AuthUsersRepository, DbAuthUser } from '../../../transport/database/auth-users/auth-users-repository'
+import { AuthUsersRepository } from '../../../transport/database/auth-users/auth-users-repository'
 import { RevenuecatServiceInterface } from '../../../service/revenuecat-service/revenuecat-service-interface'
 
 export const revenuecatWebhookRouter = (
@@ -39,7 +39,7 @@ export const revenuecatWebhookRouter = (
         res.status(200).send()
         return
       }
-      const userExists: DbAuthUser | null = await authUsersRepository.findUserById(relevantUserId)
+      const userExists = await authUsersRepository.findUserById(relevantUserId)
 
       if (!userExists) {
         logWithSentry({

@@ -1,34 +1,11 @@
 import { sql } from '../postgres-client'
 import { logCustomErrorMessageAndError } from '../../third-party/sentry/error-monitoring'
+import { Enums, Tables } from '../database.public.types'
 
-export type DbInterval = 'month' | 'year'
-export type DbStripeSubscription = {
-  id: string
-  user_id: string
-  stripe_subscription_id: string
-  stripe_product_id: string
-  status: StripeSubscriptionStatus
-  current_period_end: Date | null
-  cancel_at_period_end: boolean
-  trial_end: Date | null
-  created_at: Date
-  updated_at: Date
-  currency: string
-  amount: number | null
-  interval: DbInterval
-  interval_count: number
-}
+export type DbInterval = Enums<'subscription_interval'>
+export type DbStripeSubscription = Tables<'stripe_subscriptions'>
 // the description of all the Stripe status codes can be found here:
 // https://docs.stripe.com/billing/subscriptions/overview#subscription-statuses
-export type StripeSubscriptionStatus =
-  | 'active'
-  | 'trialing'
-  | 'past_due'
-  | 'canceled'
-  | 'unpaid'
-  | 'incomplete_expired'
-  | 'incomplete'
-  | 'paused'
 
 const insertSubscription = async (
   userId: string,
@@ -151,27 +128,10 @@ const cancelSubscription = async (subscriptionId: string): Promise<boolean> => {
 
 const getAllSubscriptions = async (): Promise<DbStripeSubscription[]> => {
   try {
-    const result = await sql`
+    return await sql`
       SELECT *
       FROM public.stripe_subscriptions
     `
-
-    return result.map((row) => ({
-      id: row.id,
-      user_id: row.user_id,
-      stripe_subscription_id: row.stripe_subscription_id,
-      stripe_product_id: row.stripe_product_id,
-      status: row.status,
-      current_period_end: row.current_period_end ? new Date(row.current_period_end) : null,
-      cancel_at_period_end: row.cancel_at_period_end,
-      trial_end: row.trial_end ? new Date(row.trial_end) : null,
-      created_at: new Date(row.created_at),
-      updated_at: new Date(row.updated_at),
-      currency: row.currency,
-      amount: row.amount,
-      interval: row.interval,
-      interval_count: row.interval_count,
-    }))
   } catch (error) {
     logCustomErrorMessageAndError(`getAllSubscriptions error`, error)
     throw error
@@ -180,28 +140,11 @@ const getAllSubscriptions = async (): Promise<DbStripeSubscription[]> => {
 
 const getSubscriptionsByUserId = async (userId: string): Promise<DbStripeSubscription[]> => {
   try {
-    const result = await sql`
+    return await sql`
       SELECT *
       FROM public.stripe_subscriptions
       WHERE user_id = ${userId}
     `
-
-    return result.map((row) => ({
-      id: row.id,
-      user_id: row.user_id,
-      stripe_subscription_id: row.stripe_subscription_id,
-      stripe_product_id: row.stripe_product_id,
-      status: row.status,
-      current_period_end: row.current_period_end ? new Date(row.current_period_end) : null,
-      cancel_at_period_end: row.cancel_at_period_end,
-      trial_end: row.trial_end ? new Date(row.trial_end) : null,
-      created_at: new Date(row.created_at),
-      updated_at: new Date(row.updated_at),
-      currency: row.currency,
-      amount: row.amount,
-      interval: row.interval,
-      interval_count: row.interval_count,
-    }))
   } catch (error) {
     logCustomErrorMessageAndError(`getSubscriptionsByUserId error - userId - ${userId}`, error)
     return []
@@ -212,7 +155,7 @@ const findSubscriptionByStripeSubscriptionId = async (
   stripeSubscriptionId: string
 ): Promise<DbStripeSubscription | null> => {
   try {
-    const result = await sql`
+    const result = await sql<DbStripeSubscription[]>`
       SELECT *
       FROM public.stripe_subscriptions
       WHERE stripe_subscription_id = ${stripeSubscriptionId}
@@ -222,23 +165,7 @@ const findSubscriptionByStripeSubscriptionId = async (
       return null
     }
 
-    const row = result[0]
-    return {
-      id: row.id,
-      user_id: row.user_id,
-      stripe_subscription_id: row.stripe_subscription_id,
-      stripe_product_id: row.stripe_product_id,
-      status: row.status,
-      current_period_end: row.current_period_end ? new Date(row.current_period_end) : null,
-      cancel_at_period_end: row.cancel_at_period_end,
-      trial_end: row.trial_end ? new Date(row.trial_end) : null,
-      created_at: new Date(row.created_at),
-      updated_at: new Date(row.updated_at),
-      currency: row.currency,
-      amount: row.amount,
-      interval: row.interval,
-      interval_count: row.interval_count,
-    }
+    return result[0]
   } catch (error) {
     logCustomErrorMessageAndError(
       `findSubscriptionByStripeId error - stripeSubscriptionId - ${stripeSubscriptionId}`,

@@ -1,32 +1,11 @@
 import { logWithSentry } from '../../third-party/sentry/error-monitoring'
 import { sql } from '../postgres-client'
+import { Tables, TablesInsert } from '../database.public.types'
 
-export interface DbRevenuecatSubscriptionInput {
-  user_id: string
-  revenuecat_subscription_id: string
-  revenuecat_original_customer_id: string
-  revenuecat_product_id: string | null
-  starts_at: Date
-  current_period_starts_at: Date
-  current_period_ends_at: Date | null
-  gives_access: boolean
-  pending_payment: boolean
-  auto_renewal_status: string
-  status: string
-  total_revenue_in_usd: number
-  presented_offering_id: string | null
-  environment: string
-  store: string
-  store_subscription_identifier: string
-  ownership_type: string
-  billing_country_code: string | null
-  management_url: string | null
-  updated_at: Date
-}
-
-export interface DbRevenueCatSubscription extends DbRevenuecatSubscriptionInput {
-  created_at: Date
-}
+export type DbRevenuecatSubscriptionInput = Required<
+  Omit<TablesInsert<'revenuecat_subscriptions'>, 'id' | 'created_at'>
+>
+export type DbRevenueCatSubscription = Tables<'revenuecat_subscriptions'>
 
 export interface RevenuecatSubscriptionsRepositoryInterface {
   upsertSubscription: (subscription: DbRevenuecatSubscriptionInput) => Promise<boolean>
@@ -97,7 +76,7 @@ export const RevenuecatSubscriptionsRepository = (): RevenuecatSubscriptionsRepo
 
   const getActiveSubscriptionsByUserId = async (userId: string): Promise<DbRevenueCatSubscription[]> => {
     try {
-      return await sql<DbRevenueCatSubscription[]>`
+      return await sql`
         SELECT *
         FROM public.revenuecat_subscriptions
         WHERE user_id = ${userId}
@@ -112,7 +91,7 @@ export const RevenuecatSubscriptionsRepository = (): RevenuecatSubscriptionsRepo
 
   const getAllActiveSubscriptions = async (): Promise<DbRevenueCatSubscription[]> => {
     try {
-      return await sql<DbRevenueCatSubscription[]>`
+      return await sql`
         SELECT *
         FROM public.revenuecat_subscriptions
         WHERE gives_access = true

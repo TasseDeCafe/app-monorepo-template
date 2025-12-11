@@ -1,10 +1,10 @@
 import { afterAll, beforeEach, describe, expect, it } from 'vitest'
-import { buildApp } from '../../app'
 import {
   __createDefaultInitialStateAfterIntroducingCreditCardAndOnboarding,
   __createUserInSupabaseAndGetHisIdAndToken,
   __removeAllAuthUsersFromSupabase,
   buildAuthorizationHeaders,
+  buildTestApp,
 } from '../../test/test-utils'
 import request from 'supertest'
 import { __deleteAllHandledStripeEvents } from '../../transport/database/webhook-events/handled-stripe-events-repository'
@@ -23,7 +23,7 @@ describe('billing-router', () => {
 
   describe('Get Subscription Details', async () => {
     it('should return 401 for invalid token', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
 
       const response = await request(testApp)
         .get('/api/v1/billing/subscription-details')
@@ -34,7 +34,7 @@ describe('billing-router', () => {
     })
 
     it('should return 404 if user is not found', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const { token } = await __createUserInSupabaseAndGetHisIdAndToken()
       const response = await request(testApp)
         .get(`/api/v1/billing/subscription-details`)
@@ -81,7 +81,7 @@ describe('billing-router', () => {
     })
 
     it('should return 401 for unauthorized access', async () => {
-      const testApp = buildApp({})
+      const testApp = buildTestApp()
       const response = await request(testApp).get('/api/v1/payment/subscription-details').send()
 
       expect(response.status).toBe(401)

@@ -4,12 +4,12 @@ import {
   __createOrGetUserWithOurApi,
   __createUserInSupabaseAndGetHisIdAndToken,
   __removeAllAuthUsersFromSupabase,
+  buildTestApp,
 } from '../../test/test-utils'
-import { buildApp } from '../../app'
 import { __deleteAllHandledStripeEvents } from '../../transport/database/webhook-events/handled-stripe-events-repository'
 
 describe('users-router', async () => {
-  const testApp = buildApp({})
+  const testApp = buildTestApp()
 
   beforeEach(async () => {
     await __removeAllAuthUsersFromSupabase()

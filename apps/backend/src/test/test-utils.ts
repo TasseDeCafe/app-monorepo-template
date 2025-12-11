@@ -6,9 +6,23 @@ import path from 'path'
 import request from 'supertest'
 import { AppDependencies, buildApp } from '../app'
 import { MockStripeApi, StripeApi } from '../transport/third-party/stripe/stripe-api'
+import { MockResendApi } from '../transport/third-party/resend/resend-api'
+import { MockRevenuecatApi } from '../transport/third-party/revenuecat/revenuecat-api'
 import { NUMBER_OF_DAYS_IN_FREE_TRIAL, PlanInterval } from '@template-app/core/constants/pricing-constants'
 import { __simulateStripeSubscriptionCreatedEvent } from './stripe/stripe-test-utils'
 import { DbInterval } from '../transport/database/stripe-subscriptions/stripe-subscriptions-repository'
+
+/**
+ * Creates a test app with sensible mock defaults.
+ * Override specific dependencies as needed.
+ */
+export const buildTestApp = (overrides: Partial<AppDependencies> = {}): Express =>
+  buildApp({
+    stripeApi: MockStripeApi,
+    resendApi: MockResendApi,
+    revenuecatApi: MockRevenuecatApi,
+    ...overrides,
+  })
 
 // Path to the signing key used by the test Supabase instance
 // you can regenerate this key with supabase gen signing-key

@@ -1,10 +1,10 @@
 import { afterAll, beforeEach, describe, expect, test } from 'vitest'
-import { buildApp } from '../../app'
 import {
   __createDefaultInitialStateAfterIntroducingCreditCardAndOnboarding,
   __createUserInSupabaseAndGetHisIdAndToken,
   __removeAllAuthUsersFromSupabase,
   buildAuthorizationHeaders,
+  buildTestApp,
 } from '../../test/test-utils'
 import request from 'supertest'
 import { __deleteAllHandledStripeEvents } from '../../transport/database/webhook-events/handled-stripe-events-repository'
@@ -23,7 +23,7 @@ describe('portal-session-router', async () => {
   })
 
   test('should return 404 when user is not found', async () => {
-    const testApp = buildApp({})
+    const testApp = buildTestApp()
     const { token } = await __createUserInSupabaseAndGetHisIdAndToken()
 
     const response = await request(testApp)

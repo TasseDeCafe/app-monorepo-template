@@ -1,10 +1,10 @@
 import { describe, expect, test } from 'vitest'
-import { buildApp } from '../../app'
 import request from 'supertest'
+import { buildTestApp } from '../../test/test-utils'
 
 describe('email-verification-router', () => {
   test('when valid email is provided', async () => {
-    const testApp = buildApp({})
+    const testApp = buildTestApp()
     const response = await request(testApp).post('/api/v1/authentication/send-email-verification').send({
       email: 'test@example.com',
       referral: null,
@@ -20,7 +20,7 @@ describe('email-verification-router', () => {
   })
 
   test('when invalid email is provided', async () => {
-    const testApp = buildApp({})
+    const testApp = buildTestApp()
     const response = await request(testApp)
       .post('/api/v1/authentication/send-email-verification')
       .send({ email: 'invalid-email' })
@@ -30,7 +30,7 @@ describe('email-verification-router', () => {
   })
 
   test('when email is missing from request body', async () => {
-    const testApp = buildApp({})
+    const testApp = buildTestApp()
     const response = await request(testApp).post('/api/v1/authentication/send-email-verification').send({})
 
     expect(response.status).toBe(400)

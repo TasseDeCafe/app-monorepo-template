@@ -3,43 +3,43 @@ import * as Haptic from 'expo-haptics'
 import { Keyboard } from 'react-native'
 import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
-import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
+import { SheetId } from '@/components/sheets/bottom-sheet-ids'
 
-export interface IndividualSheetProps {
-  [IndividualSheetName.DELETE_ACCOUNT]: undefined
-  [IndividualSheetName.CONTACT_US]: undefined
+export interface SheetProps {
+  [SheetId.DELETE_ACCOUNT]: undefined
+  [SheetId.CONTACT_US]: undefined
 }
 
 // Interface for the internal state of the store
 interface BottomSheetState {
   // Store refs in a Map for efficient lookup (Sheet Name -> Ref)
-  refs: Map<IndividualSheetName, BottomSheetModal | null>
+  refs: Map<SheetId, BottomSheetModal | null>
   // Store props passed during 'open' (Sheet Name -> Props)
-  props: Map<IndividualSheetName, any>
+  props: Map<SheetId, any>
   // Name of the currently active sheet, if any
-  activeSheetName: IndividualSheetName | null
+  activeSheetName: SheetId | null
 }
 
 // Interface for the store's public API (state + actions)
 interface BottomSheetStore extends BottomSheetState {
   /** Close a bottom sheet by its name */
-  close: (name: IndividualSheetName) => void
+  close: (name: SheetId) => void
   /** Register a bottom sheet ref */
-  register: (name: IndividualSheetName, ref: BottomSheetModal | null) => void
+  register: (name: SheetId, ref: BottomSheetModal | null) => void
   /** Unregister a bottom sheet ref (e.g., on unmount) */
-  unregister: (name: IndividualSheetName) => void
+  unregister: (name: SheetId) => void
   /** Snap a bottom sheet to a specific index */
-  snapToIndex: (name: IndividualSheetName, index: number) => void
+  snapToIndex: (name: SheetId, index: number) => void
   /** Snap a bottom sheet to a specific position */
-  snapToPosition: (name: IndividualSheetName, position: string) => void
+  snapToPosition: (name: SheetId, position: string) => void
   /** Open a bottom sheet by its name, optionally passing props */
-  open: <T extends IndividualSheetName>(name: T, props?: IndividualSheetProps[T]) => void
+  open: <T extends SheetId>(name: T, props?: SheetProps[T]) => void
   /** Get the props for a specific sheet */
-  getProps: <T extends IndividualSheetName>(name: T) => IndividualSheetProps[T] | undefined
+  getProps: <T extends SheetId>(name: T) => SheetProps[T] | undefined
   /** Update the props for a specific sheet */
-  updateProps: <T extends IndividualSheetName>(
+  updateProps: <T extends SheetId>(
     name: T,
-    updater: (currentProps: IndividualSheetProps[T] | undefined) => IndividualSheetProps[T] | undefined
+    updater: (currentProps: SheetProps[T] | undefined) => SheetProps[T] | undefined
   ) => void
 }
 
@@ -50,7 +50,7 @@ export const useBottomSheetStore = create<BottomSheetStore>((set, get) => {
     activeSheetName: null,
   }
 
-  const open = <T extends IndividualSheetName>(name: T, sheetProps?: IndividualSheetProps[T]) => {
+  const open = <T extends SheetId>(name: T, sheetProps?: SheetProps[T]) => {
     const ref = get().refs.get(name)
     if (ref) {
       Keyboard.dismiss()
@@ -65,7 +65,7 @@ export const useBottomSheetStore = create<BottomSheetStore>((set, get) => {
     }
   }
 
-  const close = (name: IndividualSheetName) => {
+  const close = (name: SheetId) => {
     const ref = get().refs.get(name)
     if (ref) {
       ref.dismiss()
@@ -75,27 +75,27 @@ export const useBottomSheetStore = create<BottomSheetStore>((set, get) => {
     }
   }
 
-  const snapToIndex = (name: IndividualSheetName, index: number) => {
+  const snapToIndex = (name: SheetId, index: number) => {
     const ref = get().refs.get(name)
     if (ref) {
       ref.snapToIndex(index)
     }
   }
 
-  const snapToPosition = (name: IndividualSheetName, position: string) => {
+  const snapToPosition = (name: SheetId, position: string) => {
     const ref = get().refs.get(name)
     if (ref) {
       ref.snapToPosition(position)
     }
   }
 
-  const register = (name: IndividualSheetName, ref: BottomSheetModal | null) => {
+  const register = (name: SheetId, ref: BottomSheetModal | null) => {
     set((state) => ({
       refs: new Map(state.refs).set(name, ref),
     }))
   }
 
-  const unregister = (name: IndividualSheetName) => {
+  const unregister = (name: SheetId) => {
     set((state) => {
       const newRefs = new Map(state.refs)
       newRefs.delete(name)
@@ -103,16 +103,16 @@ export const useBottomSheetStore = create<BottomSheetStore>((set, get) => {
     })
   }
 
-  const getProps = <T extends IndividualSheetName>(name: T): IndividualSheetProps[T] | undefined => {
-    return get().props.get(name) as IndividualSheetProps[T] | undefined
+  const getProps = <T extends SheetId>(name: T): SheetProps[T] | undefined => {
+    return get().props.get(name) as SheetProps[T] | undefined
   }
 
-  const updateProps = <T extends IndividualSheetName>(
+  const updateProps = <T extends SheetId>(
     name: T,
-    updater: (currentProps: IndividualSheetProps[T] | undefined) => IndividualSheetProps[T] | undefined
+    updater: (currentProps: SheetProps[T] | undefined) => SheetProps[T] | undefined
   ) => {
     set((state) => {
-      const currentProps = state.props.get(name) as IndividualSheetProps[T] | undefined
+      const currentProps = state.props.get(name) as SheetProps[T] | undefined
       const nextProps = updater(currentProps)
       const newProps = new Map(state.props)
 

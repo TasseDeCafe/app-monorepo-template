@@ -6,7 +6,7 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
 import { useModalStore } from '@/stores/modal-store'
-import { PRICING_MODAL_ID } from '@/components/modal/modal-ids'
+import { ModalId } from '@/components/modal/modal-ids'
 import { ChevronRight } from 'lucide-react'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { Route as AdminSettingsRoute } from '@/routes/_protected/admin-settings'
@@ -56,7 +56,7 @@ const ProfileView = () => {
     }
 
     if (!subscriptionData?.isPremiumUser) {
-      openModal(PRICING_MODAL_ID)
+      openModal(ModalId.PRICING)
       return
     }
 

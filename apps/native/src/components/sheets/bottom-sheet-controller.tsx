@@ -2,7 +2,7 @@ import React, { ComponentType, FC, memo, useCallback, useMemo } from 'react'
 import { BottomSheetBackdropProps, BottomSheetModal } from '@gorhom/bottom-sheet'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
-import { IndividualSheetName } from './bottom-sheet-ids'
+import { SheetId } from './bottom-sheet-ids'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
 
 import { DeleteAccountSheetContent } from './content/delete-account-sheet-content'
@@ -17,18 +17,18 @@ interface SheetConfig {
   adjustForKeyboard?: boolean
 }
 
-const BOTTOM_SHEET_CONFIG: Record<IndividualSheetName, SheetConfig> = {
-  [IndividualSheetName.DELETE_ACCOUNT]: {
+const BOTTOM_SHEET_CONFIG: Record<SheetId, SheetConfig> = {
+  [SheetId.DELETE_ACCOUNT]: {
     component: DeleteAccountSheetContent,
   },
-  [IndividualSheetName.CONTACT_US]: {
+  [SheetId.CONTACT_US]: {
     component: ContactUsSheetContent,
     enableContentPanningGesture: false,
   },
 }
 
 interface SheetInstanceProps {
-  name: IndividualSheetName
+  name: SheetId
   config: SheetConfig
   renderBackdrop?: FC<BottomSheetBackdropProps>
 }
@@ -120,7 +120,7 @@ const BottomSheetControllerComponent = () => {
   return (
     <>
       {Object.keys(BOTTOM_SHEET_CONFIG).map((key) => {
-        const name = key as IndividualSheetName
+        const name = key as SheetId
         const config = BOTTOM_SHEET_CONFIG[name]
 
         return <SheetInstance key={name} name={name} config={config} renderBackdrop={BottomSheetBackdrop} />

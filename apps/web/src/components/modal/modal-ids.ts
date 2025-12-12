@@ -1,7 +1,11 @@
-export const SOMETHING_WENT_WRONG_MODAL_ID = 'something-went-wrong-modal-id'
-export const CONTACT_US_MODAL_ID = 'contact-us-modal-id'
-export const RATE_LIMITING_MODAL_ID = 'rate-limiting-modal-id'
-export const PRICING_MODAL_ID = 'pricing-modal-id'
+export const ModalId = {
+  SOMETHING_WENT_WRONG: 'something-went-wrong',
+  CONTACT_US: 'contact-us',
+  RATE_LIMITING: 'rate-limiting',
+  PRICING: 'pricing',
+} as const
 
-// Add modal ids here that should be opened from a hash
-export const HASH_ENABLED_MODAL_IDS: string[] = [CONTACT_US_MODAL_ID] as const
+export type ModalId = (typeof ModalId)[keyof typeof ModalId]
+
+// URL-based modal IDs (used for route validation in __root.tsx)
+export const URL_MODAL_IDS = [ModalId.CONTACT_US] as const

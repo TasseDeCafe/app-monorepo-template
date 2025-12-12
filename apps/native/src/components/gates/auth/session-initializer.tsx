@@ -19,7 +19,7 @@ export const SessionInitializer = ({ children }: { children: ReactNode }) => {
     })
 
     return () => {
-      authSubscription?.subscription?.unsubscribe()
+      authSubscription.subscription.unsubscribe()
     }
   }, [initialize, setSession])
 

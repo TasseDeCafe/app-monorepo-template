@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ArrowLeft } from 'lucide-react'
 import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
 import { useModalStore } from '@/stores/modal-store'
-import { PRICING_MODAL_ID } from '@/components/modal/modal-ids'
+import { ModalId } from '@/components/modal/modal-ids'
 import { FullViewLoader } from '@/components/loader/full-view-loader'
 import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 
@@ -18,7 +18,7 @@ const PremiumDemoView = () => {
 
   useEffect(() => {
     if (!isFetching && needsSubscription) {
-      openModal(PRICING_MODAL_ID)
+      openModal(ModalId.PRICING)
       navigate({ to: dashboardRoute.to })
     }
   }, [needsSubscription, isFetching, openModal, navigate])

@@ -1,14 +1,17 @@
-import { CONTACT_US_MODAL_ID } from '../modal/modal-ids'
 import { useLingui } from '@lingui/react/macro'
-import { useModalStore } from '@/stores/modal-store'
 import { Button } from '@/components/shadcn/button'
+import { useRouter } from '@tanstack/react-router'
 
 export const ContactUsButton = () => {
-  const openModal = useModalStore((state) => state.openModal)
   const { t } = useLingui()
+  const router = useRouter()
 
   const handleContactUsClick = () => {
-    openModal(CONTACT_US_MODAL_ID)
+    const currentSearch = router.state.location.search as Record<string, unknown>
+    void router.navigate({
+      to: router.state.location.pathname,
+      search: { ...currentSearch, modal: 'contact-us' },
+    })
   }
 
   return (

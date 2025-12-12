@@ -15,7 +15,7 @@ import { PricingModalContent } from './modal-contents/pricing/pricing-modal-cont
 import { getIsSignedIn, useAuthStore } from '@/stores/auth-store'
 import { useModalStore } from '@/stores/modal-store'
 
-export const Modal = () => {
+export const ModalController = () => {
   const isSignedIn = useAuthStore(getIsSignedIn)
   const isOpen = useModalStore((state) => state.isOpen)
   const modalId = useModalStore((state) => state.modalId)

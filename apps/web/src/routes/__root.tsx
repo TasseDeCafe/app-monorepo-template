@@ -11,8 +11,6 @@ const rootSearchSchema = z.object({
   modal: z.enum(URL_PARAM_MODAL_NAMES).optional(),
 })
 
-export type RootSearchParams = z.infer<typeof rootSearchSchema>
-
 const RootComponent = () => (
   <SessionInitializer>
     <UserSetupGate>

@@ -1,4 +1,7 @@
+// Sentry initialization should be imported first!
+import './instrument'
 import ReactDOM from 'react-dom/client'
+import * as Sentry from '@sentry/react'
 import { logWithSentry } from './analytics/sentry/log-with-sentry'
 import { App } from './app'
 import './index.css'
@@ -21,4 +24,12 @@ if (!container) {
   throw new Error('Root element #root not found in DOM')
 }
 
-ReactDOM.createRoot(container).render(<App />)
+ReactDOM.createRoot(container, {
+  // React 19 error hooks for Sentry integration
+  // https://docs.sentry.io/platforms/javascript/guides/react/#configure-error-hooks-react-19
+  onUncaughtError: Sentry.reactErrorHandler((error, errorInfo) => {
+    console.warn('Uncaught error', error, errorInfo.componentStack)
+  }),
+  onCaughtError: Sentry.reactErrorHandler(),
+  onRecoverableError: Sentry.reactErrorHandler(),
+}).render(<App />)

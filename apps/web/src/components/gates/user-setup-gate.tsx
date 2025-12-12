@@ -5,6 +5,7 @@ import { useTrackingStore } from '@/stores/tracking-store'
 import { useShallow } from 'zustand/react/shallow'
 import posthog from 'posthog-js'
 import { checkIsTestUser } from '@/utils/test-users-utils'
+import { identifyUserWithSentry } from '@/analytics/sentry/sentry-initializer'
 
 type UserSetupGateProps = {
   children: ReactNode
@@ -57,6 +58,12 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
       })
     }
   }, [userId, trackingParams, isTestUser, isUserSetupComplete])
+
+  useEffect(() => {
+    if (userId) {
+      identifyUserWithSentry(userId)
+    }
+  }, [userId])
 
   if (isPending) {
     return null

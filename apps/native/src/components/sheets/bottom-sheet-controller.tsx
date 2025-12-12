@@ -121,7 +121,7 @@ const BottomSheetControllerComponent = () => {
     <>
       {Object.keys(BOTTOM_SHEET_CONFIG).map((key) => {
         const name = key as IndividualSheetName
-        const config: SheetConfig = BOTTOM_SHEET_CONFIG[name]
+        const config = BOTTOM_SHEET_CONFIG[name]
 
         return <SheetInstance key={name} name={name} config={config} renderBackdrop={BottomSheetBackdrop} />
       })}

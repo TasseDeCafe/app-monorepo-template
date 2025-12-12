@@ -429,7 +429,7 @@ msgid "Click the link in the email to continue."
 msgstr "Cliquez sur le lien dans l'e-mail pour continuer."
 
 #: apps/native/src/app/(protected)/(tabs)/_layout.tsx:85
-#: apps/web/src/components/navbar/contact-us-button.tsx:16
+#: apps/web/src/components/navbar/contact-us-button.tsx:19
 msgid "Contact Us"
 msgstr "Contact"
 

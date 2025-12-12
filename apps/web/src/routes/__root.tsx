@@ -3,15 +3,21 @@ import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { ModalController } from '@/components/modal/modal-controller.tsx'
 import { Toaster } from 'sonner'
 import { SessionInitializer } from '@/components/gates/auth/session-initializer.tsx'
-import { StateAndHashSynchronizer } from '@/components/synchronizers/hash-synchronizer/state-and-hash-synchronizer.tsx'
 import { UserSetupGate } from '@/components/gates/user-setup-gate.tsx'
+import { z } from 'zod'
+import { URL_PARAM_MODAL_NAMES } from '@/components/modal/modal-ids.ts'
+
+const rootSearchSchema = z.object({
+  modal: z.enum(URL_PARAM_MODAL_NAMES).optional(),
+})
+
+export type RootSearchParams = z.infer<typeof rootSearchSchema>
 
 const RootComponent = () => (
   <SessionInitializer>
     <UserSetupGate>
       <ModalController />
       <Toaster />
-      <StateAndHashSynchronizer />
       <Outlet />
       <TanStackRouterDevtools position='bottom-right' />
     </UserSetupGate>
@@ -20,4 +26,5 @@ const RootComponent = () => (
 
 export const Route = createRootRoute({
   component: RootComponent,
+  validateSearch: rootSearchSchema,
 })

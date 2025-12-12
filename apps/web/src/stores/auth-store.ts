@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { Session } from '@supabase/supabase-js'
-import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client'
+import { supabaseClient } from '@/transport/third-party/supabase/supabase-client'
 import { queryClient } from '@/config/react-query-config'
 import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
 import posthog from 'posthog-js'
@@ -9,6 +9,7 @@ type AuthStore = {
   session: Session | null
   isLoading: boolean
   isSigningOut: boolean
+  initialize: () => Promise<void>
   setSession: (session: Session | null) => void
   setLoading: (loading: boolean) => void
   signOut: () => Promise<void>
@@ -19,8 +20,23 @@ export const useAuthStore = create<AuthStore>((set) => ({
   isLoading: true,
   isSigningOut: false,
 
+  initialize: async () => {
+    try {
+      const { data, error } = await supabaseClient.auth.getSession()
+      if (error) {
+        console.error('Error fetching Supabase session', error)
+      } else {
+        set({ session: data.session })
+      }
+    } catch (err) {
+      console.error('Unexpected error fetching Supabase session', err)
+    } finally {
+      set({ isLoading: false })
+    }
+  },
+
   setSession: (session) => {
-    set({ session, isLoading: false })
+    set({ session })
   },
 
   setLoading: (isLoading) => set({ isLoading }),
@@ -32,7 +48,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     try {
       // supabase signs you out of all devices by default
       // so we use scope: 'local' to only sign out of the current device
-      await getSupabaseClient().auth.signOut({ scope: 'local' })
+      await supabaseClient.auth.signOut({ scope: 'local' })
     } catch {
       // Continue with local cleanup even if Supabase fails
     }

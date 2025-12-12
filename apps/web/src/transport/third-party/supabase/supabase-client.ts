@@ -1,11 +1,7 @@
 import { createClient } from '@supabase/supabase-js'
 import { getConfig } from '@/config/environment-config'
 
-const supabaseClient: ReturnType<typeof createClient> = createClient(
-  getConfig().supabaseProjectUrl,
-  getConfig().supabasePublishableKey
-)
+const supabaseProjectUrl = getConfig().supabaseProjectUrl
+const supabasePublishableKey = getConfig().supabasePublishableKey
 
-export const getSupabaseClient = () => {
-  return supabaseClient
-}
+export const supabaseClient = createClient(supabaseProjectUrl, supabasePublishableKey)

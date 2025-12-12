@@ -1,4 +1,4 @@
-import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
+import { supabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
 import { useNavigate, useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
@@ -12,7 +12,7 @@ import { Button } from '../../shadcn/button.tsx'
 import { Mail } from 'lucide-react'
 import { shouldShowSignInWithGoogle } from './auth-utils.ts'
 import { useLingui } from '@lingui/react/macro'
-import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
+import { getIsSignedIn, useAuthStore } from '@/stores/auth-store'
 
 export const AuthView = () => {
   const { t } = useLingui()
@@ -33,7 +33,7 @@ export const AuthView = () => {
   }, [])
 
   const continueWithGoogle = async () => {
-    const { error }: { error: AuthError | null } = await getSupabaseClient().auth.signInWithOAuth({
+    const { error }: { error: AuthError | null } = await supabaseClient.auth.signInWithOAuth({
       provider: 'google',
       options: {
         queryParams: {
@@ -48,7 +48,7 @@ export const AuthView = () => {
   }
 
   const continueWithApple = async () => {
-    const { error }: { error: AuthError | null } = await getSupabaseClient().auth.signInWithOAuth({
+    const { error }: { error: AuthError | null } = await supabaseClient.auth.signInWithOAuth({
       provider: 'apple',
       options: {
         redirectTo: window.location.origin + redirectTo,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getSupabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
+import { supabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
 import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
 import { Route as loginRoute } from '@/routes/login/index'
 import { useNavigate } from '@tanstack/react-router'
@@ -43,7 +43,7 @@ export const AuthEmailVerifyView = () => {
         POSTHOG_EVENTS.noTokenHashProvided()
         throw new Error('No token hash provided')
       }
-      const { error } = await getSupabaseClient().auth.verifyOtp({ token_hash: hash, type: 'magiclink' })
+      const { error } = await supabaseClient.auth.verifyOtp({ token_hash: hash, type: 'magiclink' })
       if (error) {
         POSTHOG_EVENTS.magicLinkFailureOrExpiration()
         throw new Error('token verification failed')

@@ -1,19 +1,23 @@
-import { useEffect } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useCreateOrUpdateUser, useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
 import { getAccessToken, getUserEmail, getUserId, useAuthStore } from '@/stores/auth-store'
 import { useTrackingStore } from '@/stores/tracking-store'
 import { useShallow } from 'zustand/react/shallow'
 import posthog from 'posthog-js'
 import { checkIsTestUser } from '@/utils/test-users-utils'
+import { identifyUserWithSentry } from '@/analytics/sentry/sentry-initializer'
 
-export const UserSetup = () => {
+type UserSetupGateProps = {
+  children: ReactNode
+}
+
+export const UserSetupGate = ({ children }: UserSetupGateProps) => {
   const accessToken = useAuthStore(getAccessToken)
   const isUserSetupComplete = useIsUserSetupComplete()
   const userId = useAuthStore(getUserId)
   const email = useAuthStore(getUserEmail)
   const isTestUser = checkIsTestUser(email)
 
-  // Use useShallow to prevent object reference changes from causing re-renders
   const trackingParams = useTrackingStore(
     useShallow((state) => ({
       referral: state.referral,
@@ -25,12 +29,10 @@ export const UserSetup = () => {
     }))
   )
 
-  const { mutate: getOrCreateUserData } = useCreateOrUpdateUser()
+  const { mutate: getOrCreateUserData, isPending } = useCreateOrUpdateUser()
 
   useEffect(() => {
     if (accessToken && !isUserSetupComplete && trackingParams) {
-      // TODO: this mutation fires multiple times when multiple windows are open. This might because of the local storage
-      // being shared between windows, or some other reason. See this PR: GRAM-1561/fix/insertuser-duplicate-key-value-violates-unique-constraint-users_pkey
       getOrCreateUserData({
         referral: trackingParams.referral,
         utmSource: trackingParams.utmSource,
@@ -43,7 +45,6 @@ export const UserSetup = () => {
   }, [accessToken, getOrCreateUserData, isUserSetupComplete, trackingParams])
 
   useEffect(() => {
-    // we need isUserSetupComplete so that we know the real referral of the user
     if (userId && trackingParams && !isTestUser && isUserSetupComplete) {
       posthog.identify(userId, {
         $set_once: {
@@ -58,5 +59,15 @@ export const UserSetup = () => {
     }
   }, [userId, trackingParams, isTestUser, isUserSetupComplete])
 
-  return <></>
+  useEffect(() => {
+    if (userId) {
+      identifyUserWithSentry(userId)
+    }
+  }, [userId])
+
+  if (isPending) {
+    return null
+  }
+
+  return <>{children}</>
 }

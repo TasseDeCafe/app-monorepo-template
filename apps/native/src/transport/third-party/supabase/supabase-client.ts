@@ -18,8 +18,6 @@ export const supabaseClient = createClient(supabaseProjectUrl, supabasePublishab
   auth: {
     // This config is taken directly from the Expo docs: https://docs.expo.dev/guides/using-supabase/
     storage: mmkvSupabaseSupportedStorage,
-    autoRefreshToken: true,
-    persistSession: true,
     detectSessionInUrl: false,
   },
 })

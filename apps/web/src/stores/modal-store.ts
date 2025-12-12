@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
-import { SOMETHING_WENT_WRONG_MODAL_ID } from '@/components/modal/modal-ids'
+import { ModalId } from '@/components/modal/modal-ids'
 
 type ModalStore = {
   modalId: string
@@ -23,7 +23,7 @@ export const useModalStore = create<ModalStore>((set) => ({
   openErrorModal: (errorCode) => {
     set({
       isOpen: true,
-      modalId: SOMETHING_WENT_WRONG_MODAL_ID,
+      modalId: ModalId.SOMETHING_WENT_WRONG,
       userFacingErrorCode: errorCode,
     })
   },

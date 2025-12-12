@@ -17,7 +17,7 @@ import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import { useModalStore } from '@/stores/modal-store'
 import { Route as pricingRoute } from '@/routes/_protected/pricing/index'
 import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
-import { RATE_LIMITING_MODAL_ID } from '@/components/modal/modal-ids'
+import { ModalId } from '@/components/modal/modal-ids'
 import { ORPCError } from '@orpc/contract'
 import { i18n } from '@/i18n/i18n'
 import { msg, t } from '@lingui/core/macro'
@@ -72,7 +72,7 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
   if (error.code === 'TOO_MANY_REQUESTS') {
     POSTHOG_EVENTS.rateLimitUser()
     if (showErrorModal) {
-      useModalStore.getState().openModal(RATE_LIMITING_MODAL_ID)
+      useModalStore.getState().openModal(ModalId.RATE_LIMITING)
     }
     return
   }

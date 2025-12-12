@@ -3,7 +3,7 @@ import { useLingui } from '@lingui/react/macro'
 import { Button } from '@/components/shadcn/button'
 import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
 import { useModalStore } from '@/stores/modal-store'
-import { PRICING_MODAL_ID } from '@/components/modal/modal-ids'
+import { ModalId } from '@/components/modal/modal-ids'
 import { Route as premiumDemoRoute } from '@/routes/_protected/premium-demo'
 
 const DashboardView = () => {
@@ -18,7 +18,7 @@ const DashboardView = () => {
     if (isSubscribed) {
       navigate({ to: premiumDemoRoute.to })
     } else {
-      openModal(PRICING_MODAL_ID)
+      openModal(ModalId.PRICING)
     }
   }
 

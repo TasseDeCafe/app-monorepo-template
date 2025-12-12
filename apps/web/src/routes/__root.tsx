@@ -5,10 +5,10 @@ import { Toaster } from 'sonner'
 import { SessionInitializer } from '@/components/gates/auth/session-initializer.tsx'
 import { UserSetupGate } from '@/components/gates/user-setup-gate.tsx'
 import { z } from 'zod'
-import { URL_PARAM_MODAL_NAMES } from '@/components/modal/modal-ids.ts'
+import { URL_MODAL_IDS } from '@/components/modal/modal-ids.ts'
 
 const rootSearchSchema = z.object({
-  modal: z.enum(URL_PARAM_MODAL_NAMES).optional(),
+  modal: z.enum(URL_MODAL_IDS).optional(),
 })
 
 const RootComponent = () => (

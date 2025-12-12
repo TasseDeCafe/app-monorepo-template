@@ -2,7 +2,7 @@ import { Tabs } from 'expo-router'
 import { CircleUserRound, Dumbbell, Home } from 'lucide-react-native'
 import colors from 'tailwindcss/colors'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
-import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
+import { SheetId } from '@/components/sheets/bottom-sheet-ids'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Pressable, Text, TouchableOpacity } from 'react-native'
 import { BottomTabBarButtonProps } from '@react-navigation/bottom-tabs'
@@ -34,7 +34,7 @@ export default function TabLayout() {
   const calculatedHeight = TAB_BAR_CONTENT_AREA_HEIGHT + TAB_BAR_PADDING_TOP + calculatedPaddingBottom
 
   const handleContactUsPress = () => {
-    openSheet(IndividualSheetName.CONTACT_US)
+    openSheet(SheetId.CONTACT_US)
   }
 
   return (

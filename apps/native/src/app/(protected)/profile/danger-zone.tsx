@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import { BigCard } from '@/components/ui/big-card'
 import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
-import { IndividualSheetName } from '@/components/sheets/bottom-sheet-ids'
+import { SheetId } from '@/components/sheets/bottom-sheet-ids'
 import { useLingui } from '@lingui/react/macro'
 import { SettingsItem } from '@/components/ui/settings-item'
 
@@ -24,7 +24,7 @@ export default function DangerZoneScreen() {
             title={t`Delete my account`}
             value=''
             onPress={() => {
-              openSheet(IndividualSheetName.DELETE_ACCOUNT)
+              openSheet(SheetId.DELETE_ACCOUNT)
             }}
             variant='destructive'
           />

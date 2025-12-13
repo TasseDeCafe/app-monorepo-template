@@ -39,7 +39,7 @@ export const ResponsiveOverlay = ({ open, onOpenChange, children }: ResponsiveOv
   return (
     <OverlayContext.Provider value={{ isMobile }}>
       {isMobile ? (
-        <Drawer open={open} onOpenChange={onOpenChange}>
+        <Drawer open={open} repositionInputs={false} onOpenChange={onOpenChange}>
           {children}
         </Drawer>
       ) : (

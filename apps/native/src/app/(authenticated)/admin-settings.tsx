@@ -62,11 +62,7 @@ export default function AdminSettingsScreen() {
           <BigCard>
             <SettingsItem title={t`Test Frontend Sentry Log`} value='' onPress={handleTestSentryLog} />
             <SettingsItem title={t`Test Frontend Unhandled Error`} value='' onPress={handleTestSentryError} />
-            <SettingsItem
-              title={t`Test Backend Sentry Message`}
-              value=''
-              onPress={handleTestBackendSentryMessage}
-            />
+            <SettingsItem title={t`Test Backend Sentry Message`} value='' onPress={handleTestBackendSentryMessage} />
           </BigCard>
         </View>
       </View>

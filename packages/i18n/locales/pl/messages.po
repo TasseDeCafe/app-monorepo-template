@@ -501,9 +501,7 @@ msgstr "Nie udało się skonfigurować konta. Spróbuj zrestartować aplikację.
 msgid ""
 "Current version: {currentVersion}\n"
 "Required version: {requiredVersion}"
-msgstr ""
-"Obecna wersja: {currentVersion}\\n"
-"Wymagana wersja: {requiredVersion}"
+msgstr "Obecna wersja: {currentVersion}\\nWymagana wersja: {requiredVersion}"
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:99
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:117
@@ -522,6 +520,10 @@ msgstr "Strefa Niebezpieczna"
 #: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:44
 msgid "Dashboard"
 msgstr "Panel"
+
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:119
+#~ msgid "Delete Account"
+#~ msgstr "Usuń konto"
 
 #: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:24
 #: apps/web/src/routes/_authenticated/danger-zone.tsx:39
@@ -1228,7 +1230,3 @@ msgstr "Twoje imię"
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:82
 msgid "your@email.com"
 msgstr "twoj@email.com"
-
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:119
-#~ msgid "Delete Account"
-#~ msgstr "Usuń konto"

@@ -523,6 +523,10 @@ msgstr "Zona de peligro"
 msgid "Dashboard"
 msgstr "Panel de control"
 
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:119
+#~ msgid "Delete Account"
+#~ msgstr "Eliminar cuenta"
+
 #: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:24
 #: apps/web/src/routes/_authenticated/danger-zone.tsx:39
 #: apps/web/src/routes/_authenticated/danger-zone.tsx:44
@@ -1228,7 +1232,3 @@ msgstr "Tu nombre"
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:82
 msgid "your@email.com"
 msgstr "tunombre@email.com"
-
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:119
-#~ msgid "Delete Account"
-#~ msgstr "Eliminar cuenta"

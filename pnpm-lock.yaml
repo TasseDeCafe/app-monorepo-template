@@ -852,7 +852,7 @@ importers:
         version: 5.9.2
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
 
   apps/landing-page:
     dependencies:
@@ -994,7 +994,7 @@ importers:
         version: 8.45.0(eslint@9.36.0(jiti@2.6.1))(typescript@5.9.2)
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
 
   apps/native:
     dependencies:
@@ -1313,7 +1313,7 @@ importers:
         version: 5.9.2
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
       webpack:
         specifier: 'catalog:'
         version: 5.102.1
@@ -1554,7 +1554,7 @@ importers:
         version: 1.2.1(rollup@4.52.4)
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
 
   packages/api-client:
     dependencies:
@@ -1601,7 +1601,7 @@ importers:
         version: 5.9.2
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
 
   packages/i18n:
     dependencies:
@@ -1650,7 +1650,7 @@ importers:
         version: 7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
       vitest:
         specifier: 'catalog:'
-        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
+        version: 4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)
       zod:
         specifier: 'catalog:'
         version: 4.1.12
@@ -22846,7 +22846,7 @@ snapshots:
       tsx: 4.20.6
       yaml: 2.8.1
 
-  vitest@4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1):
+  vitest@4.0.6(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1):
     dependencies:
       '@vitest/expect': 4.0.6
       '@vitest/mocker': 4.0.6(vite@7.1.12(@types/node@24.7.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1))

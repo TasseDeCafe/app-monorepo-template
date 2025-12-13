@@ -1,5 +1,4 @@
-import { ComponentType } from 'react'
-import { useEffect } from 'react'
+import { ComponentType, useEffect } from 'react'
 import { ModalId, URL_MODAL_IDS } from './modal-ids.ts'
 import { SomethingWentWrongModalContent } from './modal-contents/something-went-wrong/something-went-wrong-modal-content.tsx'
 import { Dialog } from '../shadcn/dialog.tsx'
@@ -10,7 +9,7 @@ import { PricingModalContent } from './modal-contents/pricing/pricing-modal-cont
 import { DeleteAccountModalContent } from './modal-contents/delete-account/delete-account-modal-content.tsx'
 import { getIsSignedIn, useAuthStore } from '@/stores/auth-store'
 import { useModalStore } from '@/stores/modal-store'
-import { useSearch, useRouter } from '@tanstack/react-router'
+import { useRouter } from '@tanstack/react-router'
 import { Route as RootRoute } from '@/routes/__root'
 
 interface ModalConfig {
@@ -44,7 +43,7 @@ export const ModalController = () => {
   const closeModal = useModalStore((state) => state.closeModal)
 
   const router = useRouter()
-  const { modal: modalParam } = useSearch({ from: RootRoute.id })
+  const { modal: modalParam } = RootRoute.useSearch()
 
   // URL-based modal (requires sign in) - modalParam IS the modal ID
   const urlModalId = modalParam && isSignedIn ? modalParam : null

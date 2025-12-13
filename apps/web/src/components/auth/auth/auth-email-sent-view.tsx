@@ -1,12 +1,12 @@
-import { useSearch } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
 import { useLingui } from '@lingui/react/macro'
+import { Route as EmailSentRoute } from '@/routes/login/email/sent'
 
 export const AuthEmailSentView = () => {
   const { t } = useLingui()
 
-  const { email: emailParam } = useSearch({ from: '/login/email/sent' })
+  const { email: emailParam } = EmailSentRoute.useSearch()
   const email = emailParam || t`your email address`
 
   useEffect(() => {

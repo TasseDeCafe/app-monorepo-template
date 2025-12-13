@@ -77,7 +77,7 @@ const RootLayout = () => {
                           <Stack.Screen name='account/removed' />
                         </Stack.Protected>
                         <Stack.Protected guard={isSignedIn}>
-                          <Stack.Screen name='(protected)' />
+                          <Stack.Screen name='(authenticated)' />
                         </Stack.Protected>
                         <Stack.Screen
                           name='+not-found'

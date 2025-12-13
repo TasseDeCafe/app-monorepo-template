@@ -1,6 +1,7 @@
 export const ROUTE_PATHS = {
   DASHBOARD: '/dashboard',
   PRICING: '/pricing',
+  PREMIUM_DEMO: '/premium-demo',
 
   LOGIN: '/login',
   LOGIN_EMAIL: '/login/email',

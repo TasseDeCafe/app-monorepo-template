@@ -3,7 +3,7 @@ import { AuthEmailSentView } from '@/components/auth/auth/auth-email-sent-view.t
 import { z } from 'zod'
 
 const emailSentSearchSchema = z.object({
-  email: z.string().optional(),
+  email: z.email().optional(),
 })
 
 export const Route = createFileRoute('/login/email/sent')({

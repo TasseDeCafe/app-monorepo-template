@@ -11,7 +11,7 @@ window.addEventListener('vite:preloadError', (event: VitePreloadErrorEvent) => {
   // https://vite.dev/guide/build#load-error-handling
   // This event listener is needed to fix dynamic import errors caused by clients not having the latest version of the frontend as described in this ticket:
   // https://www.notion.so/grammarians/TypeError-Failed-to-fetch-dynamically-imported-module-122168e7b01a809f9230dc584daefc11?pvs=4
-  logWithSentry(`vite:preloadError: ${event.payload.message}`, 'debug')
+  logWithSentry({ message: `vite:preloadError: ${event.payload.message}`, severityLevel: 'debug' })
   window.location.reload()
 })
 

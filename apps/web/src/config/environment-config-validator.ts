@@ -10,7 +10,7 @@ export const validateConfig = (config: EnvironmentConfig): void => {
       .map((issue) => `${issue.path.join('.')} - ${issue.message}`)
       .join(', ')
 
-    logWithSentry(`Environment Config Validation Error: ${errorMessages}`)
+    logWithSentry({ message: `Environment Config Validation Error: ${errorMessages}` })
     throw new Error(`Environment Config Validation Error: ${errorMessages}`)
   }
 

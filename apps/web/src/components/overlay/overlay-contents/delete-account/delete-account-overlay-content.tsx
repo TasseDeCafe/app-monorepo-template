@@ -1,16 +1,21 @@
 import { useCallback, useMemo, useState } from 'react'
-import { OverlayContent, OverlayDescription, OverlayHeader, OverlayTitle } from '../../responsive-overlay'
+import {
+  OverlayContent,
+  OverlayDescription,
+  OverlayHeader,
+  OverlayTitle,
+  useCloseOverlay,
+} from '../../responsive-overlay'
 import { Button } from '../../../shadcn/button'
 import { Input } from '../../../shadcn/input'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
-import { useOverlayStore } from '@/stores/overlay-store'
 import { useLingui } from '@lingui/react/macro'
 
 const EXPECTED_CONFIRMATION_TEXT = 'I want to delete my account'
 
 export const DeleteAccountOverlayContent = () => {
   const { t } = useLingui()
-  const closeOverlay = useOverlayStore((state) => state.closeOverlay)
+  const closeOverlay = useCloseOverlay()
   const [confirmationText, setConfirmationText] = useState('')
 
   const isConfirmationValid = useMemo(() => {

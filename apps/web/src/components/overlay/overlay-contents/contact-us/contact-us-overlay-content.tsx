@@ -1,4 +1,10 @@
-import { OverlayContent, OverlayDescription, OverlayHeader, OverlayTitle } from '../../responsive-overlay'
+import {
+  OverlayContent,
+  OverlayDescription,
+  OverlayHeader,
+  OverlayTitle,
+  useCloseOverlay,
+} from '../../responsive-overlay'
 import { Loader2, Send } from 'lucide-react'
 import { Textarea } from '../../../shadcn/textarea'
 import { Input } from '../../../shadcn/input'
@@ -11,7 +17,6 @@ import { formSchema } from '@template-app/api-client/orpc-contracts/contact-emai
 import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { useAuthStore, getUserEmail, getUserName } from '@/stores/auth-store'
-import { useOverlayStore } from '@/stores/overlay-store'
 import { Button } from '@/components/shadcn/button'
 
 export const ContactUsOverlayContent = () => {
@@ -19,7 +24,7 @@ export const ContactUsOverlayContent = () => {
 
   const userEmail = useAuthStore(getUserEmail)
   const username = useAuthStore(getUserName)
-  const closeOverlay = useOverlayStore((state) => state.closeOverlay)
+  const closeOverlay = useCloseOverlay()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

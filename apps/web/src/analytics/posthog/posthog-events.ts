@@ -30,7 +30,7 @@ export const POSTHOG_EVENTS = {
   viewPage: () => {
     captureWithDefaults('page_view')
   },
-  viewModal: (modalId: string) => {
+  viewOverlay: (modalId: string) => {
     captureWithDefaults('modal_view', { modal_id: modalId })
   },
   magicLinkFailureOrExpiration: () => {

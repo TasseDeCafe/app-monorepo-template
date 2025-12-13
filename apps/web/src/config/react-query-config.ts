@@ -104,10 +104,14 @@ export const queryClient = new QueryClient({
     onError: (error, query) => {
       const meta = query.meta
 
-      logWithSentry(`QueryKey ${JSON.stringify(query.queryKey)} failed`, error, {
-        queryKey: JSON.stringify(query.queryKey),
-        meta,
-        orpc: error instanceof ORPCError ? buildOrpcErrorContext(error) : undefined,
+      logWithSentry({
+        message: `QueryKey ${JSON.stringify(query.queryKey)} failed`,
+        error,
+        params: {
+          queryKey: JSON.stringify(query.queryKey),
+          meta,
+          orpc: error instanceof ORPCError ? buildOrpcErrorContext(error) : undefined,
+        },
       })
 
       handleApiError(error, meta)
@@ -130,10 +134,14 @@ export const queryClient = new QueryClient({
       handleApiError(error, meta)
 
       if (!isExpectedValidationError(error)) {
-        logWithSentry(`MutationKey ${JSON.stringify(mutation.options.mutationKey)} failed`, error, {
-          mutationKey: JSON.stringify(mutation.options.mutationKey),
-          meta,
-          orpc: error instanceof ORPCError ? buildOrpcErrorContext(error) : undefined,
+        logWithSentry({
+          message: `MutationKey ${JSON.stringify(mutation.options.mutationKey)} failed`,
+          error,
+          params: {
+            mutationKey: JSON.stringify(mutation.options.mutationKey),
+            meta,
+            orpc: error instanceof ORPCError ? buildOrpcErrorContext(error) : undefined,
+          },
         })
       }
     },

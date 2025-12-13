@@ -43,10 +43,10 @@ export const OverlayController = () => {
   const closeOverlay = useOverlayStore((state) => state.closeOverlay)
 
   const router = useRouter()
-  const { modal: modalParam } = RootRoute.useSearch()
+  const { overlay: overlayParam } = RootRoute.useSearch()
 
   // URL-based overlay (requires sign in) - modalParam IS the overlay ID
-  const urlOverlayId = modalParam && isSignedIn ? modalParam : null
+  const urlOverlayId = overlayParam && isSignedIn ? overlayParam : null
 
   // Store-based overlay (only for non-URL overlays)
   const storeOverlayId_nonUrl = storeIsOpen && !URL_OVERLAY_IDS_SET.has(storeOverlayId) ? storeOverlayId : null
@@ -58,15 +58,15 @@ export const OverlayController = () => {
 
   useEffect(() => {
     if (activeOverlayId) {
-      POSTHOG_EVENTS.viewModal(activeOverlayId)
+      POSTHOG_EVENTS.viewOverlay(activeOverlayId)
     }
   }, [activeOverlayId])
 
   const handleCloseOverlay = () => {
-    if (modalParam) {
+    if (overlayParam) {
       // Close URL overlay by clearing the param
       const currentSearch = { ...router.state.location.search }
-      delete currentSearch.modal
+      delete currentSearch.overlay
       void router.navigate({
         to: router.state.location.pathname,
         search: currentSearch,

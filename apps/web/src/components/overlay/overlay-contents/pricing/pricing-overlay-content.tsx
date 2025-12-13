@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react'
-import { OverlayContent, OverlayDescription, OverlayHeader, OverlayTitle } from '../../responsive-overlay'
+import {
+  OverlayContent,
+  OverlayDescription,
+  OverlayHeader,
+  OverlayTitle,
+  useCloseOverlay,
+} from '../../responsive-overlay'
 import { Button } from '../../../shadcn/button'
 import { RadioGroup, RadioGroupItem } from '../../../shadcn/radio-group'
 import { Label } from '../../../shadcn/label'
@@ -18,14 +24,13 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
-import { useOverlayStore } from '@/stores/overlay-store'
 
 export const PricingOverlayContent = () => {
   const { t } = useLingui()
   const [clickedPlan, setClickedPlan] = useState<PlanType>('year')
   const hasAllowedReferral = useTrackingStore(getHasAllowedReferral)
   const navigate = useNavigate()
-  const closeOverlay = useOverlayStore((state) => state.closeOverlay)
+  const closeOverlay = useCloseOverlay()
 
   const handlePlanOptionClick = (planType: PlanType) => {
     POSTHOG_EVENTS.clickPlan('plan_radio_button', planType)

@@ -6,9 +6,10 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from '../shadcn/drawer'
 import { useIsMobile } from '@/hooks/use-is-mobile'
 
-// Context to share mobile state with child components
+// Context to share mobile state and close function with child components
 interface OverlayContextValue {
   isMobile: boolean
+  closeOverlay: () => void
 }
 
 const OverlayContext = createContext<OverlayContextValue | null>(null)
@@ -19,6 +20,11 @@ const useOverlayContext = () => {
     throw new Error('Overlay components must be used within a ResponsiveOverlay')
   }
   return context
+}
+
+export const useCloseOverlay = () => {
+  const { closeOverlay } = useOverlayContext()
+  return closeOverlay
 }
 
 // Root component that renders either Dialog or Drawer
@@ -36,8 +42,10 @@ export const ResponsiveOverlay = ({ open, onOpenChange, children }: ResponsiveOv
     return null
   }
 
+  const closeOverlay = () => onOpenChange(false)
+
   return (
-    <OverlayContext.Provider value={{ isMobile }}>
+    <OverlayContext.Provider value={{ isMobile, closeOverlay }}>
       {isMobile ? (
         <Drawer open={open} repositionInputs={false} onOpenChange={onOpenChange}>
           {children}

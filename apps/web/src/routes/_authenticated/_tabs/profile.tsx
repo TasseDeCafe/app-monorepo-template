@@ -74,7 +74,7 @@ const ProfileView = () => {
         toast.info(t`Please manage your subscription through the App Store or Google Play.`)
         break
       default:
-        logWithSentry('Unexpected billing state in ProfileView', { subscriptionData })
+        logWithSentry({ message: 'Unexpected billing state in ProfileView', params: { subscriptionData } })
         toast.error(t`Could not open billing settings.`)
     }
   }

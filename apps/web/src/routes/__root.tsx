@@ -8,6 +8,7 @@ import { z } from 'zod'
 import { URL_MODAL_IDS } from '@/components/modal/modal-ids.ts'
 
 const rootSearchSchema = z.object({
+  // some modals should be accessible via URL
   modal: z.enum(URL_MODAL_IDS).optional(),
 })
 

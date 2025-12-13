@@ -8,4 +8,5 @@ export const ModalId = {
 export type ModalId = (typeof ModalId)[keyof typeof ModalId]
 
 // URL-based modal IDs (used for route validation in __root.tsx)
+// Some modals should be accessible via URL
 export const URL_MODAL_IDS = [ModalId.CONTACT_US] as const

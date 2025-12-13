@@ -9,6 +9,8 @@ import { getConfig } from '@/config/environment-config'
 import { PostHogProvider } from 'posthog-js/react'
 import posthog from 'posthog-js'
 import { router } from './router'
+import { SessionInitializer } from '@/components/gates/auth/session-initializer'
+import { UserSetupGate } from '@/components/gates/user-setup-gate'
 
 validateConfig(getConfig())
 
@@ -22,8 +24,12 @@ export const App = () => {
     <PostHogProvider client={posthog}>
       <I18nProvider i18n={i18n}>
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={router} />
-          <ReactQueryDevtools initialIsOpen={false} />
+          <SessionInitializer>
+            <UserSetupGate>
+              <RouterProvider router={router} />
+            </UserSetupGate>
+          </SessionInitializer>
+          {getConfig().showDevTools && <ReactQueryDevtools initialIsOpen={false} />}
         </QueryClientProvider>
       </I18nProvider>
     </PostHogProvider>

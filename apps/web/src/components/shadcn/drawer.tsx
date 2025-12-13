@@ -45,7 +45,7 @@ const DrawerContent = ({ className, children, ...props }: React.ComponentProps<t
       {...props}
     >
       <div className='mx-auto mt-4 hidden h-2 w-[100px] shrink-0 rounded-full bg-muted group-data-[vaul-drawer-direction=bottom]/drawer-content:block' />
-      {children}
+      <div className='flex flex-1 flex-col overflow-y-auto px-4'>{children}</div>
     </DrawerPrimitive.Content>
   </DrawerPortal>
 )
@@ -54,7 +54,7 @@ const DrawerHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
   <div
     data-slot='drawer-header'
     className={cn(
-      'flex flex-col gap-0.5 p-4 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:text-left',
+      'flex flex-col gap-0.5 py-4 group-data-[vaul-drawer-direction=bottom]/drawer-content:text-center group-data-[vaul-drawer-direction=top]/drawer-content:text-center md:gap-1.5 md:text-left',
       className
     )}
     {...props}
@@ -62,7 +62,7 @@ const DrawerHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
 )
 
 const DrawerFooter = ({ className, ...props }: React.ComponentProps<'div'>) => (
-  <div data-slot='drawer-footer' className={cn('mt-auto flex flex-col gap-2 p-4', className)} {...props} />
+  <div data-slot='drawer-footer' className={cn('mt-auto flex flex-col gap-2 py-4', className)} {...props} />
 )
 
 const DrawerTitle = ({ className, ...props }: React.ComponentProps<typeof DrawerPrimitive.Title>) => (

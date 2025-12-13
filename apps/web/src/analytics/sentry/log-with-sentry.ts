@@ -5,13 +5,17 @@ import { buildOrpcErrorContext } from '@template-app/api-client/utils/backend-er
 
 type Stringifiable = string | number | boolean | null | undefined | { toString(): string }
 
-// todo sentry: pass an object just like we do in the backend
-export const logWithSentry = (
-  message: string,
-  error?: unknown,
-  params: Record<string, Stringifiable> = {},
-  severityLevel: Sentry.SeverityLevel = 'error'
-) => {
+export const logWithSentry = ({
+  message,
+  error,
+  params = {},
+  severityLevel = 'error',
+}: {
+  message: string
+  error?: unknown
+  params?: Record<string, Stringifiable>
+  severityLevel?: Sentry.SeverityLevel
+}) => {
   if (getConfig().shouldLogLocally) {
     const logMethod =
       severityLevel === 'error' || severityLevel === 'fatal'

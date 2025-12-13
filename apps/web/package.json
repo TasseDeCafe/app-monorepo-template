@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "author": "GA1,TasseDeCafe",
+  "author": "TasseDeCafe",
   "scripts": {
     "dev": "./scripts/dev.sh",
     "dev:tunnel": "scripts/dev--tunnel.sh",
@@ -46,7 +46,7 @@
     "@tanstack/react-query": "catalog:",
     "@tanstack/react-query-devtools": "catalog:",
     "@tanstack/react-router": "catalog:",
-    "@tanstack/router-devtools": "catalog:",
+    "@tanstack/react-router-devtools": "catalog:",
     "@template-app/api-client": "workspace:*",
     "@template-app/core": "workspace:*",
     "@template-app/i18n": "workspace:*",

@@ -27,6 +27,7 @@ export const environmentConfigSchema = z.object({
   }),
   posthogToken: z.string().min(1),
   shouldLogLocally: z.boolean(),
+  showDevTools: z.boolean(),
   hashedEmailsOfTestUsers: z.array(z.string().min(1)),
   featureFlags: z.object({
     // means that all users have to introduce a credit card to get a free trial

@@ -27,6 +27,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
   },
   posthogToken: import.meta.env.VITE_POSTHOG_TOKEN,
   shouldLogLocally: false,
+  showDevTools: false,
   hashedEmailsOfTestUsers: parseHashedEmails(import.meta.env.VITE_HASHED_EMAILS_OF_TEST_USERS || ''),
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
@@ -58,6 +59,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   },
   posthogToken: import.meta.env.VITE_POSTHOG_TOKEN || '',
   shouldLogLocally: true,
+  showDevTools: false,
   hashedEmailsOfTestUsers: parseHashedEmails(import.meta.env.VITE_HASHED_EMAILS_OF_TEST_USERS || ''),
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
@@ -97,6 +99,7 @@ const getTestConfig = (): EnvironmentConfig => ({
   },
   posthogToken: '',
   shouldLogLocally: true,
+  showDevTools: false,
   hashedEmailsOfTestUsers: [],
   featureFlags: {
     isCreditCardRequiredForAll: () => true,

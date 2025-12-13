@@ -84,7 +84,7 @@ export const PricingView = () => {
         if (subscriptionData?.revenueCatDetails?.managementUrl) {
           window.location.href = subscriptionData.revenueCatDetails.managementUrl
         } else {
-          logWithSentry('Unexpected billing state in PricingScreen, no management url', { subscriptionData })
+          logWithSentry({ message: 'Unexpected billing state in PricingScreen, no management url', params: { subscriptionData } })
           toast.error(t`There was an error. Please contact support.`)
         }
       }

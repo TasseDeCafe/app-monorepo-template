@@ -3,6 +3,7 @@ export const ModalId = {
   CONTACT_US: 'contact-us',
   RATE_LIMITING: 'rate-limiting',
   PRICING: 'pricing',
+  DELETE_ACCOUNT: 'delete-account',
 } as const
 
 export type ModalId = (typeof ModalId)[keyof typeof ModalId]

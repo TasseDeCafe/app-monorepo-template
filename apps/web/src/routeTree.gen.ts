@@ -15,6 +15,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
 import { Route as AccountRemovedRouteImport } from './routes/account/removed'
 import { Route as AuthenticatedPremiumDemoRouteImport } from './routes/_authenticated/premium-demo'
+import { Route as AuthenticatedDangerZoneRouteImport } from './routes/_authenticated/danger-zone'
 import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin-settings'
 import { Route as AuthenticatedTabsRouteImport } from './routes/_authenticated/_tabs'
 import { Route as LoginEmailIndexRouteImport } from './routes/login/email/index'
@@ -58,6 +59,11 @@ const AuthenticatedPremiumDemoRoute =
     path: '/premium-demo',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AuthenticatedDangerZoneRoute = AuthenticatedDangerZoneRouteImport.update({
+  id: '/_authenticated/danger-zone',
+  path: '/danger-zone',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedAdminSettingsRoute =
   AuthenticatedAdminSettingsRouteImport.update({
     id: '/_authenticated/admin-settings',
@@ -129,6 +135,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/from-landing': typeof FromLandingRoute
   '/admin-settings': typeof AuthenticatedAdminSettingsRoute
+  '/danger-zone': typeof AuthenticatedDangerZoneRoute
   '/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
@@ -147,6 +154,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/from-landing': typeof FromLandingRoute
   '/admin-settings': typeof AuthenticatedAdminSettingsRoute
+  '/danger-zone': typeof AuthenticatedDangerZoneRoute
   '/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
@@ -168,6 +176,7 @@ export interface FileRoutesById {
   '/from-landing': typeof FromLandingRoute
   '/_authenticated/_tabs': typeof AuthenticatedTabsRouteWithChildren
   '/_authenticated/admin-settings': typeof AuthenticatedAdminSettingsRoute
+  '/_authenticated/danger-zone': typeof AuthenticatedDangerZoneRoute
   '/_authenticated/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login/': typeof LoginIndexRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/'
     | '/from-landing'
     | '/admin-settings'
+    | '/danger-zone'
     | '/premium-demo'
     | '/account/removed'
     | '/login'
@@ -206,6 +216,7 @@ export interface FileRouteTypes {
     | '/'
     | '/from-landing'
     | '/admin-settings'
+    | '/danger-zone'
     | '/premium-demo'
     | '/account/removed'
     | '/login'
@@ -226,6 +237,7 @@ export interface FileRouteTypes {
     | '/from-landing'
     | '/_authenticated/_tabs'
     | '/_authenticated/admin-settings'
+    | '/_authenticated/danger-zone'
     | '/_authenticated/premium-demo'
     | '/account/removed'
     | '/login/'
@@ -247,6 +259,7 @@ export interface RootRouteChildren {
   FromLandingRoute: typeof FromLandingRoute
   AuthenticatedTabsRoute: typeof AuthenticatedTabsRouteWithChildren
   AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
+  AuthenticatedDangerZoneRoute: typeof AuthenticatedDangerZoneRoute
   AuthenticatedPremiumDemoRoute: typeof AuthenticatedPremiumDemoRoute
   AccountRemovedRoute: typeof AccountRemovedRoute
   LoginIndexRoute: typeof LoginIndexRoute
@@ -301,6 +314,13 @@ declare module '@tanstack/react-router' {
       path: '/premium-demo'
       fullPath: '/premium-demo'
       preLoaderRoute: typeof AuthenticatedPremiumDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/danger-zone': {
+      id: '/_authenticated/danger-zone'
+      path: '/danger-zone'
+      fullPath: '/danger-zone'
+      preLoaderRoute: typeof AuthenticatedDangerZoneRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/admin-settings': {
@@ -411,6 +431,7 @@ const rootRouteChildren: RootRouteChildren = {
   FromLandingRoute: FromLandingRoute,
   AuthenticatedTabsRoute: AuthenticatedTabsRouteWithChildren,
   AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
+  AuthenticatedDangerZoneRoute: AuthenticatedDangerZoneRoute,
   AuthenticatedPremiumDemoRoute: AuthenticatedPremiumDemoRoute,
   AccountRemovedRoute: AccountRemovedRoute,
   LoginIndexRoute: LoginIndexRoute,

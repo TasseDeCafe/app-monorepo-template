@@ -7,6 +7,7 @@ import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { ContactUsModalContent } from './modal-contents/contact-us/contact-us-modal-content.tsx'
 import { RateLimitingModalContent } from './modal-contents/rate-limiting/rate-limiting-modal-content.tsx'
 import { PricingModalContent } from './modal-contents/pricing/pricing-modal-content.tsx'
+import { DeleteAccountModalContent } from './modal-contents/delete-account/delete-account-modal-content.tsx'
 import { getIsSignedIn, useAuthStore } from '@/stores/auth-store'
 import { useModalStore } from '@/stores/modal-store'
 import { useSearch, useRouter } from '@tanstack/react-router'
@@ -28,6 +29,9 @@ const MODAL_CONFIG: Record<ModalId, ModalConfig> = {
   },
   [ModalId.PRICING]: {
     component: PricingModalContent,
+  },
+  [ModalId.DELETE_ACCOUNT]: {
+    component: DeleteAccountModalContent,
   },
 }
 

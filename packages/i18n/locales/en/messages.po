@@ -327,7 +327,7 @@ msgid "Actions in this section can lead to permanent data loss."
 msgstr "Actions in this section can lead to permanent data loss."
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:140
-#: apps/native/src/app/(authenticated)/admin-settings.tsx:17
+#: apps/native/src/app/(authenticated)/admin-settings.tsx:56
 #: apps/web/src/routes/_authenticated/_tabs/profile.tsx:130
 msgid "Admin Settings"
 msgstr "Admin Settings"
@@ -338,7 +338,7 @@ msgstr "An error occurred while attempting to manage your subscription."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:146
 #: apps/native/src/hooks/api/removals/removals-hooks.ts:14
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:121
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:126
 #: apps/web/src/hooks/api/removals/removals-hooks.ts:17
 msgid "An error occurred. Please try again."
 msgstr "An error occurred. Please try again."
@@ -356,7 +356,7 @@ msgid "App Store"
 msgstr "App Store"
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:56
-#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:36
+#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:41
 msgid "Are you absolutely sure?"
 msgstr "Are you absolutely sure?"
 
@@ -394,8 +394,8 @@ msgid "By accessing and using our website, TemplateApp.com, and any associated s
 msgstr "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:150
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:105
-#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:61
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:110
+#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:66
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -411,7 +411,7 @@ msgstr "Check your email"
 msgid "Checking app version..."
 msgstr "Checking app version..."
 
-#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:98
+#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:103
 msgid "Choose a plan to unlock all features"
 msgstr "Choose a plan to unlock all features"
 
@@ -431,7 +431,7 @@ msgstr "Choose Your Plan"
 msgid "Click the link in the email to continue."
 msgstr "Click the link in the email to continue."
 
-#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:58
+#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:63
 msgid "Confirm deletion"
 msgstr "Confirm deletion"
 
@@ -546,7 +546,7 @@ msgid "Download the App"
 msgstr "Download the App"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:99
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:80
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:85
 msgid "Email"
 msgstr "Email"
 
@@ -607,6 +607,7 @@ msgstr "Failed to initialize payment system. Please restart the app."
 msgid "Failed to send feedback. Please try again."
 msgstr "Failed to send feedback. Please try again."
 
+#: apps/native/src/hooks/api/sentry-debug/sentry-debug-hooks.ts:11
 #: apps/web/src/hooks/api/sentry-debug/sentry-debug-hooks.ts:11
 msgid "Failed to trigger Sentry message"
 msgstr "Failed to trigger Sentry message"
@@ -643,7 +644,7 @@ msgid "Go to Dashboard"
 msgstr "Go to Dashboard"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:79
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:52
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:57
 msgid "Help us improve TemplateApp"
 msgstr "Help us improve TemplateApp"
 
@@ -731,12 +732,12 @@ msgstr "Manage Subscription"
 msgid "Master perfect pronunciation with AI-powered voice cloning. Practice speaking in your target language with your own voice. Try our free trial today!"
 msgstr "Master perfect pronunciation with AI-powered voice cloning. Practice speaking in your target language with your own voice. Try our free trial today!"
 
-#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:129
+#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:134
 msgid "Maybe later"
 msgstr "Maybe later"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:81
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:63
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:68
 msgid "Message to the founders"
 msgstr "Message to the founders"
 
@@ -746,7 +747,7 @@ msgid "Monthly"
 msgstr "Monthly"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:117
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:94
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:99
 msgid "Name (optional)"
 msgstr "Name (optional)"
 
@@ -810,7 +811,7 @@ msgid "Please try again or refresh the page."
 msgstr "Please try again or refresh the page."
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:60
-#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:43
+#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:48
 msgid "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 msgstr "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 
@@ -865,7 +866,7 @@ msgid "Scan the QR code to download the app"
 msgstr "Scan the QR code to download the app"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:147
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:125
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:130
 msgid "Send Message"
 msgstr "Send Message"
 
@@ -876,8 +877,8 @@ msgstr "Sending an email"
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:142
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:77
 #: apps/web/src/components/auth/auth/auth-email-view.tsx:84
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:118
-#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:58
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:123
+#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:63
 msgid "Sending..."
 msgstr "Sending..."
 
@@ -886,7 +887,7 @@ msgid "Setting up account..."
 msgstr "Setting up account..."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:80
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:53
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:58
 msgid "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 msgstr "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 
@@ -956,7 +957,7 @@ msgstr "Start Free Trial"
 msgid "Subscribe Now"
 msgstr "Subscribe Now"
 
-#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:97
+#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:102
 msgid "Subscribe to access premium features"
 msgstr "Subscribe to access premium features"
 
@@ -976,12 +977,12 @@ msgid "Subscription Successful!"
 msgstr "Subscription Successful!"
 
 #: apps/native/src/config/react-query-config.ts:114
-#: apps/web/src/config/react-query-config.ts:121
+#: apps/web/src/config/react-query-config.ts:125
 msgid "Success!"
 msgstr "Success!"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:90
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:67
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:72
 msgid "Tell us what you think or describe any issues you encountered..."
 msgstr "Tell us what you think or describe any issues you encountered..."
 
@@ -996,6 +997,18 @@ msgstr "TemplateApp - Perfect Your Accent with AI Voice Training"
 #: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:26
 msgid "Terms and Conditions"
 msgstr "Terms and Conditions"
+
+#: apps/native/src/app/(authenticated)/admin-settings.tsx:66
+msgid "Test Backend Sentry Message"
+msgstr "Test Backend Sentry Message"
+
+#: apps/native/src/app/(authenticated)/admin-settings.tsx:63
+msgid "Test Frontend Sentry Log"
+msgstr "Test Frontend Sentry Log"
+
+#: apps/native/src/app/(authenticated)/admin-settings.tsx:64
+msgid "Test Frontend Unhandled Error"
+msgstr "Test Frontend Unhandled Error"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:144
 #: apps/native/src/hooks/api/contact/contact-hooks.ts:15
@@ -1029,7 +1042,7 @@ msgid "There was an error. Please contact support."
 msgstr "There was an error. Please contact support."
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:58
-#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:38
+#: apps/web/src/components/overlay/overlay-contents/delete-account/delete-account-overlay-content.tsx:43
 msgid "This action cannot be undone. This will permanently delete your account and related data from our servers."
 msgstr "This action cannot be undone. This will permanently delete your account and related data from our servers."
 
@@ -1042,7 +1055,7 @@ msgstr "This automated deletion system is accessible 24/7 through your secure ac
 msgid "This screen is only accessible to subscribed users. You can showcase premium features here."
 msgstr "This screen is only accessible to subscribed users. You can showcase premium features here."
 
-#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:36
+#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:41
 #: apps/web/src/components/pricing/pricing-view.tsx:40
 msgid "To change your current plan type, please click on \"Manage Subscription\"."
 msgstr "To change your current plan type, please click on \"Manage Subscription\"."
@@ -1097,6 +1110,10 @@ msgstr "Upgrade to Premium"
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:38
 msgid "Use on Web"
 msgstr "Use on Web"
+
+#: apps/native/src/app/(authenticated)/admin-settings.tsx:60
+msgid "Use these options to test Sentry error reporting in your environment."
+msgstr "Use these options to test Sentry error reporting in your environment."
 
 #: apps/native/src/hooks/api/user/user-hooks.ts:21
 #: apps/web/src/hooks/api/user/user-hooks.ts:26
@@ -1193,7 +1210,7 @@ msgstr "You are now subscribed to Premium!"
 msgid "You can try again in {countdown} seconds"
 msgstr "You can try again in {countdown} seconds"
 
-#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:34
+#: apps/web/src/components/overlay/overlay-contents/pricing/pricing-overlay-content.tsx:39
 #: apps/web/src/components/pricing/pricing-view.tsx:38
 msgid "You have already used your free trial."
 msgstr "You have already used your free trial."
@@ -1224,11 +1241,11 @@ msgid "Your information, including Personal Data, may be transferred to and main
 msgstr "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:126
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:96
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:101
 msgid "Your name"
 msgstr "Your name"
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:108
-#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:82
+#: apps/web/src/components/overlay/overlay-contents/contact-us/contact-us-overlay-content.tsx:87
 msgid "your@email.com"
 msgstr "your@email.com"

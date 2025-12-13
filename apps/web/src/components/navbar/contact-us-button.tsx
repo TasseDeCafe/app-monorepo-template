@@ -10,7 +10,7 @@ export const ContactUsButton = () => {
     const currentSearch = router.state.location.search
     void router.navigate({
       to: router.state.location.pathname,
-      search: { ...currentSearch, modal: 'contact-us' },
+      search: { ...currentSearch, overlay: 'contact-us' },
     })
   }
 

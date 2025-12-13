@@ -9,7 +9,7 @@ import { URL_OVERLAY_IDS } from '@/components/overlay/overlay-ids'
 
 const rootSearchSchema = z.object({
   // some overlays should be accessible via URL
-  modal: z.enum(URL_OVERLAY_IDS).optional(),
+  overlay: z.enum(URL_OVERLAY_IDS).optional(),
 })
 
 const RootComponent = () => (

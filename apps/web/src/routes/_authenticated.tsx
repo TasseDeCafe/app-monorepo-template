@@ -33,6 +33,6 @@ const ProtectedLayout = () => {
   return <Outlet />
 }
 
-export const Route = createFileRoute('/_protected')({
+export const Route = createFileRoute('/_authenticated')({
   component: ProtectedLayout,
 })

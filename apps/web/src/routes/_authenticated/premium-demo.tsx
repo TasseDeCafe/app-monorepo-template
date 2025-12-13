@@ -8,7 +8,7 @@ import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
 import { useModalStore } from '@/stores/modal-store'
 import { ModalId } from '@/components/modal/modal-ids'
 import { FullViewLoader } from '@/components/loader/full-view-loader'
-import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
+import { Route as dashboardRoute } from '@/routes/_authenticated/_tabs/dashboard'
 
 const PremiumDemoView = () => {
   const { t } = useLingui()
@@ -64,6 +64,6 @@ const PremiumDemoView = () => {
   )
 }
 
-export const Route = createFileRoute('/_protected/premium-demo')({
+export const Route = createFileRoute('/_authenticated/premium-demo')({
   component: PremiumDemoView,
 })

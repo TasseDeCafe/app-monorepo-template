@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
-import { Route as checkoutSuccessRoute } from '@/routes/_protected/pricing/checkout-success'
-import { Route as pricingFreeTrialRoute } from '@/routes/_protected/pricing/free-trial'
-import { useSearch } from '@tanstack/react-router'
+import { Route as checkoutSuccessRoute } from '@/routes/_authenticated/pricing/checkout-success'
+import { Route as pricingFreeTrialRoute } from '@/routes/_authenticated/pricing/free-trial'
 import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@template-app/core/constants/pricing-constants.ts'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { Button } from '../shadcn/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '../shadcn/card.tsx'
+import { Route as FreeTrialRoute } from '@/routes/_authenticated/pricing/free-trial'
 
 const TimelineItem = ({ day, description }: { day: string; description: string }) => {
   return (
@@ -25,7 +25,7 @@ export const FreeTrialExplanationView = () => {
   const { t } = useLingui()
 
   const { mutate, isPending: isPendingCheckoutMutation } = useCheckoutMutation()
-  const { planInterval } = useSearch({ from: '/_protected/pricing/free-trial' })
+  const { planInterval } = FreeTrialRoute.useSearch()
 
   useEffect(() => {
     POSTHOG_EVENTS.viewPage()

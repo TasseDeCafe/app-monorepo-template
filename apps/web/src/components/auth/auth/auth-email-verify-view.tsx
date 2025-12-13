@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { supabaseClient } from '@/transport/third-party/supabase/supabase-client.ts'
-import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
+import { Route as dashboardRoute } from '@/routes/_authenticated/_tabs/dashboard'
 import { Route as loginRoute } from '@/routes/login/index'
 import { useNavigate } from '@tanstack/react-router'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'

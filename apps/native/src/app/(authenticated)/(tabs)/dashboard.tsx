@@ -6,6 +6,7 @@ import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
 import { useLingui } from '@lingui/react/macro'
 import { usePaywall } from '@/components/billing/hooks/use-paywall'
 import { Button } from '@/components/ui/button'
+import { ROUTE_PATHS } from '@/constants/route-paths'
 
 export default function DashboardScreen() {
   const { t } = useLingui()
@@ -17,7 +18,7 @@ export default function DashboardScreen() {
 
   const handlePremiumPress = async () => {
     if (isSubscribed) {
-      router.push('/premium-demo')
+      router.push(ROUTE_PATHS.PREMIUM_DEMO)
     } else {
       await presentPaywallIfNeeded()
     }

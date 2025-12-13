@@ -311,8 +311,8 @@ msgstr "À propos | TemplateApp"
 msgid "About Us"
 msgstr "À propos de nous"
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:35
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:33
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:36
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:33
 msgid "Access exclusive premium features available to subscribers."
 msgstr "Accédez aux fonctionnalités premium exclusives disponibles pour les abonnés."
 
@@ -321,13 +321,13 @@ msgstr "Accédez aux fonctionnalités premium exclusives disponibles pour les ab
 msgid "Account Removed"
 msgstr "Compte supprimé"
 
-#: apps/native/src/app/(protected)/profile/danger-zone.tsx:18
+#: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:18
 msgid "Actions in this section can lead to permanent data loss."
 msgstr "Les actions dans cette section peuvent entraîner une perte définitive de données."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:140
-#: apps/native/src/app/(protected)/admin-settings.tsx:17
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:129
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:140
+#: apps/native/src/app/(authenticated)/admin-settings.tsx:17
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:129
 msgid "Admin Settings"
 msgstr "Paramètres Administrateur"
 
@@ -428,7 +428,7 @@ msgstr "Choisissez votre formule"
 msgid "Click the link in the email to continue."
 msgstr "Cliquez sur le lien dans l'e-mail pour continuer."
 
-#: apps/native/src/app/(protected)/(tabs)/_layout.tsx:85
+#: apps/native/src/app/(authenticated)/(tabs)/_layout.tsx:85
 #: apps/web/src/components/navbar/contact-us-button.tsx:19
 msgid "Contact Us"
 msgstr "Contact"
@@ -470,19 +470,19 @@ msgstr "Impossible de charger les options de paiement en ce moment (aucune offre
 msgid "Could not load payment options. Please try again later."
 msgstr "Impossible de charger les options de paiement. Veuillez réessayer plus tard."
 
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:75
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:75
 msgid "Could not open billing settings."
 msgstr "Impossible d'ouvrir les paramètres de facturation."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:59
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:59
 msgid "Could not open customer center."
 msgstr "Impossible d'ouvrir le centre client."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:83
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:83
 msgid "Could not open the link. Please visit our website to manage your subscription."
 msgstr "Impossible d'ouvrir le lien. Veuillez visiter notre site web pour gérer votre abonnement."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:68
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:68
 msgid "Could not open upgrade screen."
 msgstr "Impossible d'ouvrir l'écran de mise à niveau."
 
@@ -496,27 +496,27 @@ msgid ""
 "Required version: {requiredVersion}"
 msgstr "Version actuelle : {currentVersion}\\nVersion requise : {requiredVersion}"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:99
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:117
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:99
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:117
 msgid "Customer Center"
 msgstr "Centre Client"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:143
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:143
 msgid "Danger Zone"
 msgstr "Zone Dangereuse"
 
-#: apps/native/src/app/(protected)/(tabs)/_layout.tsx:100
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:29
-#: apps/web/src/routes/_protected/_tabs.tsx:57
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:44
+#: apps/native/src/app/(authenticated)/(tabs)/_layout.tsx:100
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:30
+#: apps/web/src/routes/_authenticated/_tabs.tsx:57
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:44
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:119
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:119
 msgid "Delete Account"
 msgstr "Supprimer le compte"
 
-#: apps/native/src/app/(protected)/profile/danger-zone.tsx:24
+#: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:24
 msgid "Delete my account"
 msgstr "Supprimer mon compte"
 
@@ -620,8 +620,8 @@ msgstr "C'est parti !"
 msgid "Get the App"
 msgstr "Obtenir l'App"
 
-#: apps/native/src/app/(protected)/premium-demo.tsx:42
-#: apps/web/src/routes/_protected/premium-demo.tsx:58
+#: apps/native/src/app/(authenticated)/premium-demo.tsx:42
+#: apps/web/src/routes/_authenticated/premium-demo.tsx:58
 msgid "Go Back"
 msgstr "Retour"
 
@@ -634,8 +634,8 @@ msgstr "Aller au tableau de bord"
 msgid "Help us improve TemplateApp"
 msgstr "Aidez-nous à améliorer TemplateApp"
 
-#: apps/native/src/app/(protected)/(tabs)/_layout.tsx:93
-#: apps/web/src/routes/_protected/_tabs.tsx:56
+#: apps/native/src/app/(authenticated)/(tabs)/_layout.tsx:93
+#: apps/web/src/routes/_authenticated/_tabs.tsx:56
 msgid "Home"
 msgstr "Accueil"
 
@@ -695,22 +695,22 @@ msgstr "Dernier jour pour annuler avant le premier prélèvement"
 msgid "Link expired or invalid"
 msgstr "Lien expiré ou invalide"
 
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:31
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:31
 msgid "Loading subscription status..."
 msgstr "Chargement du statut d'abonnement..."
 
-#: apps/native/src/app/(protected)/premium-demo.tsx:22
+#: apps/native/src/app/(authenticated)/premium-demo.tsx:22
 #: apps/web/src/components/pricing/free-trial-explanation-view.tsx:68
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:38
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:80
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:38
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:80
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:119
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:119
 #: apps/web/src/components/pricing/pricing-view-utils.ts:104
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:82
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:82
 msgid "Manage Subscription"
 msgstr "Gérer l'Abonnement"
 
@@ -772,11 +772,11 @@ msgstr "Veuillez vérifier votre boîte de réception et cliquer sur le lien pou
 msgid "Please enter a valid email address"
 msgstr "Veuillez entrer une adresse email valide"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:79
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:79
 msgid "Please manage your subscription on our website: {webAccountUrl}"
 msgstr "Veuillez gérer votre abonnement sur notre site web : {webAccountUrl}"
 
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:71
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:71
 msgid "Please manage your subscription through the App Store or Google Play."
 msgstr "Veuillez gérer votre abonnement via l'App Store ou Google Play."
 
@@ -796,18 +796,18 @@ msgstr "Veuillez réessayer ou actualiser la page."
 msgid "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 msgstr "Veuillez saisir \"{EXPECTED_CONFIRMATION_TEXT}\""
 
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:26
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:26
 msgid "Premium"
 msgstr "Premium"
 
-#: apps/web/src/routes/_protected/premium-demo.tsx:44
+#: apps/web/src/routes/_authenticated/premium-demo.tsx:44
 msgid "Premium Demo"
 msgstr "Démo Premium"
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:32
-#: apps/native/src/app/(protected)/premium-demo.tsx:37
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
-#: apps/web/src/routes/_protected/premium-demo.tsx:51
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:33
+#: apps/native/src/app/(authenticated)/premium-demo.tsx:37
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:27
+#: apps/web/src/routes/_authenticated/premium-demo.tsx:51
 msgid "Premium Features"
 msgstr "Fonctionnalités Premium"
 
@@ -824,12 +824,12 @@ msgstr "Tarifs | TemplateApp"
 msgid "Privacy Policy"
 msgstr "Politique de Confidentialité"
 
-#: apps/native/src/app/(protected)/(tabs)/_layout.tsx:107
-#: apps/web/src/routes/_protected/_tabs.tsx:58
+#: apps/native/src/app/(authenticated)/(tabs)/_layout.tsx:107
+#: apps/web/src/routes/_authenticated/_tabs.tsx:58
 msgid "Profile"
 msgstr "Profil"
 
-#: apps/native/src/app/(protected)/premium-demo.tsx:26
+#: apps/native/src/app/(authenticated)/premium-demo.tsx:26
 msgid "Redirecting..."
 msgstr "Redirection..."
 
@@ -876,14 +876,14 @@ msgstr "Partagez votre avis ou suggérez des améliorations aux fondateurs. Nous
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:152
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:152
 #: apps/web/src/components/pricing/pricing-view.tsx:178
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:138
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:138
 msgid "Sign out"
 msgstr "Déconnexion"
 
 #: apps/web/src/components/pricing/pricing-view.tsx:111
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:43
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:43
 msgid "Sign out success"
 msgstr "Déconnexion réussie"
 
@@ -899,8 +899,8 @@ msgstr "Un texte super cool !"
 msgid "Some super cool title!"
 msgstr "Un titre super cool !"
 
-#: apps/native/src/app/(protected)/(tabs)/home.tsx:21
-#: apps/web/src/routes/_protected/_tabs/home.tsx:10
+#: apps/native/src/app/(authenticated)/(tabs)/home.tsx:21
+#: apps/web/src/routes/_authenticated/_tabs/home.tsx:10
 msgid "Some text for the Home tab"
 msgstr "Du texte pour l'onglet Accueil"
 
@@ -932,8 +932,8 @@ msgid "Start Free Trial"
 msgstr "Commencer l'essai gratuit"
 
 #: apps/landing-page/src/app/[lang]/(components)/(pricing)/pricing-section.tsx:168
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:39
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:40
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:39
 msgid "Subscribe Now"
 msgstr "S'abonner maintenant"
 
@@ -941,8 +941,8 @@ msgstr "S'abonner maintenant"
 msgid "Subscribe to access premium features"
 msgstr "S'abonner pour accéder aux fonctionnalités premium"
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:36
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:34
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:37
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:34
 msgid "Subscribe to unlock premium features and get the most out of the app."
 msgstr "Abonnez-vous pour débloquer les fonctionnalités premium et tirer le meilleur parti de l'application."
 
@@ -1017,8 +1017,8 @@ msgstr "Cette action est irréversible. Cela supprimera définitivement votre co
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 msgstr "Ce système de suppression automatisé est accessible 24h/24 et 7j/7 via votre tableau de bord de compte sécurisé. Pour une assistance supplémentaire, notre équipe dédiée à la confidentialité est disponible à contact@app-monorepo-template.dev pour traiter vos demandes avec le même niveau d'immédiateté et de minutie."
 
-#: apps/native/src/app/(protected)/premium-demo.tsx:39
-#: apps/web/src/routes/_protected/premium-demo.tsx:53
+#: apps/native/src/app/(authenticated)/premium-demo.tsx:39
+#: apps/web/src/routes/_authenticated/premium-demo.tsx:53
 msgid "This screen is only accessible to subscribed users. You can showcase premium features here."
 msgstr "Cet écran est accessible uniquement aux utilisateurs abonnés. Vous pouvez présenter les fonctionnalités premium ici."
 
@@ -1055,8 +1055,8 @@ msgstr "Impossible d'ouvrir le magasin d'applications"
 msgid "Unable to open app store. Please manually update the app."
 msgstr "Impossible d'ouvrir le magasin d'applications. Veuillez mettre à jour manuellement l'application."
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:32
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:27
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:33
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:27
 msgid "Unlock Premium"
 msgstr "Débloquer Premium"
 
@@ -1068,8 +1068,8 @@ msgstr "Mettre à jour maintenant"
 msgid "Update Required"
 msgstr "Mise à jour requise"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:110
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:81
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:110
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:81
 msgid "Upgrade to Premium"
 msgstr "Passer à Premium"
 
@@ -1108,12 +1108,12 @@ msgstr "Vérifiez Votre Email"
 msgid "Verifying..."
 msgstr "Vérification..."
 
-#: apps/native/src/app/(protected)/(tabs)/dashboard.tsx:39
-#: apps/web/src/routes/_protected/_tabs/dashboard.tsx:39
+#: apps/native/src/app/(authenticated)/(tabs)/dashboard.tsx:40
+#: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:39
 msgid "View Premium Demo"
 msgstr "Voir la démo Premium"
 
-#: apps/native/src/app/(protected)/profile/danger-zone.tsx:17
+#: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:17
 msgid "Warning"
 msgstr "Attention"
 
@@ -1159,8 +1159,8 @@ msgstr "Bienvenue sur TemplateApp.com. Nous nous engageons à protéger votre vi
 msgid "Yearly"
 msgstr "Annuel"
 
-#: apps/native/src/app/(protected)/(tabs)/profile.tsx:102
-#: apps/web/src/routes/_protected/_tabs/profile.tsx:54
+#: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:102
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:54
 msgid "You are a special user with free access. You have no active subscription."
 msgstr "Vous êtes un utilisateur spécial avec un accès gratuit. Vous n'avez pas d'abonnement actif."
 

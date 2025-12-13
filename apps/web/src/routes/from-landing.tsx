@@ -1,8 +1,8 @@
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { z } from 'zod'
 import { PLAN_INTERVALS } from '@template-app/core/constants/pricing-constants'
-import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
-import { Route as redirectToCheckoutRoute } from '@/routes/_protected/redirect-to-check-out/$planInterval'
+import { Route as dashboardRoute } from '@/routes/_authenticated/_tabs/dashboard'
+import { Route as redirectToCheckoutRoute } from '@/routes/_authenticated/redirect-to-check-out/$planInterval'
 
 const fromLandingSearchSchema = z.object({
   planInterval: z.enum(PLAN_INTERVALS).optional(),

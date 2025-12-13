@@ -3,9 +3,9 @@ import { Home, Dumbbell, CircleUserRound } from 'lucide-react'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { ContactUsButton } from '@/components/navbar/contact-us-button'
 import { useLingui } from '@lingui/react/macro'
-import { Route as homeRoute } from '@/routes/_protected/_tabs/home'
-import { Route as dashboardRoute } from '@/routes/_protected/_tabs/dashboard'
-import { Route as profileRoute } from '@/routes/_protected/_tabs/profile'
+import { Route as homeRoute } from '@/routes/_authenticated/_tabs/home'
+import { Route as dashboardRoute } from '@/routes/_authenticated/_tabs/dashboard'
+import { Route as profileRoute } from '@/routes/_authenticated/_tabs/profile'
 
 const TabLink = ({
   to,
@@ -62,6 +62,6 @@ const TabsLayout = () => {
   )
 }
 
-export const Route = createFileRoute('/_protected/_tabs')({
+export const Route = createFileRoute('/_authenticated/_tabs')({
   component: TabsLayout,
 })

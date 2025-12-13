@@ -1,7 +1,4 @@
-import type {
-  BackendErrorDetails,
-  BackendErrorResponse,
-} from '../orpc-contracts/common/error-response-schema'
+import type { BackendErrorDetails, BackendErrorResponse } from '../orpc-contracts/common/error-response-schema'
 
 export type OrpcErrorLike = {
   data?: unknown
@@ -19,8 +16,8 @@ const getBackendErrorResponse = (data: unknown): BackendErrorResponse | undefine
   }
 
   return {
-    errors: backendResponse.errors.filter(
-      (error): error is BackendErrorDetails => Boolean(error && typeof error === 'object')
+    errors: backendResponse.errors.filter((error): error is BackendErrorDetails =>
+      Boolean(error && typeof error === 'object')
     ),
   }
 }

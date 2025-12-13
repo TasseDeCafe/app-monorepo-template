@@ -1,16 +1,16 @@
 import { useCallback, useMemo, useState } from 'react'
-import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../../shadcn/dialog'
+import { OverlayContent, OverlayDescription, OverlayHeader, OverlayTitle } from '../../responsive-overlay'
 import { Button } from '../../../shadcn/button'
 import { Input } from '../../../shadcn/input'
 import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
-import { useModalStore } from '@/stores/modal-store'
+import { useOverlayStore } from '@/stores/overlay-store'
 import { useLingui } from '@lingui/react/macro'
 
 const EXPECTED_CONFIRMATION_TEXT = 'I want to delete my account'
 
-export const DeleteAccountModalContent = () => {
+export const DeleteAccountOverlayContent = () => {
   const { t } = useLingui()
-  const closeModal = useModalStore((state) => state.closeModal)
+  const closeOverlay = useOverlayStore((state) => state.closeOverlay)
   const [confirmationText, setConfirmationText] = useState('')
 
   const isConfirmationValid = useMemo(() => {
@@ -27,17 +27,17 @@ export const DeleteAccountModalContent = () => {
 
   const handleCancel = useCallback(() => {
     setConfirmationText('')
-    closeModal()
-  }, [closeModal])
+    closeOverlay()
+  }, [closeOverlay])
 
   return (
-    <DialogContent className='sm:max-w-md'>
-      <DialogHeader>
-        <DialogTitle className='text-center'>{t`Are you absolutely sure?`}</DialogTitle>
-        <DialogDescription className='text-center'>
+    <OverlayContent className='sm:max-w-md'>
+      <OverlayHeader>
+        <OverlayTitle className='text-center'>{t`Are you absolutely sure?`}</OverlayTitle>
+        <OverlayDescription className='text-center'>
           {t`This action cannot be undone. This will permanently delete your account and related data from our servers.`}
-        </DialogDescription>
-      </DialogHeader>
+        </OverlayDescription>
+      </OverlayHeader>
       <div className='flex flex-col gap-4'>
         <div>
           <p className='mb-2 text-sm text-gray-500'>{t`Please type "${EXPECTED_CONFIRMATION_TEXT}"`}</p>
@@ -62,6 +62,6 @@ export const DeleteAccountModalContent = () => {
           </Button>
         </div>
       </div>
-    </DialogContent>
+    </OverlayContent>
   )
 }

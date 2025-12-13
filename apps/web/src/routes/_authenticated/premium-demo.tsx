@@ -5,8 +5,8 @@ import { Button } from '@/components/shadcn/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn/card'
 import { ArrowLeft } from 'lucide-react'
 import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
-import { useModalStore } from '@/stores/modal-store'
-import { ModalId } from '@/components/modal/modal-ids'
+import { useOverlayStore } from '@/stores/overlay-store'
+import { OverlayId } from '@/components/overlay/overlay-ids'
 import { FullViewLoader } from '@/components/loader/full-view-loader'
 import { Route as dashboardRoute } from '@/routes/_authenticated/_tabs/dashboard'
 
@@ -14,14 +14,14 @@ const PremiumDemoView = () => {
   const { t } = useLingui()
   const navigate = useNavigate()
   const { needsSubscription, isFetching } = useNeedsSubscription()
-  const openModal = useModalStore((state) => state.openModal)
+  const openOverlay = useOverlayStore((state) => state.openOverlay)
 
   useEffect(() => {
     if (!isFetching && needsSubscription) {
-      openModal(ModalId.PRICING)
+      openOverlay(OverlayId.PRICING)
       navigate({ to: dashboardRoute.to })
     }
-  }, [needsSubscription, isFetching, openModal, navigate])
+  }, [needsSubscription, isFetching, openOverlay, navigate])
 
   if (isFetching) {
     return <FullViewLoader />

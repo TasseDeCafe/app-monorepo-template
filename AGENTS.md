@@ -1,9 +1,10 @@
 This turborepo monorepo is an attempt at creating a template for quick SaaS iteration. This is a work in progress, don't treat it like a polished product.
 
 The following stack is used:
+
 - Landing page: Typescript React Next.js
 - Web: TypeScript React single-page application built with Vite.
-- Backend: TypeScript on Node.js backend with Express framework. 
+- Backend: TypeScript on Node.js backend with Express framework.
 - Native: Typescript Expo-managed React Native app with Expo Router.
 - Database: Supabase database without an ORM, writing queries directly in the code with Postgres.js as the PostGresSQL client.
 
@@ -16,6 +17,7 @@ Testing: Vitest.
 Routing: TanStack Router.
 
 The template is built so that it's easy to deploy this stack, and also have useful features like:
+
 - Authentication (Supabase): Magic link, Google, Apple.
 - Payments with Stripe (web) and RevenueCat (native)
 - Marketing/Transactional emails with Resend
@@ -55,7 +57,7 @@ For our react code style:
 ## Localization pattern (Lingui)
 
 - Default to Lingui for every user-facing text. Never ship raw strings; wrap them with `t`` template literals as soon as you add copy.
-- In React components or hooks, import `useLingui` and call it near the top (`const { t, i18n } = useLingui()`). Use `t``Text`` in JSX/TS, and call `i18n._(messageDescriptor)` for shared descriptor maps like `langNameMessages`.
+- In React components or hooks, import `useLingui` and call it near the top (`const { t, i18n } = useLingui()`). Use `t``Text`` in JSX/TS, and call `i18n.\_(messageDescriptor)`for shared descriptor maps like`langNameMessages`.
 - Outside React (e.g., config files, query meta, utility modules), import `{ t }` from `@lingui/macro` and, when needed, the shared `i18n` instance for lookups. Keep text in template literals so translators see the full sentence.
 - When interpolating values, assign them to descriptive variables and reference them inside the template literal (`const savedCount = ...; t`You saved ${savedCount} phrases``). Avoid string concatenation or unnamed `${expression}` chains.
 - Do not set custom ids when calling `t`. The English source string remains the id so extraction keeps working without manual bookkeeping.
@@ -68,6 +70,7 @@ For our react code style:
 # Comments
 
 Rules:
+
 - It's ok to put comments above big chunks of JSX in react components, this way we do not need to extract too many components
 - Try to explain why you did something rather than what and how you did it.
 - add links to docs above tickets, if the user provided the link.

@@ -2,15 +2,15 @@ import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useLingui } from '@lingui/react/macro'
 import { Button } from '@/components/shadcn/button'
 import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
-import { useModalStore } from '@/stores/modal-store'
-import { ModalId } from '@/components/modal/modal-ids'
+import { useOverlayStore } from '@/stores/overlay-store'
+import { OverlayId } from '@/components/overlay/overlay-ids'
 import { Route as premiumDemoRoute } from '@/routes/_authenticated/premium-demo'
 
 const DashboardView = () => {
   const { t } = useLingui()
   const navigate = useNavigate()
   const { needsSubscription, isPending } = useNeedsSubscription()
-  const openModal = useModalStore((state) => state.openModal)
+  const openOverlay = useOverlayStore((state) => state.openOverlay)
 
   const isSubscribed = !needsSubscription && !isPending
 
@@ -18,7 +18,7 @@ const DashboardView = () => {
     if (isSubscribed) {
       navigate({ to: premiumDemoRoute.to })
     } else {
-      openModal(ModalId.PRICING)
+      openOverlay(OverlayId.PRICING)
     }
   }
 

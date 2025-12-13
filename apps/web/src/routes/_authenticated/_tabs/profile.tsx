@@ -4,12 +4,12 @@ import { toast } from 'sonner'
 import { getUserAvatarUrl, getUserEmail, getUserName, useAuthStore } from '@/stores/auth-store'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
-import { useDeleteAccount } from '@/hooks/api/removals/removals-hooks'
 import { useModalStore } from '@/stores/modal-store'
 import { ModalId } from '@/components/modal/modal-ids'
 import { ChevronRight } from 'lucide-react'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { Route as AdminSettingsRoute } from '@/routes/_authenticated/admin-settings'
+import { Route as DangerZoneRoute } from '@/routes/_authenticated/danger-zone'
 
 const ProfileView = () => {
   const { t } = useLingui()
@@ -22,7 +22,6 @@ const ProfileView = () => {
 
   const { data: subscriptionData, isLoading: isSubscriptionLoading } = useGetSubscriptionDetails()
   const { mutate: mutateCustomerPortalSession, isPending: isCustomerPortalPending } = useCreateCustomerPortalSession()
-  const { mutate: deleteAccount, isPending: isDeletingAccount } = useDeleteAccount()
 
   const navigate = useNavigate()
 
@@ -45,6 +44,10 @@ const ProfileView = () => {
 
   const handleAdminSettingsPress = () => {
     navigate({ to: AdminSettingsRoute.to })
+  }
+
+  const handleDangerZonePress = () => {
+    navigate({ to: DangerZoneRoute.to })
   }
 
   const handleBillingClick = () => {
@@ -111,19 +114,17 @@ const ProfileView = () => {
       </button>
 
       <button
-        onClick={() => deleteAccount({})}
-        disabled={isDeletingAccount}
-        className='flex w-full items-center justify-between px-4 py-4 text-left text-red-600 hover:bg-red-50 disabled:opacity-50'
+        onClick={handleDangerZonePress}
+        className='flex w-full items-center justify-between px-4 py-4 text-left text-red-600 hover:bg-red-50'
       >
         <div className='flex items-center gap-3'>
-          <span>{t`Delete Account`}</span>
+          <span>{t`Danger Zone`}</span>
         </div>
         <ChevronRight className='h-5 w-5 text-red-400' />
       </button>
       <button
         onClick={handleAdminSettingsPress}
-        disabled={isDeletingAccount}
-        className='flex w-full items-center justify-between px-4 py-4 hover:bg-gray-50 disabled:opacity-50'
+        className='flex w-full items-center justify-between px-4 py-4 hover:bg-gray-50'
       >
         <div className='flex items-center gap-3'>
           <span>{t`Admin Settings`}</span>

@@ -322,12 +322,13 @@ msgid "Account Removed"
 msgstr "Konto usunięte"
 
 #: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:18
+#: apps/web/src/routes/_authenticated/danger-zone.tsx:33
 msgid "Actions in this section can lead to permanent data loss."
 msgstr "Działania w tej sekcji mogą prowadzić do trwałej utraty danych."
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:140
 #: apps/native/src/app/(authenticated)/admin-settings.tsx:17
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:129
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:130
 msgid "Admin Settings"
 msgstr "Ustawienia Administratora"
 
@@ -355,6 +356,7 @@ msgid "App Store"
 msgstr "App Store"
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:56
+#: apps/web/src/components/modal/modal-contents/delete-account/delete-account-modal-content.tsx:36
 msgid "Are you absolutely sure?"
 msgstr "Czy jesteś absolutnie pewien?"
 
@@ -393,6 +395,7 @@ msgstr "Uzyskując dostęp do naszej strony TemplateApp.com i korzystając z pow
 
 #: apps/native/src/components/sheets/content/contact-us-sheet-content.tsx:150
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:105
+#: apps/web/src/components/modal/modal-contents/delete-account/delete-account-modal-content.tsx:61
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -427,6 +430,10 @@ msgstr "Wybierz plan"
 #: apps/web/src/components/auth/auth/auth-email-sent-view.tsx:22
 msgid "Click the link in the email to continue."
 msgstr "Kliknij link w e-mailu, aby kontynuować."
+
+#: apps/web/src/components/modal/modal-contents/delete-account/delete-account-modal-content.tsx:58
+msgid "Confirm deletion"
+msgstr "Potwierdź usunięcie"
 
 #: apps/native/src/app/(authenticated)/(tabs)/_layout.tsx:85
 #: apps/web/src/components/navbar/contact-us-button.tsx:19
@@ -470,7 +477,7 @@ msgstr "Nie można załadować opcji płatności w tym momencie (brak ofert)."
 msgid "Could not load payment options. Please try again later."
 msgstr "Nie można załadować opcji płatności. Spróbuj ponownie później."
 
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:75
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:78
 msgid "Could not open billing settings."
 msgstr "Nie można otworzyć ustawień rozliczeń."
 
@@ -502,6 +509,8 @@ msgid "Customer Center"
 msgstr "Centrum Klienta"
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:143
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:121
+#: apps/web/src/routes/_authenticated/danger-zone.tsx:25
 msgid "Danger Zone"
 msgstr "Strefa Niebezpieczna"
 
@@ -513,10 +522,12 @@ msgid "Dashboard"
 msgstr "Panel"
 
 #: apps/web/src/routes/_authenticated/_tabs/profile.tsx:119
-msgid "Delete Account"
-msgstr "Usuń konto"
+#~ msgid "Delete Account"
+#~ msgstr "Usuń konto"
 
 #: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:24
+#: apps/web/src/routes/_authenticated/danger-zone.tsx:39
+#: apps/web/src/routes/_authenticated/danger-zone.tsx:44
 msgid "Delete my account"
 msgstr "Usuń moje konto"
 
@@ -704,13 +715,13 @@ msgstr "Ładowanie statusu subskrypcji..."
 #: apps/web/src/components/pricing/pricing-view-utils.ts:102
 #: apps/web/src/components/pricing/pricing-view-utils.ts:108
 #: apps/web/src/routes/_authenticated/_tabs/dashboard.tsx:38
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:80
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:83
 msgid "Loading..."
 msgstr "Ładowanie..."
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:119
 #: apps/web/src/components/pricing/pricing-view-utils.ts:104
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:82
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:85
 msgid "Manage Subscription"
 msgstr "Zarządzaj subskrypcją"
 
@@ -758,6 +769,10 @@ msgstr "lub skopiuj linki do"
 msgid "Our security infrastructure is continuously monitored, evaluated, and enhanced to meet evolving cybersecurity challenges. We maintain rigorous standards in data protection and follow security best practices recommended by leading technology security organizations. For complete transparency, we acknowledge that all digital systems require ongoing vigilance, which is why we've implemented comprehensive monitoring and rapid response protocols."
 msgstr "Nasza infrastruktura bezpieczeństwa jest stale monitorowana, oceniana i udoskonalana, aby sprostać zmieniającym się wyzwaniom cyberbezpieczeństwa. Utrzymujemy rygorystyczne standardy ochrony danych i stosujemy najlepsze praktyki rekomendowane przez wiodące organizacje zajmujące się bezpieczeństwem technologicznym. W pełni transparentnie przyznajemy, że wszystkie systemy cyfrowe wymagają ciągłej czujności, dlatego wdrożyliśmy kompleksowe monitorowanie oraz procedury szybkiej reakcji."
 
+#: apps/web/src/routes/_authenticated/danger-zone.tsx:40
+msgid "Permanently delete your account and all associated data"
+msgstr "Trwale usuń swoje konto i wszystkie powiązane dane"
+
 #: apps/landing-page/src/app/[lang]/(components)/hero-section.tsx:28
 msgid "Play Store"
 msgstr "Play Store"
@@ -776,7 +791,7 @@ msgstr "Wprowadź poprawny adres email"
 msgid "Please manage your subscription on our website: {webAccountUrl}"
 msgstr "Zarządzaj subskrypcją na naszej stronie internetowej: {webAccountUrl}"
 
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:71
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:74
 msgid "Please manage your subscription through the App Store or Google Play."
 msgstr "Zarządzaj swoją subskrypcją przez App Store lub Google Play."
 
@@ -793,6 +808,7 @@ msgid "Please try again or refresh the page."
 msgstr "Spróbuj ponownie lub odśwież stronę."
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:60
+#: apps/web/src/components/modal/modal-contents/delete-account/delete-account-modal-content.tsx:43
 msgid "Please type \"{EXPECTED_CONFIRMATION_TEXT}\""
 msgstr "Wpisz \"{EXPECTED_CONFIRMATION_TEXT}\""
 
@@ -859,6 +875,7 @@ msgstr "Wysyłanie emaila"
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:77
 #: apps/web/src/components/auth/auth/auth-email-view.tsx:84
 #: apps/web/src/components/modal/modal-contents/contact-us/contact-us-modal-content.tsx:118
+#: apps/web/src/components/modal/modal-contents/delete-account/delete-account-modal-content.tsx:58
 msgid "Sending..."
 msgstr "Wysyłanie..."
 
@@ -878,12 +895,12 @@ msgstr "Zaloguj"
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:152
 #: apps/web/src/components/pricing/pricing-view.tsx:178
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:138
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:139
 msgid "Sign out"
 msgstr "Wyloguj się"
 
 #: apps/web/src/components/pricing/pricing-view.tsx:111
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:43
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:42
 msgid "Sign out success"
 msgstr "Pomyślnie wylogowano"
 
@@ -1010,6 +1027,7 @@ msgid "There was an error. Please contact support."
 msgstr "Wystąpił błąd. Skontaktuj się z pomocą techniczną."
 
 #: apps/native/src/components/sheets/content/delete-account-sheet-content.tsx:58
+#: apps/web/src/components/modal/modal-contents/delete-account/delete-account-modal-content.tsx:38
 msgid "This action cannot be undone. This will permanently delete your account and related data from our servers."
 msgstr "Tej akcji nie można cofnąć. Spowoduje to trwałe usunięcie Twojego konta i powiązanych danych z naszych serwerów."
 
@@ -1069,7 +1087,7 @@ msgid "Update Required"
 msgstr "Wymagana aktualizacja"
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:110
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:81
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:84
 msgid "Upgrade to Premium"
 msgstr "Przejdź na Premium"
 
@@ -1114,6 +1132,7 @@ msgid "View Premium Demo"
 msgstr "Zobacz Demo Premium"
 
 #: apps/native/src/app/(authenticated)/profile/danger-zone.tsx:17
+#: apps/web/src/routes/_authenticated/danger-zone.tsx:32
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
@@ -1160,7 +1179,7 @@ msgid "Yearly"
 msgstr "Rocznie"
 
 #: apps/native/src/app/(authenticated)/(tabs)/profile.tsx:102
-#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:54
+#: apps/web/src/routes/_authenticated/_tabs/profile.tsx:57
 msgid "You are a special user with free access. You have no active subscription."
 msgstr "Jesteś specjalnym użytkownikiem z bezpłatnym dostępem. Nie masz aktywnej subskrypcji."
 

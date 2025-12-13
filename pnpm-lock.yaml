@@ -594,6 +594,9 @@ catalogs:
     uuid:
       specifier: 13.0.0
       version: 13.0.0
+    vaul:
+      specifier: 1.1.2
+      version: 1.1.2
     vite:
       specifier: 7.1.12
       version: 7.1.12
@@ -1479,6 +1482,9 @@ importers:
       turbo:
         specifier: 'catalog:'
         version: 2.6.3
+      vaul:
+        specifier: 'catalog:'
+        version: 1.1.2(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       zod:
         specifier: 'catalog:'
         version: 4.1.12
@@ -22803,6 +22809,15 @@ snapshots:
       '@radix-ui/react-dialog': 1.1.15(@types/react-dom@19.2.2(@types/react@19.1.10))(@types/react@19.1.10)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+
+  vaul@1.1.2(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+    dependencies:
+      '@radix-ui/react-dialog': 1.1.15(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
     transitivePeerDependencies:
       - '@types/react'
       - '@types/react-dom'

@@ -3,9 +3,8 @@
 import * as React from 'react'
 import { createContext, useContext } from 'react'
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '../shadcn/dialog'
-import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle } from '../shadcn/sheet'
+import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle } from '../shadcn/drawer'
 import { useIsMobile } from '@/hooks/use-is-mobile'
-import { cn } from '@template-app/core/utils/tailwind-utils'
 
 // Context to share mobile state with child components
 interface OverlayContextValue {
@@ -22,7 +21,7 @@ const useOverlayContext = () => {
   return context
 }
 
-// Root component that renders either Dialog or Sheet
+// Root component that renders either Dialog or Drawer
 interface ResponsiveOverlayProps {
   open: boolean
   onOpenChange: (open: boolean) => void
@@ -40,9 +39,9 @@ export const ResponsiveOverlay = ({ open, onOpenChange, children }: ResponsiveOv
   return (
     <OverlayContext.Provider value={{ isMobile }}>
       {isMobile ? (
-        <Sheet open={open} onOpenChange={onOpenChange}>
+        <Drawer open={open} onOpenChange={onOpenChange}>
           {children}
-        </Sheet>
+        </Drawer>
       ) : (
         <Dialog open={open} onOpenChange={onOpenChange}>
           {children}
@@ -52,7 +51,7 @@ export const ResponsiveOverlay = ({ open, onOpenChange, children }: ResponsiveOv
   )
 }
 
-// Content wrapper that renders DialogContent or SheetContent
+// Content wrapper that renders DialogContent or DrawerContent
 interface OverlayContentProps {
   className?: string
   children: React.ReactNode
@@ -63,11 +62,7 @@ export const OverlayContent = ({ className, children, showCloseButton = true }: 
   const { isMobile } = useOverlayContext()
 
   if (isMobile) {
-    return (
-      <SheetContent side='bottom' className={cn('max-h-[90vh] overflow-y-auto rounded-t-xl pb-8', className)}>
-        {children}
-      </SheetContent>
-    )
+    return <DrawerContent className={className}>{children}</DrawerContent>
   }
 
   return (
@@ -87,7 +82,7 @@ export const OverlayHeader = ({ className, children }: OverlayHeaderProps) => {
   const { isMobile } = useOverlayContext()
 
   if (isMobile) {
-    return <SheetHeader className={className}>{children}</SheetHeader>
+    return <DrawerHeader className={className}>{children}</DrawerHeader>
   }
 
   return <DialogHeader className={className}>{children}</DialogHeader>
@@ -103,7 +98,7 @@ export const OverlayTitle = ({ className, children }: OverlayTitleProps) => {
   const { isMobile } = useOverlayContext()
 
   if (isMobile) {
-    return <SheetTitle className={className}>{children}</SheetTitle>
+    return <DrawerTitle className={className}>{children}</DrawerTitle>
   }
 
   return <DialogTitle className={className}>{children}</DialogTitle>
@@ -119,7 +114,7 @@ export const OverlayDescription = ({ className, children }: OverlayDescriptionPr
   const { isMobile } = useOverlayContext()
 
   if (isMobile) {
-    return <SheetDescription className={className}>{children}</SheetDescription>
+    return <DrawerDescription className={className}>{children}</DrawerDescription>
   }
 
   return <DialogDescription className={className}>{children}</DialogDescription>
@@ -135,7 +130,7 @@ export const OverlayFooter = ({ className, children }: OverlayFooterProps) => {
   const { isMobile } = useOverlayContext()
 
   if (isMobile) {
-    return <SheetFooter className={className}>{children}</SheetFooter>
+    return <DrawerFooter className={className}>{children}</DrawerFooter>
   }
 
   return <DialogFooter className={className}>{children}</DialogFooter>

@@ -207,6 +207,7 @@ catalog:
   typescript: 5.9.2
   typescript-eslint: 8.45.0
   uuid: 13.0.0
+  vaul: 1.1.2
   victory-native: 41.20.1
   vite: 7.1.12
   vite-bundle-visualizer: 1.2.1

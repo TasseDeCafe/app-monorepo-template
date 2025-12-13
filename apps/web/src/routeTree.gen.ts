@@ -66,9 +66,9 @@ const AuthenticatedDangerZoneRoute = AuthenticatedDangerZoneRouteImport.update({
 } as any)
 const AuthenticatedAdminSettingsRoute =
   AuthenticatedAdminSettingsRouteImport.update({
-    id: '/_authenticated/admin-settings',
+    id: '/admin-settings',
     path: '/admin-settings',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRoute,
   } as any)
 const AuthenticatedTabsRoute = AuthenticatedTabsRouteImport.update({
   id: '/_authenticated/_tabs',
@@ -81,9 +81,9 @@ const LoginEmailIndexRoute = LoginEmailIndexRouteImport.update({
 } as any)
 const AuthenticatedPricingIndexRoute =
   AuthenticatedPricingIndexRouteImport.update({
-    id: '/_authenticated/pricing/',
+    id: '/pricing/',
     path: '/pricing/',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRoute,
   } as any)
 const LoginEmailVerifyRoute = LoginEmailVerifyRouteImport.update({
   id: '/login/email/verify',
@@ -97,21 +97,21 @@ const LoginEmailSentRoute = LoginEmailSentRouteImport.update({
 } as any)
 const AuthenticatedRedirectToCheckOutPlanIntervalRoute =
   AuthenticatedRedirectToCheckOutPlanIntervalRouteImport.update({
-    id: '/_authenticated/redirect-to-check-out/$planInterval',
+    id: '/redirect-to-check-out/$planInterval',
     path: '/redirect-to-check-out/$planInterval',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRoute,
   } as any)
 const AuthenticatedPricingFreeTrialRoute =
   AuthenticatedPricingFreeTrialRouteImport.update({
-    id: '/_authenticated/pricing/free-trial',
+    id: '/pricing/free-trial',
     path: '/pricing/free-trial',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRoute,
   } as any)
 const AuthenticatedPricingCheckoutSuccessRoute =
   AuthenticatedPricingCheckoutSuccessRouteImport.update({
-    id: '/_authenticated/pricing/checkout-success',
+    id: '/pricing/checkout-success',
     path: '/pricing/checkout-success',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRoute,
   } as any)
 const AuthenticatedTabsProfileRoute =
   AuthenticatedTabsProfileRouteImport.update({
@@ -258,17 +258,12 @@ export interface RootRouteChildren {
   ProtectedRoute: typeof ProtectedRoute
   FromLandingRoute: typeof FromLandingRoute
   AuthenticatedTabsRoute: typeof AuthenticatedTabsRouteWithChildren
-  AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
   AuthenticatedDangerZoneRoute: typeof AuthenticatedDangerZoneRoute
   AuthenticatedPremiumDemoRoute: typeof AuthenticatedPremiumDemoRoute
   AccountRemovedRoute: typeof AccountRemovedRoute
   LoginIndexRoute: typeof LoginIndexRoute
-  AuthenticatedPricingCheckoutSuccessRoute: typeof AuthenticatedPricingCheckoutSuccessRoute
-  AuthenticatedPricingFreeTrialRoute: typeof AuthenticatedPricingFreeTrialRoute
-  AuthenticatedRedirectToCheckOutPlanIntervalRoute: typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   LoginEmailSentRoute: typeof LoginEmailSentRoute
   LoginEmailVerifyRoute: typeof LoginEmailVerifyRoute
-  AuthenticatedPricingIndexRoute: typeof AuthenticatedPricingIndexRoute
   LoginEmailIndexRoute: typeof LoginEmailIndexRoute
 }
 
@@ -328,7 +323,7 @@ declare module '@tanstack/react-router' {
       path: '/admin-settings'
       fullPath: '/admin-settings'
       preLoaderRoute: typeof AuthenticatedAdminSettingsRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/_tabs': {
       id: '/_authenticated/_tabs'
@@ -349,7 +344,7 @@ declare module '@tanstack/react-router' {
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof AuthenticatedPricingIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
     '/login/email/verify': {
       id: '/login/email/verify'
@@ -370,21 +365,21 @@ declare module '@tanstack/react-router' {
       path: '/redirect-to-check-out/$planInterval'
       fullPath: '/redirect-to-check-out/$planInterval'
       preLoaderRoute: typeof AuthenticatedRedirectToCheckOutPlanIntervalRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/pricing/free-trial': {
       id: '/_authenticated/pricing/free-trial'
       path: '/pricing/free-trial'
       fullPath: '/pricing/free-trial'
       preLoaderRoute: typeof AuthenticatedPricingFreeTrialRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/pricing/checkout-success': {
       id: '/_authenticated/pricing/checkout-success'
       path: '/pricing/checkout-success'
       fullPath: '/pricing/checkout-success'
       preLoaderRoute: typeof AuthenticatedPricingCheckoutSuccessRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/_tabs/profile': {
       id: '/_authenticated/_tabs/profile'
@@ -430,19 +425,12 @@ const rootRouteChildren: RootRouteChildren = {
   ProtectedRoute: ProtectedRoute,
   FromLandingRoute: FromLandingRoute,
   AuthenticatedTabsRoute: AuthenticatedTabsRouteWithChildren,
-  AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
   AuthenticatedDangerZoneRoute: AuthenticatedDangerZoneRoute,
   AuthenticatedPremiumDemoRoute: AuthenticatedPremiumDemoRoute,
   AccountRemovedRoute: AccountRemovedRoute,
   LoginIndexRoute: LoginIndexRoute,
-  AuthenticatedPricingCheckoutSuccessRoute:
-    AuthenticatedPricingCheckoutSuccessRoute,
-  AuthenticatedPricingFreeTrialRoute: AuthenticatedPricingFreeTrialRoute,
-  AuthenticatedRedirectToCheckOutPlanIntervalRoute:
-    AuthenticatedRedirectToCheckOutPlanIntervalRoute,
   LoginEmailSentRoute: LoginEmailSentRoute,
   LoginEmailVerifyRoute: LoginEmailVerifyRoute,
-  AuthenticatedPricingIndexRoute: AuthenticatedPricingIndexRoute,
   LoginEmailIndexRoute: LoginEmailIndexRoute,
 }
 export const routeTree = rootRouteImport

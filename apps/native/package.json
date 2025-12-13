@@ -16,18 +16,7 @@
     "sync-env": "tsx scripts/sync-env.ts production",
     "reset": "bash scripts/reset-expo-app.sh",
     "reset:and-run-ios": "bash scripts/reset-expo-app.sh && pnpm ios",
-    "reset:and-run-android": "bash scripts/reset-expo-app.sh && cd apps/native && pnpm android",
-    "eas:build:dev:ios": "eas build --platform ios --profile development",
-    "eas:build:dev:android": "eas build --platform android --profile development",
-    "eas:build:dev:all": "eas build --platform all --profile development",
-    "eas:build:preview:ios": "pnpm sync-env && eas build --platform ios --profile preview",
-    "eas:build:preview:android": "pnpm sync-env && eas build --platform android --profile preview",
-    "eas:build:preview:all": "pnpm sync-env && eas build --platform all --profile preview",
-    "eas:build:prod:ios": "pnpm sync-env && eas build --platform ios --profile production",
-    "eas:build:prod:android": "pnpm sync-env && eas build --platform android --profile production",
-    "eas:build:prod:all": "pnpm sync-env && eas build --platform all --profile production --auto-submit",
-    "eas:submit:ios": "eas submit --platform ios",
-    "eas:submit:android": "eas submit --platform android"
+    "reset:and-run-android": "bash scripts/reset-expo-app.sh && cd apps/native && pnpm android"
   },
   "jest": {
     "preset": "jest-expo"
@@ -125,6 +114,7 @@
     "@types/react-test-renderer": "catalog:",
     "babel-plugin-macros": "catalog:",
     "concurrently": "catalog:",
+    "eas-build-cache-provider": "catalog:",
     "eslint": "catalog:",
     "eslint-config-expo": "catalog:",
     "eslint-config-prettier": "catalog:",

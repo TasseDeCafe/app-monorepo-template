@@ -71,6 +71,7 @@ const config = {
     scheme: 'template-app',
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
+    buildCacheProvider: 'eas',
     ios: {
       usesAppleSignIn: true,
       supportsTablet: false,

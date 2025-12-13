@@ -7,7 +7,7 @@ const freeTrialSearchSchema = z.object({
   planInterval: z.enum(PLAN_INTERVALS),
 })
 
-export const Route = createFileRoute('/_protected/pricing/free-trial')({
+export const Route = createFileRoute('/_authenticated/pricing/free-trial')({
   validateSearch: freeTrialSearchSchema,
   component: FreeTrialExplanationView,
 })

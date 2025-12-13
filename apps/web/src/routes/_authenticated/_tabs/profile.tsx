@@ -9,7 +9,7 @@ import { useModalStore } from '@/stores/modal-store'
 import { ModalId } from '@/components/modal/modal-ids'
 import { ChevronRight } from 'lucide-react'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import { Route as AdminSettingsRoute } from '@/routes/_protected/admin-settings'
+import { Route as AdminSettingsRoute } from '@/routes/_authenticated/admin-settings'
 
 const ProfileView = () => {
   const { t } = useLingui()
@@ -143,6 +143,6 @@ const ProfileView = () => {
   )
 }
 
-export const Route = createFileRoute('/_protected/_tabs/profile')({
+export const Route = createFileRoute('/_authenticated/_tabs/profile')({
   component: ProfileView,
 })

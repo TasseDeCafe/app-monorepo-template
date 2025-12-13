@@ -13,6 +13,6 @@ const HomeView = () => {
   )
 }
 
-export const Route = createFileRoute('/_protected/_tabs/home')({
+export const Route = createFileRoute('/_authenticated/_tabs/home')({
   component: HomeView,
 })

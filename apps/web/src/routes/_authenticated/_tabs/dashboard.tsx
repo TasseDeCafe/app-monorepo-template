@@ -4,7 +4,7 @@ import { Button } from '@/components/shadcn/button'
 import { useNeedsSubscription } from '@/hooks/use-needs-subscription'
 import { useModalStore } from '@/stores/modal-store'
 import { ModalId } from '@/components/modal/modal-ids'
-import { Route as premiumDemoRoute } from '@/routes/_protected/premium-demo'
+import { Route as premiumDemoRoute } from '@/routes/_authenticated/premium-demo'
 
 const DashboardView = () => {
   const { t } = useLingui()
@@ -54,6 +54,6 @@ const DashboardView = () => {
   )
 }
 
-export const Route = createFileRoute('/_protected/_tabs/dashboard')({
+export const Route = createFileRoute('/_authenticated/_tabs/dashboard')({
   component: DashboardView,
 })

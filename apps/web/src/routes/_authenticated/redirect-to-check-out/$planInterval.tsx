@@ -7,7 +7,7 @@ const planIntervalParamsSchema = z.object({
   planInterval: z.enum(PLAN_INTERVALS),
 })
 
-export const Route = createFileRoute('/_protected/redirect-to-check-out/$planInterval')({
+export const Route = createFileRoute('/_authenticated/redirect-to-check-out/$planInterval')({
   params: {
     parse: (params) => planIntervalParamsSchema.parse(params),
   },

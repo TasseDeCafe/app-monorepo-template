@@ -14,19 +14,19 @@ import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LoginIndexRouteImport } from './routes/login/index'
 import { Route as AccountRemovedRouteImport } from './routes/account/removed'
-import { Route as ProtectedPremiumDemoRouteImport } from './routes/_protected/premium-demo'
-import { Route as ProtectedAdminSettingsRouteImport } from './routes/_protected/admin-settings'
-import { Route as ProtectedTabsRouteImport } from './routes/_protected/_tabs'
+import { Route as AuthenticatedPremiumDemoRouteImport } from './routes/_authenticated/premium-demo'
+import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin-settings'
+import { Route as AuthenticatedTabsRouteImport } from './routes/_authenticated/_tabs'
 import { Route as LoginEmailIndexRouteImport } from './routes/login/email/index'
-import { Route as ProtectedPricingIndexRouteImport } from './routes/_protected/pricing/index'
+import { Route as AuthenticatedPricingIndexRouteImport } from './routes/_authenticated/pricing/index'
 import { Route as LoginEmailVerifyRouteImport } from './routes/login/email/verify'
 import { Route as LoginEmailSentRouteImport } from './routes/login/email/sent'
-import { Route as ProtectedRedirectToCheckOutPlanIntervalRouteImport } from './routes/_protected/redirect-to-check-out/$planInterval'
-import { Route as ProtectedPricingFreeTrialRouteImport } from './routes/_protected/pricing/free-trial'
-import { Route as ProtectedPricingCheckoutSuccessRouteImport } from './routes/_protected/pricing/checkout-success'
-import { Route as ProtectedTabsProfileRouteImport } from './routes/_protected/_tabs/profile'
-import { Route as ProtectedTabsHomeRouteImport } from './routes/_protected/_tabs/home'
-import { Route as ProtectedTabsDashboardRouteImport } from './routes/_protected/_tabs/dashboard'
+import { Route as AuthenticatedRedirectToCheckOutPlanIntervalRouteImport } from './routes/_authenticated/redirect-to-check-out/$planInterval'
+import { Route as AuthenticatedPricingFreeTrialRouteImport } from './routes/_authenticated/pricing/free-trial'
+import { Route as AuthenticatedPricingCheckoutSuccessRouteImport } from './routes/_authenticated/pricing/checkout-success'
+import { Route as AuthenticatedTabsProfileRouteImport } from './routes/_authenticated/_tabs/profile'
+import { Route as AuthenticatedTabsHomeRouteImport } from './routes/_authenticated/_tabs/home'
+import { Route as AuthenticatedTabsDashboardRouteImport } from './routes/_authenticated/_tabs/dashboard'
 
 const FromLandingRoute = FromLandingRouteImport.update({
   id: '/from-landing',
@@ -52,30 +52,33 @@ const AccountRemovedRoute = AccountRemovedRouteImport.update({
   path: '/account/removed',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProtectedPremiumDemoRoute = ProtectedPremiumDemoRouteImport.update({
-  id: '/premium-demo',
-  path: '/premium-demo',
-  getParentRoute: () => ProtectedRoute,
-} as any)
-const ProtectedAdminSettingsRoute = ProtectedAdminSettingsRouteImport.update({
-  id: '/admin-settings',
-  path: '/admin-settings',
-  getParentRoute: () => ProtectedRoute,
-} as any)
-const ProtectedTabsRoute = ProtectedTabsRouteImport.update({
-  id: '/_tabs',
-  getParentRoute: () => ProtectedRoute,
+const AuthenticatedPremiumDemoRoute =
+  AuthenticatedPremiumDemoRouteImport.update({
+    id: '/_authenticated/premium-demo',
+    path: '/premium-demo',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedAdminSettingsRoute =
+  AuthenticatedAdminSettingsRouteImport.update({
+    id: '/_authenticated/admin-settings',
+    path: '/admin-settings',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AuthenticatedTabsRoute = AuthenticatedTabsRouteImport.update({
+  id: '/_authenticated/_tabs',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const LoginEmailIndexRoute = LoginEmailIndexRouteImport.update({
   id: '/login/email/',
   path: '/login/email/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProtectedPricingIndexRoute = ProtectedPricingIndexRouteImport.update({
-  id: '/pricing/',
-  path: '/pricing/',
-  getParentRoute: () => ProtectedRoute,
-} as any)
+const AuthenticatedPricingIndexRoute =
+  AuthenticatedPricingIndexRouteImport.update({
+    id: '/_authenticated/pricing/',
+    path: '/pricing/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LoginEmailVerifyRoute = LoginEmailVerifyRouteImport.update({
   id: '/login/email/verify',
   path: '/login/email/verify',
@@ -86,95 +89,97 @@ const LoginEmailSentRoute = LoginEmailSentRouteImport.update({
   path: '/login/email/sent',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProtectedRedirectToCheckOutPlanIntervalRoute =
-  ProtectedRedirectToCheckOutPlanIntervalRouteImport.update({
-    id: '/redirect-to-check-out/$planInterval',
+const AuthenticatedRedirectToCheckOutPlanIntervalRoute =
+  AuthenticatedRedirectToCheckOutPlanIntervalRouteImport.update({
+    id: '/_authenticated/redirect-to-check-out/$planInterval',
     path: '/redirect-to-check-out/$planInterval',
-    getParentRoute: () => ProtectedRoute,
+    getParentRoute: () => rootRouteImport,
   } as any)
-const ProtectedPricingFreeTrialRoute =
-  ProtectedPricingFreeTrialRouteImport.update({
-    id: '/pricing/free-trial',
+const AuthenticatedPricingFreeTrialRoute =
+  AuthenticatedPricingFreeTrialRouteImport.update({
+    id: '/_authenticated/pricing/free-trial',
     path: '/pricing/free-trial',
-    getParentRoute: () => ProtectedRoute,
+    getParentRoute: () => rootRouteImport,
   } as any)
-const ProtectedPricingCheckoutSuccessRoute =
-  ProtectedPricingCheckoutSuccessRouteImport.update({
-    id: '/pricing/checkout-success',
+const AuthenticatedPricingCheckoutSuccessRoute =
+  AuthenticatedPricingCheckoutSuccessRouteImport.update({
+    id: '/_authenticated/pricing/checkout-success',
     path: '/pricing/checkout-success',
-    getParentRoute: () => ProtectedRoute,
+    getParentRoute: () => rootRouteImport,
   } as any)
-const ProtectedTabsProfileRoute = ProtectedTabsProfileRouteImport.update({
-  id: '/profile',
-  path: '/profile',
-  getParentRoute: () => ProtectedTabsRoute,
-} as any)
-const ProtectedTabsHomeRoute = ProtectedTabsHomeRouteImport.update({
+const AuthenticatedTabsProfileRoute =
+  AuthenticatedTabsProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => AuthenticatedTabsRoute,
+  } as any)
+const AuthenticatedTabsHomeRoute = AuthenticatedTabsHomeRouteImport.update({
   id: '/home',
   path: '/home',
-  getParentRoute: () => ProtectedTabsRoute,
+  getParentRoute: () => AuthenticatedTabsRoute,
 } as any)
-const ProtectedTabsDashboardRoute = ProtectedTabsDashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => ProtectedTabsRoute,
-} as any)
+const AuthenticatedTabsDashboardRoute =
+  AuthenticatedTabsDashboardRouteImport.update({
+    id: '/dashboard',
+    path: '/dashboard',
+    getParentRoute: () => AuthenticatedTabsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/from-landing': typeof FromLandingRoute
-  '/admin-settings': typeof ProtectedAdminSettingsRoute
-  '/premium-demo': typeof ProtectedPremiumDemoRoute
+  '/admin-settings': typeof AuthenticatedAdminSettingsRoute
+  '/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
-  '/dashboard': typeof ProtectedTabsDashboardRoute
-  '/home': typeof ProtectedTabsHomeRoute
-  '/profile': typeof ProtectedTabsProfileRoute
-  '/pricing/checkout-success': typeof ProtectedPricingCheckoutSuccessRoute
-  '/pricing/free-trial': typeof ProtectedPricingFreeTrialRoute
-  '/redirect-to-check-out/$planInterval': typeof ProtectedRedirectToCheckOutPlanIntervalRoute
+  '/dashboard': typeof AuthenticatedTabsDashboardRoute
+  '/home': typeof AuthenticatedTabsHomeRoute
+  '/profile': typeof AuthenticatedTabsProfileRoute
+  '/pricing/checkout-success': typeof AuthenticatedPricingCheckoutSuccessRoute
+  '/pricing/free-trial': typeof AuthenticatedPricingFreeTrialRoute
+  '/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
   '/login/email/verify': typeof LoginEmailVerifyRoute
-  '/pricing': typeof ProtectedPricingIndexRoute
+  '/pricing': typeof AuthenticatedPricingIndexRoute
   '/login/email': typeof LoginEmailIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/from-landing': typeof FromLandingRoute
-  '/admin-settings': typeof ProtectedAdminSettingsRoute
-  '/premium-demo': typeof ProtectedPremiumDemoRoute
+  '/admin-settings': typeof AuthenticatedAdminSettingsRoute
+  '/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login': typeof LoginIndexRoute
-  '/dashboard': typeof ProtectedTabsDashboardRoute
-  '/home': typeof ProtectedTabsHomeRoute
-  '/profile': typeof ProtectedTabsProfileRoute
-  '/pricing/checkout-success': typeof ProtectedPricingCheckoutSuccessRoute
-  '/pricing/free-trial': typeof ProtectedPricingFreeTrialRoute
-  '/redirect-to-check-out/$planInterval': typeof ProtectedRedirectToCheckOutPlanIntervalRoute
+  '/dashboard': typeof AuthenticatedTabsDashboardRoute
+  '/home': typeof AuthenticatedTabsHomeRoute
+  '/profile': typeof AuthenticatedTabsProfileRoute
+  '/pricing/checkout-success': typeof AuthenticatedPricingCheckoutSuccessRoute
+  '/pricing/free-trial': typeof AuthenticatedPricingFreeTrialRoute
+  '/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
   '/login/email/verify': typeof LoginEmailVerifyRoute
-  '/pricing': typeof ProtectedPricingIndexRoute
+  '/pricing': typeof AuthenticatedPricingIndexRoute
   '/login/email': typeof LoginEmailIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_protected': typeof ProtectedRouteWithChildren
+  '/_protected': typeof ProtectedRoute
   '/from-landing': typeof FromLandingRoute
-  '/_protected/_tabs': typeof ProtectedTabsRouteWithChildren
-  '/_protected/admin-settings': typeof ProtectedAdminSettingsRoute
-  '/_protected/premium-demo': typeof ProtectedPremiumDemoRoute
+  '/_authenticated/_tabs': typeof AuthenticatedTabsRouteWithChildren
+  '/_authenticated/admin-settings': typeof AuthenticatedAdminSettingsRoute
+  '/_authenticated/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
   '/login/': typeof LoginIndexRoute
-  '/_protected/_tabs/dashboard': typeof ProtectedTabsDashboardRoute
-  '/_protected/_tabs/home': typeof ProtectedTabsHomeRoute
-  '/_protected/_tabs/profile': typeof ProtectedTabsProfileRoute
-  '/_protected/pricing/checkout-success': typeof ProtectedPricingCheckoutSuccessRoute
-  '/_protected/pricing/free-trial': typeof ProtectedPricingFreeTrialRoute
-  '/_protected/redirect-to-check-out/$planInterval': typeof ProtectedRedirectToCheckOutPlanIntervalRoute
+  '/_authenticated/_tabs/dashboard': typeof AuthenticatedTabsDashboardRoute
+  '/_authenticated/_tabs/home': typeof AuthenticatedTabsHomeRoute
+  '/_authenticated/_tabs/profile': typeof AuthenticatedTabsProfileRoute
+  '/_authenticated/pricing/checkout-success': typeof AuthenticatedPricingCheckoutSuccessRoute
+  '/_authenticated/pricing/free-trial': typeof AuthenticatedPricingFreeTrialRoute
+  '/_authenticated/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
   '/login/email/verify': typeof LoginEmailVerifyRoute
-  '/_protected/pricing/': typeof ProtectedPricingIndexRoute
+  '/_authenticated/pricing/': typeof AuthenticatedPricingIndexRoute
   '/login/email/': typeof LoginEmailIndexRoute
 }
 export interface FileRouteTypes {
@@ -219,31 +224,38 @@ export interface FileRouteTypes {
     | '/'
     | '/_protected'
     | '/from-landing'
-    | '/_protected/_tabs'
-    | '/_protected/admin-settings'
-    | '/_protected/premium-demo'
+    | '/_authenticated/_tabs'
+    | '/_authenticated/admin-settings'
+    | '/_authenticated/premium-demo'
     | '/account/removed'
     | '/login/'
-    | '/_protected/_tabs/dashboard'
-    | '/_protected/_tabs/home'
-    | '/_protected/_tabs/profile'
-    | '/_protected/pricing/checkout-success'
-    | '/_protected/pricing/free-trial'
-    | '/_protected/redirect-to-check-out/$planInterval'
+    | '/_authenticated/_tabs/dashboard'
+    | '/_authenticated/_tabs/home'
+    | '/_authenticated/_tabs/profile'
+    | '/_authenticated/pricing/checkout-success'
+    | '/_authenticated/pricing/free-trial'
+    | '/_authenticated/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
     | '/login/email/verify'
-    | '/_protected/pricing/'
+    | '/_authenticated/pricing/'
     | '/login/email/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ProtectedRoute: typeof ProtectedRouteWithChildren
+  ProtectedRoute: typeof ProtectedRoute
   FromLandingRoute: typeof FromLandingRoute
+  AuthenticatedTabsRoute: typeof AuthenticatedTabsRouteWithChildren
+  AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
+  AuthenticatedPremiumDemoRoute: typeof AuthenticatedPremiumDemoRoute
   AccountRemovedRoute: typeof AccountRemovedRoute
   LoginIndexRoute: typeof LoginIndexRoute
+  AuthenticatedPricingCheckoutSuccessRoute: typeof AuthenticatedPricingCheckoutSuccessRoute
+  AuthenticatedPricingFreeTrialRoute: typeof AuthenticatedPricingFreeTrialRoute
+  AuthenticatedRedirectToCheckOutPlanIntervalRoute: typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   LoginEmailSentRoute: typeof LoginEmailSentRoute
   LoginEmailVerifyRoute: typeof LoginEmailVerifyRoute
+  AuthenticatedPricingIndexRoute: typeof AuthenticatedPricingIndexRoute
   LoginEmailIndexRoute: typeof LoginEmailIndexRoute
 }
 
@@ -284,26 +296,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRemovedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_protected/premium-demo': {
-      id: '/_protected/premium-demo'
+    '/_authenticated/premium-demo': {
+      id: '/_authenticated/premium-demo'
       path: '/premium-demo'
       fullPath: '/premium-demo'
-      preLoaderRoute: typeof ProtectedPremiumDemoRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedPremiumDemoRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_protected/admin-settings': {
-      id: '/_protected/admin-settings'
+    '/_authenticated/admin-settings': {
+      id: '/_authenticated/admin-settings'
       path: '/admin-settings'
       fullPath: '/admin-settings'
-      preLoaderRoute: typeof ProtectedAdminSettingsRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedAdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_protected/_tabs': {
-      id: '/_protected/_tabs'
+    '/_authenticated/_tabs': {
+      id: '/_authenticated/_tabs'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof ProtectedTabsRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedTabsRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/login/email/': {
       id: '/login/email/'
@@ -312,12 +324,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginEmailIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_protected/pricing/': {
-      id: '/_protected/pricing/'
+    '/_authenticated/pricing/': {
+      id: '/_authenticated/pricing/'
       path: '/pricing'
       fullPath: '/pricing'
-      preLoaderRoute: typeof ProtectedPricingIndexRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedPricingIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/login/email/verify': {
       id: '/login/email/verify'
@@ -333,100 +345,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginEmailSentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_protected/redirect-to-check-out/$planInterval': {
-      id: '/_protected/redirect-to-check-out/$planInterval'
+    '/_authenticated/redirect-to-check-out/$planInterval': {
+      id: '/_authenticated/redirect-to-check-out/$planInterval'
       path: '/redirect-to-check-out/$planInterval'
       fullPath: '/redirect-to-check-out/$planInterval'
-      preLoaderRoute: typeof ProtectedRedirectToCheckOutPlanIntervalRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedRedirectToCheckOutPlanIntervalRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_protected/pricing/free-trial': {
-      id: '/_protected/pricing/free-trial'
+    '/_authenticated/pricing/free-trial': {
+      id: '/_authenticated/pricing/free-trial'
       path: '/pricing/free-trial'
       fullPath: '/pricing/free-trial'
-      preLoaderRoute: typeof ProtectedPricingFreeTrialRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedPricingFreeTrialRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_protected/pricing/checkout-success': {
-      id: '/_protected/pricing/checkout-success'
+    '/_authenticated/pricing/checkout-success': {
+      id: '/_authenticated/pricing/checkout-success'
       path: '/pricing/checkout-success'
       fullPath: '/pricing/checkout-success'
-      preLoaderRoute: typeof ProtectedPricingCheckoutSuccessRouteImport
-      parentRoute: typeof ProtectedRoute
+      preLoaderRoute: typeof AuthenticatedPricingCheckoutSuccessRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_protected/_tabs/profile': {
-      id: '/_protected/_tabs/profile'
+    '/_authenticated/_tabs/profile': {
+      id: '/_authenticated/_tabs/profile'
       path: '/profile'
       fullPath: '/profile'
-      preLoaderRoute: typeof ProtectedTabsProfileRouteImport
-      parentRoute: typeof ProtectedTabsRoute
+      preLoaderRoute: typeof AuthenticatedTabsProfileRouteImport
+      parentRoute: typeof AuthenticatedTabsRoute
     }
-    '/_protected/_tabs/home': {
-      id: '/_protected/_tabs/home'
+    '/_authenticated/_tabs/home': {
+      id: '/_authenticated/_tabs/home'
       path: '/home'
       fullPath: '/home'
-      preLoaderRoute: typeof ProtectedTabsHomeRouteImport
-      parentRoute: typeof ProtectedTabsRoute
+      preLoaderRoute: typeof AuthenticatedTabsHomeRouteImport
+      parentRoute: typeof AuthenticatedTabsRoute
     }
-    '/_protected/_tabs/dashboard': {
-      id: '/_protected/_tabs/dashboard'
+    '/_authenticated/_tabs/dashboard': {
+      id: '/_authenticated/_tabs/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
-      preLoaderRoute: typeof ProtectedTabsDashboardRouteImport
-      parentRoute: typeof ProtectedTabsRoute
+      preLoaderRoute: typeof AuthenticatedTabsDashboardRouteImport
+      parentRoute: typeof AuthenticatedTabsRoute
     }
   }
 }
 
-interface ProtectedTabsRouteChildren {
-  ProtectedTabsDashboardRoute: typeof ProtectedTabsDashboardRoute
-  ProtectedTabsHomeRoute: typeof ProtectedTabsHomeRoute
-  ProtectedTabsProfileRoute: typeof ProtectedTabsProfileRoute
+interface AuthenticatedTabsRouteChildren {
+  AuthenticatedTabsDashboardRoute: typeof AuthenticatedTabsDashboardRoute
+  AuthenticatedTabsHomeRoute: typeof AuthenticatedTabsHomeRoute
+  AuthenticatedTabsProfileRoute: typeof AuthenticatedTabsProfileRoute
 }
 
-const ProtectedTabsRouteChildren: ProtectedTabsRouteChildren = {
-  ProtectedTabsDashboardRoute: ProtectedTabsDashboardRoute,
-  ProtectedTabsHomeRoute: ProtectedTabsHomeRoute,
-  ProtectedTabsProfileRoute: ProtectedTabsProfileRoute,
+const AuthenticatedTabsRouteChildren: AuthenticatedTabsRouteChildren = {
+  AuthenticatedTabsDashboardRoute: AuthenticatedTabsDashboardRoute,
+  AuthenticatedTabsHomeRoute: AuthenticatedTabsHomeRoute,
+  AuthenticatedTabsProfileRoute: AuthenticatedTabsProfileRoute,
 }
 
-const ProtectedTabsRouteWithChildren = ProtectedTabsRoute._addFileChildren(
-  ProtectedTabsRouteChildren,
-)
-
-interface ProtectedRouteChildren {
-  ProtectedTabsRoute: typeof ProtectedTabsRouteWithChildren
-  ProtectedAdminSettingsRoute: typeof ProtectedAdminSettingsRoute
-  ProtectedPremiumDemoRoute: typeof ProtectedPremiumDemoRoute
-  ProtectedPricingCheckoutSuccessRoute: typeof ProtectedPricingCheckoutSuccessRoute
-  ProtectedPricingFreeTrialRoute: typeof ProtectedPricingFreeTrialRoute
-  ProtectedRedirectToCheckOutPlanIntervalRoute: typeof ProtectedRedirectToCheckOutPlanIntervalRoute
-  ProtectedPricingIndexRoute: typeof ProtectedPricingIndexRoute
-}
-
-const ProtectedRouteChildren: ProtectedRouteChildren = {
-  ProtectedTabsRoute: ProtectedTabsRouteWithChildren,
-  ProtectedAdminSettingsRoute: ProtectedAdminSettingsRoute,
-  ProtectedPremiumDemoRoute: ProtectedPremiumDemoRoute,
-  ProtectedPricingCheckoutSuccessRoute: ProtectedPricingCheckoutSuccessRoute,
-  ProtectedPricingFreeTrialRoute: ProtectedPricingFreeTrialRoute,
-  ProtectedRedirectToCheckOutPlanIntervalRoute:
-    ProtectedRedirectToCheckOutPlanIntervalRoute,
-  ProtectedPricingIndexRoute: ProtectedPricingIndexRoute,
-}
-
-const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
-  ProtectedRouteChildren,
-)
+const AuthenticatedTabsRouteWithChildren =
+  AuthenticatedTabsRoute._addFileChildren(AuthenticatedTabsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ProtectedRoute: ProtectedRouteWithChildren,
+  ProtectedRoute: ProtectedRoute,
   FromLandingRoute: FromLandingRoute,
+  AuthenticatedTabsRoute: AuthenticatedTabsRouteWithChildren,
+  AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
+  AuthenticatedPremiumDemoRoute: AuthenticatedPremiumDemoRoute,
   AccountRemovedRoute: AccountRemovedRoute,
   LoginIndexRoute: LoginIndexRoute,
+  AuthenticatedPricingCheckoutSuccessRoute:
+    AuthenticatedPricingCheckoutSuccessRoute,
+  AuthenticatedPricingFreeTrialRoute: AuthenticatedPricingFreeTrialRoute,
+  AuthenticatedRedirectToCheckOutPlanIntervalRoute:
+    AuthenticatedRedirectToCheckOutPlanIntervalRoute,
   LoginEmailSentRoute: LoginEmailSentRoute,
   LoginEmailVerifyRoute: LoginEmailVerifyRoute,
+  AuthenticatedPricingIndexRoute: AuthenticatedPricingIndexRoute,
   LoginEmailIndexRoute: LoginEmailIndexRoute,
 }
 export const routeTree = rootRouteImport

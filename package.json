@@ -41,7 +41,8 @@
     "start:ngrok": "pnpm --filter native start:ngrok",
     "ios": "pnpm --filter native ios",
     "android": "pnpm --filter native android",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate:logos": "scripts/generate-logos.sh"
   },
   "devDependencies": {
     "@lingui/cli": "catalog:",

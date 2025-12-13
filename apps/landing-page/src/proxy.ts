@@ -38,6 +38,6 @@ export const config = {
   matcher: [
     // Skip all internal paths (_next), images, and others as in this answer:
     // https://stackoverflow.com/a/76352546/3975247
-    '/((?!api|_next/static|_next/image|.well-known|images|favicon.ico|twitter-image.jpg|opengraph-image.jpg|icon.png|apple-icon.png|links/|yba-admin|yba-admin/clear-data).*)',
+    '/((?!api|_next/static|_next/image|.well-known|images|favicon.ico|twitter-image.png|opengraph-image.png|icon.png|apple-icon.png|links/|yba-admin|yba-admin/clear-data).*)',
   ],
 }

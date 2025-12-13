@@ -2,11 +2,11 @@ import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing
 import { useMutation } from '@tanstack/react-query'
 import { orpcQuery } from '@/transport/our-backend/orpc-client'
 import { useLingui } from '@lingui/react/macro'
-import { useModalStore } from '@/stores/modal-store'
+import { useOverlayStore } from '@/stores/overlay-store'
 
 export const useCheckoutMutation = () => {
   const { t } = useLingui()
-  const openErrorModal = useModalStore((state) => state.openErrorModal)
+  const openErrorOverlay = useOverlayStore((state) => state.openErrorOverlay)
 
   return useMutation(
     orpcQuery.checkout.createCheckoutSession.mutationOptions({
@@ -14,7 +14,7 @@ export const useCheckoutMutation = () => {
         window.location.href = response.data.url ?? ''
       },
       onError: () => {
-        openErrorModal(USER_FACING_ERROR_CODE.CHECKOUT_ERROR)
+        openErrorOverlay(USER_FACING_ERROR_CODE.CHECKOUT_ERROR)
       },
       meta: {
         errorMessage: t`Failed to create checkout session`,

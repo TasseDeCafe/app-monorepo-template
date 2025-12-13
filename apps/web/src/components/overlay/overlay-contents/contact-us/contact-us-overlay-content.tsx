@@ -1,4 +1,4 @@
-import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../../shadcn/dialog'
+import { OverlayContent, OverlayDescription, OverlayHeader, OverlayTitle } from '../../responsive-overlay'
 import { Loader2, Send } from 'lucide-react'
 import { Textarea } from '../../../shadcn/textarea'
 import { Input } from '../../../shadcn/input'
@@ -11,15 +11,15 @@ import { formSchema } from '@template-app/api-client/orpc-contracts/contact-emai
 import { useSendContactEmail } from '@/hooks/api/contact-email/contact-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { useAuthStore, getUserEmail, getUserName } from '@/stores/auth-store'
-import { useModalStore } from '@/stores/modal-store'
+import { useOverlayStore } from '@/stores/overlay-store'
 import { Button } from '@/components/shadcn/button'
 
-export const ContactUsModalContent = () => {
+export const ContactUsOverlayContent = () => {
   const { t } = useLingui()
 
   const userEmail = useAuthStore(getUserEmail)
   const username = useAuthStore(getUserName)
-  const closeModal = useModalStore((state) => state.closeModal)
+  const closeOverlay = useOverlayStore((state) => state.closeOverlay)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -38,7 +38,7 @@ export const ContactUsModalContent = () => {
   } = useSendContactEmail({
     onSuccess: () => {
       form.reset()
-      closeModal()
+      closeOverlay()
     },
   })
 
@@ -47,12 +47,12 @@ export const ContactUsModalContent = () => {
   }
 
   return (
-    <DialogContent>
-      <DialogHeader>
-        <DialogTitle>{t`Help us improve TemplateApp`}</DialogTitle>
+    <OverlayContent>
+      <OverlayHeader>
+        <OverlayTitle>{t`Help us improve TemplateApp`}</OverlayTitle>
         <p className='text-sm text-gray-500'>{t`Share your feedback or suggest improvements to the founders. We read and reply to every submission!`}</p>
-        <DialogDescription className='hidden'></DialogDescription>
-      </DialogHeader>
+        <OverlayDescription className='hidden'></OverlayDescription>
+      </OverlayHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='mt-4 space-y-4'>
           <FormField
@@ -101,7 +101,7 @@ export const ContactUsModalContent = () => {
           />
 
           <div className='flex justify-end gap-3'>
-            <Button variant='outline' onClick={() => closeModal()} type='button'>
+            <Button variant='outline' onClick={() => closeOverlay()} type='button'>
               {t`Cancel`}
             </Button>
             <Button
@@ -129,6 +129,6 @@ export const ContactUsModalContent = () => {
           </div>
         </form>
       </Form>
-    </DialogContent>
+    </OverlayContent>
   )
 }

@@ -7,7 +7,7 @@ export const ContactUsButton = () => {
   const router = useRouter()
 
   const handleContactUsClick = () => {
-    const currentSearch = router.state.location.search as Record<string, unknown>
+    const currentSearch = router.state.location.search
     void router.navigate({
       to: router.state.location.pathname,
       search: { ...currentSearch, modal: 'contact-us' },

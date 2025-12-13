@@ -4,8 +4,8 @@ import { toast } from 'sonner'
 import { getUserAvatarUrl, getUserEmail, getUserName, useAuthStore } from '@/stores/auth-store'
 import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCreateCustomerPortalSession } from '@/hooks/api/portal-session/portal-session-hooks'
-import { useModalStore } from '@/stores/modal-store'
-import { ModalId } from '@/components/modal/modal-ids'
+import { useOverlayStore } from '@/stores/overlay-store'
+import { OverlayId } from '@/components/overlay/overlay-ids'
 import { ChevronRight } from 'lucide-react'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { Route as AdminSettingsRoute } from '@/routes/_authenticated/admin-settings'
@@ -18,7 +18,7 @@ const ProfileView = () => {
   const userName = useAuthStore(getUserName)
   const avatarUrl = useAuthStore(getUserAvatarUrl)
   const signOut = useAuthStore((state) => state.signOut)
-  const openModal = useModalStore((state) => state.openModal)
+  const openOverlay = useOverlayStore((state) => state.openOverlay)
 
   const { data: subscriptionData, isLoading: isSubscriptionLoading } = useGetSubscriptionDetails()
   const { mutate: mutateCustomerPortalSession, isPending: isCustomerPortalPending } = useCreateCustomerPortalSession()
@@ -59,7 +59,7 @@ const ProfileView = () => {
     }
 
     if (!subscriptionData?.isPremiumUser) {
-      openModal(ModalId.PRICING)
+      openOverlay(OverlayId.PRICING)
       return
     }
 

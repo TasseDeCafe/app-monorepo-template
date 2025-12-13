@@ -14,23 +14,23 @@ import { toast } from 'sonner'
 import { QueryMeta } from '@/hooks/api/hook-types'
 import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
-import { useModalStore } from '@/stores/modal-store'
+import { useOverlayStore } from '@/stores/overlay-store'
 import { Route as pricingRoute } from '@/routes/_authenticated/pricing/index'
 import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
-import { ModalId } from '@/components/modal/modal-ids'
+import { OverlayId } from '@/components/overlay/overlay-ids'
 import { ORPCError } from '@orpc/contract'
 import { i18n } from '@/i18n/i18n'
 import { msg, t } from '@lingui/core/macro'
 
 const handleGenericApiError = (meta?: QueryMeta) => {
   const showErrorToast = meta?.showErrorToast ?? true
-  // by default, we don't show the intrusive error modal
+  // by default, we don't show the intrusive error overlay
   // to show it, explicitly pass showErrorModal = true in the hook
   const showErrorModal = meta?.showErrorModal ?? false
   const errorMessage = meta?.errorMessage ?? i18n._(msg`Something went wrong.`)
 
   if (showErrorModal) {
-    useModalStore.getState().openErrorModal(USER_FACING_ERROR_CODE.GENERIC_ERROR)
+    useOverlayStore.getState().openErrorOverlay(USER_FACING_ERROR_CODE.GENERIC_ERROR)
   } else if (showErrorToast) {
     toast.error(errorMessage, {
       description: i18n._(msg`Please try again or refresh the page.`),
@@ -72,7 +72,7 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
   if (error.code === 'TOO_MANY_REQUESTS') {
     POSTHOG_EVENTS.rateLimitUser()
     if (showErrorModal) {
-      useModalStore.getState().openModal(ModalId.RATE_LIMITING)
+      useOverlayStore.getState().openOverlay(OverlayId.RATE_LIMITING)
     }
     return
   }
@@ -81,7 +81,7 @@ const handleApiError = (error: unknown, meta?: QueryMeta) => {
     if (backendErrorCode === ERROR_CODE_FOR_INVALID_TOKEN) {
       POSTHOG_EVENTS.invalidTokenError()
       if (showErrorModal) {
-        useModalStore.getState().openErrorModal(USER_FACING_ERROR_CODE.INVALID_TOKEN_ERROR)
+        useOverlayStore.getState().openErrorOverlay(USER_FACING_ERROR_CODE.INVALID_TOKEN_ERROR)
       }
       return
     }

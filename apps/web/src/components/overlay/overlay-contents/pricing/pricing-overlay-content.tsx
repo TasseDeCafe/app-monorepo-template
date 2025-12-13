@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { DialogContent, DialogDescription, DialogHeader, DialogTitle } from '../../../shadcn/dialog'
+import { OverlayContent, OverlayDescription, OverlayHeader, OverlayTitle } from '../../responsive-overlay'
 import { Button } from '../../../shadcn/button'
 import { RadioGroup, RadioGroupItem } from '../../../shadcn/radio-group'
 import { Label } from '../../../shadcn/label'
@@ -18,14 +18,14 @@ import { useGetSubscriptionDetails } from '@/hooks/api/billing/billing-hooks'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { useTrackingStore, getHasAllowedReferral } from '@/stores/tracking-store'
-import { useModalStore } from '@/stores/modal-store'
+import { useOverlayStore } from '@/stores/overlay-store'
 
-export const PricingModalContent = () => {
+export const PricingOverlayContent = () => {
   const { t } = useLingui()
   const [clickedPlan, setClickedPlan] = useState<PlanType>('year')
   const hasAllowedReferral = useTrackingStore(getHasAllowedReferral)
   const navigate = useNavigate()
-  const closeModal = useModalStore((state) => state.closeModal)
+  const closeOverlay = useOverlayStore((state) => state.closeOverlay)
 
   const handlePlanOptionClick = (planType: PlanType) => {
     POSTHOG_EVENTS.clickPlan('plan_radio_button', planType)
@@ -65,7 +65,7 @@ export const PricingModalContent = () => {
   const handleCTAClick = () => {
     POSTHOG_EVENTS.click('subscribe_button')
     if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
-      closeModal()
+      closeOverlay()
       navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
     } else {
       mutate({
@@ -92,11 +92,11 @@ export const PricingModalContent = () => {
   })
 
   return (
-    <DialogContent className='sm:max-w-md'>
-      <DialogHeader>
-        <DialogTitle>{t`Subscribe to access premium features`}</DialogTitle>
-        <DialogDescription>{t`Choose a plan to unlock all features`}</DialogDescription>
-      </DialogHeader>
+    <OverlayContent className='sm:max-w-md'>
+      <OverlayHeader>
+        <OverlayTitle>{t`Subscribe to access premium features`}</OverlayTitle>
+        <OverlayDescription>{t`Choose a plan to unlock all features`}</OverlayDescription>
+      </OverlayHeader>
       <div className='flex flex-col gap-4'>
         <RadioGroup
           value={clickedPlan ?? undefined}
@@ -125,11 +125,11 @@ export const PricingModalContent = () => {
           <Button onClick={handleCTAClick} disabled={pricingViewConfig.subscribeButton.isDisabled}>
             {pricingViewConfig.subscribeButton.text}
           </Button>
-          <Button variant='ghost' onClick={() => closeModal()}>
+          <Button variant='ghost' onClick={() => closeOverlay()}>
             {t`Maybe later`}
           </Button>
         </div>
       </div>
-    </DialogContent>
+    </OverlayContent>
   )
 }

@@ -3,14 +3,14 @@ import { useLingui } from '@lingui/react/macro'
 import { Button } from '@/components/shadcn/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/shadcn/card'
 import { ArrowLeft } from 'lucide-react'
-import { useModalStore } from '@/stores/modal-store'
-import { ModalId } from '@/components/modal/modal-ids'
+import { useOverlayStore } from '@/stores/overlay-store'
+import { OverlayId } from '@/components/overlay/overlay-ids'
 import { Route as profileRoute } from '@/routes/_authenticated/_tabs/profile'
 
 const DangerZoneView = () => {
   const { t } = useLingui()
   const navigate = useNavigate()
-  const openModal = useModalStore((state) => state.openModal)
+  const openOverlay = useOverlayStore((state) => state.openOverlay)
 
   return (
     <div className='flex min-h-screen flex-col bg-red-50'>
@@ -40,7 +40,7 @@ const DangerZoneView = () => {
             <CardDescription>{t`Permanently delete your account and all associated data`}</CardDescription>
           </CardHeader>
           <CardContent className='pt-4'>
-            <Button variant='destructive' onClick={() => openModal(ModalId.DELETE_ACCOUNT)} className='w-full'>
+            <Button variant='destructive' onClick={() => openOverlay(OverlayId.DELETE_ACCOUNT)} className='w-full'>
               {t`Delete my account`}
             </Button>
           </CardContent>

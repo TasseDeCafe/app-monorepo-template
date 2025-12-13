@@ -7,7 +7,7 @@ import { FullViewLoader } from './loader/full-view-loader.tsx'
 import { useCheckoutMutation } from '@/hooks/api/checkout/checkout-hooks'
 import { useTrackingStore } from '@/stores/tracking-store'
 import { useIsUserSetupComplete } from '@/hooks/api/user/user-hooks'
-import { Route } from '@/routes/_authenticated/redirect-to-check-out/$planInterval'
+import { Route as RedirectToCheckOutRoute } from '@/routes/_authenticated/redirect-to-check-out/$planInterval'
 
 // This component is reached after the route /from-landing.
 // We want to redirect users who clicked on the premium button on the landing page to be directed to the checkout page
@@ -15,7 +15,7 @@ import { Route } from '@/routes/_authenticated/redirect-to-check-out/$planInterv
 // so we have to send the user to a new route that uses a query param in order to preserve the priceId.
 export const RedirectToCheckOut = () => {
   const navigate = useNavigate()
-  const { planInterval } = Route.useParams()
+  const { planInterval } = RedirectToCheckOutRoute.useParams()
   const referral = useTrackingStore((state) => state.referral)
   const isUserSetupComplete = useIsUserSetupComplete()
 

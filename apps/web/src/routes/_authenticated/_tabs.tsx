@@ -39,14 +39,14 @@ const TabsLayout = () => {
   const isProfileActive = location.pathname.includes(profileRoute.to)
 
   return (
-    <div className='flex min-h-screen flex-col'>
+    <div className='flex h-dvh flex-col overflow-hidden'>
       {/* Header */}
-      <header className='sticky top-0 z-10 flex h-14 items-center justify-end border-b px-4'>
+      <header className='flex h-14 shrink-0 items-center justify-end border-b bg-background px-4'>
         <ContactUsButton />
       </header>
 
       {/* Main content */}
-      <main className='flex-1 pb-20'>
+      <main className='flex-1 overflow-y-auto overscroll-contain pb-20'>
         <Outlet />
       </main>
 

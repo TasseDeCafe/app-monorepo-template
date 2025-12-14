@@ -11,15 +11,15 @@ import {
   queryRetryHandler,
 } from '@template-app/api-client/utils/orpc-error-utils'
 import { toast } from 'sonner'
-import { QueryMeta } from '@/hooks/api/hook-types'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
-import { useOverlayStore } from '@/stores/overlay-store'
-import { Route as pricingRoute } from '@/routes/_authenticated/pricing/index'
+import { QueryMeta } from '@/types/hook-types'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
+import { useOverlayStore } from '@/features/overlay/stores/overlay-store'
+import { Route as pricingRoute } from '@/app/routes/_authenticated/pricing/index'
 import { USER_FACING_ERROR_CODE } from '@template-app/core/constants/user-facing-error-code'
-import { OverlayId } from '@/components/overlay/overlay-ids'
+import { OverlayId } from '@/components/ui/overlay-ids'
 import { ORPCError } from '@orpc/contract'
-import { i18n } from '@/i18n/i18n'
+import { i18n } from '@/lib/i18n/i18n'
 import { msg, t } from '@lingui/core/macro'
 
 const handleGenericApiError = (meta?: QueryMeta) => {

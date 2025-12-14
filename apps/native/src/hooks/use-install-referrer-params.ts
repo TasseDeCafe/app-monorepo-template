@@ -5,7 +5,7 @@ import {
   type PlayInstallReferrerInfo,
   type PlayInstallReferrerError,
 } from 'react-native-play-install-referrer'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 
 export interface InstallReferrerParams {
   referral: string | null

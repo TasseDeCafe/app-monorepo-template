@@ -1,17 +1,17 @@
 import { create } from 'zustand'
 import { Session } from '@supabase/supabase-js'
-import { supabaseClient } from '@/transport/third-party/supabase/supabase-client'
-import { orpcClient, setTokenGetter } from '@/transport/our-backend/orpc-client'
+import { supabaseClient } from '@/lib/transport/supabase-client'
+import { orpcClient, setTokenGetter } from '@/lib/transport/orpc-client'
 import { GoogleSignin, User as GoogleUser } from '@react-native-google-signin/google-signin'
 import * as AppleAuthentication from 'expo-apple-authentication'
 import { toast } from 'sonner-native'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import { queryClient } from '@/config/react-query-config'
-import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
+import { clearSentryUser } from '@/lib/analytics/sentry-initializer'
 import { getConfig } from '@/config/environment-config'
 import Purchases from 'react-native-purchases'
 import * as Haptics from 'expo-haptics'
-import { posthog } from '@/analytics/posthog/posthog'
+import { posthog } from '@/lib/analytics/posthog'
 
 type AuthStore = {
   session: Session | null

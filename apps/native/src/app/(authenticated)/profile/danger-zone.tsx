@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native'
 import { BigCard } from '@/components/ui/big-card'
-import { useBottomSheetStore } from '@/stores/bottom-sheet-store'
-import { SheetId } from '@/components/sheets/bottom-sheet-ids'
+import { useBottomSheetStore } from '@/features/sheets/stores/bottom-sheet-store'
+import { SheetId } from '@/features/sheets/components/bottom-sheet-ids'
 import { useLingui } from '@lingui/react/macro'
 import { SettingsItem } from '@/components/ui/settings-item'
 

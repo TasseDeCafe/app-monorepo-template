@@ -2,8 +2,8 @@ import { ReactNode, useEffect, useRef } from 'react'
 import { getConfig } from '@/config/environment-config'
 import * as Updates from 'expo-updates'
 import { AppState } from 'react-native'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 
 type EasUpdateGateProps = {
   children: ReactNode

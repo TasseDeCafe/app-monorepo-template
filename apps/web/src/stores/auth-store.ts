@@ -1,8 +1,8 @@
 import { create } from 'zustand'
 import { Session } from '@supabase/supabase-js'
-import { supabaseClient } from '@/transport/third-party/supabase/supabase-client'
+import { supabaseClient } from '@/lib/transport/supabase-client'
 import { queryClient } from '@/config/react-query-config'
-import { clearSentryUser } from '@/analytics/sentry/sentry-initializer'
+import { clearSentryUser } from '@/lib/analytics/sentry-initializer'
 import posthog from 'posthog-js'
 
 type AuthStore = {

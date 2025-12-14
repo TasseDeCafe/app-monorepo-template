@@ -1,6 +1,6 @@
 import { MutationCache, Query, QueryCache, QueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner-native'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import {
   ERROR_CODE_FOR_INVALID_TOKEN,
   ERROR_CODE_FOR_SUBSCRIPTION_REQUIRED,
@@ -14,9 +14,9 @@ import {
   queryRetryHandler,
 } from '@template-app/api-client/utils/orpc-error-utils'
 import RevenueCatUI from 'react-native-purchases-ui'
-import { QueryMeta } from '@/hooks/api/hook-types'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
-import { i18n } from '@/i18n/i18n'
+import { QueryMeta } from '@/types/hook-types'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
+import { i18n } from '@/lib/i18n/i18n'
 import { msg } from '@lingui/core/macro'
 
 const handleGenericApiError = (meta?: QueryMeta) => {

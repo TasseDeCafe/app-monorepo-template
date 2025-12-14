@@ -80,3 +80,6 @@ gitmessage
 # Lingui
 /packages/i18n/locales/**/*.ts
 /nextjs-babel/
+
+# bulletproof-react
+/bulletproof-react

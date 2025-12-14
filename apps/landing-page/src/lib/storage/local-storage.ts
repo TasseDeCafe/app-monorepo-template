@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_CONSTANTS } from '@/local-storage/local-storage-constants'
+import { LOCAL_STORAGE_CONSTANTS } from '@/lib/storage/local-storage-constants'
 
 export const localStorageWrapper = {
   setReferral: (referral: string): void => {

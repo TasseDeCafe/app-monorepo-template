@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
-import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
+import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/lib/i18n/i18n-config'
+import { CircleFlagLanguage } from 'react-circle-flags'
 
 const LanguageSwitcher = () => {
   const pathname = usePathname()
@@ -18,16 +18,16 @@ const LanguageSwitcher = () => {
   return (
     <div className='flex space-x-4'>
       <Link href={getLanguagePath(ENGLISH_LOCALE)}>
-        <CustomCircularFlag locale={ENGLISH_LOCALE} className='h-5 w-5 cursor-pointer' />
+        <CircleFlagLanguage languageCode={ENGLISH_LOCALE} className='h-5 w-5 cursor-pointer' />
       </Link>
       <Link href={getLanguagePath(SPANISH_LOCALE)}>
-        <CustomCircularFlag locale={SPANISH_LOCALE} className='h-5 w-5 cursor-pointer' />
+        <CircleFlagLanguage languageCode={SPANISH_LOCALE} className='h-5 w-5 cursor-pointer' />
       </Link>
       <Link href={getLanguagePath(POLISH_LOCALE)}>
-        <CustomCircularFlag locale={POLISH_LOCALE} className='h-5 w-5 cursor-pointer' />
+        <CircleFlagLanguage languageCode={POLISH_LOCALE} className='h-5 w-5 cursor-pointer' />
       </Link>
       <Link href={getLanguagePath(FRENCH_LOCALE)}>
-        <CustomCircularFlag locale={FRENCH_LOCALE} className='h-5 w-5 cursor-pointer' />
+        <CircleFlagLanguage languageCode={FRENCH_LOCALE} className='h-5 w-5 cursor-pointer' />
       </Link>
     </div>
   )

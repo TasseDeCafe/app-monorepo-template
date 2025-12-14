@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { Home } from '@/app/[lang]/(components)/home'
 import { getConfig } from '@/config/environment-config'
 import { LangProps } from '@/types/lang-props'
-import { getLinguiInstance } from '@/i18n/get-lingui-instance'
+import { getLinguiInstance } from '@/lib/i18n/get-lingui-instance'
 import { msg } from '@lingui/core/macro'
 
 export const generateMetadata = async (props: { params: Promise<LangProps> }): Promise<Metadata> => {

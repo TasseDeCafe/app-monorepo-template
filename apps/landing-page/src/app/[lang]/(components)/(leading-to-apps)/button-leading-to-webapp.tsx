@@ -1,10 +1,10 @@
 'use client'
 
 import React, { ReactNode } from 'react'
-import { localStorageWrapper } from '@/local-storage/local-storage'
+import { localStorageWrapper } from '@/lib/storage/local-storage'
 import { getConfig } from '@/config/environment-config'
-import { Button } from '@/design-system/button'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { Button } from '@/components/ui/button'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 
 type ButtonLeadingToWebapp = {
   buttonText: ReactNode

@@ -4,7 +4,7 @@ import React from 'react'
 import { Metadata } from 'next'
 import { Trans } from '@lingui/react/macro'
 import { setI18n } from '@lingui/react/server'
-import { getLinguiInstance } from '@/i18n/get-lingui-instance'
+import { getLinguiInstance } from '@/lib/i18n/get-lingui-instance'
 import { msg } from '@lingui/core/macro'
 import { LangProps } from '@/types/lang-props'
 

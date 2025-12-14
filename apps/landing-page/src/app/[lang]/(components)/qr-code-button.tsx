@@ -2,11 +2,11 @@
 
 import React, { ReactNode, useState } from 'react'
 import { QrCode } from 'lucide-react'
-import { Button } from '@/design-system/button'
+import { Button } from '@/components/ui/button'
 import { QRCodeModal } from '@/app/[lang]/(components)/qr-code-modal'
 import { getConfig } from '@/config/environment-config'
 import Image from 'next/image'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 
 interface QRCodeButtonProps {
   qrText: ReactNode

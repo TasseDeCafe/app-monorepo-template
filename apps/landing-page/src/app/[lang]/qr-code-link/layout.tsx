@@ -1,6 +1,6 @@
 'use client'
 
-import { AnalyticsPageViewLauncher } from '@/analytics/posthog/analytics-page-view-launcher'
+import { AnalyticsPageViewLauncher } from '@/lib/analytics/analytics-page-view-launcher'
 import { ReactNode } from 'react'
 
 const Layout = ({ children }: { children: ReactNode }) => {

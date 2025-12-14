@@ -3,7 +3,7 @@
 import { LangProps } from '@/types/lang-props'
 import { Metadata } from 'next'
 import { setI18n } from '@lingui/react/server'
-import { getLinguiInstance } from '@/i18n/get-lingui-instance'
+import { getLinguiInstance } from '@/lib/i18n/get-lingui-instance'
 import { msg } from '@lingui/core/macro'
 import { PricingSection } from '@/app/[lang]/(components)/(pricing)/pricing-section'
 

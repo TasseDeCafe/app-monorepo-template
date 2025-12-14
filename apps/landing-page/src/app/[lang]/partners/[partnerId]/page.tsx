@@ -2,7 +2,7 @@
 
 import { useEffect, use } from 'react'
 import { redirect } from 'next/navigation'
-import { localStorageWrapper } from '@/local-storage/local-storage'
+import { localStorageWrapper } from '@/lib/storage/local-storage'
 import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants'
 
 const PartnerRedirect = ({ params }: { params: Promise<{ partnerId: string }> }) => {

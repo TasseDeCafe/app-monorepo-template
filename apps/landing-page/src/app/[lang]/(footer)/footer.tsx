@@ -14,7 +14,7 @@ const Footer = async ({ lang }: LangProps) => {
       <LanguageSwitcher />
       <FooterNativeAppLinks iosAppText={<Trans>iOS App</Trans>} androidAppText={<Trans>Android App</Trans>} />
       <a href='mailto:contact@app-monorepo-template.dev' className='flex items-center gap-x-2 hover:underline'>
-        <Image src='/images/icons/lucide/email.svg' alt='template-app logo' width={20} height={20} priority />
+        <Image src='/images/icons/email.svg' alt='template-app logo' width={20} height={20} priority />
         contact@app-monorepo-template.dev
       </a>
       <div className='mt-2'>© {new Date().getFullYear()} TemplateApp.com</div>

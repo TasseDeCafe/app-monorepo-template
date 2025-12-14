@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Circle } from 'lucide-react'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
 import { getConfig } from '@/config/environment-config'
-import { localStorageWrapper } from '@/local-storage/local-storage'
+import { localStorageWrapper } from '@/lib/storage/local-storage'
 import { ALLOWED_REFERRALS, getDiscountsForReferral } from '@template-app/core/constants/referral-constants'
 import {
   getCanSubscribeWithReferralDiscount,
@@ -13,8 +13,8 @@ import {
   getYearlyDiscountString,
   getYearlyPrice,
 } from '@/app/[lang]/(components)/(pricing)/pricing-view-utils'
-import { Card } from '@/design-system/card'
-import { Button } from '@/design-system/button'
+import { Card } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 import { Discounts } from '@template-app/core/constants/discount-types'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { useLingui } from '@lingui/react'

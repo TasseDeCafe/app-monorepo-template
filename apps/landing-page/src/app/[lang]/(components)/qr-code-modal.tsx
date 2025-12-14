@@ -4,11 +4,11 @@ import { ReactNode, useEffect, useState } from 'react'
 import { Check, Copy, X } from 'lucide-react'
 import Image from 'next/image'
 import QRCode from 'qrcode'
-import { Button } from '@/design-system/button'
+import { Button } from '@/components/ui/button'
 import { getConfig } from '@/config/environment-config'
 import { buildIosAppStoreLink } from '@/app/[lang]/(components)/(leading-to-apps)/ios-app-store-link-utils'
 import { buildAndroidPlayStoreLink } from '@/app/[lang]/(components)/(leading-to-apps)/google-play-store-link-utils'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 
 interface QRCodeModalProps {
   isOpen: boolean

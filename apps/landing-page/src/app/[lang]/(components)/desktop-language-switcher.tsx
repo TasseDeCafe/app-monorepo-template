@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
+import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/lib/i18n/i18n-config'
 import { CircleFlagLanguage } from 'react-circle-flags'
 
 const languages = [

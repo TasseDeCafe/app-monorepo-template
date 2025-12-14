@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 import { match } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
-import { i18nConfig } from './i18n/i18n-config'
+import { i18nConfig } from '@/lib/i18n/i18n-config'
 import { createPlainObjectHeaders } from '@/utils/headers-utils'
 
 // the function below is based on the official example from the docs:
@@ -11,8 +11,8 @@ const getLocale = (request: NextRequest): string | undefined => {
   const negotiatorHeaders: Record<string, string> = createPlainObjectHeaders(request.headers)
   const locales: string[] = i18nConfig.locales
   const languages: string[] = new Negotiator({ headers: negotiatorHeaders }).languages(locales)
-  const resultLocale: string = match(languages, locales, i18nConfig.defaultLocale)
-  return resultLocale
+
+  return match(languages, locales, i18nConfig.defaultLocale)
 }
 
 export const proxy = (request: NextRequest) => {

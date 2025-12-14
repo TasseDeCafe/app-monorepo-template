@@ -3,7 +3,7 @@ import { setI18n } from '@lingui/react/server'
 import { HeroSection } from '@/app/[lang]/(components)/hero-section'
 import { LangProps } from '@/types/lang-props'
 import { WebViewDetector } from '@/app/[lang]/(components)/web-view-detector'
-import { getLinguiInstance } from '@/i18n/get-lingui-instance'
+import { getLinguiInstance } from '@/lib/i18n/get-lingui-instance'
 import { PricingSection } from '@/app/[lang]/(components)/(pricing)/pricing-section'
 
 export const Home = async ({ params }: { params: Promise<LangProps> }) => {

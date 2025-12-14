@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 
 export const AnalyticsPageViewLauncher = () => {
   useEffect(() => {

@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X, Zap } from 'lucide-react'
 import { LangProps } from '@/types/lang-props'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
-import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
+import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/lib/i18n/i18n-config'
 import { Trans } from '@lingui/react/macro'
 import { CircleFlagLanguage } from 'react-circle-flags'
 

@@ -1,4 +1,4 @@
-import { localStorageWrapper } from '@/local-storage/local-storage'
+import { localStorageWrapper } from '@/lib/storage/local-storage'
 
 export const initializeOurAnalytics = () => {
   const url = new URL(window.location.href)

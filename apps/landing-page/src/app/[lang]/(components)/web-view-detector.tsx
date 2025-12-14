@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { localStorageWrapper } from '@/local-storage/local-storage'
+import { localStorageWrapper } from '@/lib/storage/local-storage'
 import { getConfig } from '@/config/environment-config'
 import {
   isAndroid,

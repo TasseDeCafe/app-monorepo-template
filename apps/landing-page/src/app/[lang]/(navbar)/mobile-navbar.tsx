@@ -7,8 +7,8 @@ import { Menu, X, Zap } from 'lucide-react'
 import { LangProps } from '@/types/lang-props'
 import { ButtonLeadingToWebapp } from '@/app/[lang]/(components)/(leading-to-apps)/button-leading-to-webapp'
 import { ENGLISH_LOCALE, FRENCH_LOCALE, POLISH_LOCALE, SPANISH_LOCALE } from '@/i18n/i18n-config'
-import { CustomCircularFlag } from '@/design-system/custom-circular-flag'
 import { Trans } from '@lingui/react/macro'
+import { CircleFlagLanguage } from 'react-circle-flags'
 
 type MobileNavLinkProps = {
   href: string
@@ -85,7 +85,7 @@ const MobileNavbar = ({ lang }: LangProps) => {
                 className='flex w-full items-center justify-between rounded-md bg-gray-50 px-4 py-2 text-2xl text-gray-600'
               >
                 <span className='flex items-center'>
-                  <CustomCircularFlag locale={currentLanguage.code} className='mr-4 h-6 w-6' />
+                  <CircleFlagLanguage languageCode={currentLanguage.code} className='mr-4 h-6 w-6' />
                   {currentLanguage.name}
                 </span>
                 <span className={`text-sm transition-transform duration-200 ${isLanguageMenuOpen ? 'rotate-180' : ''}`}>
@@ -104,7 +104,7 @@ const MobileNavbar = ({ lang }: LangProps) => {
                         toggleMenu()
                       }}
                     >
-                      <CustomCircularFlag locale={language.code} className='mr-2 h-5 w-5' />
+                      <CircleFlagLanguage languageCode={language.code} className='mr-2 h-5 w-5' />
                       {language.name}
                     </Link>
                   ))}

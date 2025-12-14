@@ -5,8 +5,8 @@ import { BackButton } from '@/components/ui/back-button'
 import { useLingui } from '@lingui/react/macro'
 import { BigCard } from '@/components/ui/big-card'
 import { SettingsItem } from '@/components/ui/settings-item'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import { useTriggerSentryMessageMutation } from '@/hooks/api/sentry-debug/sentry-debug-hooks'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
+import { useTriggerSentryMessageMutation } from '@/features/admin/api/sentry-debug-hooks'
 
 export default function AdminSettingsScreen() {
   const { t } = useLingui()

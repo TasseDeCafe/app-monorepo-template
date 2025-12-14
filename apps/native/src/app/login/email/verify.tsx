@@ -4,8 +4,8 @@ import { useLocalSearchParams, useRouter } from 'expo-router'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ROUTE_PATHS } from '@/constants/route-paths'
-import { supabaseClient } from '@/transport/third-party/supabase/supabase-client'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { supabaseClient } from '@/lib/transport/supabase-client'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 import { useLingui } from '@lingui/react/macro'
 
 export default function VerifyMagicLink() {

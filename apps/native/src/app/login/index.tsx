@@ -1,4 +1,4 @@
-import SignInUp from '@/components/gates/auth/sign-in-up'
+import SignInUp from '@/features/auth/components/sign-in-up'
 
 export default function LoginScreen() {
   return <SignInUp />

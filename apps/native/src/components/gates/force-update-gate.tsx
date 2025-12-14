@@ -1,12 +1,12 @@
 import { ReactNode, useEffect, useState } from 'react'
 import { Alert, Image, Linking, Modal, Platform, StatusBar, Text, View } from 'react-native'
-import { useGetConfig } from '@/hooks/api/config/config-hooks'
+import { useGetConfig } from '@/features/admin/api/config-hooks'
 import { getAppVersion, requiresUpdate } from '@/utils/version-utils'
 import { Button } from '@/components/ui/button'
 import { LoadingScreen } from '@/components/ui/loading-screen'
 import { EXTERNAL_LINKS } from '@template-app/core/constants/external-links'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
-import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
+import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 import { useLingui } from '@lingui/react/macro'
 
 type ForceUpdateGateProps = {

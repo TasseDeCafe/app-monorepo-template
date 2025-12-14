@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router'
-import { RevenuecatInitializer } from '@/components/gates/auth/revenuecat-initializer'
+import { RevenuecatInitializer } from '@/features/auth/components/revenuecat-initializer'
 import { ForceUpdateGate } from '@/components/gates/force-update-gate'
 
 const ProtectedLayout = () => {

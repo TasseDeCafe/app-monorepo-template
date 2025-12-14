@@ -9,8 +9,8 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     tanstackRouter({
-      routesDirectory: './src/routes',
-      generatedRouteTree: './src/routeTree.gen.ts',
+      routesDirectory: './src/app/routes',
+      generatedRouteTree: './src/app/routeTree.gen.ts',
     }),
     react({
       babel: {

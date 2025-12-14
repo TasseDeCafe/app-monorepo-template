@@ -1,6 +1,6 @@
 import { EnvironmentConfig } from '@/config/environment-config'
 import { environmentConfigSchema } from '@/config/environment-config-schema'
-import { logWithSentry } from '@/analytics/sentry/log-with-sentry'
+import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 
 export const validateConfig = (config: EnvironmentConfig): void => {
   const parseResult = environmentConfigSchema.safeParse(config)

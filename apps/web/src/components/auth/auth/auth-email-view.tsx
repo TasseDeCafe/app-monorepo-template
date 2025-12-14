@@ -1,5 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useNavigate } from '@tanstack/react-router'
+import { z } from 'zod'
 import { POSTHOG_EVENTS } from '@/analytics/posthog/posthog-events.ts'
 import { Button } from '../../shadcn/button.tsx'
 import { Route as loginEmailSentRoute } from '@/routes/login/email/sent'
@@ -7,6 +8,8 @@ import { useSendVerificationEmail } from '@/hooks/api/authentication/authenticat
 import { useLingui } from '@lingui/react/macro'
 import { useTrackingStore } from '@/stores/tracking-store'
 import { useShallow } from 'zustand/react/shallow'
+
+const emailSchema = z.email()
 
 export const AuthEmailView = () => {
   const { t } = useLingui()
@@ -26,8 +29,7 @@ export const AuthEmailView = () => {
   )
 
   const validateEmail = (email: string) => {
-    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    return re.test(email)
+    return emailSchema.safeParse(email).success
   }
 
   useEffect(() => {

@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
 import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events.ts'
 import { Route as checkoutSuccessRoute } from '@/app/routes/_authenticated/pricing/checkout-success'
-import { Route as pricingFreeTrialRoute } from '@/app/routes/_authenticated/pricing/free-trial'
+import { Route as freeTrialExplanationRoute } from '@/app/routes/_authenticated/pricing/free-trial-explanation'
 import { NUMBER_OF_DAYS_IN_FREE_TRIAL, REFUND_PERIOD_IN_DAYS } from '@template-app/core/constants/pricing-constants.ts'
 import { useCheckoutMutation } from '@/features/checkout/api/checkout-hooks'
 import { useLingui } from '@lingui/react/macro'
 import { Button } from '@/components/ui/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx'
-import { Route as FreeTrialRoute } from '@/app/routes/_authenticated/pricing/free-trial'
 
 const TimelineItem = ({ day, description }: { day: string; description: string }) => {
   return (
@@ -25,7 +24,7 @@ export const FreeTrialExplanationView = () => {
   const { t } = useLingui()
 
   const { mutate, isPending: isPendingCheckoutMutation } = useCheckoutMutation()
-  const { planInterval } = FreeTrialRoute.useSearch()
+  const { planInterval } = freeTrialExplanationRoute.useSearch()
 
   useEffect(() => {
     POSTHOG_EVENTS.viewPage()
@@ -35,7 +34,7 @@ export const FreeTrialExplanationView = () => {
 
     mutate({
       successPathAndHash: checkoutSuccessRoute.to,
-      cancelPathAndHash: `${pricingFreeTrialRoute.to}?planInterval=${planInterval}`,
+      cancelPathAndHash: `${freeTrialExplanationRoute.to}?planInterval=${planInterval}`,
       planInterval: planInterval,
     })
   }

@@ -3,7 +3,7 @@ import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 import { useLingui } from '@lingui/react/macro'
 import { Route as EmailSentRoute } from '@/app/routes/login/email/sent'
 
-export const AuthEmailSentView = () => {
+export const LoginEmailSentView = () => {
   const { t } = useLingui()
 
   const { email: emailParam } = EmailSentRoute.useSearch()

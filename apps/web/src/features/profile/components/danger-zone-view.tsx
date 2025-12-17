@@ -1,13 +1,13 @@
-import { createFileRoute, useNavigate } from '@tanstack/react-router'
+import { useNavigate } from '@tanstack/react-router'
 import { useLingui } from '@lingui/react/macro'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ArrowLeft } from 'lucide-react'
 import { useOverlayStore } from '@/features/overlay/stores/overlay-store'
-import { OverlayId } from '@/components/ui/overlay-ids'
 import { Route as profileRoute } from '@/app/routes/_authenticated/_tabs/profile'
+import { ArrowLeft } from 'lucide-react'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { OverlayId } from '@/components/ui/overlay-ids'
 
-const DangerZoneView = () => {
+export const DangerZoneView = () => {
   const { t } = useLingui()
   const navigate = useNavigate()
   const openOverlay = useOverlayStore((state) => state.openOverlay)
@@ -49,7 +49,3 @@ const DangerZoneView = () => {
     </div>
   )
 }
-
-export const Route = createFileRoute('/_authenticated/danger-zone')({
-  component: DangerZoneView,
-})

@@ -11,7 +11,7 @@ import { useShallow } from 'zustand/react/shallow'
 
 const emailSchema = z.email()
 
-export const AuthEmailView = () => {
+export const LoginEmailView = () => {
   const { t } = useLingui()
 
   const navigate = useNavigate()

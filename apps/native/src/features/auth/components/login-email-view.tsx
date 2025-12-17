@@ -1,7 +1,8 @@
 import { Text, TextInput, View } from 'react-native'
-import { useRouter } from 'expo-router'
+import { Stack, useRouter } from 'expo-router'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { BackButton } from '@/components/ui/back-button'
 import { useAuthStore } from '@/stores/auth-store'
 import { toast } from 'sonner-native'
 import { useState } from 'react'
@@ -9,7 +10,7 @@ import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import { useLingui } from '@lingui/react/macro'
 
-export default function EmailAuth() {
+export default function LoginEmailView() {
   const { t } = useLingui()
 
   const router = useRouter()
@@ -54,6 +55,14 @@ export default function EmailAuth() {
 
   return (
     <View className='flex-1 items-center justify-center'>
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          title: '',
+          headerLeft: () => <BackButton />,
+        }}
+      />
       <Card className='w-full max-w-md p-6'>
         <View className='mb-8 text-center'>
           <Text className='text-center text-4xl font-bold leading-tight'>{t`Continue with Email`}</Text>

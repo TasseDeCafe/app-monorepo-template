@@ -19,7 +19,7 @@ export const createCheckoutSessionUrl = async (
       customer: customerId,
       success_url: `${getConfig().webUrl}${successPathAndHash}`,
       cancel_url: `${getConfig().webUrl}${cancelPathAndHash}`,
-      payment_method_types: ['card', 'link', 'paypal'],
+      payment_method_types: ['card', 'link'],
       mode: 'subscription',
       line_items: [{ price: priceId, quantity: 1 }],
       subscription_data: {

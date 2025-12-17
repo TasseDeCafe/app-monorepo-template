@@ -1,5 +1,5 @@
-import EmailAuth from '@/features/auth/components/email-auth'
+import LoginEmailView from '@/features/auth/components/login-email-view'
 
-export default function EmailLoginScreen() {
-  return <EmailAuth />
+export default function LoginEmailScreen() {
+  return <LoginEmailView />
 }

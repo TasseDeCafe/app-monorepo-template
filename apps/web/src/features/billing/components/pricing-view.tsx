@@ -3,7 +3,7 @@ import { LogOut } from 'lucide-react'
 import { getConfig } from '@/config/environment-config.ts'
 import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events.ts'
 import { Route as dashboardRoute } from '@/app/routes/_authenticated/_tabs/dashboard'
-import { Route as pricingFreeTrialRoute } from '@/app/routes/_authenticated/pricing/free-trial'
+import { Route as freeTrialExplanationRoute } from '@/app/routes/_authenticated/pricing/free-trial-explanation'
 import { Route as checkoutSuccessRoute } from '@/app/routes/_authenticated/pricing/checkout-success'
 import { Route as pricingRoute } from '@/app/routes/_authenticated/pricing/index'
 import { Button } from '@/components/ui/button.tsx'
@@ -92,7 +92,7 @@ export const PricingView = () => {
         }
       }
     } else if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
-      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as PlanInterval } })
+      navigate({ to: freeTrialExplanationRoute.to, search: { planInterval: clickedPlan as PlanInterval } })
     } else {
       mutate({
         successPathAndHash: checkoutSuccessRoute.to,

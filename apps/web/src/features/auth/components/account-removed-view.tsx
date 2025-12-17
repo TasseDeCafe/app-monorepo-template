@@ -7,7 +7,7 @@ import { useAuthStore, getIsSignedIn } from '@/stores/auth-store'
 import { Button } from '@/components/ui/button.tsx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.tsx'
 
-export const AccountRemovedSuccessView = () => {
+export const AccountRemovedView = () => {
   const navigate = useNavigate()
   const isSignedIn = useAuthStore(getIsSignedIn)
   const { t } = useLingui()

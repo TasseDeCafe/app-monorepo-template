@@ -6,7 +6,7 @@ import { logWithSentry } from '@/lib/analytics/log-with-sentry.ts'
 import { useTriggerSentryMessageMutation } from '@/features/admin/api/sentry-debug-hooks.ts'
 import { Route as profileRoute } from '@/app/routes/_authenticated/_tabs/profile'
 
-export const AdminSettings = () => {
+export const AdminSettingsView = () => {
   const navigate = useNavigate()
   const triggerSentryMessageMutation = useTriggerSentryMessageMutation()
 

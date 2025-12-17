@@ -30,6 +30,8 @@ export const PremiumDemoView = () => {
     <SafeAreaView className='flex-1 bg-white'>
       <Stack.Screen
         options={{
+          headerShown: true,
+          title: 'Premium Demo',
           headerLeft: () => <BackButton />,
         }}
       />

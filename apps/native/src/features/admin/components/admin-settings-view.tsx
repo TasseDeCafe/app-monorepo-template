@@ -49,6 +49,8 @@ export const AdminSettingsView = () => {
     <SafeAreaView className='flex-1 bg-white'>
       <Stack.Screen
         options={{
+          headerShown: true,
+          title: 'Admin Settings',
           headerLeft: () => <BackButton />,
         }}
       />

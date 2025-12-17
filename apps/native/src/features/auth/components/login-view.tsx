@@ -4,14 +4,14 @@ import { GoogleIcon } from '@/components/ui/icons/google-icon'
 import { useAuthStore } from '@/stores/auth-store'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import * as AppleAuthentication from 'expo-apple-authentication'
-import { useRouter } from 'expo-router'
+import { Stack, useRouter } from 'expo-router'
 import { Mail } from 'lucide-react-native'
 import { Platform, View } from 'react-native'
 import { ROUTE_PATHS } from '@/constants/route-paths'
 import * as Haptics from 'expo-haptics'
 import { useLingui } from '@lingui/react/macro'
 
-export default function SignInUp() {
+export default function LoginView() {
   const { t } = useLingui()
 
   const router = useRouter()
@@ -24,6 +24,7 @@ export default function SignInUp() {
 
   return (
     <View className='flex-1 items-center justify-center'>
+      <Stack.Screen options={{ animation: 'none' }} />
       <Card className='w-full max-w-md p-6'>
         <View className='gap-4'>
           <Button

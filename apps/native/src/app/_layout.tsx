@@ -22,7 +22,6 @@ import { useBottomSheetStore } from '@/features/sheets/stores/bottom-sheet-store
 import { UserSetupGate } from '@/features/auth/components/user-setup-gate'
 import { PostHogProvider } from 'posthog-react-native'
 import { posthog } from '@/lib/analytics/posthog'
-import { BackButton } from '@/components/ui/back-button'
 
 validateConfig(getConfig())
 initializeSentry()
@@ -55,37 +54,15 @@ const RootLayout = () => {
                     <UserSetupGate>
                       <Stack screenOptions={{ headerShown: false }}>
                         <Stack.Protected guard={!isSignedIn}>
-                          <Stack.Screen name='login/index' options={{ animation: 'none' }} />
-                          <Stack.Screen
-                            name='login/email/index'
-                            options={{
-                              title: '',
-                              headerLeft: () => <BackButton />,
-                              headerShown: true,
-                              headerTransparent: true,
-                            }}
-                          />
-                          <Stack.Screen
-                            name='login/email/sent'
-                            options={{
-                              title: '',
-                              headerLeft: () => <BackButton />,
-                              headerShown: true,
-                              headerTransparent: true,
-                            }}
-                          />
+                          <Stack.Screen name='login/index' />
+                          <Stack.Screen name='login/email/index' />
+                          <Stack.Screen name='login/email/sent' />
                           <Stack.Screen name='account/removed' />
                         </Stack.Protected>
                         <Stack.Protected guard={isSignedIn}>
                           <Stack.Screen name='(authenticated)' />
                         </Stack.Protected>
-                        <Stack.Screen
-                          name='+not-found'
-                          options={{
-                            headerShown: true,
-                            title: 'Oops!',
-                          }}
-                        />
+                        <Stack.Screen name='+not-found' />
                       </Stack>
                       <BottomSheetController />
                       <Toaster position={isBottomSheetOpen ? 'top-center' : 'bottom-center'} duration={600} />

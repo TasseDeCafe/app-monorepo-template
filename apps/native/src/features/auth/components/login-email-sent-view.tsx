@@ -1,11 +1,12 @@
 import { Text, View, Linking } from 'react-native'
+import { Stack, useLocalSearchParams } from 'expo-router'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { BackButton } from '@/components/ui/back-button'
 import { Mail } from 'lucide-react-native'
-import { useLocalSearchParams } from 'expo-router'
 import { useLingui } from '@lingui/react/macro'
 
-export default function EmailVerificationSent() {
+export default function LoginEmailSentView() {
   const { t } = useLingui()
 
   const { email } = useLocalSearchParams<{ email: string }>()
@@ -16,6 +17,14 @@ export default function EmailVerificationSent() {
 
   return (
     <View className='flex-1 items-center justify-center'>
+      <Stack.Screen
+        options={{
+          headerShown: true,
+          headerTransparent: true,
+          title: '',
+          headerLeft: () => <BackButton />,
+        }}
+      />
       <Card className='w-full max-w-md p-6'>
         <View className='items-center'>
           <View className='rounded-full p-3'>

@@ -1,5 +1,5 @@
-import SignInUp from '@/features/auth/components/sign-in-up'
+import LoginView from '@/features/auth/components/login-view'
 
 export default function LoginScreen() {
-  return <SignInUp />
+  return <LoginView />
 }

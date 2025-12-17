@@ -1,9 +1,13 @@
 import { Link, Outlet, useLocation } from '@tanstack/react-router'
 import { cn } from '@template-app/core/utils/tailwind-utils'
 import { ContactUsButton } from '@/features/contact/components/contact-us-button'
-import type { LucideIcon } from 'lucide-react'
+import { Home, Dumbbell, CircleUserRound, type LucideIcon } from 'lucide-react'
+import { useLingui } from '@lingui/react/macro'
+import { Route as homeRoute } from '@/app/routes/_authenticated/_tabs/home'
+import { Route as dashboardRoute } from '@/app/routes/_authenticated/_tabs/dashboard'
+import { Route as profileRoute } from '@/app/routes/_authenticated/_tabs/profile'
 
-export type TabConfig = {
+type TabConfig = {
   to: string
   label: string
   icon: LucideIcon
@@ -32,8 +36,15 @@ const TabLink = ({
   </Link>
 )
 
-export const TabsLayout = ({ tabs }: { tabs: TabConfig[] }) => {
+export const TabsLayout = () => {
+  const { t } = useLingui()
   const location = useLocation()
+
+  const tabs: TabConfig[] = [
+    { to: homeRoute.to, label: t`Home`, icon: Home },
+    { to: dashboardRoute.to, label: t`Dashboard`, icon: Dumbbell },
+    { to: profileRoute.to, label: t`Profile`, icon: CircleUserRound },
+  ]
 
   return (
     <div className='flex h-dvh flex-col overflow-hidden'>

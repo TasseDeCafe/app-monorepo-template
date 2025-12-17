@@ -1,5 +1,5 @@
-import EmailVerificationSent from '@/features/auth/components/email-verification-sent'
+import LoginEmailSentView from '@/features/auth/components/login-email-sent-view'
 
-export default function EmailLoginVerificationSentScreen() {
-  return <EmailVerificationSent />
+export default function LoginEmailSentScreen() {
+  return <LoginEmailSentView />
 }

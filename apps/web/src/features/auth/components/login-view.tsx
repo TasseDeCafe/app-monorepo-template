@@ -15,7 +15,7 @@ import { shouldShowSignInWithGoogle } from '../utils/auth-utils'
 import { useLingui } from '@lingui/react/macro'
 import { getIsSignedIn, useAuthStore } from '@/stores/auth-store'
 
-export const AuthView = () => {
+export const LoginView = () => {
   const { t } = useLingui()
 
   const { redirect } = loginRoute.useSearch()

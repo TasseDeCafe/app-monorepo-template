@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { AuthEmailView } from '@/features/auth/components/auth-email-view.tsx'
+import { LoginEmailView } from '@/features/auth/components/login-email-view.tsx'
 
 export const Route = createFileRoute('/login/email/')({
-  component: AuthEmailView,
+  component: LoginEmailView,
 })

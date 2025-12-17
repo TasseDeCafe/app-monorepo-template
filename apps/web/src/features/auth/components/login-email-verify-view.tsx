@@ -13,7 +13,7 @@ import { useLingui } from '@lingui/react/macro'
 // dev:        backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
 // dev-tunnel: backend/supabase/supabase-dev/supabase/templates/magic-link-verification.html
 // prod:       https://supabase.com/dashboard/project/<project-id>/auth/templates
-export const AuthEmailVerifyView = () => {
+export const LoginEmailVerifyView = () => {
   const { t } = useLingui()
 
   const [isError, setIsError] = useState(false)

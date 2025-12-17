@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { AuthEmailSentView } from '@/features/auth/components/auth-email-sent-view.tsx'
+import { LoginEmailSentView } from '@/features/auth/components/login-email-sent-view.tsx'
 import { z } from 'zod'
 
 const emailSentSearchSchema = z.object({
@@ -8,5 +8,5 @@ const emailSentSearchSchema = z.object({
 
 export const Route = createFileRoute('/login/email/sent')({
   validateSearch: emailSentSearchSchema,
-  component: AuthEmailSentView,
+  component: LoginEmailSentView,
 })

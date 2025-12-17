@@ -24,7 +24,7 @@ catalog:
   '@lingui/react': 5.6.0
   '@lingui/swc-plugin': 5.6.0
   '@lingui/vite-plugin': 5.6.0
-  '@next/eslint-plugin-next': 16.0.3
+  '@next/eslint-plugin-next': 16.0.10
   '@orpc/client': 1.10.0
   '@orpc/contract': 1.10.0
   '@orpc/openapi': 1.10.0
@@ -73,11 +73,11 @@ catalog:
   '@tanstack/eslint-plugin-query': 5.91.2
   '@tanstack/react-query': 5.90.5
   '@tanstack/react-query-devtools': 5.90.2
-  '@tanstack/react-router': ^1.139.14
+  '@tanstack/react-router': 1.141.2
   '@tanstack/react-table': 8.21.3
   '@tanstack/react-router-devtools': 1.141.2
-  '@tanstack/router-plugin': 1.139.14
-  '@tanstack/zod-adapter': 1.139.14
+  '@tanstack/router-plugin': 1.141.2
+  '@tanstack/zod-adapter': 1.141.2
   '@testing-library/dom': 10.4.1
   '@testing-library/react': 16.3.0
   '@types/cors': 2.8.19
@@ -109,7 +109,7 @@ catalog:
   eas-build-cache-provider: 16.4.2
   eslint: 9.36.0
   eslint-config-expo: 10.0.0
-  eslint-config-next: 16.0.3
+  eslint-config-next: 16.0.10
   eslint-config-prettier: 10.1.8
   eslint-plugin-import: 2.32.0
   eslint-plugin-lingui: 0.11.0
@@ -157,7 +157,7 @@ catalog:
   morgan: 1.10.1
   nativewind: 4.2.1
   negotiator: 1.0.0
-  next: 16.0.7
+  next: 16.0.10
   node-cache: 5.1.2
   openapi-typescript: 7.9.1
   postcss: 8.5.6

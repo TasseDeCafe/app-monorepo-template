@@ -23,7 +23,7 @@ import { Route as LoginEmailVerifyRouteImport } from './routes/login/email/verif
 import { Route as LoginEmailSentRouteImport } from './routes/login/email/sent'
 import { Route as AuthenticatedRedirectToCheckOutPlanIntervalRouteImport } from './routes/_authenticated/redirect-to-check-out/$planInterval'
 import { Route as AuthenticatedProfileDangerZoneRouteImport } from './routes/_authenticated/profile/danger-zone'
-import { Route as AuthenticatedPricingFreeTrialRouteImport } from './routes/_authenticated/pricing/free-trial'
+import { Route as AuthenticatedPricingFreeTrialExplanationRouteImport } from './routes/_authenticated/pricing/free-trial-explanation'
 import { Route as AuthenticatedPricingCheckoutSuccessRouteImport } from './routes/_authenticated/pricing/checkout-success'
 import { Route as AuthenticatedTabsProfileRouteImport } from './routes/_authenticated/_tabs/profile'
 import { Route as AuthenticatedTabsHomeRouteImport } from './routes/_authenticated/_tabs/home'
@@ -102,10 +102,10 @@ const AuthenticatedProfileDangerZoneRoute =
     path: '/profile/danger-zone',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
-const AuthenticatedPricingFreeTrialRoute =
-  AuthenticatedPricingFreeTrialRouteImport.update({
-    id: '/pricing/free-trial',
-    path: '/pricing/free-trial',
+const AuthenticatedPricingFreeTrialExplanationRoute =
+  AuthenticatedPricingFreeTrialExplanationRouteImport.update({
+    id: '/pricing/free-trial-explanation',
+    path: '/pricing/free-trial-explanation',
     getParentRoute: () => AuthenticatedRoute,
   } as any)
 const AuthenticatedPricingCheckoutSuccessRoute =
@@ -143,7 +143,7 @@ export interface FileRoutesByFullPath {
   '/home': typeof AuthenticatedTabsHomeRoute
   '/profile': typeof AuthenticatedTabsProfileRoute
   '/pricing/checkout-success': typeof AuthenticatedPricingCheckoutSuccessRoute
-  '/pricing/free-trial': typeof AuthenticatedPricingFreeTrialRoute
+  '/pricing/free-trial-explanation': typeof AuthenticatedPricingFreeTrialExplanationRoute
   '/profile/danger-zone': typeof AuthenticatedProfileDangerZoneRoute
   '/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
@@ -162,7 +162,7 @@ export interface FileRoutesByTo {
   '/home': typeof AuthenticatedTabsHomeRoute
   '/profile': typeof AuthenticatedTabsProfileRoute
   '/pricing/checkout-success': typeof AuthenticatedPricingCheckoutSuccessRoute
-  '/pricing/free-trial': typeof AuthenticatedPricingFreeTrialRoute
+  '/pricing/free-trial-explanation': typeof AuthenticatedPricingFreeTrialExplanationRoute
   '/profile/danger-zone': typeof AuthenticatedProfileDangerZoneRoute
   '/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
@@ -184,7 +184,7 @@ export interface FileRoutesById {
   '/_authenticated/_tabs/home': typeof AuthenticatedTabsHomeRoute
   '/_authenticated/_tabs/profile': typeof AuthenticatedTabsProfileRoute
   '/_authenticated/pricing/checkout-success': typeof AuthenticatedPricingCheckoutSuccessRoute
-  '/_authenticated/pricing/free-trial': typeof AuthenticatedPricingFreeTrialRoute
+  '/_authenticated/pricing/free-trial-explanation': typeof AuthenticatedPricingFreeTrialExplanationRoute
   '/_authenticated/profile/danger-zone': typeof AuthenticatedProfileDangerZoneRoute
   '/_authenticated/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
@@ -205,7 +205,7 @@ export interface FileRouteTypes {
     | '/home'
     | '/profile'
     | '/pricing/checkout-success'
-    | '/pricing/free-trial'
+    | '/pricing/free-trial-explanation'
     | '/profile/danger-zone'
     | '/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
@@ -224,7 +224,7 @@ export interface FileRouteTypes {
     | '/home'
     | '/profile'
     | '/pricing/checkout-success'
-    | '/pricing/free-trial'
+    | '/pricing/free-trial-explanation'
     | '/profile/danger-zone'
     | '/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
@@ -245,7 +245,7 @@ export interface FileRouteTypes {
     | '/_authenticated/_tabs/home'
     | '/_authenticated/_tabs/profile'
     | '/_authenticated/pricing/checkout-success'
-    | '/_authenticated/pricing/free-trial'
+    | '/_authenticated/pricing/free-trial-explanation'
     | '/_authenticated/profile/danger-zone'
     | '/_authenticated/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
@@ -365,11 +365,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedProfileDangerZoneRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
-    '/_authenticated/pricing/free-trial': {
-      id: '/_authenticated/pricing/free-trial'
-      path: '/pricing/free-trial'
-      fullPath: '/pricing/free-trial'
-      preLoaderRoute: typeof AuthenticatedPricingFreeTrialRouteImport
+    '/_authenticated/pricing/free-trial-explanation': {
+      id: '/_authenticated/pricing/free-trial-explanation'
+      path: '/pricing/free-trial-explanation'
+      fullPath: '/pricing/free-trial-explanation'
+      preLoaderRoute: typeof AuthenticatedPricingFreeTrialExplanationRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
     '/_authenticated/pricing/checkout-success': {
@@ -423,7 +423,7 @@ interface AuthenticatedRouteChildren {
   AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
   AuthenticatedPremiumDemoRoute: typeof AuthenticatedPremiumDemoRoute
   AuthenticatedPricingCheckoutSuccessRoute: typeof AuthenticatedPricingCheckoutSuccessRoute
-  AuthenticatedPricingFreeTrialRoute: typeof AuthenticatedPricingFreeTrialRoute
+  AuthenticatedPricingFreeTrialExplanationRoute: typeof AuthenticatedPricingFreeTrialExplanationRoute
   AuthenticatedProfileDangerZoneRoute: typeof AuthenticatedProfileDangerZoneRoute
   AuthenticatedRedirectToCheckOutPlanIntervalRoute: typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   AuthenticatedPricingIndexRoute: typeof AuthenticatedPricingIndexRoute
@@ -435,7 +435,8 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedPremiumDemoRoute: AuthenticatedPremiumDemoRoute,
   AuthenticatedPricingCheckoutSuccessRoute:
     AuthenticatedPricingCheckoutSuccessRoute,
-  AuthenticatedPricingFreeTrialRoute: AuthenticatedPricingFreeTrialRoute,
+  AuthenticatedPricingFreeTrialExplanationRoute:
+    AuthenticatedPricingFreeTrialExplanationRoute,
   AuthenticatedProfileDangerZoneRoute: AuthenticatedProfileDangerZoneRoute,
   AuthenticatedRedirectToCheckOutPlanIntervalRoute:
     AuthenticatedRedirectToCheckOutPlanIntervalRoute,

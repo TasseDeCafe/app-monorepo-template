@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useNavigate } from '@tanstack/react-router'
 import { Route as checkoutSuccessRoute } from '@/app/routes/_authenticated/pricing/checkout-success'
 import { Route as pricingRoute } from '@/app/routes/_authenticated/pricing/index'
-import { Route as pricingFreeTrialRoute } from '@/app/routes/_authenticated/pricing/free-trial'
+import { Route as freeTrialExplanationRoute } from '@/app/routes/_authenticated/pricing/free-trial-explanation'
 import { FullViewLoader } from '@/components/ui/full-view-loader'
 import { useCheckoutMutation } from '@/features/checkout/api/checkout-hooks'
 import { useTrackingStore } from '@/stores/tracking-store'
@@ -27,7 +27,7 @@ export const RedirectToCheckOut = () => {
     }
 
     if (referral) {
-      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval } })
+      navigate({ to: freeTrialExplanationRoute.to, search: { planInterval } })
     } else {
       mutate({
         successPathAndHash: checkoutSuccessRoute.to,

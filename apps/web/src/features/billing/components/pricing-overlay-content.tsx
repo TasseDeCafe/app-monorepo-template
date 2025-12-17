@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label'
 import { Badge } from '@/components/ui/badge'
 import { getConfig } from '@/config/environment-config'
 import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
-import { Route as pricingFreeTrialRoute } from '@/app/routes/_authenticated/pricing/free-trial'
+import { Route as freeTrialExplanationRoute } from '@/app/routes/_authenticated/pricing/free-trial-explanation'
 import { Route as checkoutSuccessRoute } from '@/app/routes/_authenticated/pricing/checkout-success'
 import { Route as pricingRoute } from '@/app/routes/_authenticated/pricing/index'
 import { getPricingViewConfig, PricingViewConfig } from '@/features/billing/utils/pricing-view-utils'
@@ -71,7 +71,7 @@ export const PricingOverlayContent = () => {
     POSTHOG_EVENTS.click('subscribe_button')
     if (hasAllowedReferral || getConfig().featureFlags.isCreditCardRequiredForAll()) {
       closeOverlay()
-      navigate({ to: pricingFreeTrialRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
+      navigate({ to: freeTrialExplanationRoute.to, search: { planInterval: clickedPlan as 'month' | 'year' } })
     } else {
       mutate({
         successPathAndHash: checkoutSuccessRoute.to,

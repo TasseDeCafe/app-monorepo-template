@@ -13,99 +13,99 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:69
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:67
 msgid "- Accessing the service for any illegal purpose or in violation of any local, state, national, or international law."
 msgstr "- Accessing the service for any illegal purpose or in violation of any local, state, national, or international law."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:66
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:64
 msgid "- Attempting to copy, duplicate, reproduce, sell, trade, or resell our resources."
 msgstr "- Attempting to copy, duplicate, reproduce, sell, trade, or resell our resources."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:81
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:79
 msgid "- Attempting to hack, destabilize, or introduce malicious software to our website, or to compromise the security of our services in any way."
 msgstr "- Attempting to hack, destabilize, or introduce malicious software to our website, or to compromise the security of our services in any way."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:75
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:73
 msgid "- Conducting any unauthorized activity that involves the service, including but not limited to data theft, providing malware or spyware, phishing, and other fraudulent activities."
 msgstr "- Conducting any unauthorized activity that involves the service, including but not limited to data theft, providing malware or spyware, phishing, and other fraudulent activities."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:153
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:151
 msgid "- Continuous security monitoring and automated threat detection systems"
 msgstr "- Continuous security monitoring and automated threat detection systems"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:52
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:50
 msgid "- Cookies and Tracking Technologies: We use cookies and similar technologies to monitor and analyze service usage and to enhance user experience. You may control the use of these technologies through your browser settings."
 msgstr "- Cookies and Tracking Technologies: We use cookies and similar technologies to monitor and analyze service usage and to enhance user experience. You may control the use of these technologies through your browser settings."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:61
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:59
 msgid "- Engaging in any activity that disrupts or interferes with our resources, including servers and networks."
 msgstr "- Engaging in any activity that disrupts or interferes with our resources, including servers and networks."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:138
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:136
 msgid "- Enterprise-grade encryption protocols for data transmission and storage"
 msgstr "- Enterprise-grade encryption protocols for data transmission and storage"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:59
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:57
 msgid "- Google/Apple/Email Authentication: We integrate industry standards to streamline your sign-in process and enhance account security. We might use your email address to send you notifications and emails, from which you can always unsubscribe. We do not sell your email address. We also do not share your email address with any third parties if it's not strictly related to the basic functioning of our webapp."
 msgstr "- Google/Apple/Email Authentication: We integrate industry standards to streamline your sign-in process and enhance account security. We might use your email address to send you notifications and emails, from which you can always unsubscribe. We do not sell your email address. We also do not share your email address with any third parties if it's not strictly related to the basic functioning of our webapp."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:144
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:142
 msgid "- Implementation of trusted, industry-standard security libraries and frameworks, avoiding custom security implementations"
 msgstr "- Implementation of trusted, industry-standard security libraries and frameworks, avoiding custom security implementations"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:122
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:120
 msgid "- Legal Requirements: We may disclose your data if required to do so by law or in response to valid requests by public authorities (e.g., a court or a government agency)."
 msgstr "- Legal Requirements: We may disclose your data if required to do so by law or in response to valid requests by public authorities (e.g., a court or a government agency)."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:36
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:34
 msgid "- Personal Information: We collect personal data such as your name, email address, and other contact details when you register, subscribe to our services, fill out forms, or interact with our platform in other ways that require personal identification."
 msgstr "- Personal Information: We collect personal data such as your name, email address, and other contact details when you register, subscribe to our services, fill out forms, or interact with our platform in other ways that require personal identification."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:58
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:56
 msgid "- Prohibited Activities: Users are prohibited from:"
 msgstr "- Prohibited Activities: Users are prohibited from:"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:156
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:154
 msgid "- Regular security training for our development and operations teams"
 msgstr "- Regular security training for our development and operations teams"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:141
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:139
 msgid "- Regular third-party security audits and penetration testing by certified specialists"
 msgstr "- Regular third-party security audits and penetration testing by certified specialists"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:150
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:148
 msgid "- Strict access controls and authentication mechanisms following OWASP security guidelines"
 msgstr "- Strict access controls and authentication mechanisms following OWASP security guidelines"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:85
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:83
 msgid "- To communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the service, and for marketing and promotional purposes"
 msgstr "- To communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the service, and for marketing and promotional purposes"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:83
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:81
 msgid "- To develop new products, services, features, and functionality"
 msgstr "- To develop new products, services, features, and functionality"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:78
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:76
 msgid "- To improve, personalize, and expand our services"
 msgstr "- To improve, personalize, and expand our services"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:75
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:73
 msgid "- To provide, operate, and maintain our services"
 msgstr "- To provide, operate, and maintain our services"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:92
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:90
 msgid "- To send you emails and notifications"
 msgstr "- To send you emails and notifications"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:81
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:79
 msgid "- To understand and analyze how you use our services"
 msgstr "- To understand and analyze how you use our services"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:47
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:45
 msgid "- Voice Recording: Users may not use the service to replicate or clone voices of any individuals other than"
 msgstr "- Voice Recording: Users may not use the service to replicate or clone voices of any individuals other than"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:43
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:41
 msgid "- Voice Recordings: To assist in pronunciation improvement, we collect and analyze recordings of your voice. These are used to create personalized voice clones. - App data: We collect and store data that you input into the app for language learning purposes. This includes your learning progress, custom settings, and interactions within the app. This data is utilized to tailor and enhance your learning experience, enabling personalized language learning pathways and recommendations."
 msgstr "- Voice Recordings: To assist in pronunciation improvement, we collect and analyze recordings of your voice. These are used to create personalized voice clones. - App data: We collect and store data that you input into the app for language learning purposes. This includes your learning progress, custom settings, and interactions within the app. This data is utilized to tailor and enhance your learning experience, enabling personalized language learning pathways and recommendations."
 
@@ -119,19 +119,19 @@ msgstr "(Current)"
 msgid "(Expired)"
 msgstr "(Expired)"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:129
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:127
 msgid "(i) your access to or use of or inability to access or use the service;"
 msgstr "(i) your access to or use of or inability to access or use the service;"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:132
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:130
 msgid "(ii) any conduct or content of any third party on the service;"
 msgstr "(ii) any conduct or content of any third party on the service;"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:135
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:133
 msgid "(iii) any content obtained from the service; and"
 msgstr "(iii) any content obtained from the service; and"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:138
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:136
 msgid "(iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage."
 msgstr "(iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage."
 
@@ -193,19 +193,19 @@ msgstr "{yearlyDiscountPercentage}% off for 1 year with your referral!"
 msgid "{yearlyDiscountPercentage}% off with your referral!"
 msgstr "{yearlyDiscountPercentage}% off with your referral!"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:196
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:194
 msgid "• All personal account information and system preferences"
 msgstr "• All personal account information and system preferences"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:193
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:191
 msgid "• Complete learning history and all accumulated progress data"
 msgstr "• Complete learning history and all accumulated progress data"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:190
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:188
 msgid "• Every voice recording and associated voice clone, without exception"
 msgstr "• Every voice recording and associated voice clone, without exception"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:199
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:197
 msgid "• Full communication records and interaction history"
 msgstr "• Full communication records and interaction history"
 
@@ -219,55 +219,55 @@ msgstr "€{monthlyPriceFormatted}/month"
 msgid "€{yearlyPricePerMonth}/month"
 msgstr "€{yearlyPricePerMonth}/month"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:23
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:21
 msgid "1. Agreement to Terms"
 msgstr "1. Agreement to Terms"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:23
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:21
 msgid "1. Introduction"
 msgstr "1. Introduction"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:210
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:208
 msgid "10. Contact Us"
 msgstr "10. Contact Us"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:32
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:30
 msgid "2. Information Collection"
 msgstr "2. Information Collection"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:32
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:30
 msgid "2. Intellectual Property Rights"
 msgstr "2. Intellectual Property Rights"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:68
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:66
 msgid "3. Use of Information"
 msgstr "3. Use of Information"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:43
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:41
 msgid "3. User Responsibilities"
 msgstr "3. User Responsibilities"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:96
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:94
 msgid "4. Transfer of Data"
 msgstr "4. Transfer of Data"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:88
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:86
 msgid "4. User Content"
 msgstr "4. User Content"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:99
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:97
 msgid "5. Account Termination"
 msgstr "5. Account Termination"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:106
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:104
 msgid "5. Third-Party Services:"
 msgstr "5. Third-Party Services:"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:109
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:107
 msgid "6. Disclaimer of Warranties"
 msgstr "6. Disclaimer of Warranties"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:119
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:117
 msgid "6. Disclosure of Data"
 msgstr "6. Disclosure of Data"
 
@@ -275,23 +275,23 @@ msgstr "6. Disclosure of Data"
 msgid "7 days free"
 msgstr "7 days free"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:120
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:118
 msgid "7. Limitation of Liability"
 msgstr "7. Limitation of Liability"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:128
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:126
 msgid "7. Security of Data"
 msgstr "7. Security of Data"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:146
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:144
 msgid "8. Contact Us"
 msgstr "8. Contact Us"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:169
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:167
 msgid "8. Data Retention"
 msgstr "8. Data Retention"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:179
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:177
 msgid "9. Your Rights"
 msgstr "9. Your Rights"
 
@@ -299,15 +299,15 @@ msgstr "9. Your Rights"
 msgid "A newer version of the app is required to continue. Please update to the latest version to access all features and improvements."
 msgstr "A newer version of the app is required to continue. Please update to the latest version to access all features and improvements."
 
-#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:27
+#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:25
 msgid "About"
 msgstr "About"
 
-#: apps/landing-page/src/app/[lang]/about/page.tsx:17
+#: apps/landing-page/src/app/[lang]/about/page.tsx:15
 msgid "About | TemplateApp"
 msgstr "About | TemplateApp"
 
-#: apps/landing-page/src/app/[lang]/about/page.tsx:40
+#: apps/landing-page/src/app/[lang]/about/page.tsx:38
 msgid "About Us"
 msgstr "About Us"
 
@@ -347,7 +347,7 @@ msgstr "An error occurred. Please try again."
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
 
-#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:15
+#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:13
 msgid "Android App"
 msgstr "Android App"
 
@@ -389,7 +389,7 @@ msgstr "Billed yearly at €{yearlyPriceTotal}"
 msgid "Billed yearly: €{yearlyPriceFormatted}"
 msgstr "Billed yearly: €{yearlyPriceFormatted}"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:26
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:24
 msgid "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
 msgstr "By accessing and using our website, TemplateApp.com, and any associated services, you agree to be bound by these Terms of Service (\"Terms\")."
 
@@ -415,7 +415,7 @@ msgstr "Checking app version..."
 msgid "Choose a plan to unlock all features"
 msgstr "Choose a plan to unlock all features"
 
-#: apps/landing-page/src/app/[lang]/pricing/page.tsx:18
+#: apps/landing-page/src/app/[lang]/pricing/page.tsx:16
 msgid "Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training."
 msgstr "Choose the perfect plan for your accent training journey. Flexible pricing options to help you achieve your perfect accent with AI-powered voice training."
 
@@ -608,8 +608,8 @@ msgstr "Failed to send feedback. Please try again."
 msgid "Failed to trigger Sentry message"
 msgstr "Failed to trigger Sentry message"
 
-#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:21
-#: apps/landing-page/src/app/[lang]/features/page.tsx:15
+#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:19
+#: apps/landing-page/src/app/[lang]/features/page.tsx:13
 msgid "Features"
 msgstr "Features"
 
@@ -653,11 +653,11 @@ msgstr "Home"
 msgid "How your free trial works"
 msgstr "How your free trial works"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:149
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:147
 msgid "If you have any questions about these Terms of Service, please contact us via email contact@app-monorepo-template.dev"
 msgstr "If you have any questions about these Terms of Service, please contact us via email contact@app-monorepo-template.dev"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:213
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:211
 msgid "If you have any questions about this Privacy Policy, please contact us via email: contact@app-monorepo-template.dev"
 msgstr "If you have any questions about this Privacy Policy, please contact us via email: contact@app-monorepo-template.dev"
 
@@ -669,7 +669,7 @@ msgstr "If you'd like to create a new account, sign up again below."
 msgid "If you'd like to create a new account, you can sign up again."
 msgstr "If you'd like to create a new account, you can sign up again."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:123
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:121
 msgid "In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
 msgstr "In no event shall TemplateApp.com, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:"
 
@@ -693,7 +693,7 @@ msgstr "Introduce your card details and get instant access"
 msgid "Invalid token. Please sign in again."
 msgstr "Invalid token. Please sign in again."
 
-#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:15
+#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:13
 msgid "iOS App"
 msgstr "iOS App"
 
@@ -764,7 +764,7 @@ msgstr "Open Mail App"
 msgid "or copy links to"
 msgstr "or copy links to"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:160
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:158
 msgid "Our security infrastructure is continuously monitored, evaluated, and enhanced to meet evolving cybersecurity challenges. We maintain rigorous standards in data protection and follow security best practices recommended by leading technology security organizations. For complete transparency, we acknowledge that all digital systems require ongoing vigilance, which is why we've implemented comprehensive monitoring and rapid response protocols."
 msgstr "Our security infrastructure is continuously monitored, evaluated, and enhanced to meet evolving cybersecurity challenges. We maintain rigorous standards in data protection and follow security best practices recommended by leading technology security organizations. For complete transparency, we acknowledge that all digital systems require ongoing vigilance, which is why we've implemented comprehensive monitoring and rapid response protocols."
 
@@ -826,16 +826,16 @@ msgstr "Premium Demo"
 msgid "Premium Features"
 msgstr "Premium Features"
 
-#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:24
+#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:22
 #: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:80
 msgid "Pricing"
 msgstr "Pricing"
 
-#: apps/landing-page/src/app/[lang]/pricing/page.tsx:16
+#: apps/landing-page/src/app/[lang]/pricing/page.tsx:14
 msgid "Pricing | TemplateApp"
 msgstr "Pricing | TemplateApp"
 
-#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:23
+#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:21
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
@@ -887,7 +887,7 @@ msgstr "Setting up account..."
 msgid "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 msgstr "Share your feedback or suggest improvements to the founders. We read and reply to every submission!"
 
-#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:37
+#: apps/landing-page/src/app/[lang]/(navbar)/desktop-navbar.tsx:35
 #: apps/landing-page/src/app/[lang]/(navbar)/mobile-navbar.tsx:118
 msgid "Sign in"
 msgstr "Sign in"
@@ -990,7 +990,7 @@ msgstr "TemplateApp"
 msgid "TemplateApp - Perfect Your Accent with AI Voice Training"
 msgstr "TemplateApp - Perfect Your Accent with AI Voice Training"
 
-#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:26
+#: apps/landing-page/src/app/[lang]/(footer)/footer.tsx:24
 msgid "Terms and Conditions"
 msgstr "Terms and Conditions"
 
@@ -1012,19 +1012,19 @@ msgstr "Test Frontend Unhandled Error"
 msgid "Thank you for your feedback!"
 msgstr "Thank you for your feedback!"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:35
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:33
 msgid "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
 msgstr "The content, features, and functionality of our services, including but not limited to text, graphics, logos, images, as well as the design, selection, and arrangement thereof, are and will remain the exclusive property of TemplateApp.com and its licensors. These are protected by copyright, trademark, and other intellectual property or proprietary rights laws."
 
-#: apps/landing-page/src/app/[lang]/about/page.tsx:19
+#: apps/landing-page/src/app/[lang]/about/page.tsx:17
 msgid "the creators of app-monorepo-template.dev here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
 msgstr "the creators of app-monorepo-template.dev here. We've been pouring our hearts into developing the beta version of the app and your feedback is crucial for us. We're excited to roll out new features soon, and we're always looking for ways to improve the app."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:71
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:69
 msgid "The data we collect serves several purposes:"
 msgstr "The data we collect serves several purposes:"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:53
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:51
 msgid "themselves. Each user must have the legal right to use all the voice data they upload to our platform."
 msgstr "themselves. Each user must have the legal right to use all the voice data they upload to our platform."
 
@@ -1042,7 +1042,7 @@ msgstr "There was an error. Please contact support."
 msgid "This action cannot be undone. This will permanently delete your account and related data from our servers."
 msgstr "This action cannot be undone. This will permanently delete your account and related data from our servers."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:203
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:201
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 msgstr "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 
@@ -1116,7 +1116,7 @@ msgstr "Use these options to test Sentry error reporting in your environment."
 msgid "User setup complete"
 msgstr "User setup complete"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:91
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:89
 msgid "Users retain all rights to any content they upload, submit, post, or display on or through the service. By uploading this content, users grant us a permission to use, reproduce, modify, publish, and display this content in connection with the service. In particular, this content will neither be sold or traded with any external service provider nor made public without user\"s explicit consent"
 msgstr "Users retain all rights to any content they upload, submit, post, or display on or through the service. By uploading this content, users grant us a permission to use, reproduce, modify, publish, and display this content in connection with the service. In particular, this content will neither be sold or traded with any external service provider nor made public without user\"s explicit consent"
 
@@ -1151,23 +1151,23 @@ msgstr "View Premium Demo"
 msgid "Warning"
 msgstr "Warning"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:109
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:107
 msgid "We engage reputable third-party companies to facilitate our services (\"Service Providers\"), provide the service on our behalf, perform service-related services, and assist in analyzing how our service is used. These third parties are carefully selected and have access to your Personal Data only to perform specific tasks on our behalf. They are contractually bound to maintain the confidentiality of your information and are committed to complying with applicable privacy laws, ensuring that your data is handled securely and responsibly."
 msgstr "We engage reputable third-party companies to facilitate our services (\"Service Providers\"), provide the service on our behalf, perform service-related services, and assist in analyzing how our service is used. These third parties are carefully selected and have access to your Personal Data only to perform specific tasks on our behalf. They are contractually bound to maintain the confidentiality of your information and are committed to complying with applicable privacy laws, ensuring that your data is handled securely and responsibly."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:182
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:180
 msgid "We guarantee absolute control over your personal data through our automated account management system. Our platform provides a dedicated one-click deletion feature that ensures immediate and irreversible removal of all your data from our systems. When activated, this automated process permanently erases:"
 msgstr "We guarantee absolute control over your personal data through our automated account management system. Our platform provides a dedicated one-click deletion feature that ensures immediate and irreversible removal of all your data from our systems. When activated, this automated process permanently erases:"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:131
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:129
 msgid "We implement and maintain robust security measures aligned with industry best practices to protect your Personal Data. Our security infrastructure includes:"
 msgstr "We implement and maintain robust security measures aligned with industry best practices to protect your Personal Data. Our security infrastructure includes:"
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:102
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:100
 msgid "We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms. Upon termination, your right to use the service will cease immediately."
 msgstr "We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms. Upon termination, your right to use the service will cease immediately."
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:172
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:170
 msgid "We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our legal agreements and policies."
 msgstr "We will retain your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use your Personal Data to the extent necessary to comply with our legal obligations, resolve disputes, and enforce our legal agreements and policies."
 
@@ -1184,7 +1184,7 @@ msgstr "We've sent a verification email to:"
 msgid "We've sent a verification link to:"
 msgstr "We've sent a verification link to:"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:26
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:24
 msgid "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
 msgstr "Welcome to TemplateApp.com. We are committed to protecting your privacy. This Privacy Policy outlines how we collect, handle, store, and safeguard your personal data as you interact with our services."
 
@@ -1211,7 +1211,7 @@ msgstr "You can try again in {countdown} seconds"
 msgid "You have already used your free trial."
 msgstr "You have already used your free trial."
 
-#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:112
+#: apps/landing-page/src/app/[lang]/terms-and-conditions/page.tsx:110
 msgid "You understand and agree that your use of our service is at your sole risk. The service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. We expressly disclaim all warranties, whether express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement."
 msgstr "You understand and agree that your use of our service is at your sole risk. The service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. We expressly disclaim all warranties, whether express or implied, including, but not limited to, the implied warranties of merchantability, fitness for a particular purpose, and non-infringement."
 
@@ -1232,7 +1232,7 @@ msgstr "Your current plan"
 msgid "your email address"
 msgstr "your email address"
 
-#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:100
+#: apps/landing-page/src/app/[lang]/privacy-policy/page.tsx:98
 msgid "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
 msgstr "Your information, including Personal Data, may be transferred to and maintained on computers located outside of your jurisdiction where data protection laws may differ from those in your jurisdiction."
 

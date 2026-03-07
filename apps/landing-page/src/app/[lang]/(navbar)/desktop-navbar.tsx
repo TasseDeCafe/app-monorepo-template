@@ -1,5 +1,3 @@
-'use server'
-
 import Link from 'next/link'
 import { LangProps } from '@/types/lang-props'
 import { Trans } from '@lingui/react/macro'

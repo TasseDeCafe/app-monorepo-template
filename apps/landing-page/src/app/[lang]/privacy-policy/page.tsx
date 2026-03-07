@@ -1,5 +1,3 @@
-'use server'
-
 import { Metadata } from 'next'
 import { Trans } from '@lingui/react/macro'
 import { setI18n } from '@lingui/react/server'

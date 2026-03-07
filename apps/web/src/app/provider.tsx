@@ -14,6 +14,7 @@ import { UserSetupGate } from '@/features/auth/components/user-setup-gate'
 
 validateConfig(getConfig())
 
+
 posthog.init(getConfig().posthogToken, {
   api_host: 'https://eu.i.posthog.com',
   persistence: 'localStorage+cookie',

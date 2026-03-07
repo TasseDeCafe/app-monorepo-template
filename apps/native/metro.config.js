@@ -12,10 +12,6 @@ const config = getSentryExpoConfig(projectRoot, {
   annotateReactComponents: true,
 })
 
-// Keep package exports enabled so dependencies with explicit export maps
-// (PostHog, ts-rest, etc.) resolve correctly in Metro.
-config.resolver.unstable_enablePackageExports = true
-
 // Add Lingui Metro transformer support
 const { transformer, resolver } = config
 config.transformer = {

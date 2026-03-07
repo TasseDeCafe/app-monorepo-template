@@ -70,7 +70,6 @@ const config = {
     icon: './src/assets/images/icon.png',
     scheme: 'template-app',
     userInterfaceStyle: 'automatic',
-    newArchEnabled: true,
     buildCacheProvider: 'eas',
     ios: {
       usesAppleSignIn: true,

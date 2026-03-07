@@ -1,5 +1,3 @@
-'use server'
-
 import { LangProps } from '@/types/lang-props'
 import DesktopNavbar from '@/app/[lang]/(navbar)/desktop-navbar'
 import MobileNavbar from '@/app/[lang]/(navbar)/mobile-navbar'

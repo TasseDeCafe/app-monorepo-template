@@ -1,5 +1,3 @@
-'use server'
-
 import { LangProps } from '@/types/lang-props'
 import { Metadata } from 'next'
 import { setI18n } from '@lingui/react/server'

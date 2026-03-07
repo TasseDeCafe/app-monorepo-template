@@ -1,5 +1,3 @@
-'use server'
-
 import { setI18n } from '@lingui/react/server'
 import { getLinguiInstance } from '@/lib/i18n/get-lingui-instance'
 import { LangProps } from '@/types/lang-props'

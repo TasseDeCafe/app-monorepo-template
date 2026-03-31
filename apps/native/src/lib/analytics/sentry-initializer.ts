@@ -1,5 +1,6 @@
 import * as Sentry from '@sentry/react-native'
 import Constants, { ExecutionEnvironment } from 'expo-constants'
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from '@/config/environment-config'
 
 export const navigationIntegration = Sentry.reactNavigationIntegration({
@@ -7,6 +8,8 @@ export const navigationIntegration = Sentry.reactNavigationIntegration({
 })
 
 export const initializeSentry = () => {
+  if (!FEATURES.SENTRY) return
+
   const config = getConfig()
 
   Sentry.init({
@@ -27,9 +30,11 @@ export const initializeSentry = () => {
 }
 
 export const identifyUserWithSentry = (userId: string) => {
+  if (!FEATURES.SENTRY) return
   Sentry.setUser({ id: userId })
 }
 
 export const clearSentryUser = () => {
+  if (!FEATURES.SENTRY) return
   Sentry.setUser(null)
 }

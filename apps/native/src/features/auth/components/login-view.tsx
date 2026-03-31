@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card'
 import { GoogleIcon } from '@/components/ui/icons/google-icon'
 import { useAuthStore } from '@/stores/auth-store'
 import { cn } from '@template-app/core/utils/tailwind-utils'
+import { FEATURES } from '@template-app/core/features'
 import * as AppleAuthentication from 'expo-apple-authentication'
 import { Stack, useRouter } from 'expo-router'
 import { Mail } from 'lucide-react-native'
@@ -38,18 +39,20 @@ export default function LoginView() {
             {t`Continue with Email`}
           </Button>
 
-          <Button
-            variant='default'
-            size='lg'
-            onPress={signInWithGoogle}
-            className='h-16 w-full items-center justify-center'
-            textClassName='text-2xl font-medium h-full'
-            startIcon={<GoogleIcon size={20} color='white' />}
-          >
-            {t`Continue with Google`}
-          </Button>
+          {FEATURES.GOOGLE_AUTH && (
+            <Button
+              variant='default'
+              size='lg'
+              onPress={signInWithGoogle}
+              className='h-16 w-full items-center justify-center'
+              textClassName='text-2xl font-medium h-full'
+              startIcon={<GoogleIcon size={20} color='white' />}
+            >
+              {t`Continue with Google`}
+            </Button>
+          )}
 
-          {Platform.OS === 'ios' && (
+          {FEATURES.APPLE_AUTH && Platform.OS === 'ios' && (
             <View className={cn('overflow-hidden rounded-xl')}>
               <AppleAuthentication.AppleAuthenticationButton
                 buttonType={AppleAuthentication.AppleAuthenticationButtonType.CONTINUE}

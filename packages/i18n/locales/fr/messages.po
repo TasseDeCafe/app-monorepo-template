@@ -327,12 +327,12 @@ msgid "Actions in this section can lead to permanent data loss."
 msgstr "Les actions dans cette section peuvent entraîner une perte définitive de données."
 
 #: apps/native/src/features/admin/components/admin-settings-view.tsx:58
-#: apps/native/src/features/profile/components/profile-view.tsx:140
+#: apps/native/src/features/profile/components/profile-view.tsx:143
 #: apps/web/src/features/profile/components/profile-view.tsx:130
 msgid "Admin Settings"
 msgstr "Paramètres Administrateur"
 
-#: apps/native/src/features/billing/hooks/use-paywall.ts:62
+#: apps/native/src/features/billing/hooks/use-paywall.ts:65
 msgid "An error occurred while attempting to manage your subscription."
 msgstr "Une erreur est survenue lors de la gestion de votre abonnement."
 
@@ -360,8 +360,8 @@ msgstr "App Store"
 msgid "Are you absolutely sure?"
 msgstr "Êtes-vous absolument sûr ?"
 
-#: apps/web/src/features/auth/components/login-view.tsx:47
-#: apps/web/src/features/auth/components/login-view.tsx:59
+#: apps/web/src/features/auth/components/login-view.tsx:48
+#: apps/web/src/features/auth/components/login-view.tsx:60
 msgid "Authentication failed"
 msgstr "Échec de l'authentification"
 
@@ -446,18 +446,18 @@ msgstr "Contact"
 msgid "Continue"
 msgstr "Continuer"
 
-#: apps/web/src/features/auth/components/login-view.tsx:94
+#: apps/web/src/features/auth/components/login-view.tsx:96
 msgid "Continue with Apple"
 msgstr "Continuer avec Apple"
 
 #: apps/native/src/features/auth/components/login-email-view.tsx:68
-#: apps/native/src/features/auth/components/login-view.tsx:38
-#: apps/web/src/features/auth/components/login-view.tsx:84
+#: apps/native/src/features/auth/components/login-view.tsx:39
+#: apps/web/src/features/auth/components/login-view.tsx:85
 msgid "Continue with Email"
 msgstr "Continuer avec l'adresse e-mail"
 
-#: apps/native/src/features/auth/components/login-view.tsx:49
-#: apps/web/src/features/auth/components/login-view.tsx:89
+#: apps/native/src/features/auth/components/login-view.tsx:51
+#: apps/web/src/features/auth/components/login-view.tsx:90
 msgid "Continue with Google"
 msgstr "Continuer avec Google"
 
@@ -465,15 +465,15 @@ msgstr "Continuer avec Google"
 msgid "Copied!"
 msgstr "Copié !"
 
-#: apps/native/src/features/billing/hooks/use-paywall.ts:57
+#: apps/native/src/features/billing/hooks/use-paywall.ts:60
 msgid "Could not display payment options at this time."
 msgstr "Impossible d'afficher les options de paiement en ce moment."
 
-#: apps/native/src/features/billing/hooks/use-paywall.ts:34
+#: apps/native/src/features/billing/hooks/use-paywall.ts:37
 msgid "Could not load payment options at this time (no offerings)."
 msgstr "Impossible de charger les options de paiement en ce moment (aucune offre)."
 
-#: apps/native/src/features/billing/hooks/use-paywall.ts:42
+#: apps/native/src/features/billing/hooks/use-paywall.ts:45
 msgid "Could not load payment options. Please try again later."
 msgstr "Impossible de charger les options de paiement. Veuillez réessayer plus tard."
 
@@ -481,15 +481,15 @@ msgstr "Impossible de charger les options de paiement. Veuillez réessayer plus 
 msgid "Could not open billing settings."
 msgstr "Impossible d'ouvrir les paramètres de facturation."
 
-#: apps/native/src/features/profile/components/profile-view.tsx:59
+#: apps/native/src/features/profile/components/profile-view.tsx:61
 msgid "Could not open customer center."
 msgstr "Impossible d'ouvrir le centre client."
 
-#: apps/native/src/features/profile/components/profile-view.tsx:83
+#: apps/native/src/features/profile/components/profile-view.tsx:86
 msgid "Could not open the link. Please visit our website to manage your subscription."
 msgstr "Impossible d'ouvrir le lien. Veuillez visiter notre site web pour gérer votre abonnement."
 
-#: apps/native/src/features/profile/components/profile-view.tsx:68
+#: apps/native/src/features/profile/components/profile-view.tsx:71
 msgid "Could not open upgrade screen."
 msgstr "Impossible d'ouvrir l'écran de mise à niveau."
 
@@ -503,12 +503,12 @@ msgid ""
 "Required version: {requiredVersion}"
 msgstr "Version actuelle : {currentVersion}\\nVersion requise : {requiredVersion}"
 
-#: apps/native/src/features/profile/components/profile-view.tsx:99
-#: apps/native/src/features/profile/components/profile-view.tsx:117
+#: apps/native/src/features/profile/components/profile-view.tsx:102
+#: apps/native/src/features/profile/components/profile-view.tsx:120
 msgid "Customer Center"
 msgstr "Centre Client"
 
-#: apps/native/src/features/profile/components/profile-view.tsx:143
+#: apps/native/src/features/profile/components/profile-view.tsx:146
 #: apps/web/src/features/profile/components/danger-zone-view.tsx:25
 #: apps/web/src/features/profile/components/profile-view.tsx:121
 msgid "Danger Zone"
@@ -562,7 +562,7 @@ msgid "Enjoy unlimited access to all our premium features and content."
 msgstr "Profitez d'un accès illimité à toutes nos fonctionnalités et contenus premium."
 
 #: apps/native/src/components/gates/force-update-gate.tsx:70
-#: apps/native/src/features/billing/hooks/use-paywall.ts:62
+#: apps/native/src/features/billing/hooks/use-paywall.ts:65
 msgid "Error"
 msgstr "Erreur"
 
@@ -592,7 +592,7 @@ msgstr "Échec de la création de la session de paiement"
 msgid "Failed to fetch subscription details"
 msgstr "Échec de la récupération des détails de l'abonnement"
 
-#: apps/native/src/features/auth/components/revenuecat-initializer.tsx:32
+#: apps/native/src/features/auth/components/revenuecat-initializer.tsx:38
 msgid "Failed to initialize payment system. Please restart the app."
 msgstr "Échec de l'initialisation du système de paiement. Veuillez redémarrer l'application."
 
@@ -675,7 +675,7 @@ msgstr "En aucun cas TemplateApp.com, ni ses directeurs, employés, partenaires,
 msgid "In-App Purchases"
 msgstr "Achats intégrés"
 
-#: apps/native/src/features/auth/components/revenuecat-initializer.tsx:42
+#: apps/native/src/features/auth/components/revenuecat-initializer.tsx:48
 msgid "Initializing payments..."
 msgstr "Initialisation des paiements..."
 
@@ -716,7 +716,7 @@ msgstr "Chargement du statut d'abonnement..."
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: apps/native/src/features/profile/components/profile-view.tsx:119
+#: apps/native/src/features/profile/components/profile-view.tsx:122
 #: apps/web/src/features/billing/utils/pricing-view-utils.ts:104
 #: apps/web/src/features/profile/components/profile-view.tsx:85
 msgid "Manage Subscription"
@@ -784,7 +784,7 @@ msgstr "Veuillez vérifier votre boîte de réception et cliquer sur le lien pou
 msgid "Please enter a valid email address"
 msgstr "Veuillez entrer une adresse email valide"
 
-#: apps/native/src/features/profile/components/profile-view.tsx:79
+#: apps/native/src/features/profile/components/profile-view.tsx:82
 msgid "Please manage your subscription on our website: {webAccountUrl}"
 msgstr "Veuillez gérer votre abonnement sur notre site web : {webAccountUrl}"
 
@@ -890,7 +890,7 @@ msgstr "Partagez votre avis ou suggérez des améliorations aux fondateurs. Nous
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: apps/native/src/features/profile/components/profile-view.tsx:152
+#: apps/native/src/features/profile/components/profile-view.tsx:155
 #: apps/web/src/features/billing/components/pricing-view.tsx:181
 #: apps/web/src/features/profile/components/profile-view.tsx:139
 msgid "Sign out"
@@ -960,9 +960,9 @@ msgstr "S'abonner pour accéder aux fonctionnalités premium"
 msgid "Subscribe to unlock premium features and get the most out of the app."
 msgstr "Abonnez-vous pour débloquer les fonctionnalités premium et tirer le meilleur parti de l'application."
 
-#: apps/native/src/features/billing/hooks/use-paywall.ts:34
-#: apps/native/src/features/billing/hooks/use-paywall.ts:42
-#: apps/native/src/features/billing/hooks/use-paywall.ts:57
+#: apps/native/src/features/billing/hooks/use-paywall.ts:37
+#: apps/native/src/features/billing/hooks/use-paywall.ts:45
+#: apps/native/src/features/billing/hooks/use-paywall.ts:60
 msgid "Subscription Required"
 msgstr "Abonnement Requis"
 
@@ -1095,7 +1095,7 @@ msgstr "Mettre à jour maintenant"
 msgid "Update Required"
 msgstr "Mise à jour requise"
 
-#: apps/native/src/features/profile/components/profile-view.tsx:110
+#: apps/native/src/features/profile/components/profile-view.tsx:113
 #: apps/web/src/features/profile/components/profile-view.tsx:84
 msgid "Upgrade to Premium"
 msgstr "Passer à Premium"
@@ -1191,7 +1191,7 @@ msgstr "Bienvenue sur TemplateApp.com. Nous nous engageons à protéger votre vi
 msgid "Yearly"
 msgstr "Annuel"
 
-#: apps/native/src/features/profile/components/profile-view.tsx:102
+#: apps/native/src/features/profile/components/profile-view.tsx:105
 #: apps/web/src/features/profile/components/profile-view.tsx:57
 msgid "You are a special user with free access. You have no active subscription."
 msgstr "Vous êtes un utilisateur spécial avec un accès gratuit. Vous n'avez pas d'abonnement actif."

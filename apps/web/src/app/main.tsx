@@ -2,6 +2,7 @@
 import './instrument'
 import ReactDOM from 'react-dom/client'
 import * as Sentry from '@sentry/react'
+import { FEATURES } from '@template-app/core/features'
 import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import { App } from './provider'
 import './index.css'
@@ -27,9 +28,11 @@ if (!container) {
 ReactDOM.createRoot(container, {
   // React 19 error hooks for Sentry integration
   // https://docs.sentry.io/platforms/javascript/guides/react/#configure-error-hooks-react-19
-  onUncaughtError: Sentry.reactErrorHandler((error, errorInfo) => {
-    console.warn('Uncaught error', error, errorInfo.componentStack)
+  ...(FEATURES.SENTRY && {
+    onUncaughtError: Sentry.reactErrorHandler((error, errorInfo) => {
+      console.warn('Uncaught error', error, errorInfo.componentStack)
+    }),
+    onCaughtError: Sentry.reactErrorHandler(),
+    onRecoverableError: Sentry.reactErrorHandler(),
   }),
-  onCaughtError: Sentry.reactErrorHandler(),
-  onRecoverableError: Sentry.reactErrorHandler(),
 }).render(<App />)

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FEATURES } from '@template-app/core/features'
 
 const sentrySampleRate = z.number().min(0).max(1)
 
@@ -13,6 +14,10 @@ const sentryOptionsSchema = z.object({
   networkResponseHeaders: z.array(z.string()),
 })
 
+const sentrySchema = FEATURES.SENTRY
+  ? z.object({ dsn: z.string().min(1), options: sentryOptionsSchema })
+  : z.object({ dsn: z.string(), options: sentryOptionsSchema })
+
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   apiHost: z.url(),
@@ -21,11 +26,8 @@ export const environmentConfigSchema = z.object({
   landingPageUrl: z.url(),
   supabaseProjectUrl: z.url(),
   supabasePublishableKey: z.string().min(1),
-  sentry: z.object({
-    dsn: z.string().min(1),
-    options: sentryOptionsSchema,
-  }),
-  posthogToken: z.string().min(1),
+  sentry: sentrySchema,
+  posthogToken: FEATURES.POSTHOG ? z.string().min(1) : z.string(),
   shouldLogLocally: z.boolean(),
   showDevTools: z.boolean(),
   hashedEmailsOfTestUsers: z.array(z.string().min(1)),

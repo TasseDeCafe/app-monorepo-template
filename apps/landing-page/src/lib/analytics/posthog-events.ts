@@ -1,4 +1,5 @@
 import posthog from 'posthog-js'
+import { FEATURES } from '@template-app/core/features'
 import { PlanType } from '@/app/[lang]/(components)/(pricing)/pricing-section'
 
 const defaultProperties = () => ({
@@ -10,6 +11,7 @@ const defaultProperties = () => ({
 })
 
 const captureWithDefaults = (eventName: string, properties: Record<string, string> = {}) => {
+  if (!FEATURES.POSTHOG) return
   posthog.capture(eventName, { ...defaultProperties(), ...properties })
 }
 

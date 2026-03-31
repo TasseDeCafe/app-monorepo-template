@@ -52,7 +52,7 @@ export const UserSetupGate = ({ children }: UserSetupGateProps) => {
     if (userId && trackingParams && isUserSetupComplete) {
       // Wait for utmParams
       // https://posthog.com/docs/product-analytics/identify
-      posthog.identify(userId, {
+      posthog?.identify(userId, {
         $set_once: {
           referral: trackingParams.referral,
           utm_source: trackingParams.utmSource,

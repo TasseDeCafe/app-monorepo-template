@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FEATURES } from '@template-app/core/features'
 
 const sentrySampleRate = z.number().min(0).max(1)
 
@@ -9,6 +10,10 @@ const sentryOptionsSchema = z.object({
   tracePropagationTargets: z.array(z.url()),
 })
 
+const sentrySchema = FEATURES.SENTRY
+  ? z.object({ dsn: z.string().min(1), options: sentryOptionsSchema })
+  : z.object({ dsn: z.string(), options: sentryOptionsSchema })
+
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   port: z.number().min(1).max(65535),
@@ -16,22 +21,19 @@ export const environmentConfigSchema = z.object({
   allowedCorsOrigins: z.array(z.union([z.string(), z.instanceof(RegExp)])).min(1),
   // https://resend.com/api-keys
   resendApiKey: z.string().min(1),
-  stripeSecretKey: z.string().min(1),
-  stripeWebhookSecret: z.string().min(1),
-  stripeMonthlyPriceInEurId: z.string().min(1),
-  stripeYearlyPriceInEurId: z.string().min(1),
+  stripeSecretKey: FEATURES.STRIPE ? z.string().min(1) : z.string(),
+  stripeWebhookSecret: FEATURES.STRIPE ? z.string().min(1) : z.string(),
+  stripeMonthlyPriceInEurId: FEATURES.STRIPE ? z.string().min(1) : z.string(),
+  stripeYearlyPriceInEurId: FEATURES.STRIPE ? z.string().min(1) : z.string(),
   // https://app.revenuecat.com/projects/da60432b/api-keys
-  revenuecatApiKey: z.string().min(1),
+  revenuecatApiKey: FEATURES.REVENUECAT ? z.string().min(1) : z.string(),
   // https://app.revenuecat.com/projects/da60432b/settings
-  revenuecatProjectId: z.string().min(1),
+  revenuecatProjectId: FEATURES.REVENUECAT ? z.string().min(1) : z.string(),
   // https://app.revenuecat.com/projects/da60432b/integrations/webhooks
-  revenuecatWebhookAuthHeader: z.string().min(1),
-  posthogApiKey: z.string().min(1),
+  revenuecatWebhookAuthHeader: FEATURES.REVENUECAT ? z.string().min(1) : z.string(),
+  posthogApiKey: FEATURES.POSTHOG ? z.string().min(1) : z.string(),
   shouldLogRequests: z.boolean(),
-  sentry: z.object({
-    dsn: z.string().min(1),
-    options: sentryOptionsSchema,
-  }),
+  sentry: sentrySchema,
   supabaseProjectUrl: z.string().min(1),
   supabaseSecretKey: z.string().min(1),
   // JWKS URI (asymmetric)

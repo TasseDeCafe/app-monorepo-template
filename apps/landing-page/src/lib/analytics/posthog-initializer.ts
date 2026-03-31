@@ -1,6 +1,8 @@
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from '@/config/environment-config'
 
 export const initializePosthog = async () => {
+  if (!FEATURES.POSTHOG) return
   if (getConfig().posthogToken) {
     const posthog = (await import('posthog-js')).default
     posthog.init(getConfig().posthogToken, {

@@ -11,6 +11,7 @@ import appleSvg from '@/assets/svg/apple.svg'
 import { POSTHOG_EVENTS } from '@/lib/analytics/posthog-events'
 import { Button } from '@/components/ui/button'
 import { Mail } from 'lucide-react'
+import { FEATURES } from '@template-app/core/features'
 import { shouldShowSignInWithGoogle } from '../utils/auth-utils'
 import { useLingui } from '@lingui/react/macro'
 import { getIsSignedIn, useAuthStore } from '@/stores/auth-store'
@@ -83,16 +84,18 @@ export const LoginView = () => {
             <Mail height={20} width={20} />
             <span>{t`Continue with Email`}</span>
           </Button>
-          {shouldShowSignInWithGoogle() && (
+          {FEATURES.GOOGLE_AUTH && shouldShowSignInWithGoogle() && (
             <Button onClick={handleContinueWithGoogleClick}>
               <img src={googleSvg} alt='google' height={20} width={20} />
               <span>{t`Continue with Google`}</span>
             </Button>
           )}
-          <Button variant='secondary' onClick={handleContinueWithAppleClick}>
-            <img src={appleSvg} alt='apple' height={18} width={18} />
-            <span>{t`Continue with Apple`}</span>
-          </Button>
+          {FEATURES.APPLE_AUTH && (
+            <Button variant='secondary' onClick={handleContinueWithAppleClick}>
+              <img src={appleSvg} alt='apple' height={18} width={18} />
+              <span>{t`Continue with Apple`}</span>
+            </Button>
+          )}
         </div>
       </div>
     )

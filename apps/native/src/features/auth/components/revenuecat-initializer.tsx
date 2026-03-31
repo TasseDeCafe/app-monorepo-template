@@ -2,6 +2,7 @@ import React, { ReactNode, useEffect } from 'react'
 import { Alert, Platform } from 'react-native'
 import Purchases from 'react-native-purchases'
 import { router } from 'expo-router'
+import { FEATURES } from '@template-app/core/features'
 import { LoadingScreen } from '@/components/ui/loading-screen'
 import { getConfig } from '@/config/environment-config'
 import { useAuthStore } from '@/stores/auth-store'
@@ -17,6 +18,11 @@ export const RevenuecatInitializer = ({ children }: { children: ReactNode }) => 
   const setIsRevenueCatInitialized = useAuthStore((state) => state.setIsRevenueCatInitialized)
 
   useEffect(() => {
+    if (!FEATURES.REVENUECAT) {
+      setIsRevenueCatInitialized(true)
+      return
+    }
+
     if (session?.user.id && !isRevenueCatInitialized && !getConfig().shouldSkipRevenueCatPaywall) {
       try {
         Purchases.setLogLevel(Purchases.LOG_LEVEL.ERROR).then()

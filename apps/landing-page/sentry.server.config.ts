@@ -3,19 +3,23 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from '@sentry/nextjs'
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from '@/config/environment-config'
-const config = getConfig()
 
-Sentry.init({
-  dsn: config.sentry.dsn,
+if (FEATURES.SENTRY) {
+  const config = getConfig()
 
-  // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-  tracesSampleRate: config.sentry.options.tracesSampleRate,
+  Sentry.init({
+    dsn: config.sentry.dsn,
 
-  // Enable logs to be sent to Sentry
-  enableLogs: true,
+    // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
+    tracesSampleRate: config.sentry.options.tracesSampleRate,
 
-  // Enable sending user PII (Personally Identifiable Information)
-  // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
-  sendDefaultPii: true,
-})
+    // Enable logs to be sent to Sentry
+    enableLogs: true,
+
+    // Enable sending user PII (Personally Identifiable Information)
+    // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
+    sendDefaultPii: true,
+  })
+}

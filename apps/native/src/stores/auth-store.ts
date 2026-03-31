@@ -4,6 +4,7 @@ import { supabaseClient } from '@/lib/transport/supabase-client'
 import { orpcClient, setTokenGetter } from '@/lib/transport/orpc-client'
 import { GoogleSignin, User as GoogleUser } from '@react-native-google-signin/google-signin'
 import * as AppleAuthentication from 'expo-apple-authentication'
+import { FEATURES } from '@template-app/core/features'
 import { toast } from 'sonner-native'
 import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import { queryClient } from '@/config/react-query-config'
@@ -40,11 +41,13 @@ export const useAuthStore = create<AuthStore>((set) => ({
   setLoading: (isLoading) => set({ isLoading }),
   setIsRevenueCatInitialized: (isRevenueCatInitialized) => set({ isRevenueCatInitialized }),
   initialize: async () => {
-    GoogleSignin.configure({
-      webClientId: getConfig().googleClientId,
-      iosClientId: getConfig().googleIosClientId,
-      offlineAccess: true,
-    })
+    if (FEATURES.GOOGLE_AUTH) {
+      GoogleSignin.configure({
+        webClientId: getConfig().googleClientId,
+        iosClientId: getConfig().googleIosClientId,
+        offlineAccess: true,
+      })
+    }
     try {
       const { data, error } = await supabaseClient.auth.getSession()
       if (error) {
@@ -65,14 +68,16 @@ export const useAuthStore = create<AuthStore>((set) => ({
     set({ isLoading: true })
     clearSentryUser()
 
-    // calling Purchase.logout() without revenuecat being initialized throws an error
-    const currentState = useAuthStore.getState()
-    if (currentState.isRevenueCatInitialized) {
-      try {
-        await Purchases.logOut()
-      } catch (error) {
-        logWithSentry('Failed to reset RevenueCat cache', error)
-        throw error
+    if (FEATURES.REVENUECAT) {
+      // calling Purchase.logout() without revenuecat being initialized throws an error
+      const currentState = useAuthStore.getState()
+      if (currentState.isRevenueCatInitialized) {
+        try {
+          await Purchases.logOut()
+        } catch (error) {
+          logWithSentry('Failed to reset RevenueCat cache', error)
+          throw error
+        }
       }
     }
 
@@ -89,19 +94,21 @@ export const useAuthStore = create<AuthStore>((set) => ({
       logWithSentry('Unexpected error signing out from Supabase', err)
     }
 
-    try {
-      const user: GoogleUser | null = GoogleSignin.getCurrentUser()
-      if (user) {
-        await GoogleSignin.signOut()
+    if (FEATURES.GOOGLE_AUTH) {
+      try {
+        const user: GoogleUser | null = GoogleSignin.getCurrentUser()
+        if (user) {
+          await GoogleSignin.signOut()
+        }
+      } catch (googleError) {
+        logWithSentry('Error signing out from Google', googleError)
       }
-    } catch (googleError) {
-      logWithSentry('Error signing out from Google', googleError)
     }
 
     set({ session: null })
     setTokenGetter(() => '')
     queryClient.clear()
-    posthog.reset()
+    posthog?.reset()
     set({ isLoading: false })
   },
 
@@ -109,23 +116,27 @@ export const useAuthStore = create<AuthStore>((set) => ({
     set({ isLoading: true })
     clearSentryUser()
 
-    try {
-      const user: GoogleUser | null = GoogleSignin.getCurrentUser()
-      if (user) {
-        await GoogleSignin.signOut()
+    if (FEATURES.GOOGLE_AUTH) {
+      try {
+        const user: GoogleUser | null = GoogleSignin.getCurrentUser()
+        if (user) {
+          await GoogleSignin.signOut()
+        }
+      } catch (googleError) {
+        logWithSentry('Error signing out from Google during local cleanup', googleError)
       }
-    } catch (googleError) {
-      logWithSentry('Error signing out from Google during local cleanup', googleError)
     }
 
-    // calling Purchase.logout() without revenuecat being initialized throws an error
-    const currentState = useAuthStore.getState()
-    if (currentState.isRevenueCatInitialized) {
-      try {
-        await Purchases.logOut()
-      } catch (error) {
-        logWithSentry('Failed to reset RevenueCat cache', error)
-        throw error
+    if (FEATURES.REVENUECAT) {
+      // calling Purchase.logout() without revenuecat being initialized throws an error
+      const currentState = useAuthStore.getState()
+      if (currentState.isRevenueCatInitialized) {
+        try {
+          await Purchases.logOut()
+        } catch (error) {
+          logWithSentry('Failed to reset RevenueCat cache', error)
+          throw error
+        }
       }
     }
 
@@ -134,7 +145,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     set({ session: null })
     setTokenGetter(() => '')
     queryClient.clear()
-    posthog.reset()
+    posthog?.reset()
     set({ isLoading: false })
   },
 
@@ -160,6 +171,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
   },
 
   signInWithGoogle: async () => {
+    if (!FEATURES.GOOGLE_AUTH) return
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).then(() => {})
     try {
       await GoogleSignin.hasPlayServices()
@@ -188,6 +200,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
   },
 
   signInWithApple: async () => {
+    if (!FEATURES.APPLE_AUTH) return
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium).then(() => {})
     try {
       const credential = await AppleAuthentication.signInAsync({

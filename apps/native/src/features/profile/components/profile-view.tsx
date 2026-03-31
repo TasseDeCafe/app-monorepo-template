@@ -4,6 +4,7 @@ import { toast } from 'sonner-native'
 import { BigCard } from '@/components/ui/big-card'
 import { useAuthStore } from '@/stores/auth-store'
 import { Avatar } from '@/components/ui/avatar'
+import { FEATURES } from '@template-app/core/features'
 import RevenueCatUI from 'react-native-purchases-ui'
 import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import { SettingsItem } from '@/components/ui/settings-item'
@@ -52,6 +53,7 @@ export const ProfileView = () => {
   }
 
   const handlePressCustomerCenter = async () => {
+    if (!FEATURES.REVENUECAT) return
     try {
       await RevenueCatUI.presentCustomerCenter()
     } catch (error) {
@@ -61,6 +63,7 @@ export const ProfileView = () => {
   }
 
   const handlePressUpgrade = async () => {
+    if (!FEATURES.REVENUECAT) return
     try {
       await RevenueCatUI.presentPaywall({ displayCloseButton: true })
     } catch (error) {

@@ -1,6 +1,7 @@
 import { Alert } from 'react-native'
 import Purchases from 'react-native-purchases'
 import RevenueCatUI, { PAYWALL_RESULT } from 'react-native-purchases-ui'
+import { FEATURES } from '@template-app/core/features'
 import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 import { queryClient } from '@/config/react-query-config'
 import { QUERY_KEYS } from '@/lib/transport/query-keys'
@@ -15,6 +16,8 @@ export const usePaywall = () => {
   const [isAttemptingPresentation, setIsAttemptingPresentation] = useState(false)
 
   const presentPaywallIfNeeded = useCallback(async () => {
+    if (!FEATURES.REVENUECAT) return
+
     if (isAttemptingPresentation) {
       return
     }

@@ -4,8 +4,10 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import * as Sentry from '@sentry/nextjs'
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from '@/config/environment-config'
 
+if (FEATURES.SENTRY) {
 const config = getConfig()
 
 Sentry.init({
@@ -21,3 +23,4 @@ Sentry.init({
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
   sendDefaultPii: true,
 })
+}

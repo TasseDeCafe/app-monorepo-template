@@ -12,7 +12,7 @@ type AuthStore = {
   initialize: () => Promise<void>
   setSession: (session: Session | null) => void
   setLoading: (loading: boolean) => void
-  signOut: () => Promise<void>
+  signOut: (onComplete?: () => void) => Promise<void>
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -41,7 +41,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
 
   setLoading: (isLoading) => set({ isLoading }),
 
-  signOut: async () => {
+  signOut: async (onComplete) => {
     set({ isLoading: true, isSigningOut: true })
     clearSentryUser()
 
@@ -57,6 +57,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
     queryClient.clear()
     posthog.reset()
     window.localStorage.clear()
+    onComplete?.()
   },
 }))
 

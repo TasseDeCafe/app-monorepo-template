@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/react'
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from '@/config/environment-config.ts'
 
 const getSentryEnvironment = (configEnvironment: string): string => {
@@ -13,7 +14,7 @@ const getSentryEnvironment = (configEnvironment: string): string => {
 
 const config = getConfig()
 
-if (config.sentry.dsn) {
+if (FEATURES.SENTRY && config.sentry.dsn) {
   Sentry.init({
     dsn: config.sentry.dsn,
     environment: getSentryEnvironment(config.environmentName),

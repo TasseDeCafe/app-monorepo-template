@@ -1,4 +1,5 @@
 import Constants, { ExecutionEnvironment } from 'expo-constants'
+import { FEATURES } from '@template-app/core/features'
 import { getModeName, isDevelopment, isProduction, isTest } from './environment-utils'
 import { env, environmentConfigSchema } from './environment-config-schema'
 import { z } from 'zod'
@@ -12,29 +13,40 @@ const getProductionConfig = (): EnvironmentConfig => ({
   apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
   supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
   supabasePublishableKey: env.EXPO_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
-  googleClientId: env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
-  googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
-  revenueCatAppleApiKey: env.EXPO_PUBLIC_REVENUE_CAT_APPLE_API_KEY,
-  revenueCatGoogleApiKey: env.EXPO_PUBLIC_REVENUE_CAT_GOOGLE_API_KEY,
+  googleClientId: FEATURES.GOOGLE_AUTH ? env.EXPO_PUBLIC_GOOGLE_CLIENT_ID : '',
+  googleIosClientId: FEATURES.GOOGLE_AUTH ? env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID : '',
+  revenueCatAppleApiKey: FEATURES.REVENUECAT ? env.EXPO_PUBLIC_REVENUE_CAT_APPLE_API_KEY : '',
+  revenueCatGoogleApiKey: FEATURES.REVENUECAT ? env.EXPO_PUBLIC_REVENUE_CAT_GOOGLE_API_KEY : '',
   shouldLogLocally: false,
-  shouldSkipRevenueCatPaywall: false,
-  sentry: {
-    dsn: env.EXPO_PUBLIC_SENTRY_DSN,
-    options: {
-      attachScreenshot: true,
-      tracesSampleRate: 1.0,
-      profilesSampleRate: 1.0,
-      maxValueLength: 8192,
-      enableNativeFramesTracking: Constants.executionEnvironment === ExecutionEnvironment.StoreClient,
-      replaysSessionSampleRate: 0.1,
-      replaysOnErrorSampleRate: 1.0,
-    },
-  },
+  shouldSkipRevenueCatPaywall: !FEATURES.REVENUECAT,
+  sentry: FEATURES.SENTRY
+    ? {
+        dsn: env.EXPO_PUBLIC_SENTRY_DSN,
+        options: {
+          attachScreenshot: true,
+          tracesSampleRate: 1.0,
+          profilesSampleRate: 1.0,
+          maxValueLength: 8192,
+          enableNativeFramesTracking: Constants.executionEnvironment === ExecutionEnvironment.StoreClient,
+          replaysSessionSampleRate: 0.1,
+          replaysOnErrorSampleRate: 1.0,
+        },
+      }
+    : {
+        dsn: '',
+        options: {
+          attachScreenshot: false,
+          tracesSampleRate: 0,
+          profilesSampleRate: 0,
+          maxValueLength: 8192,
+          enableNativeFramesTracking: false,
+        },
+      },
   shouldCheckForEasUpdates: true,
   hashedEmailsOfTestUsers: parseHashedEmails(env.EXPO_PUBLIC_HASHED_EMAILS_OF_TEST_USERS),
   // https://us.posthog.com/project/69989/settings/project
-  posthogToken: env.EXPO_PUBLIC_POSTHOG_TOKEN,
-  posthogHost: 'https://eu.i.posthog.com',
+  posthogToken: FEATURES.POSTHOG ? env.EXPO_PUBLIC_POSTHOG_TOKEN : '',
+  posthogHost: FEATURES.POSTHOG ? 'https://eu.i.posthog.com' : '',
 })
 
 const getDevelopmentConfig = (): EnvironmentConfig => ({
@@ -43,29 +55,40 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   apiHost: env.EXPO_PUBLIC_API_HOST_TUNNEL,
   supabaseProjectUrl: env.EXPO_PUBLIC_SUPABASE_PROJECT_URL_TUNNEL,
   supabasePublishableKey: 'sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH',
-  googleClientId: env.EXPO_PUBLIC_GOOGLE_CLIENT_ID,
-  googleIosClientId: env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID,
-  revenueCatAppleApiKey: env.EXPO_PUBLIC_REVENUE_CAT_APPLE_API_KEY,
-  revenueCatGoogleApiKey: env.EXPO_PUBLIC_REVENUE_CAT_GOOGLE_API_KEY,
+  googleClientId: FEATURES.GOOGLE_AUTH ? env.EXPO_PUBLIC_GOOGLE_CLIENT_ID : '',
+  googleIosClientId: FEATURES.GOOGLE_AUTH ? env.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID : '',
+  revenueCatAppleApiKey: FEATURES.REVENUECAT ? env.EXPO_PUBLIC_REVENUE_CAT_APPLE_API_KEY : '',
+  revenueCatGoogleApiKey: FEATURES.REVENUECAT ? env.EXPO_PUBLIC_REVENUE_CAT_GOOGLE_API_KEY : '',
   shouldLogLocally: true,
-  shouldSkipRevenueCatPaywall: false,
-  sentry: {
-    dsn: env.EXPO_PUBLIC_SENTRY_DSN,
-    options: {
-      attachScreenshot: false,
-      tracesSampleRate: 0,
-      profilesSampleRate: 0,
-      maxValueLength: 8192,
-      enableNativeFramesTracking: Constants.executionEnvironment === ExecutionEnvironment.StoreClient,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: 0,
-    },
-  },
+  shouldSkipRevenueCatPaywall: !FEATURES.REVENUECAT,
+  sentry: FEATURES.SENTRY
+    ? {
+        dsn: env.EXPO_PUBLIC_SENTRY_DSN,
+        options: {
+          attachScreenshot: false,
+          tracesSampleRate: 0,
+          profilesSampleRate: 0,
+          maxValueLength: 8192,
+          enableNativeFramesTracking: Constants.executionEnvironment === ExecutionEnvironment.StoreClient,
+          replaysSessionSampleRate: 0,
+          replaysOnErrorSampleRate: 0,
+        },
+      }
+    : {
+        dsn: '',
+        options: {
+          attachScreenshot: false,
+          tracesSampleRate: 0,
+          profilesSampleRate: 0,
+          maxValueLength: 8192,
+          enableNativeFramesTracking: false,
+        },
+      },
   shouldCheckForEasUpdates: false,
   hashedEmailsOfTestUsers: parseHashedEmails(env.EXPO_PUBLIC_HASHED_EMAILS_OF_TEST_USERS || ''),
   // https://us.posthog.com/project/88845/settings/project
-  posthogToken: env.EXPO_PUBLIC_POSTHOG_TOKEN,
-  posthogHost: 'https://eu.i.posthog.com',
+  posthogToken: FEATURES.POSTHOG ? env.EXPO_PUBLIC_POSTHOG_TOKEN : '',
+  posthogHost: FEATURES.POSTHOG ? 'https://eu.i.posthog.com' : '',
 })
 
 const getTestConfig = (): EnvironmentConfig => ({
@@ -74,28 +97,39 @@ const getTestConfig = (): EnvironmentConfig => ({
   apiHost: 'dummy-api-host',
   supabaseProjectUrl: 'http://dummy-supabase-url.com',
   supabasePublishableKey: 'dummy-key',
-  googleClientId: 'dummy-google-client-id',
-  googleIosClientId: 'dummy-google-ios-client-id',
-  revenueCatAppleApiKey: 'dummy-revenue-cat-apple-api-key',
-  revenueCatGoogleApiKey: 'dummy-revenue-cat-google-api-key',
+  googleClientId: FEATURES.GOOGLE_AUTH ? 'dummy-google-client-id' : '',
+  googleIosClientId: FEATURES.GOOGLE_AUTH ? 'dummy-google-ios-client-id' : '',
+  revenueCatAppleApiKey: FEATURES.REVENUECAT ? 'dummy-revenue-cat-apple-api-key' : '',
+  revenueCatGoogleApiKey: FEATURES.REVENUECAT ? 'dummy-revenue-cat-google-api-key' : '',
   shouldLogLocally: true,
-  shouldSkipRevenueCatPaywall: false,
-  sentry: {
-    dsn: 'dummy-sentry-dsn',
-    options: {
-      attachScreenshot: false,
-      tracesSampleRate: 0,
-      profilesSampleRate: 0,
-      maxValueLength: 8192,
-      enableNativeFramesTracking: false,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: 0,
-    },
-  },
+  shouldSkipRevenueCatPaywall: !FEATURES.REVENUECAT,
+  sentry: FEATURES.SENTRY
+    ? {
+        dsn: 'dummy-sentry-dsn',
+        options: {
+          attachScreenshot: false,
+          tracesSampleRate: 0,
+          profilesSampleRate: 0,
+          maxValueLength: 8192,
+          enableNativeFramesTracking: false,
+          replaysSessionSampleRate: 0,
+          replaysOnErrorSampleRate: 0,
+        },
+      }
+    : {
+        dsn: '',
+        options: {
+          attachScreenshot: false,
+          tracesSampleRate: 0,
+          profilesSampleRate: 0,
+          maxValueLength: 8192,
+          enableNativeFramesTracking: false,
+        },
+      },
   shouldCheckForEasUpdates: false,
   hashedEmailsOfTestUsers: ['dummy-hashed-email-1', 'dummy-hashed-email-2'],
-  posthogToken: 'dummy-posthog-token',
-  posthogHost: 'dummy-posthog-host',
+  posthogToken: FEATURES.POSTHOG ? 'dummy-posthog-token' : '',
+  posthogHost: FEATURES.POSTHOG ? 'dummy-posthog-host' : '',
 })
 
 let config: EnvironmentConfig | null = null

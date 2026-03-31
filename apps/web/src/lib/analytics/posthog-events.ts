@@ -1,4 +1,5 @@
 import posthog from 'posthog-js'
+import { FEATURES } from '@template-app/core/features'
 
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
 
@@ -11,6 +12,7 @@ const defaultProperties = () => ({
 })
 
 const captureWithDefaults = (eventName: string, properties: Record<string, string> = {}) => {
+  if (!FEATURES.POSTHOG) return
   posthog.capture(eventName, { ...defaultProperties(), ...properties })
 }
 

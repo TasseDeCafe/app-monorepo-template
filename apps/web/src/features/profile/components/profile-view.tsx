@@ -38,7 +38,7 @@ export const ProfileView = () => {
   }
 
   const handleSignOut = async () => {
-    await signOut()
+    await signOut(() => navigate({ to: '/login' }))
     toast.success(t`Sign out success`)
   }
 

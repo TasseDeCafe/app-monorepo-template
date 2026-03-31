@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/react-native'
+import { FEATURES } from '@template-app/core/features'
 import { ORPCError } from '@orpc/contract'
 import { buildOrpcErrorContext } from '@template-app/api-client/utils/backend-error-utils'
 import { getConfig } from '@/config/environment-config'
@@ -22,6 +23,8 @@ export const logWithSentry = (
 
     logMethod(`${message} -- params: ${JSON.stringify(params)}`, error)
   }
+
+  if (!FEATURES.SENTRY) return
 
   Sentry.withScope((scope) => {
     scope.setTransactionName(message)

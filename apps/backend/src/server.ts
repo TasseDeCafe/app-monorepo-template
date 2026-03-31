@@ -1,5 +1,6 @@
 import './transport/third-party/sentry/sentry-initializer'
 import * as Sentry from '@sentry/node'
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from './config/environment-config'
 import { buildApp } from './app'
 import { getEnvironmentName } from './utils/environment-utils'
@@ -37,16 +38,22 @@ const startServer = async () => {
           accessCache,
           usersWithFreeAccess: getConfig().usersWithFreeAccess,
           resendApi: RealResendApi,
-          stripeApi: RealStripeApi,
-          revenuecatApi: RealRevenuecatApi,
+          ...(FEATURES.STRIPE && { stripeApi: RealStripeApi }),
+          ...(FEATURES.REVENUECAT && { revenuecatApi: RealRevenuecatApi }),
         })
 
-    Sentry.setupExpressErrorHandler(expressApp)
-    setupExpressErrorHandler(posthogClient, expressApp)
+    if (FEATURES.SENTRY) {
+      Sentry.setupExpressErrorHandler(expressApp)
+    }
+    if (FEATURES.POSTHOG) {
+      setupExpressErrorHandler(posthogClient, expressApp)
+    }
 
     const port = getConfig().port
 
-    registerPosthogShutdownHandlers()
+    if (FEATURES.POSTHOG) {
+      registerPosthogShutdownHandlers()
+    }
 
     expressApp.listen(port, () => {
       console.log(`Server started in environment: ${getEnvironmentName()}`)

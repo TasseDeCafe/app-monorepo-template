@@ -1,4 +1,5 @@
 import { PlanType } from '@template-app/api-client/orpc-contracts/billing-contract'
+import { FEATURES } from '@template-app/core/features'
 import { Platform } from 'react-native'
 import { posthog } from '@/lib/analytics/posthog'
 
@@ -8,6 +9,7 @@ const defaultProperties = () => ({
 })
 
 const captureWithDefaults = (eventName: string, properties: Record<string, string> = {}) => {
+  if (!FEATURES.POSTHOG || !posthog) return
   posthog.capture(eventName, { ...defaultProperties(), ...properties })
 }
 

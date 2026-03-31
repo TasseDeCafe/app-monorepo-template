@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import helmet from 'helmet'
 import cors from 'cors'
 
+import { FEATURES } from '@template-app/core/features'
 import { HealthCheckRouter } from './router/health-check-router/health-check-router'
 import { SentryDebugRouter } from './router/sentry-debug-router/sentry-debug-router'
 import { getConfig } from './config/environment-config'
@@ -87,21 +88,23 @@ export const buildApp = ({
   const stripeService = StripeService(stripeApi, usersRepository)
   const revenuecatService = RevenuecatService(accessCache, revenuecatSubscriptionsRepository, revenuecatApi)
 
-  const stripeWebhookService = StripeWebhookService(
-    stripeApi,
-    stripeSubscriptionsRepository,
-    accessCache,
-    usersRepository
-  )
+  if (FEATURES.STRIPE) {
+    const stripeWebhookService = StripeWebhookService(
+      stripeApi,
+      stripeSubscriptionsRepository,
+      accessCache,
+      usersRepository
+    )
 
-  // Stripe webhooks route - should be before the json parser
-  // https://docs.stripe.com/webhooks/quickstart
-  // this has to match the webhooks in the dashboard: https://dashboard.stripe.com/webhooks
-  app.post(
-    `${API_V1}/payment/stripe-webhook`,
-    express.raw({ type: 'application/json' }),
-    stripeWebhookRouter(stripeWebhookService)
-  )
+    // Stripe webhooks route - should be before the json parser
+    // https://docs.stripe.com/webhooks/quickstart
+    // this has to match the webhooks in the dashboard: https://dashboard.stripe.com/webhooks
+    app.post(
+      `${API_V1}/payment/stripe-webhook`,
+      express.raw({ type: 'application/json' }),
+      stripeWebhookRouter(stripeWebhookService)
+    )
+  }
 
   const bodySizeLimit = '4mb' // if you need to change this value, also change it in nginx.
   const jsonParser = express.json({ limit: bodySizeLimit })
@@ -128,13 +131,15 @@ export const buildApp = ({
     urlencodedParser(req, res, next)
   })
 
-  const handledRevenuecatEventsRepository = buildHandledRevenuecatEventsRepository()
+  if (FEATURES.REVENUECAT) {
+    const handledRevenuecatEventsRepository = buildHandledRevenuecatEventsRepository()
 
-  // The RevenueCat webhook router doesn't need to be defined before the JSON parser
-  app.post(
-    `${API_V1}/payment/revenuecat-webhook`,
-    revenuecatWebhookRouter(handledRevenuecatEventsRepository, authUsersRepository, revenuecatService)
-  )
+    // The RevenueCat webhook router doesn't need to be defined before the JSON parser
+    app.post(
+      `${API_V1}/payment/revenuecat-webhook`,
+      revenuecatWebhookRouter(handledRevenuecatEventsRepository, authUsersRepository, revenuecatService)
+    )
+  }
 
   app.use(helmet())
 
@@ -185,8 +190,10 @@ export const buildApp = ({
   app.use(API_V1, removalsRouter(authUsersRepository, usersRepository, stripeApi, stripeSubscriptionsRepository))
   app.use(API_V1, UserRouter(usersRepository))
   app.use(API_V1, BillingRouter(billingService, usersWithFreeAccess))
-  app.use(API_V1, PortalSessionRouter(usersRepository, stripeApi))
-  app.use(API_V1, CheckoutRouter(stripeService))
+  if (FEATURES.STRIPE) {
+    app.use(API_V1, PortalSessionRouter(usersRepository, stripeApi))
+    app.use(API_V1, CheckoutRouter(stripeService))
+  }
 
   const subscriptionMiddlewareInstance = subscriptionMiddleware(accessCache, usersWithFreeAccess)
   app.use(subscriptionMiddlewareInstance)

@@ -1,9 +1,17 @@
 import { PostHog } from 'posthog-node'
+import { FEATURES } from '@template-app/core/features'
 import { getConfig } from '../../../config/environment-config'
 
 const POSTHOG_HOST = 'https://eu.i.posthog.com'
 
+const noopClient = {
+  capture: () => {},
+  shutdown: async () => {},
+  shutdownAsync: async () => {},
+} as unknown as PostHog
+
 const createPosthogClient = (): PostHog => {
+  if (!FEATURES.POSTHOG) return noopClient
   const config = getConfig()
   return new PostHog(config.posthogApiKey, {
     host: POSTHOG_HOST,

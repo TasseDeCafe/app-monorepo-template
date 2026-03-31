@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FEATURES } from '@template-app/core/features'
 import { getModeName, isDevelopment, isDevelopmentTunnel, isProduction, isTest } from './environment-utils'
 import { environmentConfigSchema } from './environment-config-schema'
 
@@ -9,16 +10,21 @@ const getProductionConfig = (): EnvironmentConfig => ({
   domain: 'app-monorepo-template.dev',
   webUrl: 'https://app.app-monorepo-template.dev',
   landingPageUrl: 'https://www.app-monorepo-template.dev',
-  posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
-  sentry: {
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
-    options: {
-      maxValueLength: 8192,
-      tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 1.0,
-      replaysOnErrorSampleRate: 1.0,
-    },
-  },
+  posthogToken: FEATURES.POSTHOG ? (process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '') : '',
+  sentry: FEATURES.SENTRY
+    ? {
+        dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
+        options: {
+          maxValueLength: 8192,
+          tracesSampleRate: 1.0,
+          replaysSessionSampleRate: 1.0,
+          replaysOnErrorSampleRate: 1.0,
+        },
+      }
+    : {
+        dsn: '',
+        options: { maxValueLength: 8192, tracesSampleRate: 0, replaysSessionSampleRate: 0, replaysOnErrorSampleRate: 0 },
+      },
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
@@ -31,17 +37,22 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   domain: 'localhost',
   webUrl: 'http://localhost:5174',
   landingPageUrl: 'http://localhost:3000',
-  posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
-  sentry: {
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
-    options: {
-      maxValueLength: 8192,
-      tracesSampleRate: 1.0,
-      // todo: you might want to set this lower.
-      replaysSessionSampleRate: 1.0,
-      replaysOnErrorSampleRate: 1.0,
-    },
-  },
+  posthogToken: FEATURES.POSTHOG ? (process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '') : '',
+  sentry: FEATURES.SENTRY
+    ? {
+        dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
+        options: {
+          maxValueLength: 8192,
+          tracesSampleRate: 1.0,
+          // todo: you might want to set this lower.
+          replaysSessionSampleRate: 1.0,
+          replaysOnErrorSampleRate: 1.0,
+        },
+      }
+    : {
+        dsn: '',
+        options: { maxValueLength: 8192, tracesSampleRate: 0, replaysSessionSampleRate: 0, replaysOnErrorSampleRate: 0 },
+      },
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,
@@ -55,7 +66,7 @@ const getDevelopmentTunnelConfig = (): EnvironmentConfig => ({
   environmentName: 'development-tunnel',
   webUrl: process.env.NEXT_PUBLIC_WEB_URL_TUNNEL || '',
   landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL_TUNNEL || '',
-  posthogToken: process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '',
+  posthogToken: FEATURES.POSTHOG ? (process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '') : '',
 })
 
 const getTestConfig = (): EnvironmentConfig => ({
@@ -63,15 +74,20 @@ const getTestConfig = (): EnvironmentConfig => ({
   webUrl: 'http://localhost:5173',
   landingPageUrl: 'localhost:3000',
   posthogToken: '',
-  sentry: {
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
-    options: {
-      maxValueLength: 8192,
-      tracesSampleRate: 1.0,
-      replaysSessionSampleRate: 0,
-      replaysOnErrorSampleRate: 0,
-    },
-  },
+  sentry: FEATURES.SENTRY
+    ? {
+        dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
+        options: {
+          maxValueLength: 8192,
+          tracesSampleRate: 1.0,
+          replaysSessionSampleRate: 0,
+          replaysOnErrorSampleRate: 0,
+        },
+      }
+    : {
+        dsn: '',
+        options: { maxValueLength: 8192, tracesSampleRate: 0, replaysSessionSampleRate: 0, replaysOnErrorSampleRate: 0 },
+      },
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
     shouldInformAboutIosNativeApp: () => true,

@@ -20,6 +20,7 @@ import { SessionInitializer } from '@/features/auth/components/session-initializ
 import { EasUpdateGate } from '@/components/gates/eas-update-gate'
 import { useBottomSheetStore } from '@/features/sheets/stores/bottom-sheet-store'
 import { UserSetupGate } from '@/features/auth/components/user-setup-gate'
+import { FEATURES } from '@template-app/core/features'
 import { PostHogProvider } from 'posthog-react-native'
 import { posthog } from '@/lib/analytics/posthog'
 
@@ -37,13 +38,13 @@ const RootLayout = () => {
   // This allows Sentry to monitor navigation performance metrics and capture navigation-related errors
   // See: https://docs.sentry.io/platforms/react-native/tracing/instrumentation/expo-router/
   useEffect(() => {
-    if (ref) {
+    if (FEATURES.SENTRY && ref) {
       navigationIntegration.registerNavigationContainer(ref)
     }
   }, [ref])
 
   return (
-    <PostHogProvider client={posthog}>
+    <PostHogProviderWrapper>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <QueryClientProvider client={queryClient}>
           <LocaleInitializer>
@@ -75,8 +76,11 @@ const RootLayout = () => {
           </LocaleInitializer>
         </QueryClientProvider>
       </GestureHandlerRootView>
-    </PostHogProvider>
+    </PostHogProviderWrapper>
   )
 }
 
-export default Sentry.wrap(RootLayout)
+const PostHogProviderWrapper = ({ children }: { children: React.ReactNode }) =>
+  FEATURES.POSTHOG && posthog ? <PostHogProvider client={posthog}>{children}</PostHogProvider> : <>{children}</>
+
+export default FEATURES.SENTRY ? Sentry.wrap(RootLayout) : RootLayout

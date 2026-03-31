@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FEATURES } from '@template-app/core/features'
 
 const sentrySampleRate = z.number().min(0).max(1)
 
@@ -13,26 +14,27 @@ const sentryOptionsSchema = z.object({
   replaysOnErrorSampleRate: sentrySampleRate.optional(),
 })
 
+const sentrySchema = FEATURES.SENTRY
+  ? z.object({ dsn: z.string().min(1), options: sentryOptionsSchema })
+  : z.object({ dsn: z.string(), options: sentryOptionsSchema })
+
 export const environmentConfigSchema = z.object({
   environmentName: z.string(),
   webUrl: z.url(),
   apiHost: z.url(),
   supabaseProjectUrl: z.url(),
   supabasePublishableKey: z.string().min(1),
-  googleClientId: z.string().min(1),
-  googleIosClientId: z.string().min(1),
-  revenueCatAppleApiKey: z.string().min(1),
-  revenueCatGoogleApiKey: z.string().min(1),
+  googleClientId: FEATURES.GOOGLE_AUTH ? z.string().min(1) : z.string(),
+  googleIosClientId: FEATURES.GOOGLE_AUTH ? z.string().min(1) : z.string(),
+  revenueCatAppleApiKey: FEATURES.REVENUECAT ? z.string().min(1) : z.string(),
+  revenueCatGoogleApiKey: FEATURES.REVENUECAT ? z.string().min(1) : z.string(),
   shouldLogLocally: z.boolean(),
   shouldSkipRevenueCatPaywall: z.boolean(),
-  sentry: z.object({
-    dsn: z.string().min(1),
-    options: sentryOptionsSchema,
-  }),
+  sentry: sentrySchema,
   shouldCheckForEasUpdates: z.boolean(),
   hashedEmailsOfTestUsers: z.array(z.string().min(1)),
-  posthogToken: z.string().min(1),
-  posthogHost: z.string().min(1),
+  posthogToken: FEATURES.POSTHOG ? z.string().min(1) : z.string(),
+  posthogHost: FEATURES.POSTHOG ? z.string().min(1) : z.string(),
 })
 
 const processEnvSchema = z.object({

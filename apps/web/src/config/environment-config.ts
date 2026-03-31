@@ -84,7 +84,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
           networkResponseHeaders: [],
         },
       },
-  posthogToken: FEATURES.POSTHOG ? (import.meta.env.VITE_POSTHOG_TOKEN || '') : '',
+  posthogToken: FEATURES.POSTHOG ? import.meta.env.VITE_POSTHOG_TOKEN || '' : '',
   shouldLogLocally: true,
   showDevTools: false,
   hashedEmailsOfTestUsers: parseHashedEmails(import.meta.env.VITE_HASHED_EMAILS_OF_TEST_USERS || ''),

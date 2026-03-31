@@ -10,7 +10,7 @@ const getProductionConfig = (): EnvironmentConfig => ({
   domain: 'app-monorepo-template.dev',
   webUrl: 'https://app.app-monorepo-template.dev',
   landingPageUrl: 'https://www.app-monorepo-template.dev',
-  posthogToken: FEATURES.POSTHOG ? (process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '') : '',
+  posthogToken: FEATURES.POSTHOG ? process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '' : '',
   sentry: FEATURES.SENTRY
     ? {
         dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
@@ -23,7 +23,12 @@ const getProductionConfig = (): EnvironmentConfig => ({
       }
     : {
         dsn: '',
-        options: { maxValueLength: 8192, tracesSampleRate: 0, replaysSessionSampleRate: 0, replaysOnErrorSampleRate: 0 },
+        options: {
+          maxValueLength: 8192,
+          tracesSampleRate: 0,
+          replaysSessionSampleRate: 0,
+          replaysOnErrorSampleRate: 0,
+        },
       },
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
@@ -37,7 +42,7 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
   domain: 'localhost',
   webUrl: 'http://localhost:5174',
   landingPageUrl: 'http://localhost:3000',
-  posthogToken: FEATURES.POSTHOG ? (process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '') : '',
+  posthogToken: FEATURES.POSTHOG ? process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '' : '',
   sentry: FEATURES.SENTRY
     ? {
         dsn: process.env.NEXT_PUBLIC_SENTRY_DSN || '',
@@ -51,7 +56,12 @@ const getDevelopmentConfig = (): EnvironmentConfig => ({
       }
     : {
         dsn: '',
-        options: { maxValueLength: 8192, tracesSampleRate: 0, replaysSessionSampleRate: 0, replaysOnErrorSampleRate: 0 },
+        options: {
+          maxValueLength: 8192,
+          tracesSampleRate: 0,
+          replaysSessionSampleRate: 0,
+          replaysOnErrorSampleRate: 0,
+        },
       },
   featureFlags: {
     isCreditCardRequiredForAll: () => true,
@@ -66,7 +76,7 @@ const getDevelopmentTunnelConfig = (): EnvironmentConfig => ({
   environmentName: 'development-tunnel',
   webUrl: process.env.NEXT_PUBLIC_WEB_URL_TUNNEL || '',
   landingPageUrl: process.env.NEXT_PUBLIC_LANDING_PAGE_URL_TUNNEL || '',
-  posthogToken: FEATURES.POSTHOG ? (process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '') : '',
+  posthogToken: FEATURES.POSTHOG ? process.env.NEXT_PUBLIC_POSTHOG_TOKEN || '' : '',
 })
 
 const getTestConfig = (): EnvironmentConfig => ({
@@ -86,7 +96,12 @@ const getTestConfig = (): EnvironmentConfig => ({
       }
     : {
         dsn: '',
-        options: { maxValueLength: 8192, tracesSampleRate: 0, replaysSessionSampleRate: 0, replaysOnErrorSampleRate: 0 },
+        options: {
+          maxValueLength: 8192,
+          tracesSampleRate: 0,
+          replaysSessionSampleRate: 0,
+          replaysOnErrorSampleRate: 0,
+        },
       },
   featureFlags: {
     isCreditCardRequiredForAll: () => true,

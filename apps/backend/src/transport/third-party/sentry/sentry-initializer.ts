@@ -15,10 +15,10 @@ if (typeof globalWithDebugFlag.__SENTRY_DEBUG__ === 'undefined') {
 const config = getConfig()
 
 if (FEATURES.SENTRY) {
-Sentry.init({
-  dsn: config.sentry.dsn,
-  environment: config.environmentName,
-  ...config.sentry.options,
-  integrations: [nodeProfilingIntegration()],
-})
+  Sentry.init({
+    dsn: config.sentry.dsn,
+    environment: config.environmentName,
+    ...config.sentry.options,
+    integrations: [nodeProfilingIntegration()],
+  })
 }

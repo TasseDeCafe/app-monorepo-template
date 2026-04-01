@@ -138,7 +138,7 @@ export interface FileRoutesByFullPath {
   '/admin-settings': typeof AuthenticatedAdminSettingsRoute
   '/premium-demo': typeof AuthenticatedPremiumDemoRoute
   '/account/removed': typeof AccountRemovedRoute
-  '/login': typeof LoginIndexRoute
+  '/login/': typeof LoginIndexRoute
   '/dashboard': typeof AuthenticatedTabsDashboardRoute
   '/home': typeof AuthenticatedTabsHomeRoute
   '/profile': typeof AuthenticatedTabsProfileRoute
@@ -148,8 +148,8 @@ export interface FileRoutesByFullPath {
   '/redirect-to-check-out/$planInterval': typeof AuthenticatedRedirectToCheckOutPlanIntervalRoute
   '/login/email/sent': typeof LoginEmailSentRoute
   '/login/email/verify': typeof LoginEmailVerifyRoute
-  '/pricing': typeof AuthenticatedPricingIndexRoute
-  '/login/email': typeof LoginEmailIndexRoute
+  '/pricing/': typeof AuthenticatedPricingIndexRoute
+  '/login/email/': typeof LoginEmailIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -200,7 +200,7 @@ export interface FileRouteTypes {
     | '/admin-settings'
     | '/premium-demo'
     | '/account/removed'
-    | '/login'
+    | '/login/'
     | '/dashboard'
     | '/home'
     | '/profile'
@@ -210,8 +210,8 @@ export interface FileRouteTypes {
     | '/redirect-to-check-out/$planInterval'
     | '/login/email/sent'
     | '/login/email/verify'
-    | '/pricing'
-    | '/login/email'
+    | '/pricing/'
+    | '/login/email/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -277,7 +277,7 @@ declare module '@tanstack/react-router' {
     '/_authenticated': {
       id: '/_authenticated'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof AuthenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -291,7 +291,7 @@ declare module '@tanstack/react-router' {
     '/login/': {
       id: '/login/'
       path: '/login'
-      fullPath: '/login'
+      fullPath: '/login/'
       preLoaderRoute: typeof LoginIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -319,21 +319,21 @@ declare module '@tanstack/react-router' {
     '/_authenticated/_tabs': {
       id: '/_authenticated/_tabs'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof AuthenticatedTabsRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
     '/login/email/': {
       id: '/login/email/'
       path: '/login/email'
-      fullPath: '/login/email'
+      fullPath: '/login/email/'
       preLoaderRoute: typeof LoginEmailIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/pricing/': {
       id: '/_authenticated/pricing/'
       path: '/pricing'
-      fullPath: '/pricing'
+      fullPath: '/pricing/'
       preLoaderRoute: typeof AuthenticatedPricingIndexRouteImport
       parentRoute: typeof AuthenticatedRoute
     }

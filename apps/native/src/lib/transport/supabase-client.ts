@@ -8,7 +8,7 @@ export const MMKSupabaseStorage = createMMKV({ id: 'supabase-storage' })
 const mmkvSupabaseSupportedStorage = {
   setItem: (key, data) => MMKSupabaseStorage.set(key, data),
   getItem: (key) => MMKSupabaseStorage.getString(key) ?? null,
-  removeItem: (key) => MMKSupabaseStorage.remove(key),
+  removeItem: (key) => { MMKSupabaseStorage.remove(key) },
 } satisfies SupportedStorage
 
 const supabaseProjectUrl = getConfig().supabaseProjectUrl

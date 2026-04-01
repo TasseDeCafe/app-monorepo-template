@@ -1,6 +1,6 @@
 const tsParser = require('@typescript-eslint/parser')
 const tsPlugin = require('@typescript-eslint/eslint-plugin')
-const reactRefreshPlugin = require('eslint-plugin-react-refresh')
+const reactRefreshPlugin = require('eslint-plugin-react-refresh').default || require('eslint-plugin-react-refresh')
 const tanstackPlugin = require('@tanstack/eslint-plugin-query')
 const prettierPlugin = require('eslint-plugin-prettier')
 const pluginLingui = require('eslint-plugin-lingui')

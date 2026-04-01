@@ -8,7 +8,9 @@ export const handleEventIdempotently = async (
   let wasInserted = false
   try {
     const insertResult = await sql.begin(async (sql) => {
-      return sql`
+      // todo: remove 'as any' when TransactionSql call signature is fixed: https://github.com/porsager/postgres/issues/1150
+      /* eslint-disable  @typescript-eslint/no-explicit-any */
+      return (sql as any)`
         INSERT INTO handled_stripe_events (event_id)
         VALUES (${eventId})
         ON CONFLICT (event_id) DO NOTHING

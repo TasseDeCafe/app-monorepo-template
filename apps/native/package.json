@@ -1,7 +1,7 @@
 {
   "name": "@template-app/native",
   "main": "expo-router/entry",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "test": "jest",
     "dev:tunnel": "APP_VARIANT=development doppler run -- expo start",
@@ -58,7 +58,7 @@
     "babel-preset-expo": "catalog:",
     "class-variance-authority": "catalog:",
     "dayjs": "catalog:",
-    "expo": "55.0.5",
+    "expo": "55.0.9",
     "expo-apple-authentication": "catalog:",
     "expo-application": "catalog:",
     "expo-constants": "catalog:",
@@ -89,6 +89,7 @@
     "react-native-ios-utilities": "catalog:",
     "react-native-keyboard-controller": "catalog:",
     "react-native-mmkv": "catalog:",
+    "react-native-nitro-modules": "catalog:",
     "react-native-play-install-referrer": "catalog:",
     "react-native-purchases": "catalog:",
     "react-native-purchases-ui": "catalog:",

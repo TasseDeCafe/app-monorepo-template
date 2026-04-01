@@ -1,14 +1,16 @@
 import 'react-native-url-polyfill/auto'
 import { createClient, SupportedStorage } from '@supabase/supabase-js'
-import { MMKV } from 'react-native-mmkv'
+import { createMMKV } from 'react-native-mmkv'
 import { getConfig } from '@/config/environment-config'
 
-export const MMKSupabaseStorage = new MMKV({ id: 'supabase-storage' })
+export const MMKSupabaseStorage = createMMKV({ id: 'supabase-storage' })
 
 const mmkvSupabaseSupportedStorage = {
   setItem: (key, data) => MMKSupabaseStorage.set(key, data),
   getItem: (key) => MMKSupabaseStorage.getString(key) ?? null,
-  removeItem: (key) => MMKSupabaseStorage.delete(key),
+  removeItem: (key) => {
+    MMKSupabaseStorage.remove(key)
+  },
 } satisfies SupportedStorage
 
 const supabaseProjectUrl = getConfig().supabaseProjectUrl

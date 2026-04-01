@@ -1,6 +1,7 @@
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import babel from '@rolldown/plugin-babel'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { lingui } from '@lingui/vite-plugin'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
@@ -12,10 +13,11 @@ export default defineConfig({
       routesDirectory: './src/app/routes',
       generatedRouteTree: './src/app/routeTree.gen.ts',
     }),
-    react({
-      babel: {
-        plugins: ['babel-plugin-react-compiler', 'macros'],
-      },
+    react(),
+    // This could be optimized by only running babel on files whose source code contains a lingui macro import
+    // see: https://github.com/lingui/js-lingui/issues/2477#issuecomment-4068015629
+    babel({
+      plugins: ['babel-plugin-react-compiler', 'macros'],
     }),
     lingui(),
     tsconfigPaths(),

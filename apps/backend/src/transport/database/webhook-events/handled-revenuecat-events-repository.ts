@@ -13,6 +13,7 @@ export const buildHandledRevenuecatEventsRepository = (): HandledRevenuecatEvent
     try {
       return await sql.begin(async (sql) => {
         // todo: remove 'as any' when TransactionSql call signature is fixed: https://github.com/porsager/postgres/issues/1150
+        /* eslint-disable  @typescript-eslint/no-explicit-any */
         const insertResult = await (sql as any)`
           INSERT INTO handled_revenuecat_events (event_id)
           VALUES (${eventId})

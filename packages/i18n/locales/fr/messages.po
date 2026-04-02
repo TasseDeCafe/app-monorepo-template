@@ -574,7 +574,7 @@ msgstr "code d'erreur : {userFacingErrorCode}"
 msgid "Error setting up account..."
 msgstr "Erreur lors de la configuration du compte..."
 
-#: apps/native/src/features/user/api/user-hooks.ts:22
+#: apps/native/src/features/user/api/user-hooks.ts:12
 #: apps/web/src/features/user/api/user-hooks.ts:27
 msgid "Error setting up user data"
 msgstr "Erreur lors de la configuration des données utilisateur"
@@ -1109,7 +1109,7 @@ msgstr "Utiliser sur Web"
 msgid "Use these options to test Sentry error reporting in your environment."
 msgstr "Utilisez ces options pour tester le rapport d'erreurs Sentry dans votre environnement."
 
-#: apps/native/src/features/user/api/user-hooks.ts:21
+#: apps/native/src/features/user/api/user-hooks.ts:11
 #: apps/web/src/features/user/api/user-hooks.ts:26
 msgid "User setup complete"
 msgstr "Configuration de l'utilisateur terminée"

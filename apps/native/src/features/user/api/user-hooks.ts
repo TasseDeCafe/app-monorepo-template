@@ -1,4 +1,4 @@
-import { useMutation, useMutationState, useQuery } from '@tanstack/react-query'
+import { useMutation, useMutationState } from '@tanstack/react-query'
 import { orpcQuery } from '@/lib/transport/orpc-client'
 import { OrpcMutationOverrides } from '@/types/hook-types'
 import { useLingui } from '@lingui/react/macro'

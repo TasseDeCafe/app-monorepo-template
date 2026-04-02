@@ -2,7 +2,6 @@ import { sentryVitePlugin } from '@sentry/vite-plugin'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { lingui } from '@lingui/vite-plugin'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
 import path from 'path'
@@ -20,7 +19,6 @@ export default defineConfig({
       plugins: ['babel-plugin-react-compiler', 'macros'],
     }),
     lingui(),
-    tsconfigPaths(),
     sentryVitePlugin({
       org: 'template-organization',
       project: 'web',
@@ -37,6 +35,7 @@ export default defineConfig({
     sourcemap: true,
   },
   resolve: {
+    tsconfigPaths: true,
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     dedupe: ['react', 'react-dom'],
     alias: {

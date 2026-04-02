@@ -135,29 +135,29 @@ msgstr "(iii) cualquier contenido obtenido del servicio; y"
 msgid "(iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage."
 msgstr "(iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia), o cualquier otra teoría legal, ya sea que hayamos sido informados o no de la posibilidad de tal daño."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:191
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:188
 msgid "{discount}% off with your referral for {durationLimit} months!"
 msgstr "{discount}% de descuento con tu referido durante {durationLimit} meses."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:213
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:210
 msgid "{discount}% off with your referral for {durationLimit} years!"
 msgstr "{discount}% de descuento con tu referido durante {durationLimit} años."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:189
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:186
 msgid "{discount}% off with your referral for 1 month!"
 msgstr "{discount}% de descuento con tu referido durante 1 mes."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:211
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:208
 msgid "{discount}% off with your referral for 1 year!"
 msgstr "{discount}% de descuento con tu referido durante 1 año."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:186
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:208
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:183
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:205
 msgid "{discount}% off with your referral forever!"
 msgstr "{discount}% de descuento con tu referido para siempre."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:178
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:200
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:175
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:197
 msgid "{discountPercentage}% off thanks to your past referral!"
 msgstr "{discountPercentage}% de descuento gracias a tu referido anterior."
 

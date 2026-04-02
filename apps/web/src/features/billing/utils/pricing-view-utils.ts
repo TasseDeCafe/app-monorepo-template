@@ -144,10 +144,7 @@ export const getPricingViewConfig = ({
   }
 }
 
-const getMonthlyPrice = (
-  pricingDetails: UserStripePricingDetails,
-  isSubscribedToMonthlyPlan: boolean
-): number => {
+const getMonthlyPrice = (pricingDetails: UserStripePricingDetails, isSubscribedToMonthlyPlan: boolean): number => {
   const basePrice = STRIPE_MONTHLY_PRICE_IN_EUR
   if (pricingDetails.hasSubscribedWithADiscount && isSubscribedToMonthlyPlan) {
     return basePrice * (1 - pricingDetails.currentDiscountInPercentage / 100)

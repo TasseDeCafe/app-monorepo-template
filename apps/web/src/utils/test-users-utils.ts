@@ -1,7 +1,7 @@
 import { sha256 } from 'js-sha256'
 import { getConfig } from '@/config/environment-config'
 
-export const hashEmail = (email: string): string => {
+const hashEmail = (email: string): string => {
   return sha256(email.toLowerCase().trim())
 }
 

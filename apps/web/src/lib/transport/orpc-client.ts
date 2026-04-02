@@ -24,6 +24,6 @@ const link = new OpenAPILink(rootOrpcContract, {
   },
 })
 
-export const orpcClient = createORPCClient(link) as JsonifiedClient<ContractRouterClient<typeof rootOrpcContract>>
+const orpcClient = createORPCClient(link) as JsonifiedClient<ContractRouterClient<typeof rootOrpcContract>>
 
 export const orpcQuery = createTanstackQueryUtils(orpcClient)

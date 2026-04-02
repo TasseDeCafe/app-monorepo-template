@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 import { ALLOWED_REFERRALS } from '@template-app/core/constants/referral-constants'
 
-export type TrackingParams = {
+type TrackingParams = {
   referral: string | null
   utmSource: string | null
   utmMedium: string | null

@@ -144,7 +144,7 @@ export const getPricingViewConfig = ({
   }
 }
 
-export const getMonthlyPrice = (
+const getMonthlyPrice = (
   pricingDetails: UserStripePricingDetails,
   isSubscribedToMonthlyPlan: boolean
 ): number => {
@@ -158,7 +158,7 @@ export const getMonthlyPrice = (
   return ((100 - pricingDetails.currentlyAvailableDiscounts.monthly.discountAsPercentage) / 100) * basePrice
 }
 
-export const getYearlyPrice = (pricingDetails: UserStripePricingDetails, isSubscribedToYearlyPlan: boolean): number => {
+const getYearlyPrice = (pricingDetails: UserStripePricingDetails, isSubscribedToYearlyPlan: boolean): number => {
   const basePrice = STRIPE_YEARLY_PRICE_IN_EUR
   if (pricingDetails.hasSubscribedWithADiscount && isSubscribedToYearlyPlan) {
     return basePrice * (1 - pricingDetails.currentDiscountInPercentage / 100)
@@ -169,7 +169,7 @@ export const getYearlyPrice = (pricingDetails: UserStripePricingDetails, isSubsc
   return ((100 - pricingDetails.currentlyAvailableDiscounts.yearly.discountAsPercentage) / 100) * basePrice
 }
 
-export const getMonthlyDiscountString = (
+const getMonthlyDiscountString = (
   pricingDetails: UserStripePricingDetails,
   isSubscribedToMonthlyPlan: boolean
 ): string | null => {
@@ -191,7 +191,7 @@ export const getMonthlyDiscountString = (
   return t`${discount}% off with your referral for ${durationLimit} months!`
 }
 
-export const getYearlyDiscountString = (
+const getYearlyDiscountString = (
   pricingDetails: UserStripePricingDetails,
   isSubscribedToYearlyPlan: boolean
 ): string | null => {

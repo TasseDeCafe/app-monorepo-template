@@ -16,7 +16,6 @@
     "check:types": "tsc --noEmit"
   },
   "dependencies": {
-    "@fullstory/browser": "catalog:",
     "@hookform/resolvers": "catalog:",
     "@lingui/core": "catalog:",
     "@lingui/macro": "catalog:",

@@ -3,7 +3,7 @@ import { createClient, SupportedStorage } from '@supabase/supabase-js'
 import { createMMKV } from 'react-native-mmkv'
 import { getConfig } from '@/config/environment-config'
 
-export const MMKSupabaseStorage = createMMKV({ id: 'supabase-storage' })
+const MMKSupabaseStorage = createMMKV({ id: 'supabase-storage' })
 
 const mmkvSupabaseSupportedStorage = {
   setItem: (key, data) => MMKSupabaseStorage.set(key, data),

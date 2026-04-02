@@ -23,7 +23,6 @@ declare module '@tanstack/react-query' {
 // Export the augmented meta types for use in react-query-config.ts
 // These are automatically picked up from the module augmentation above
 export type QueryMeta = Register['queryMeta']
-export type MutationMeta = Register['mutationMeta']
 
 // Helper type to extract overrides accepted by ORPC mutationOptions helpers
 // 1. Get the first parameter of mutationOptions

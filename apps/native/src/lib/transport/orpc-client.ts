@@ -6,7 +6,7 @@ import { OpenAPILink } from '@orpc/openapi-client/fetch'
 import { getConfig } from '@/config/environment-config'
 import { rootOrpcContract } from '@template-app/api-client/orpc-contracts/root-contract'
 
-export const apiPrefix = '/api/v1'
+const apiPrefix = '/api/v1'
 const hostWithPrefix = `${getConfig().apiHost}${apiPrefix}`
 
 let getAuthHeaderValue = () => ''

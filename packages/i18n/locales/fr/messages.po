@@ -135,29 +135,29 @@ msgstr "(iii) tout contenu obtenu à partir du service ; et"
 msgid "(iv) unauthorized access, use, or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence), or any other legal theory, whether or not we have been informed of the possibility of such damage."
 msgstr "(iv) l'accès, l'utilisation ou la modification non autorisés de vos transmissions ou contenus, que ce soit sur la base d'une garantie, d'un contrat, d'un délit (y compris la négligence) ou de toute autre théorie juridique, que nous ayons été informés ou non de la possibilité de tels dommages."
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:191
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:188
 msgid "{discount}% off with your referral for {durationLimit} months!"
 msgstr "{discount} % de réduction grâce à votre parrainage pendant {durationLimit} mois !"
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:213
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:210
 msgid "{discount}% off with your referral for {durationLimit} years!"
 msgstr "{discount} % de réduction grâce à votre parrainage pendant {durationLimit} ans !"
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:189
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:186
 msgid "{discount}% off with your referral for 1 month!"
 msgstr "{discount}% de réduction avec votre parrainage pendant 1 mois !"
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:211
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:208
 msgid "{discount}% off with your referral for 1 year!"
 msgstr "{discount}% de réduction avec votre parrainage pendant 1 an !"
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:186
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:208
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:183
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:205
 msgid "{discount}% off with your referral forever!"
 msgstr "{discount}% de réduction avec votre parrainage à vie !"
 
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:178
-#: apps/web/src/features/billing/utils/pricing-view-utils.ts:200
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:175
+#: apps/web/src/features/billing/utils/pricing-view-utils.ts:197
 msgid "{discountPercentage}% off thanks to your past referral!"
 msgstr "{discountPercentage} % de réduction grâce à votre ancien parrainage !"
 
@@ -574,7 +574,7 @@ msgstr "code d'erreur : {userFacingErrorCode}"
 msgid "Error setting up account..."
 msgstr "Erreur lors de la configuration du compte..."
 
-#: apps/native/src/features/user/api/user-hooks.ts:22
+#: apps/native/src/features/user/api/user-hooks.ts:12
 #: apps/web/src/features/user/api/user-hooks.ts:27
 msgid "Error setting up user data"
 msgstr "Erreur lors de la configuration des données utilisateur"
@@ -1109,7 +1109,7 @@ msgstr "Utiliser sur Web"
 msgid "Use these options to test Sentry error reporting in your environment."
 msgstr "Utilisez ces options pour tester le rapport d'erreurs Sentry dans votre environnement."
 
-#: apps/native/src/features/user/api/user-hooks.ts:21
+#: apps/native/src/features/user/api/user-hooks.ts:11
 #: apps/web/src/features/user/api/user-hooks.ts:26
 msgid "User setup complete"
 msgstr "Configuration de l'utilisateur terminée"

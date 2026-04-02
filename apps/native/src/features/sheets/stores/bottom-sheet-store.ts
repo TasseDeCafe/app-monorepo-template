@@ -5,7 +5,7 @@ import { BottomSheetModal } from '@gorhom/bottom-sheet'
 
 import { SheetId } from '@/features/sheets/components/bottom-sheet-ids'
 
-export interface SheetProps {
+interface SheetProps {
   [SheetId.DELETE_ACCOUNT]: undefined
   [SheetId.CONTACT_US]: undefined
 }

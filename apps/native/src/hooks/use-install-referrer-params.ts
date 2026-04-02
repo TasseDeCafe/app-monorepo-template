@@ -7,7 +7,7 @@ import {
 } from 'react-native-play-install-referrer'
 import { logWithSentry } from '@/lib/analytics/log-with-sentry'
 
-export interface InstallReferrerParams {
+interface InstallReferrerParams {
   referral: string | null
   utmSource: string | null
   utmMedium: string | null

@@ -1,6 +1,6 @@
 import { env } from '@/config/environment-config-schema'
 
-export enum SupportedEnvironments {
+enum SupportedEnvironments {
   PRODUCTION = 'production',
   DEVELOPMENT = 'development',
   TEST = 'test',

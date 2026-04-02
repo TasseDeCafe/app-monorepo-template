@@ -22,7 +22,7 @@ const loadCatalog = (locale: Locale) => {
   i18n.load(locale, messages)
 }
 
-export const getBrowserLocale = (): Locale => {
+const getBrowserLocale = (): Locale => {
   if (typeof navigator === 'undefined') {
     return ENGLISH_LOCALE
   }

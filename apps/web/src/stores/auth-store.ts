@@ -64,7 +64,6 @@ export const useAuthStore = create<AuthStore>((set) => ({
 export const getIsSignedIn = (state: AuthStore) => !!state.session?.access_token
 export const getUserEmail = (state: AuthStore) => state.session?.user?.user_metadata?.email ?? ''
 export const getUserName = (state: AuthStore) => state.session?.user?.user_metadata?.name ?? ''
-export const getFullName = (state: AuthStore) => state.session?.user?.user_metadata?.full_name ?? ''
 export const getUserId = (state: AuthStore) => state.session?.user?.id ?? ''
 export const getAccessToken = (state: AuthStore) => state.session?.access_token ?? ''
 export const getUserAvatarUrl = (state: AuthStore) => state.session?.user?.user_metadata?.avatar_url ?? ''

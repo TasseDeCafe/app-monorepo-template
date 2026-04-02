@@ -11,8 +11,6 @@ catalog:
   '@formatjs/intl-locale': 5.3.1
   '@formatjs/intl-localematcher': 0.8.2
   '@formatjs/intl-pluralrules': 6.3.1
-  '@fullstory/browser': 2.0.8
-  '@google/genai': 1.29.0
   '@gorhom/bottom-sheet': 5.2.8
   '@hookform/resolvers': 5.2.2
   '@lingui/babel-plugin-lingui-macro': 5.9.4

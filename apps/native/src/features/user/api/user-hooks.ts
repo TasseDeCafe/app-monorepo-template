@@ -1,17 +1,7 @@
-import { useMutation, useMutationState, useQuery } from '@tanstack/react-query'
+import { useMutation, useMutationState } from '@tanstack/react-query'
 import { orpcQuery } from '@/lib/transport/orpc-client'
 import { OrpcMutationOverrides } from '@/types/hook-types'
 import { useLingui } from '@lingui/react/macro'
-
-export function useGetUser() {
-  const query = useQuery(
-    orpcQuery.user.getUser.queryOptions({
-      select: (response) => response.data,
-    })
-  )
-
-  return query.data
-}
 
 export function useCreateOrUpdateUser(options?: OrpcMutationOverrides<typeof orpcQuery.user.putUser>) {
   const { t } = useLingui()

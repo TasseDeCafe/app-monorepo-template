@@ -65,7 +65,7 @@ export default function LoginEmailView() {
       />
       <Card className='w-full max-w-md p-6'>
         <View className='mb-8 text-center'>
-          <Text className='text-center text-4xl font-bold leading-tight'>{t`Continue with Email`}</Text>
+          <Text className='text-center text-4xl leading-tight font-bold'>{t`Continue with Email`}</Text>
         </View>
 
         <View className='gap-4'>

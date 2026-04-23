@@ -11,10 +11,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.t
 const TimelineItem = ({ day, description }: { day: string; description: string }) => {
   return (
     <div className='relative flex items-start gap-3 pl-6'>
-      <div className='absolute left-0 top-1.5 h-2.5 w-2.5 rounded-full bg-primary'></div>
+      <div className='bg-primary absolute top-1.5 left-0 h-2.5 w-2.5 rounded-full'></div>
       <div className='flex-1'>
         <p className='font-semibold'>{day}</p>
-        <p className='text-sm text-muted-foreground'>{description}</p>
+        <p className='text-muted-foreground text-sm'>{description}</p>
       </div>
     </div>
   )
@@ -49,7 +49,7 @@ export const FreeTrialExplanationView = () => {
         </CardHeader>
         <CardContent className='flex flex-col gap-6'>
           <div className='relative'>
-            <div className='absolute bottom-3 left-[4px] top-3 w-0.5 bg-border'></div>
+            <div className='bg-border absolute top-3 bottom-3 left-[4px] w-0.5'></div>
             <div className='flex flex-col gap-6'>
               <TimelineItem day={t`Today`} description={t`Introduce your card details and get instant access`} />
               <TimelineItem

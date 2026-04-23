@@ -1,6 +1,6 @@
 import { Platform, Text, View } from 'react-native'
 import { Stack } from 'expo-router'
-import colors from 'tailwindcss/colors'
+import { colors } from '@/constants/colors'
 import { BigCard } from '@/components/ui/big-card'
 import { BackButton } from '@/components/ui/back-button'
 import { useBottomSheetStore } from '@/features/sheets/stores/bottom-sheet-store'

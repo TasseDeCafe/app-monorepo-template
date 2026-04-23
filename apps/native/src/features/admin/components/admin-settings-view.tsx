@@ -1,5 +1,5 @@
 import { Alert, Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView } from '@/components/ui/styled'
 import { Stack } from 'expo-router'
 import { BackButton } from '@/components/ui/back-button'
 import { useLingui } from '@lingui/react/macro'

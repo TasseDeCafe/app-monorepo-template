@@ -1,4 +1,4 @@
-const { withNativeWind } = require('nativewind/metro')
+const { withUniwindConfig } = require('uniwind/metro')
 const { getSentryExpoConfig } = require('@sentry/react-native/metro')
 
 // Learn more https://docs.expo.io/guides/customizing-metro
@@ -23,4 +23,7 @@ config.resolver = {
   sourceExts: [...resolver.sourceExts, 'po', 'pot'],
 }
 
-module.exports = withNativeWind(config, { input: './src/global.css' })
+module.exports = withUniwindConfig(config, {
+  cssEntryFile: './src/global.css',
+  polyfills: { rem: 14 },
+})

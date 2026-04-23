@@ -78,7 +78,7 @@ export const LoginEmailView = () => {
             placeholder={t`Email address`}
             value={email}
             onChange={handleEmailChange}
-            className='h-10 w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:border-gray-500 focus:outline-none focus:ring-1 focus:ring-gray-500'
+            className='h-10 w-full rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 focus:border-gray-500 focus:ring-1 focus:ring-gray-500 focus:outline-none'
           />
           {emailError && <p className='text-xs text-red-500'>{t`Please enter a valid email address`}</p>}
         </div>

@@ -435,7 +435,7 @@ msgstr "Kliknij link w e-mailu, aby kontynuować."
 msgid "Confirm deletion"
 msgstr "Potwierdź usunięcie"
 
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:85
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:84
 #: apps/web/src/features/contact/components/contact-us-button.tsx:19
 msgid "Contact Us"
 msgstr "Skontaktuj się z nami"
@@ -515,7 +515,7 @@ msgid "Danger Zone"
 msgstr "Strefa Niebezpieczna"
 
 #: apps/native/src/features/dashboard/components/dashboard-view.tsx:30
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:100
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:99
 #: apps/web/src/features/dashboard/components/dashboard-view.tsx:44
 #: apps/web/src/features/navigation/components/tabs-layout.tsx:45
 msgid "Dashboard"
@@ -628,7 +628,7 @@ msgstr "Rozpocznij"
 msgid "Get the App"
 msgstr "Pobierz Aplikację"
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:44
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:41
 #: apps/web/src/features/premium-demo/components/premium-demo-view.tsx:58
 msgid "Go Back"
 msgstr "Wróć"
@@ -642,7 +642,7 @@ msgstr "Przejdź do Panelu"
 msgid "Help us improve TemplateApp"
 msgstr "Pomóż nam ulepszyć TemplateApp"
 
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:93
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:92
 #: apps/web/src/features/navigation/components/tabs-layout.tsx:44
 msgid "Home"
 msgstr "Główna"
@@ -707,7 +707,7 @@ msgstr "Link wygasł lub jest nieprawidłowy"
 msgid "Loading subscription status..."
 msgstr "Ładowanie statusu subskrypcji..."
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:22
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:31
 #: apps/web/src/features/billing/components/free-trial-explanation-view.tsx:67
 #: apps/web/src/features/billing/utils/pricing-view-utils.ts:102
 #: apps/web/src/features/billing/utils/pricing-view-utils.ts:108
@@ -818,7 +818,7 @@ msgid "Premium Demo"
 msgstr "Demo Premium"
 
 #: apps/native/src/features/dashboard/components/dashboard-view.tsx:33
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:39
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:36
 #: apps/web/src/features/dashboard/components/dashboard-view.tsx:27
 #: apps/web/src/features/premium-demo/components/premium-demo-view.tsx:51
 msgid "Premium Features"
@@ -837,12 +837,12 @@ msgstr "Cennik | TemplateApp"
 msgid "Privacy Policy"
 msgstr "Polityka prywatności"
 
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:107
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:106
 #: apps/web/src/features/navigation/components/tabs-layout.tsx:46
 msgid "Profile"
 msgstr "Profil"
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:26
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:33
 msgid "Redirecting..."
 msgstr "Przekierowywanie..."
 
@@ -1044,7 +1044,7 @@ msgstr "Tej akcji nie można cofnąć. Spowoduje to trwałe usunięcie Twojego k
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 msgstr "Ten zautomatyzowany system usuwania jest dostępny 24/7 z poziomu bezpiecznego panelu konta. Jeśli potrzebujesz dodatkowej pomocy, nasz dedykowany zespół ds. prywatności pod adresem contact@app-monorepo-template.dev zajmie się Twoją prośbą z taką samą szybkością i starannością."
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:41
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:38
 #: apps/web/src/features/premium-demo/components/premium-demo-view.tsx:53
 msgid "This screen is only accessible to subscribed users. You can showcase premium features here."
 msgstr "Ten ekran jest dostępny tylko dla użytkowników z subskrypcją. Tutaj możesz zaprezentować funkcje premium."

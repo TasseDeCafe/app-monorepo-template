@@ -30,7 +30,7 @@ export const AccountRemovedView = () => {
         </CardHeader>
         <CardContent className='flex flex-col gap-4'>
           <p className='text-muted-foreground'>{t`We're sorry to see you go. Your account has been successfully removed.`}</p>
-          <p className='text-sm text-muted-foreground'>{t`If you'd like to create a new account, sign up again below.`}</p>
+          <p className='text-muted-foreground text-sm'>{t`If you'd like to create a new account, sign up again below.`}</p>
           <Button onClick={handleTakeToSignIn} className='w-full'>
             {t`Sign up`}
           </Button>

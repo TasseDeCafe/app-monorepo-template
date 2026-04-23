@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react'
 import { Text } from 'react-native'
-import { BottomSheetTextInput, BottomSheetView } from '@gorhom/bottom-sheet'
+import { BottomSheetTextInput, BottomSheetView } from '@/components/ui/styled'
 import { useRouter } from 'expo-router'
 import { useDeleteAccount } from '@/features/removals/api/removals-hooks'
 import { useAuthStore } from '@/stores/auth-store'

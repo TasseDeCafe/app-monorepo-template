@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router'
 import { CircleUserRound, Dumbbell, Home } from 'lucide-react-native'
-import colors from 'tailwindcss/colors'
+import { colors } from '@/constants/colors'
 import { useBottomSheetStore } from '@/features/sheets/stores/bottom-sheet-store'
 import { SheetId } from '@/features/sheets/components/bottom-sheet-ids'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
@@ -11,12 +11,11 @@ import { useLingui } from '@lingui/react/macro'
 
 const CustomTabBarButton = (props: BottomTabBarButtonProps) => {
   const { children, onPress } = props
-  const rippleColor = colors.yellow[100]
 
   return (
     <Pressable
       onPress={onPress}
-      android_ripple={{ color: rippleColor, borderless: true }}
+      android_ripple={{ color: colors.yellow[100], borderless: true }}
       className='flex-1 items-center justify-center'
     >
       {children}

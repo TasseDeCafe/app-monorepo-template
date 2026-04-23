@@ -31,7 +31,7 @@ export default function LoginEmailSentView() {
             <Mail size={24} />
           </View>
           <View className='m-8'>
-            <Text className='text-center text-4xl font-bold leading-tight'>{t`Email Verification Sent`}</Text>
+            <Text className='text-center text-4xl leading-tight font-bold'>{t`Email Verification Sent`}</Text>
           </View>
           <View className='gap-4 text-center'>
             <Text className='text-center text-xl text-gray-600'>{t`We've sent a verification email to:`}</Text>

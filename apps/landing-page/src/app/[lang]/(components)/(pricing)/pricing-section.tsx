@@ -47,7 +47,7 @@ const LeftPartOfButton = ({ option, isChosen }: { option: PlanOption; isChosen: 
       <div>
         <span>{option.label}</span>
         {option.additionalMessage && (
-          <span className='ml-2 whitespace-nowrap rounded-full bg-indigo-100 px-2 py-1 text-sm font-medium text-indigo-800'>
+          <span className='ml-2 rounded-full bg-indigo-100 px-2 py-1 text-sm font-medium whitespace-nowrap text-indigo-800'>
             {option.additionalMessage}
           </span>
         )}
@@ -68,7 +68,7 @@ const LeftPartOfButton = ({ option, isChosen }: { option: PlanOption; isChosen: 
         <span>{option.label}</span>
       </div>
       {option.additionalMessage && (
-        <span className='whitespace-nowrap rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-800'>
+        <span className='rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium whitespace-nowrap text-indigo-800'>
           {option.additionalMessage}
         </span>
       )}

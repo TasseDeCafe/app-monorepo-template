@@ -28,7 +28,7 @@ const PopoverContent = React.forwardRef<
             entering={ZoomIn.duration(100)}
             exiting={ZoomOut.duration(100)}
             className={cn(
-              'min-w-40 max-w-80 rounded-xl border border-gray-200 bg-white p-4',
+              'max-w-80 min-w-40 rounded-xl border border-gray-200 bg-white p-4',
               Platform.select({
                 ios: 'shadow-xl shadow-gray-200',
                 android: 'shadow-xl shadow-gray-600',

@@ -88,7 +88,7 @@ export const ForceUpdateGate = ({ children }: ForceUpdateGateProps) => {
       {!shouldShowUpdateModal && children}
       <Modal visible={shouldShowUpdateModal} animationType='fade' transparent={false} presentationStyle='fullScreen'>
         <StatusBar backgroundColor='#000' barStyle='light-content' />
-        <View className='bg-background flex-1 px-6 pb-8 pt-16'>
+        <View className='bg-background flex-1 px-6 pt-16 pb-8'>
           {/* App Icon/Logo */}
           <View className='mt-32 items-center'>
             <View className='bg-primary mb-4 h-24 w-24 items-center justify-center rounded-3xl'>

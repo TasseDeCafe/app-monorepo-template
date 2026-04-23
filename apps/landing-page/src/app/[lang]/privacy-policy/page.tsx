@@ -183,7 +183,7 @@ const PrivacyPolicy = async ({ params }: { params: Promise<LangProps> }) => {
             all your data from our systems. When activated, this automated process permanently erases:
           </Trans>
         </p>
-        <div className='ml-8 mt-2 text-xl font-light'>
+        <div className='mt-2 ml-8 text-xl font-light'>
           <p>
             <Trans>• Every voice recording and associated voice clone, without exception</Trans>
           </p>

@@ -435,7 +435,7 @@ msgstr "Click the link in the email to continue."
 msgid "Confirm deletion"
 msgstr "Confirm deletion"
 
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:85
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:84
 #: apps/web/src/features/contact/components/contact-us-button.tsx:19
 msgid "Contact Us"
 msgstr "Contact Us"
@@ -517,7 +517,7 @@ msgid "Danger Zone"
 msgstr "Danger Zone"
 
 #: apps/native/src/features/dashboard/components/dashboard-view.tsx:30
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:100
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:99
 #: apps/web/src/features/dashboard/components/dashboard-view.tsx:44
 #: apps/web/src/features/navigation/components/tabs-layout.tsx:45
 msgid "Dashboard"
@@ -630,7 +630,7 @@ msgstr "Get Started"
 msgid "Get the App"
 msgstr "Get the App"
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:44
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:41
 #: apps/web/src/features/premium-demo/components/premium-demo-view.tsx:58
 msgid "Go Back"
 msgstr "Go Back"
@@ -644,7 +644,7 @@ msgstr "Go to Dashboard"
 msgid "Help us improve TemplateApp"
 msgstr "Help us improve TemplateApp"
 
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:93
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:92
 #: apps/web/src/features/navigation/components/tabs-layout.tsx:44
 msgid "Home"
 msgstr "Home"
@@ -709,7 +709,7 @@ msgstr "Link expired or invalid"
 msgid "Loading subscription status..."
 msgstr "Loading subscription status..."
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:22
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:31
 #: apps/web/src/features/billing/components/free-trial-explanation-view.tsx:67
 #: apps/web/src/features/billing/utils/pricing-view-utils.ts:102
 #: apps/web/src/features/billing/utils/pricing-view-utils.ts:108
@@ -820,7 +820,7 @@ msgid "Premium Demo"
 msgstr "Premium Demo"
 
 #: apps/native/src/features/dashboard/components/dashboard-view.tsx:33
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:39
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:36
 #: apps/web/src/features/dashboard/components/dashboard-view.tsx:27
 #: apps/web/src/features/premium-demo/components/premium-demo-view.tsx:51
 msgid "Premium Features"
@@ -839,12 +839,12 @@ msgstr "Pricing | TemplateApp"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: apps/native/src/features/navigation/components/tabs-layout.tsx:107
+#: apps/native/src/features/navigation/components/tabs-layout.tsx:106
 #: apps/web/src/features/navigation/components/tabs-layout.tsx:46
 msgid "Profile"
 msgstr "Profile"
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:26
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:33
 msgid "Redirecting..."
 msgstr "Redirecting..."
 
@@ -1046,7 +1046,7 @@ msgstr "This action cannot be undone. This will permanently delete your account 
 msgid "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 msgstr "This automated deletion system is accessible 24/7 through your secure account dashboard. For additional assistance, our dedicated privacy team is available at contact@app-monorepo-template.dev to process your requests with the same level of immediacy and thoroughness."
 
-#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:41
+#: apps/native/src/features/premium-demo/components/premium-demo-view.tsx:38
 #: apps/web/src/features/premium-demo/components/premium-demo-view.tsx:53
 msgid "This screen is only accessible to subscribed users. You can showcase premium features here."
 msgstr "This screen is only accessible to subscribed users. You can showcase premium features here."

@@ -156,7 +156,7 @@ export const QRCodeModal = ({
         >
           <button
             onClick={handleClose}
-            className='absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-700'
+            className='absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-700'
           >
             <X className='h-4 w-4' />
           </button>

@@ -69,9 +69,6 @@ next-env.d.ts
 # specstory, extension to store cursor chat history
 /.specstory/
 
-# Claude AI local settings
-.claude/
-
 # Local commit message template
 gitmessage
 

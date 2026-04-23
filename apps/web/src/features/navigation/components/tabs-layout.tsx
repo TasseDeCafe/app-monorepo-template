@@ -49,7 +49,7 @@ export const TabsLayout = () => {
   return (
     <div className='flex h-dvh flex-col overflow-hidden'>
       {/* Header */}
-      <header className='flex h-14 shrink-0 items-center justify-end border-b bg-background px-4'>
+      <header className='bg-background flex h-14 shrink-0 items-center justify-end border-b px-4'>
         <ContactUsButton />
       </header>
 
@@ -59,7 +59,7 @@ export const TabsLayout = () => {
       </main>
 
       {/* Bottom tabs */}
-      <nav className='fixed bottom-0 left-0 right-0 z-10 rounded-t-3xl bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]'>
+      <nav className='fixed right-0 bottom-0 left-0 z-10 rounded-t-3xl bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]'>
         <div className='flex h-16 items-center justify-around'>
           {tabs.map((tab) => (
             <TabLink

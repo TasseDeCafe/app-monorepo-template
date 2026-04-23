@@ -44,7 +44,7 @@ export const AdminSettingsView = () => {
   return (
     <div className='flex min-h-screen flex-col'>
       {/* Header */}
-      <header className='sticky top-0 z-10 flex h-14 items-center border-b bg-background px-4'>
+      <header className='bg-background sticky top-0 z-10 flex h-14 items-center border-b px-4'>
         <button
           onClick={() => navigate({ to: profileRoute.to })}
           className='flex h-10 w-10 items-center justify-center rounded-lg hover:bg-gray-100'

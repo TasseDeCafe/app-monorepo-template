@@ -54,7 +54,7 @@ const DesktopLanguageSwitcher = ({ lang }: DesktopLanguageSwitcherProps) => {
         <CircleFlagLanguage languageCode={currentLanguage.code} className='h-5 w-5' />
       </button>
       {isLanguageMenuOpen && (
-        <div className='absolute right-0 mt-2 w-48 rounded-md bg-gray-50 shadow-lg ring-1 ring-black ring-opacity-5'>
+        <div className='ring-opacity-5 absolute right-0 mt-2 w-48 rounded-md bg-gray-50 shadow-lg ring-1 ring-black'>
           {languages.map((language) => (
             <Link
               key={language.code}

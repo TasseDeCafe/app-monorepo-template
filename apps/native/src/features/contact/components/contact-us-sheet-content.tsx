@@ -96,7 +96,7 @@ export const ContactUsSheetContent = ({ close }: ContactUsSheetContentProps) => 
         )}
       />
       {errors.message && <Text className='mb-4 text-sm text-red-500'>{errors.message.message}</Text>}
-      <Text className='mb-1 mt-4 text-sm font-medium text-gray-700'>{t`Email`}</Text>
+      <Text className='mt-4 mb-1 text-sm font-medium text-gray-700'>{t`Email`}</Text>
       <Controller
         control={control}
         name='email'
@@ -114,7 +114,7 @@ export const ContactUsSheetContent = ({ close }: ContactUsSheetContentProps) => 
         )}
       />
       {errors.email && <Text className='mb-4 text-sm text-red-500'>{errors.email.message}</Text>}
-      <Text className='mb-1 mt-4 text-sm font-medium text-gray-700'>{t`Name (optional)`}</Text>
+      <Text className='mt-4 mb-1 text-sm font-medium text-gray-700'>{t`Name (optional)`}</Text>
       <Controller
         control={control}
         name='username'
@@ -146,7 +146,7 @@ export const ContactUsSheetContent = ({ close }: ContactUsSheetContentProps) => 
               ? t`An error occurred. Please try again.`
               : t`Send Message`}
       </Button>
-      <Button variant='outline' onPress={close} disabled={isPending || showSuccessState} className='mb-4 mt-3'>
+      <Button variant='outline' onPress={close} disabled={isPending || showSuccessState} className='mt-3 mb-4'>
         {t`Cancel`}
       </Button>
     </BottomSheetScrollView>

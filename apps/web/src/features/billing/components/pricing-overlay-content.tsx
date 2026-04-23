@@ -120,7 +120,7 @@ export const PricingOverlayContent = () => {
                 </div>
                 <div className='text-sm font-semibold'>{option.priceMessage}</div>
                 {option.discountMessage && <div className='text-sm text-green-600'>{option.discountMessage}</div>}
-                {option.billedYearly && <div className='text-sm text-muted-foreground'>{option.billedYearly}</div>}
+                {option.billedYearly && <div className='text-muted-foreground text-sm'>{option.billedYearly}</div>}
               </div>
             </div>
           ))}

@@ -58,7 +58,7 @@ export const LoginEmailVerifyView = () => {
       <Card className='w-full max-w-md p-6'>
         <View className='items-center'>
           <View className='mb-8 text-center'>
-            <Text className='text-center text-4xl font-bold leading-tight'>
+            <Text className='text-center text-4xl leading-tight font-bold'>
               {isError ? t`Email link is invalid or has expired` : t`Verify Your Email`}
             </Text>
           </View>

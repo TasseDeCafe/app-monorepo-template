@@ -54,6 +54,7 @@
     "eslint-config-prettier": "catalog:",
     "eslint-plugin-prettier": "catalog:",
     "jsdom": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
     "postcss": "catalog:",
     "prettier": "catalog:",
     "prettier-plugin-tailwindcss": "catalog:",

@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView } from '@/components/ui/styled'
 import { Stack, router } from 'expo-router'
 import { BackButton } from '@/components/ui/back-button'
 import { useNeedsSubscription } from '@/features/billing/hooks/use-needs-subscription'
@@ -18,14 +18,6 @@ export const PremiumDemoView = () => {
     }
   }, [needsSubscription, isFetching])
 
-  if (isFetching) {
-    return <LoadingScreen message={t`Loading...`} />
-  }
-
-  if (needsSubscription) {
-    return <LoadingScreen message={t`Redirecting...`} />
-  }
-
   return (
     <SafeAreaView className='flex-1 bg-white'>
       <Stack.Screen
@@ -35,15 +27,21 @@ export const PremiumDemoView = () => {
           headerLeft: () => <BackButton />,
         }}
       />
-      <View className='flex-1 items-center justify-center px-4'>
-        <Text className='mb-4 text-2xl font-bold'>{t`Premium Features`}</Text>
-        <Text className='mb-8 text-center text-lg text-gray-600'>
-          {t`This screen is only accessible to subscribed users. You can showcase premium features here.`}
-        </Text>
-        <Button variant='outline' onPress={() => router.back()}>
-          {t`Go Back`}
-        </Button>
-      </View>
+      {isFetching ? (
+        <LoadingScreen message={t`Loading...`} />
+      ) : needsSubscription ? (
+        <LoadingScreen message={t`Redirecting...`} />
+      ) : (
+        <View className='flex-1 items-center justify-center px-4'>
+          <Text className='mb-4 text-2xl font-bold'>{t`Premium Features`}</Text>
+          <Text className='mb-8 text-center text-lg text-gray-600'>
+            {t`This screen is only accessible to subscribed users. You can showcase premium features here.`}
+          </Text>
+          <Button variant='outline' onPress={() => router.back()}>
+            {t`Go Back`}
+          </Button>
+        </View>
+      )}
     </SafeAreaView>
   )
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Text } from 'react-native'
-import { BottomSheetScrollView, BottomSheetTextInput } from '@gorhom/bottom-sheet'
+import { BottomSheetScrollView, BottomSheetTextInput } from '@/components/ui/styled'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'

@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import { useTabBarHeight } from '@/hooks/use-tab-bar-height'
-import { ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from '@/components/ui/styled'
 import { router } from 'expo-router'
 import { useNeedsSubscription } from '@/features/billing/hooks/use-needs-subscription'
 import { useLingui } from '@lingui/react/macro'

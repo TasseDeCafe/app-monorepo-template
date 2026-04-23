@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from '@/components/ui/styled'
 import { useTabBarHeight } from '@/hooks/use-tab-bar-height'
 import { useLingui } from '@lingui/react/macro'
 

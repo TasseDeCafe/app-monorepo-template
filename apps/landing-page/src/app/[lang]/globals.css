@@ -1,16 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-  }
-}
-
-body {
+@theme {
+  --breakpoint-xs: 475px;
+  --breakpoint-3xl: 1600px;
 }
 
 @layer utilities {

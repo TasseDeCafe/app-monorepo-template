@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
 import { lingui } from '@lingui/vite-plugin'
 import { tanstackRouter } from '@tanstack/router-plugin/vite'
+import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
@@ -13,6 +14,7 @@ export default defineConfig({
       generatedRouteTree: './src/app/routeTree.gen.ts',
     }),
     react(),
+    tailwindcss(),
     // This could be optimized by only running babel on files whose source code contains a lingui macro import
     // see: https://github.com/lingui/js-lingui/issues/2477#issuecomment-4068015629
     babel({

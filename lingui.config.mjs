@@ -1,5 +1,11 @@
-/** @type {import('@lingui/conf').LinguiConfig} */
-module.exports = {
+import { defineConfig } from '@lingui/cli'
+import { formatter } from '@lingui/format-po'
+import { fileURLToPath } from 'node:url'
+import path from 'node:path'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+export default defineConfig({
   locales: ['en', 'es', 'fr', 'pl'],
   sourceLocale: 'en',
   catalogs: [
@@ -14,7 +20,7 @@ module.exports = {
       exclude: ['**/node_modules/**', '**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}'],
     },
   ],
-  format: 'po',
+  format: formatter(),
   compileNamespace: 'ts',
   rootDir: __dirname,
-}
+})

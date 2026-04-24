@@ -13,15 +13,15 @@ catalog:
   '@formatjs/intl-pluralrules': 6.3.1
   '@gorhom/bottom-sheet': 5.2.8
   '@hookform/resolvers': 5.2.2
-  '@lingui/babel-plugin-lingui-macro': 5.9.4
-  '@lingui/cli': 5.9.4
-  '@lingui/core': 5.9.4
-  '@lingui/loader': 5.9.4
-  '@lingui/macro': 5.9.4
-  '@lingui/metro-transformer': 5.9.4
-  '@lingui/react': 5.9.4
-  '@lingui/swc-plugin': 5.11.0
-  '@lingui/vite-plugin': 5.9.4
+  '@lingui/babel-plugin-lingui-macro': 6.0.0
+  '@lingui/cli': 6.0.0
+  '@lingui/core': 6.0.0
+  '@lingui/format-po': 6.0.0
+  '@lingui/loader': 6.0.0
+  '@lingui/metro-transformer': 6.0.0
+  '@lingui/react': 6.0.0
+  '@lingui/swc-plugin': 6.0.0
+  '@lingui/vite-plugin': 6.0.0
   '@next/eslint-plugin-next': 16.2.1
   '@orpc/client': 1.13.13
   '@orpc/contract': 1.13.13
@@ -98,7 +98,6 @@ catalog:
   '@vitejs/plugin-react': 6.0.1
   ai: 6.0.142
   axios: 1.14.0
-  babel-plugin-macros: 3.1.0
   babel-plugin-react-compiler: 1.0.0
   babel-preset-expo: 55.0.13
   class-variance-authority: 0.7.1
@@ -112,7 +111,7 @@ catalog:
   eslint-config-next: 16.2.1
   eslint-config-prettier: 10.1.8
   eslint-plugin-import: 2.32.0
-  eslint-plugin-lingui: 0.12.0
+  eslint-plugin-lingui: 0.13.1
   eslint-plugin-prettier: 5.5.5
   eslint-plugin-react: 7.37.5
   eslint-plugin-react-compiler: 19.1.0-rc.2

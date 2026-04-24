@@ -20,6 +20,7 @@
     "@ai-sdk/anthropic": "catalog:",
     "@lingui/babel-plugin-lingui-macro": "catalog:",
     "@lingui/cli": "catalog:",
+    "@lingui/format-po": "catalog:",
     "@vitejs/plugin-react": "catalog:",
     "@lingui/vite-plugin": "catalog:",
     "ai": "catalog:",

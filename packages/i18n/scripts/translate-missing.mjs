@@ -3,7 +3,7 @@
  * Translate missing translations in Lingui catalog files using Claude AI
  *
  * This script:
- * 1. Reads lingui.config.js to find all .po catalog files
+ * 1. Reads lingui.config.mjs to find all .po catalog files
  * 2. Parses each .po file to find missing translations
  * 3. Uses Claude API to translate missing entries
  * 4. Writes translations back to the .po files
@@ -37,11 +37,12 @@ Guidelines:
 Respond with ONLY the translated text. No additional formatting, explanations, or characters should be included unless they are part of the actual translation.`
 
 /**
- * Get catalog file paths from lingui.config.js
+ * Get catalog file paths from lingui.config.mjs
  */
 async function getCatalogFiles() {
-  const configPath = path.join(projectRoot, 'lingui.config.js')
+  const configPath = path.join(projectRoot, 'lingui.config.mjs')
   const { default: config } = await import(configPath)
+  const catalogExtension = config.format?.catalogExtension ?? '.po'
 
   const catalogFiles = []
   for (const locale of config.locales) {
@@ -49,7 +50,7 @@ async function getCatalogFiles() {
 
     for (const catalog of config.catalogs) {
       const catalogPath = catalog.path.replace('<rootDir>', projectRoot).replace('{locale}', locale)
-      catalogFiles.push(`${catalogPath}.${config.format}`)
+      catalogFiles.push(`${catalogPath}${catalogExtension}`)
     }
   }
 
